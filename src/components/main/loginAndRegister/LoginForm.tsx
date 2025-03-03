@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import '../../../@styles/b_main/components/loginAndRegister/loginStyle.css'
 
 const LoginForm: FC<{}> = ({}) => {
     return (
