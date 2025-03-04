@@ -5,3 +5,7 @@ header {
     height: 80px;
     background-color: var(--deep-blue);
 }
+
+header img {
+    margin: auto 16px;
+}
