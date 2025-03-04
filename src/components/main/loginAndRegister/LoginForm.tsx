@@ -10,6 +10,7 @@ const LoginForm: FC<{}> = ({}) => {
             <label className={"form-label"}>Mot de passe</label>
             <input name={"password"} type={"password"} id={"input-form"}/>
             <button type={"submit"} className={"subscribe-button"}>Se connecter</button>
+
         </form>
     );
 };
