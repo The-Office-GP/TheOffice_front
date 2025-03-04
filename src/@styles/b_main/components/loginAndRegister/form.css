@@ -57,3 +57,9 @@ form{
     cursor: pointer;
     transform: scale(1.2);
 }
+
+.error {
+    font-size: 14px;
+    color: red;
+    font-style: italic;
+}

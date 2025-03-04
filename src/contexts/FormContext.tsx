@@ -1,10 +1,10 @@
-import {createContext} from "react";
+import {createContext, Dispatch, SetStateAction} from "react";
 import React from "react";
 
 
 interface FormContextProps {
     registerIsVisible: boolean;
-    setRegisterIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    setRegisterIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 const defaultContextValue: FormContextProps = {
