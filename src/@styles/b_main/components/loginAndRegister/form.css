@@ -9,9 +9,9 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(142, 202, 230, 0.8);
+    background-color: var(--clear-blue-opacity);
     border-radius: 20px;
-    color: #023047;
+    color: var(--deep-blue);
     font-size: x-large;
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.56);
 }
@@ -30,8 +30,8 @@ form{
     height: 60px;
     border: none;
     border-radius: 40px;
-    background-color: #023047;
-    color: #FFB35C;
+    background-color: var(--deep-blue);
+    color: var(--orange);
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
     font-size: x-large;
 }
