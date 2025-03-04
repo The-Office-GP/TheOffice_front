@@ -22,14 +22,15 @@ form{
 }
 
 .subscribe-form label {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 600;
     text-align: left;
     width: 400px;
     margin: 0;
 }
 
 #input-form {
-    font-size: 16px;
+    font-size: 18px;
     margin: 8px 0 32px 0;
     padding: 8px;
     box-sizing: border-box;
