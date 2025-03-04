@@ -1,9 +1,11 @@
 import {FC} from 'react';
 import '../../../@styles/b_main/components/loginAndRegister/form.css'
+import SwitchForm from "./SwitchForm";
 
 const LoginForm: FC<{}> = ({}) => {
     return (
         <form className={"subscribe-form"}>
+            <SwitchForm/>
             <h2>Connection</h2>
             <label className={"form-label"}>Email</label>
             <input name={"email"} type={"email"} id={"input-form"}/>
