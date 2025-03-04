@@ -16,8 +16,18 @@ form{
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.56);
 }
 
+.subscribe-form label {
+    font-size: 20px;
+    text-align: left;
+    width: 400px;
+    margin: 0;
+}
+
 #input-form {
-    margin: 20px;
+    font-size: 16px;
+    margin: 8px 0 32px 0;
+    padding: 8px;
+    box-sizing: border-box;
     width: 400px;
     height: 60px;
     border: none;
@@ -25,7 +35,7 @@ form{
 }
 
 .subscribe-button {
-    margin: 20px;
+    margin: 0 20px 20px 20px;
     width: 340px;
     height: 60px;
     border: none;
@@ -34,10 +44,10 @@ form{
     color: var(--orange);
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
     font-size: x-large;
+    transition: all 0.3s;
 }
 
 .subscribe-button:hover {
     cursor: pointer;
-    transform: scale(
-            1.2);
+    transform: scale(1.2);
 }
