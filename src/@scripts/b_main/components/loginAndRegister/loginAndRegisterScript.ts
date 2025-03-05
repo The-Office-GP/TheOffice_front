@@ -25,3 +25,30 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
         setIsSubmitting(false);
     }
 }
+
+export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, navigate:NavigateFunction, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>> ) => {
+    let response: any
+    setIsSubmitting(true)
+
+    try {
+        response = await postTheOfficeDb('/auth/register', data);
+        console.log(response);
+        if (response.status === 200) {
+            setRegisterIsMake(true);
+        } else {
+            if ((response.response === "Error: Email is already in use!")) {
+                setErrorMessages({
+                    email: "L'email est déja utilisé",
+                });
+            } else if (response.response.password === "Mot de passe invalide") {
+                setErrorMessages({
+                    passwordConfirm: "Le mot de passe doit avoir : une majsucule, un chiffre, et un caractère spéciale",
+                });
+            }
+        }
+    } catch (error) {
+        console.error('Erreur lors de la connexion:', error);
+    } finally {
+        setIsSubmitting(false);
+    }
+}
