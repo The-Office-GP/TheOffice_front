@@ -55,7 +55,7 @@ const RegisterForm: FC = () => {
             wallet: 1
         };
 
-        subscribeCallApi(setErrorMessages, navigate, data, setIsSubmitting, setRegisterIsMake)
+        await subscribeCallApi(setErrorMessages, navigate, data, setIsSubmitting, setRegisterIsMake)
 
         setDataForConnexion({
             email: registerInput.email,

@@ -56,7 +56,7 @@ export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction
 
 //Vérifie que le nom de l'utilisateur n'est pas nul ou juste un espace
 export const usernameIsValidate = (username:string, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>) => {
-    if (username.length == 0 || username === " ") {
+    if (username.length === 0 || username === " ") {
         setErrorMessages({
             username: "Le nom d'utilisateur n'est pas valide",
         });
