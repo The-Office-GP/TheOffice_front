@@ -1,15 +1,13 @@
-import {NavigateFunction, useNavigate} from "react-router";
+import {NavigateFunction} from "react-router";
 import {Dispatch, SetStateAction} from "react";
+import {postTheOfficeDb} from "../../../../api/theofficeApi";
 
-export const loginCallApiForConnection = (dispatch:any, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, navigate:NavigateFunction, data:any) => {
+export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, navigate:NavigateFunction, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>> ) => {
     let response:any
+    setIsSubmitting(true)
 
     try {
-        //response = await post('/auth/login', data);
-        response = {
-            status: 200,
-            data: "tokenvalidforuser"
-        };
+        response = await postTheOfficeDb('/auth/login', data);
         console.log(response);
         if (response.status === 200) {
             dispatch({type: 'LOGIN', payload: {token: response.data}})
@@ -17,14 +15,13 @@ export const loginCallApiForConnection = (dispatch:any, setErrorMessages: Dispat
                 navigate('/');
             }, 50);
         } else {
-            console.error("test");
             setErrorMessages({
-                password: "email ou mot de passe incorrect",
+                loginError: "Veuillez vérifier votre nom de compte et votre mot de passe, puis réessayer.",
             });
         }
     } catch (error) {
         console.error('Erreur lors de la connexion:', error);
     } finally {
-        console.log("end call")
+        setIsSubmitting(false);
     }
 }

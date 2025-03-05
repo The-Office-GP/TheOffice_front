@@ -7,7 +7,8 @@ import {LoginFormInput} from "../../../_types/loginAndRegister";
 import {loginCallApiForConnection} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 
-const LoginForm: FC<{}> = ({}) => {
+const LoginForm: FC = () => {
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
     const {dispatch} = useAuth()
     const navigate = useNavigate()
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
@@ -17,6 +18,7 @@ const LoginForm: FC<{}> = ({}) => {
     });
 
     const handleInputChange = (e:ChangeEvent<HTMLInputElement>) => {
+        setErrorMessages({});
         setRegisterInput({
             ...registerInput,
             [e.target.name]: e.target.value,
@@ -32,7 +34,7 @@ const LoginForm: FC<{}> = ({}) => {
             password: registerInput.password
         };
 
-        loginCallApiForConnection(dispatch, setErrorMessages, navigate, data)
+        await loginCallApiForConnection(dispatch, setErrorMessages, navigate, data, setIsSubmitting)
     };
 
     return (
@@ -41,13 +43,20 @@ const LoginForm: FC<{}> = ({}) => {
             <h2>Connection</h2>
 
             <label className={"form-label"}>Email</label>
-            <input name={"email"} type={"email"} id={"input-form"} value={registerInput.email} onChange={handleInputChange} />
+            <input name={"email"} type={"email"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
 
             <label className={"form-label"}>Mot de passe</label>
-            {errorMessages.password && <span className="error">{errorMessages.password}</span>}
-            <input name={"password"} type={"password"} id={"input-form"}/>
+            <input name={"password"} type={"password"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.password} onChange={handleInputChange}/>
 
-            <button type={"submit"} className={"subscribe-button"}>Se connecter</button>
+            {!isSubmitting ? (
+                    <button type={"submit"} className={"subscribe-button"}>Se connecter</button>
+            )
+                : (
+                    <div className="loadingtext">
+                        <p>Vérification</p>
+                    </div>
+                )}
+            {errorMessages.loginError && <span className="error">{errorMessages.loginError}</span>}
 
         </form>
     );
