@@ -4,7 +4,11 @@ import '../../../@styles/b_main/components/loginAndRegister/form.css'
 import SwitchForm from "./SwitchForm";
 import {useAuth} from "../../../contexts/AuthContext";
 import {LoginFormInput} from "../../../_types/loginAndRegister";
-import {loginCallApiForConnection} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
+import {
+    emailIsValidate,
+    loginCallApiForConnection,
+    usernameIsValidate
+} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 
 //Formulaire de connexion
@@ -32,6 +36,10 @@ const LoginForm: FC = () => {
         e.preventDefault();
         setErrorMessages({});
 
+        if (!emailIsValidate(registerInput.email, setErrorMessages)) {
+            return
+        }
+
         const data = {
             email: registerInput.email,
             password: registerInput.password
@@ -44,12 +52,13 @@ const LoginForm: FC = () => {
         <form className={"subscribe-form"} onSubmit={handleSubmit}>
             <SwitchForm/>
             <div className={"title"}>
-                <h2>Connection</h2>
+                <h2>Connexion</h2>
                 {errorMessages.loginError && <span className="error">{errorMessages.loginError}</span>}
+                {errorMessages.email && <span className="error">{errorMessages.email}</span>}
             </div>
 
             <label className={"form-label"}>Email</label>
-            <input name={"email"} type={"email"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
+            <input name={"email"} type={"text"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
 
             <label className={"form-label"}>Mot de passe</label>
             <input name={"password"} type={"password"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.password} onChange={handleInputChange}/>
