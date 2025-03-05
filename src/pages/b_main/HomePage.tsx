@@ -10,7 +10,7 @@ const HomePage: FC = () => {
 
     return (
         <FormContext.Provider value={{registerIsVisible, setRegisterIsVisible}}>
-            <title>Page de d'accueil</title>
+            <title>Accueil</title>
             <main>
                 {registerIsVisible ? <RegisterForm/> : <LoginForm/>}
             </main>
