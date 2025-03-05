@@ -5,6 +5,7 @@ import {FormContext} from "../../../contexts/FormContext";
 const SwitchForm: FC<{}> = ({}) => {
     const formContext = useContext(FormContext)
 
+    //inverse la valeur du switch
     const handleSwitch = () => {
         formContext.setRegisterIsVisible(!formContext.registerIsVisible)
     }

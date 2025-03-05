@@ -7,6 +7,7 @@ import {LoginFormInput} from "../../../_types/loginAndRegister";
 import {loginCallApiForConnection} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 
+//Formulaire de connexion
 const LoginForm: FC = () => {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
     const {dispatch} = useAuth()
@@ -17,6 +18,7 @@ const LoginForm: FC = () => {
         password: '',
     });
 
+    //récupère les valeurs de l'input à chaque changement
     const handleInputChange = (e:ChangeEvent<HTMLInputElement>) => {
         setErrorMessages({});
         setRegisterInput({
@@ -25,6 +27,7 @@ const LoginForm: FC = () => {
         });
     };
 
+    //envoie les données du formulaire pour se connecter
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setErrorMessages({});
@@ -40,7 +43,6 @@ const LoginForm: FC = () => {
     return (
         <form className={"subscribe-form"} onSubmit={handleSubmit}>
             <SwitchForm/>
-            <h2>Connection</h2>
             <div className={"title"}>
                 <h2>Connection</h2>
                 {errorMessages.loginError && <span className="error">{errorMessages.loginError}</span>}
