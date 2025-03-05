@@ -58,7 +58,7 @@ const LoginForm: FC = () => {
             </div>
 
             <label className={"form-label"}>Email</label>
-            <input name={"email"} type={"text"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
+            <input name={"email"} type={"text"} id={errorMessages.loginError || errorMessages.email ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
 
             <label className={"form-label"}>Mot de passe</label>
             <input name={"password"} type={"password"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.password} onChange={handleInputChange}/>
