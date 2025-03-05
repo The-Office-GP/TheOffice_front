@@ -41,6 +41,10 @@ const LoginForm: FC = () => {
         <form className={"subscribe-form"} onSubmit={handleSubmit}>
             <SwitchForm/>
             <h2>Connection</h2>
+            <div className={"title"}>
+                <h2>Connection</h2>
+                {errorMessages.loginError && <span className="error">{errorMessages.loginError}</span>}
+            </div>
 
             <label className={"form-label"}>Email</label>
             <input name={"email"} type={"email"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
@@ -56,8 +60,6 @@ const LoginForm: FC = () => {
                         <p>Vérification</p>
                     </div>
                 )}
-            {errorMessages.loginError && <span className="error">{errorMessages.loginError}</span>}
-
         </form>
     );
 };

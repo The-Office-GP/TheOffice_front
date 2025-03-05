@@ -2,9 +2,14 @@ form{
     position: relative;
 }
 
-.subscribe-form h2 {
+.title {
+    text-align: center;
     margin-top: 62px;
     margin-bottom: 24px;
+}
+
+.title h2{
+    margin: 0
 }
 
 .subscribe-form {
@@ -47,7 +52,8 @@ form{
     box-sizing: border-box;
     width: 400px;
     height: 60px;
-    border: 1px solid var(--error-color);
+    outline: 2px solid var(--error-color);
+    outline-offset: -2px;
     border-radius: 15px;
 }
 
@@ -70,7 +76,8 @@ form{
 }
 
 .error {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
     color: var(--error-color);
     font-style: italic;
 }

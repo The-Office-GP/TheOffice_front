@@ -5,7 +5,7 @@ import {RegisterFormInput} from "../../../_types/loginAndRegister";
 import {subscribeCallApi} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 
-const RegisterForm: FC<{}> = ({}) => {
+const RegisterForm: FC = () => {
     const navigate = useNavigate()
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
@@ -45,8 +45,9 @@ const RegisterForm: FC<{}> = ({}) => {
         }
 
         if (registerInput.password !== registerInput.passwordConfirmation) {
+            console.log("test")
             setErrorMessages({
-                passwordConfirm: "Les mots de passe saisis ne correspondent pas",
+                password: "Les mots de passe saisis ne correspondent pas",
             });
             return;
         }
@@ -66,26 +67,28 @@ const RegisterForm: FC<{}> = ({}) => {
     };
 
     return (
-        <form className={"subscribe-form"}>
+        <form className={"subscribe-form"} onSubmit={handleSubmit}>
             <SwitchForm/>
-            <h2>Inscription</h2>
+            <div className={"title"}>
+                <h2>Inscription</h2>
+                {errorMessages.username && <div className="error">{errorMessages.username}</div>}
+                {errorMessages.email && <div className="error">{errorMessages.email}</div>}
+                {errorMessages.password && <div className="error">{errorMessages.password}</div>}
+            </div>
 
             <label className={"form-label"}>Nom d'utilisateur</label>
-            <input name={"user-name"} type={"text"} id={errorMessages.username ? "input-form-error" : "input-form"} value={registerInput.username} onChange={handleInputChange}/>
+            <input name={"username"} type={"text"} id={errorMessages.username ? "input-form-error" : "input-form"} value={registerInput.username} onChange={handleInputChange}/>
 
             <label className={"form-label"}>Email</label>
-            <input name={"email"} type={"email"} id={errorMessages.email ? "input-form-error" : "input-form"}value={registerInput.email} onChange={handleInputChange} />
+            <input name={"email"} type={"text"} id={errorMessages.email ? "input-form-error" : "input-form"}value={registerInput.email} onChange={handleInputChange} />
 
             <label className={"form-label"}>Mot de passe</label>
             <input name={"password"} type={"password"} id={errorMessages.password ? "input-form-error" : "input-form"}value={registerInput.password} onChange={handleInputChange} />
 
             <label className={"form-label"}>Confirmer le mot de passe</label>
-            <input name={"password-confirm"} type={"password"} id={errorMessages.password ? "input-form-error" : "input-form"} value={registerInput.passwordConfirmation} onChange={handleInputChange}/>
+            <input name={"passwordConfirmation"} type={"password"} id={errorMessages.password ? "input-form-error" : "input-form"} value={registerInput.passwordConfirmation} onChange={handleInputChange}/>
 
             <button type={"submit"} className={"subscribe-button"}>S'inscrire</button>
-            {errorMessages.username && <span className="error">{errorMessages.username}</span>}
-            {errorMessages.email && <span className="error">{errorMessages.email}</span>}
-            {errorMessages.password && <span className="error">{errorMessages.password}</span>}
         </form>
     );
 };
