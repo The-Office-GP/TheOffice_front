@@ -4,7 +4,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67b44ab0a31460be2a6e7462/download/home-back-ground2.webp");
+    background-image: url("/public/home-background2.webp");
     background-repeat: no-repeat;
     background-size: cover;
 }
