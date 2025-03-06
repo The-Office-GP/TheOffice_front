@@ -1,0 +1,120 @@
+form{
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    margin-top: 62px;
+    margin-bottom: 24px;
+}
+
+.title h2{
+    margin: 0
+}
+
+.subscribe-form {
+    width: 570px;
+    height: 712px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clear-blue-opacity);
+    border-radius: 20px;
+    color: var(--deep-blue);
+    font-size: x-large;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.56);
+}
+
+.subscribe-form label {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    width: 400px;
+    margin: 0;
+}
+
+#input-form {
+    font-size: 20px;
+    margin: 8px 0 32px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 400px;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+}
+
+#input-form-error {
+    font-size: 20px;
+    margin: 8px 0 32px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 400px;
+    height: 60px;
+    outline: 2px solid var(--error-color);
+    outline-offset: -2px;
+    border-radius: 15px;
+}
+
+.subscribe-button, .loadingtext {
+    margin: 0 20px 20px 20px;
+    width: 340px;
+    height: 60px;
+    border: none;
+    border-radius: 40px;
+    background-color: var(--deep-blue);
+    color: var(--orange);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
+    font-size: x-large;
+    transition: all 0.3s;
+}
+
+.subscribe-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.error {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--error-color);
+    font-style: italic;
+}
+
+.loadingtext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingtext p {
+    margin: auto;
+}
+
+.loadingtext p::after {
+    animation: b 3s infinite linear;
+    content: "";
+}
+
+@keyframes b {
+    0% {
+        content: "";
+    }
+
+    10% {
+        content: ".";
+    }
+
+    40% {
+        content: "..";
+    }
+
+    70% {
+        content: "...";
+    }
+
+    100% {
+        content: "";
+    }
+}

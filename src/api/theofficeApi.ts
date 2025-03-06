@@ -1,14 +1,14 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.withCredentials = false;
 
 axios.interceptors.response.use(
-    (response) => {
+    (response:AxiosResponse) => {
         return response;
     },
-    (error) => {
+    (error:any) => {
 
         return {
             status: error.response.status,

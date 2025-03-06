@@ -1,50 +1,42 @@
+:root {
+  --clear-blue: #8ECAE6; /* pastel-blue */
+  --clear-blue-opacity: rgba(142, 202, 230, 0.8); /* pastel-blue-opacity 80% */
+  --medium-blue: #219EBC; /* medium-blue */
+  --medium-blue-opacity: rgba(33, 158, 188, 0.8); /* medium-blue-opacity 80% */
+  --deep-blue: #023047; /* deep-blue */
+  --deep-blue-opacity: rgba(2, 48, 71, 0.8); /* deep-blue-opacity 80%*/
+  --orange: #FFB35C; /*orange*/
+  --orange-opacity: rgba(255, 179, 92, 0.8); /*orange-opacity 80%*/
+  --yellow: #FFD15C; /* yellow*/
+  --yellow: rgba(255, 209, 92, 0.8); /* yellow-opacity 80% */
+  --white: #FFFFFF; /*white*/
+  --error-color: #e11515;
+}
+
 .krona-one-regular {
   font-family: "Krona One", serif;
   font-weight: 400;
   font-style: normal;
 }
 
+.imprima-regular {
+  font-family: "Imprima", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 body {
-  font-family: "Krona One", serif;
+  font-family: "Imprima", sans-serif;
   color: white;
 }
 
-.App {
-  text-align: center;
+h1 {
   font-family: "Krona One", serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.office-background {
+  background-image: url("/public/home-background2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -1,13 +1,20 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
+import LoginForm from "../../components/main/loginAndRegister/LoginForm";
+import '../../@styles/b_main/pages/homePage.css';
+import RegisterForm from "../../components/main/loginAndRegister/RegisterForm";
+import {FormContext} from "../../contexts/FormContext";
 
-const HomePage: FC<{}> = ({}) => {
+//Page d'accueil qui sert pour la connexion et l'inscription
+const HomePage: FC = () => {
+    const [registerIsVisible, setRegisterIsVisible] = useState<boolean>(false);
+
     return (
-        <>
-            <title>Page de d'accueil</title>
-            <main>
-                
+        <FormContext.Provider value={{registerIsVisible, setRegisterIsVisible}}>
+            <title>Accueil</title>
+            <main className={"office-background"}>
+                {registerIsVisible ? <RegisterForm/> : <LoginForm/>}
             </main>
-        </>
+        </FormContext.Provider>
     );
 };
 

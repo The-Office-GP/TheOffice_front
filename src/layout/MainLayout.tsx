@@ -1,16 +1,16 @@
-import {FC} from "react";
+import React, {FC} from "react";
 import Header from "../pages/a_header/Header";
 import {Outlet} from "react-router";
 import Footer from "../pages/c_footer/Footer";
 
-const LayoutWithBar: FC<{}> = ({}) => {
+const MainLayout: FC<{}> = ({}) => {
     return (
         <>
-                <Header/>
+                <Header userIsLogged={false} username={""}/>
                 <Outlet/>
                 <Footer/>
         </>
     );
 };
 
-export default LayoutWithBar;
+export default MainLayout;
