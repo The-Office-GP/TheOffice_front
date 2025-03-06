@@ -11,8 +11,9 @@ function App() {
     const [state, dispatch] = useReducer(authReducer, initialAuthState);
 
     const Routing = () => {
-        //console.log(state);
-        //console.log(dispatch);
+        console.log(getToken());
+        console.log(state);
+        console.log(dispatch);
         return getToken() ? <Router/> : <NoAuthRouter/>;
     };
 

@@ -34,3 +34,9 @@ body {
 h1 {
   font-family: "Krona One", serif;
 }
+
+.office-background {
+  background-image: url("/public/home-background2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

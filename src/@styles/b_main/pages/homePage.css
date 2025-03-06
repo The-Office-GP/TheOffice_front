@@ -4,7 +4,4 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/public/home-background2.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
