@@ -1,11 +1,34 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
 import '../../@styles/a_header/headerStyle.css';
+import DropdownMenu from "../../components/header/DropdownMenu";
 
-const Header: FC<{}> = ({}) => {
+const Header: FC<{userIsLogged:boolean, username:string}> = ({userIsLogged, username}) => {
+    const [dropdownMenuVisible, setDropdownMenuVisible] = useState<boolean>(false)
+
+    const handleDropdownButton = () => {
+        setDropdownMenuVisible(!dropdownMenuVisible)
+    }
+
     return (
         <header>
-            <img src={"/LogoTheOffice.png"}/>
-            <h1>The Office</h1>
+            {userIsLogged ? (
+                <>
+                    <div className={"header-title"}>
+                        <img src={"/LogoTheOffice.png"}/>
+                        <h1>The Office</h1>
+                    </div>
+                    <button className={"button-dropdown-menu"} onClick={handleDropdownButton}>
+                        {username.charAt(0)}
+                    </button>
+                    {dropdownMenuVisible && (<DropdownMenu test={handleDropdownButton}/>)}
+                </>
+            ):(
+                <div className={"header-title"}>
+                    <img src={"/LogoTheOffice.png"}/>
+                    <h1>The Office</h1>
+                </div>
+                )}
+
         </header>
     );
 };

@@ -1,6 +1,8 @@
 import {NavigateFunction} from "react-router";
 import {Dispatch, SetStateAction} from "react";
 import {postTheOfficeDb} from "../../../../api/theofficeApi";
+import {saveUserInfo} from "../../../../utilis/storage";
+import {User} from "../../../../_types/user";
 
 //Permet à l'utilisateur de se connecter
 export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, navigate:NavigateFunction, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>> ) => {
@@ -11,6 +13,8 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
         response = await postTheOfficeDb('/auth/login', data);
         if (response.status === 200) {
             dispatch({type: 'LOGIN', payload: {token: response.data}})
+            const user:User = {username: "Testeur"}
+            saveUserInfo(user)
             setTimeout(() => {
                 navigate('/');
             }, 50);
