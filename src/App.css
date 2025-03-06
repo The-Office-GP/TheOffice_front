@@ -10,6 +10,7 @@
   --yellow: #FFD15C; /* yellow*/
   --yellow: rgba(255, 209, 92, 0.8); /* yellow-opacity 80% */
   --white: #FFFFFF; /*white*/
+  --error-color: #e11515;
 }
 
 .krona-one-regular {
@@ -32,4 +33,10 @@ body {
 
 h1 {
   font-family: "Krona One", serif;
+}
+
+.office-background {
+  background-image: url("/public/home-background2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
