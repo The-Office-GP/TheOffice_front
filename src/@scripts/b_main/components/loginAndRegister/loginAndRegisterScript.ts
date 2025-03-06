@@ -16,7 +16,7 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
             const user:User = {username: "Testeur"}
             saveUserInfo(user)
             setTimeout(() => {
-                navigate('/');
+                navigate('/createCompany');
             }, 50);
         } else {
             setErrorMessages({

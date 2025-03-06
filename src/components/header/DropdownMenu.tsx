@@ -3,7 +3,7 @@ import '../../@styles/a_header/dropdownMenu.css';
 import {useAuth} from "../../contexts/AuthContext";
 import {useNavigate} from "react-router";
 
-const DropdownMenu: FC<{test:()=>void}> = ({test}) => {
+const DropdownMenu: FC<{test:()=>void, username:string}> = ({test, username}) => {
     const {dispatch} = useAuth();
     const navigate = useNavigate()
 
@@ -22,6 +22,8 @@ const DropdownMenu: FC<{test:()=>void}> = ({test}) => {
 
     return (
         <div className="card" onMouseLeave={test}>
+            <h3>{username}</h3>
+            <div className="separator"></div>
             <ul className="list">
                 <li className="element" onClick={handleDashbord}>
                     <p className="label">Tableau de bord</p>
