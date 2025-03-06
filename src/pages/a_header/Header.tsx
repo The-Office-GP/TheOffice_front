@@ -20,7 +20,7 @@ const Header: FC<{userIsLogged:boolean, username:string}> = ({userIsLogged, user
                     <button className={"button-dropdown-menu"} onClick={handleDropdownButton}>
                         {username.charAt(0)}
                     </button>
-                    {dropdownMenuVisible && (<DropdownMenu test={handleDropdownButton}/>)}
+                    {dropdownMenuVisible && (<DropdownMenu test={handleDropdownButton} username={username}/>)}
                 </>
             ):(
                 <div className={"header-title"}>

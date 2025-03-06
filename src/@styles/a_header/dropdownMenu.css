@@ -42,6 +42,15 @@
     cursor: pointer;
 }
 
+.card h3 {
+    margin: auto;
+    align-items: center;
+    color: var(--orange);
+    padding: 4px 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 .card .list .element svg {
     width: 19px;
     height: 19px;
