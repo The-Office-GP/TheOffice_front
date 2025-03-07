@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent} from "react";
+import {ChangeEvent, FormEvent, useContext, useEffect} from "react";
 import {FC, useState} from 'react';
 import '../../../@styles/b_main/components/loginAndRegister/form.css'
 import SwitchForm from "./SwitchForm";
@@ -7,15 +7,18 @@ import {LoginFormInput} from "../../../_types/loginAndRegister";
 import {
     emailIsValidate,
     loginCallApiForConnection,
-    usernameIsValidate
 } from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
+import {UserContext} from "../../../contexts/UserContext";
 
 //Formulaire de connexion
 const LoginForm: FC = () => {
-    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
     const {dispatch} = useAuth()
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+
+    const userContext = useContext(UserContext)
     const navigate = useNavigate()
+
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
     const [registerInput, setRegisterInput] = useState<LoginFormInput>({
         email: '',
@@ -45,7 +48,7 @@ const LoginForm: FC = () => {
             password: registerInput.password
         };
 
-        await loginCallApiForConnection(dispatch, setErrorMessages, navigate, data, setIsSubmitting)
+        await loginCallApiForConnection(dispatch, setErrorMessages, userContext, data, setIsSubmitting, navigate)
     };
 
     return (

@@ -1,23 +1,21 @@
 import {NavigateFunction} from "react-router";
 import {Dispatch, SetStateAction} from "react";
-import {postTheOfficeDb} from "../../../../api/theofficeApi";
-import {saveUserInfo} from "../../../../utilis/storage";
+import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
+import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {User} from "../../../../_types/user";
+import {UserContextProps} from "../../../../contexts/UserContext";
 
 //Permet à l'utilisateur de se connecter
-export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, navigate:NavigateFunction, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>> ) => {
+export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, userContext: UserContextProps, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, navigate:NavigateFunction ) => {
     let response:any
     setIsSubmitting(true)
 
     try {
         response = await postTheOfficeDb('/auth/login', data);
         if (response.status === 200) {
-            dispatch({type: 'LOGIN', payload: {token: response.data}})
-            const user:User = {username: "Testeur"}
-            saveUserInfo(user)
-            setTimeout(() => {
-                navigate('/createCompany');
-            }, 50);
+            const token = response.data
+            dispatch({type: 'LOGIN', payload: {token: token}})
+            await recupUserInfo(token, userContext, setIsSubmitting, navigate)
         } else {
             setErrorMessages({
                 loginError: "Veuillez vérifier votre nom de compte et votre mot de passe, puis réessayer.",
@@ -25,13 +23,11 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
         }
     } catch (error) {
         console.error('Erreur lors de la connexion:', error);
-    } finally {
-        setIsSubmitting(false);
     }
 }
 
 //Permet à l'utilisateur de s'inscrire
-export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, navigate:NavigateFunction, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>> ) => {
+export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>> ) => {
     let response: any
     setIsSubmitting(true)
 
@@ -46,7 +42,7 @@ export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction
                 });
             } else if (response.response.password === "Mot de passe invalide") {
                 setErrorMessages({
-                    passwordConfirm: "Le mot de passe doit avoir : une majsucule, un chiffre, et un caractère spéciale",
+                    passwordConfirm: "Le mot de passe doit avoir : une majuscule, un chiffre, et un caractère spéciale",
                 });
             }
         }
@@ -84,3 +80,28 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
         return true;
     }
 }
+
+//permet de récuperer les informations de l'utilisateur après une connexion
+export const recupUserInfo = async (token: string, userContext:UserContextProps, setIsSubmitting: Dispatch<SetStateAction<boolean>>,navigate:NavigateFunction) => {
+    try {
+        const response = await getTheOfficeDb('/users/connected', {headers: {Authorization: `Bearer ${token}`}})
+        saveUserInfo(response);
+        const userInfo = getUserInfo();
+
+        if (userInfo) {
+            try {
+                const parsedUserInfo: User = JSON.parse(userInfo);
+                userContext.setUserInfo(parsedUserInfo);
+                navigate("/")
+            } catch (jsonError) {
+                console.error("Erreur de parsing JSON:", jsonError);
+            }
+        } else {
+            console.error("Erreur : L'utilisateur n'a pas pu être récupéré.");
+        }
+    } catch (error) {
+        console.error('Erreur lors de la connexion:', error);
+    } finally {
+        setIsSubmitting(false);
+    }
+};

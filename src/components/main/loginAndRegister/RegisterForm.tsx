@@ -1,4 +1,4 @@
-import {ChangeEvent, FC, FormEvent, useContext, useState} from 'react';
+import {ChangeEvent, FC, FormEvent, useContext, useEffect, useState} from 'react';
 import '../../../@styles/b_main/components/loginAndRegister/form.css'
 import SwitchForm from "./SwitchForm";
 import {RegisterFormInput} from "../../../_types/loginAndRegister";
@@ -10,16 +10,22 @@ import {
 import {useNavigate} from "react-router";
 import {useAuth} from "../../../contexts/AuthContext";
 import {FormContext} from "../../../contexts/FormContext";
+import {User} from "../../../_types/user";
+import {UserContext} from "../../../contexts/UserContext";
 
 //Formulaire d'inscription qui permet à la fin soit de se connecter soit de retourner à l'accueil
 const RegisterForm: FC = () => {
     const {dispatch} = useAuth()
-    const navigate = useNavigate()
-    const formContext = useContext(FormContext)
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+    const formContext = useContext(FormContext)
+    const [dataForConnexion, setDataForConnexion] = useState({})
+
+    const userContext = useContext(UserContext)
+    const navigate = useNavigate()
+
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
     const [registerIsMake, setRegisterIsMake] = useState<boolean>(false);
-    const [dataForConnexion, setDataForConnexion] = useState({})
+
     const [registerInput, setRegisterInput] = useState<RegisterFormInput>({
         username: '',
         email: '',
@@ -44,7 +50,6 @@ const RegisterForm: FC = () => {
         if(!usernameIsValidate(registerInput.username, setErrorMessages) || !emailIsValidate(registerInput.email, setErrorMessages)){
             return
         }
-
         setIsSubmitting(true);
 
         const data = {
@@ -55,8 +60,7 @@ const RegisterForm: FC = () => {
             wallet: 1
         };
 
-        await subscribeCallApi(setErrorMessages, navigate, data, setIsSubmitting, setRegisterIsMake)
-
+        await subscribeCallApi(setErrorMessages, data, setIsSubmitting, setRegisterIsMake)
         setDataForConnexion({
             email: registerInput.email,
             password: registerInput.password,
@@ -66,7 +70,7 @@ const RegisterForm: FC = () => {
 
     //connecte l'utilisateur
     const handleSubmitForConnexion = async () => {
-        await loginCallApiForConnection(dispatch, setErrorMessages, navigate, dataForConnexion, setIsSubmitting)
+        await loginCallApiForConnection(dispatch, setErrorMessages, userContext, dataForConnexion, setIsSubmitting, navigate)
     };
 
     //renvoie sur la page d'accueil

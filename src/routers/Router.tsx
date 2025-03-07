@@ -9,6 +9,7 @@ const Router: FC<{}> = ({}) => {
         <Routes>
             <Route path="/" element={<MainLayoutConnection/>}>
                 <Route path={"/createCompany"} element={<CreateCompanyPage/>}/>
+                <Route path="/" element={<CreateCompanyPage/>}/>
             </Route>
         </Routes>
     );

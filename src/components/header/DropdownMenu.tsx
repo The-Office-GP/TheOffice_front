@@ -1,10 +1,13 @@
-import {FC} from 'react';
+import {FC, useContext} from 'react';
 import '../../@styles/a_header/dropdownMenu.css';
 import {useAuth} from "../../contexts/AuthContext";
 import {useNavigate} from "react-router";
+import {UserContext} from "../../contexts/UserContext";
+import {User} from "../../_types/user";
 
 const DropdownMenu: FC<{test:()=>void, username:string}> = ({test, username}) => {
     const {dispatch} = useAuth();
+    const userContext = useContext(UserContext)
     const navigate = useNavigate()
 
     const handleDashbord = () => {
@@ -17,6 +20,7 @@ const DropdownMenu: FC<{test:()=>void, username:string}> = ({test, username}) =>
 
     const handleLogout = () => {
         dispatch({type: 'LOGOUT'});
+        userContext.setUserInfo({email:"", username:"", roles:""} as User)
         navigate("/")
     }
 
