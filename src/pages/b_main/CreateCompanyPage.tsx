@@ -2,7 +2,8 @@ import {FC, useState} from 'react';
 import CreateCompanyCard from "../../components/main/createCompany/CreateCompanyCard";
 import "../../@styles/b_main/pages/OfficeBackground.css"
 import CreateCompanyForm from "../../components/main/createCompany/CreateCompanyForm";
-const CreateCompanyPage: FC<{}> = ({}) => {
+
+const CreateCompanyPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)
 
     return (

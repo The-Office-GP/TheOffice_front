@@ -64,9 +64,6 @@ const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>
         e.preventDefault();
         setErrorMessages({});
 
-        console.log(companyInput.name)
-        console.log(companyNameIsValidate(companyInput.name, setErrorMessages))
-
         if (!companyNameIsValidate(companyInput.name, setErrorMessages)) {
             return
         }
@@ -89,9 +86,12 @@ const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>
                 <CloseIcon sx={{fontSize: "40px"}}/>
             </button>
             <h2>Créer votre entreprise</h2>
+
             <label className={"form-label"}>Nom de l'entreprise</label>
-            <input name={"name"} type={"text"} id={"input-form-company"} maxLength={35}
+            {errorMessages.companyName && <span className="error">{errorMessages.companyName}</span>}
+            <input name={"name"} type={"text"} id={errorMessages.companyName ? "input-form-company-error" : "input-form-company"} maxLength={35}
                    value={companyInput.name} onChange={handleInputChange}/>
+
             <label className={"form-label"}>Choix du model industriel</label>
             <div className="img-models-industry">
                 <div className={selectSector==="carpentry" ? "image-container-selected" : "image-container"} onClick={() => handleChoiceSelector(0)}>

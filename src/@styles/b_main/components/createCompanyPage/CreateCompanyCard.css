@@ -16,10 +16,11 @@
     width: 200px !important;
     height: 200px ! important;
     color: #FFB35C;
-    transition: all 0.3s;
+    transition: transform 0.3s;
 }
 
 .add-button:hover{
     cursor: pointer;
+    transition: transform 0.3s;
     transform: scale(1.2);
 }

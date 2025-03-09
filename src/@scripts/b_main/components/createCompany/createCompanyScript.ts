@@ -28,7 +28,7 @@ export const companyNameIsValidate = (name: string, setErrorMessages: Dispatch<S
     console.log(!nameRegex.test(name));
     if (!nameRegex.test(name)) {
         setErrorMessages({
-            name: "Le nom n'est pas valide: le premier caractère doit être une lettre et seuls les apostrophe et espace sont autorisé."
+            companyName: "Le nom n'est pas valide: le premier caractère doit être une lettre et seuls les apostrophe et espace sont autorisé."
         });
         return false;
     } else {
