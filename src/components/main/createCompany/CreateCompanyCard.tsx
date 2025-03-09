@@ -1,14 +1,17 @@
-import {FC} from 'react';
+import {Dispatch, FC, SetStateAction} from 'react';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-
 import "../../../@styles/b_main/components/createCompanyPage/CreateCompanyCard.css"
-const CreateCompanyCard: FC<{}> = ({}) => {
+
+const CreateCompanyCard: FC<{setFormIsVisible:Dispatch<SetStateAction<boolean>>}> = ({setFormIsVisible}) => {
+    const handleCreateCompany = () => {
+        setFormIsVisible(true)
+    }
     return (
         <>
             <div className={"create-company-card"}>
                 <h3>Créer une entreprise</h3>
                 <div>
-                    <AddCircleOutlineIcon className={"add-button"}/>
+                    <AddCircleOutlineIcon className={"add-button"} onClick={handleCreateCompany}/>
                 </div>
             </div>
         </>

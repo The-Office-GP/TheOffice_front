@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import './App.css';
 import NoAuthRouter from "./routers/NoAuthRouter";
 import Router from "./routers/Router";
@@ -11,7 +11,11 @@ import {User} from "./_types/user";
 
 function App() {
     const [state, dispatch] = useReducer(authReducer, initialAuthState);
-    const [userInfo, setUserInfo] = useState<User>({email:"", username:"", roles:""} as User);
+    const [userInfo, setUserInfo] = useState<User>({id:0, email:"", username:"", role:""} as User);
+
+    useEffect(() => {
+        console.log(userInfo)
+    }, [userInfo]);
 
     const Routing = () => {
         return getToken() ? <Router/> : <NoAuthRouter/>;

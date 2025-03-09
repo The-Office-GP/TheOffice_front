@@ -8,7 +8,7 @@ export interface UserContextProps {
 }
 
 const defaultContextValue: UserContextProps = {
-    userInfo: {email:"", username:"", roles:""},
+    userInfo: {id:0, email:"", username:"", role:""},
     setUserInfo: () => {
     },
 }

@@ -85,13 +85,20 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
 export const recupUserInfo = async (token: string, userContext:UserContextProps, setIsSubmitting: Dispatch<SetStateAction<boolean>>,navigate:NavigateFunction) => {
     try {
         const response = await getTheOfficeDb('/users/connected', {headers: {Authorization: `Bearer ${token}`}})
+        console.log(response)
         saveUserInfo(response);
         const userInfo = getUserInfo();
 
         if (userInfo) {
             try {
-                const parsedUserInfo: User = JSON.parse(userInfo);
-                userContext.setUserInfo(parsedUserInfo);
+                const parsedUserInfo = JSON.parse(userInfo);
+                const userInfoFormater:User = {
+                    id:parsedUserInfo.id,
+                    email: parsedUserInfo.email,
+                    username: parsedUserInfo.username,
+                    role: parsedUserInfo.roles,
+                }
+                userContext.setUserInfo(userInfoFormater);
                 navigate("/")
             } catch (jsonError) {
                 console.error("Erreur de parsing JSON:", jsonError);

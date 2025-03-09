@@ -20,7 +20,7 @@ const DropdownMenu: FC<{test:()=>void, username:string}> = ({test, username}) =>
 
     const handleLogout = () => {
         dispatch({type: 'LOGOUT'});
-        userContext.setUserInfo({email:"", username:"", roles:""} as User)
+        userContext.setUserInfo({id:0, email:"", username:"", role:""} as User)
         navigate("/")
     }
 
