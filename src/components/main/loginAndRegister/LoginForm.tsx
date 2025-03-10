@@ -4,12 +4,10 @@ import '../../../@styles/b_main/components/loginAndRegister/form.css'
 import SwitchForm from "./SwitchForm";
 import {useAuth} from "../../../contexts/AuthContext";
 import {LoginFormInput} from "../../../_types/loginAndRegister";
-import {
-    inputFormChangeManager,
-    submitLogin
-} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
+import {submitLogin} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 import {UserContext} from "../../../contexts/UserContext";
+import {inputChange} from "../../../@scripts/b_main/components/formInput";
 
 //Formulaire de connexion
 const LoginForm: FC = () => {
@@ -27,7 +25,7 @@ const LoginForm: FC = () => {
 
     //Récupère les valeurs de l'input à chaque changement
     const handleInputChange = (e:ChangeEvent<HTMLInputElement>) => {
-        inputFormChangeManager(setErrorMessages, loginInput, setLoginInput, e)
+        inputChange(setErrorMessages, setLoginInput, loginInput, e)
     };
 
     //envoie les données du formulaire pour se connecter

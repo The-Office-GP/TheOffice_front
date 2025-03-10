@@ -2,11 +2,12 @@ import {ChangeEvent, FC, FormEvent, useContext, useState} from 'react';
 import '../../../@styles/b_main/components/loginAndRegister/form.css'
 import SwitchForm from "./SwitchForm";
 import {RegisterFormInput} from "../../../_types/loginAndRegister";
-import {inputFormChangeManager, loginCallApiForConnection, submitRegister} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
+import {loginCallApiForConnection, submitRegister} from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 import {useAuth} from "../../../contexts/AuthContext";
 import {FormContext} from "../../../contexts/FormContext";
 import {UserContext} from "../../../contexts/UserContext";
+import {inputChange} from "../../../@scripts/b_main/components/formInput";
 
 //Formulaire d'inscription qui permet à la fin soit de se connecter soit de retourner à l'accueil
 const RegisterForm: FC = () => {
@@ -30,7 +31,7 @@ const RegisterForm: FC = () => {
 
     //récupère données des inputs à chaque changement
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        inputFormChangeManager(setErrorMessages, registerInput, setRegisterInput, e)
+        inputChange(setErrorMessages, setRegisterInput, registerInput, e)
     };
 
     //envoie les données à la base de données pour s'inscrire après avoir vérifié leur validité

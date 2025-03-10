@@ -6,15 +6,6 @@ import {User} from "../../../../_types/user";
 import {UserContextProps} from "../../../../contexts/UserContext";
 import {LoginFormInput, RegisterFormInput} from "../../../../_types/loginAndRegister";
 
-//Récupère les valeurs des inputs
-export const inputFormChangeManager = (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>,formInput:any, setFormInput:Dispatch<SetStateAction<any>> ,e: ChangeEvent<HTMLInputElement>) => {
-    setErrorMessages({});
-    setFormInput({
-        ...formInput,
-        [e.target.name]: e.target.value,
-    });
-};
-
 //Soumission des informations pour pouvoir s'inscrire
 export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, registerInput: RegisterFormInput, setIsSubmitting:Dispatch<SetStateAction<boolean>>, setRegisterIsMake:Dispatch<SetStateAction<boolean>>, setDataForConnexion:Dispatch<SetStateAction<any>>) => {
     e.preventDefault();
