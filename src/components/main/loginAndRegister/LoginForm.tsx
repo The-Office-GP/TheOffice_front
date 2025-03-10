@@ -1,12 +1,12 @@
-import {ChangeEvent, FormEvent, useContext, useEffect} from "react";
+import {ChangeEvent, FormEvent, useContext} from "react";
 import {FC, useState} from 'react';
 import '../../../@styles/b_main/components/loginAndRegister/form.css'
 import SwitchForm from "./SwitchForm";
 import {useAuth} from "../../../contexts/AuthContext";
 import {LoginFormInput} from "../../../_types/loginAndRegister";
 import {
-    emailIsValidate,
-    loginCallApiForConnection,
+    inputFormChangeManager,
+    submitLogin
 } from "../../../@scripts/b_main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 import {UserContext} from "../../../contexts/UserContext";
@@ -20,35 +20,19 @@ const LoginForm: FC = () => {
     const navigate = useNavigate()
 
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
-    const [registerInput, setRegisterInput] = useState<LoginFormInput>({
+    const [loginInput, setLoginInput] = useState<LoginFormInput>({
         email: '',
         password: '',
     });
 
-    //récupère les valeurs de l'input à chaque changement
+    //Récupère les valeurs de l'input à chaque changement
     const handleInputChange = (e:ChangeEvent<HTMLInputElement>) => {
-        setErrorMessages({});
-        setRegisterInput({
-            ...registerInput,
-            [e.target.name]: e.target.value,
-        });
+        inputFormChangeManager(setErrorMessages, loginInput, setLoginInput, e)
     };
 
     //envoie les données du formulaire pour se connecter
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setErrorMessages({});
-
-        if (!emailIsValidate(registerInput.email, setErrorMessages)) {
-            return
-        }
-
-        const data = {
-            email: registerInput.email,
-            password: registerInput.password
-        };
-
-        await loginCallApiForConnection(dispatch, setErrorMessages, userContext, data, setIsSubmitting, navigate)
+        await submitLogin(e, setErrorMessages, loginInput, setIsSubmitting, dispatch, userContext, navigate)
     };
 
     return (
@@ -61,10 +45,10 @@ const LoginForm: FC = () => {
             </div>
 
             <label className={"form-label"}>Email</label>
-            <input name={"email"} type={"text"} id={errorMessages.loginError || errorMessages.email ? "input-form-error" : "input-form"} value={registerInput.email} onChange={handleInputChange} />
+            <input name={"email"} type={"text"} id={errorMessages.loginError || errorMessages.email ? "input-form-error" : "input-form"} value={loginInput.email} onChange={handleInputChange} />
 
             <label className={"form-label"}>Mot de passe</label>
-            <input name={"password"} type={"password"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={registerInput.password} onChange={handleInputChange}/>
+            <input name={"password"} type={"password"} id={errorMessages.loginError ? "input-form-error" : "input-form"} value={loginInput.password} onChange={handleInputChange}/>
 
             {!isSubmitting ? (
                     <button type={"submit"} className={"subscribe-button"}>Se connecter</button>
