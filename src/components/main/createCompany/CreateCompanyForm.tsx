@@ -1,5 +1,5 @@
 import {ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useContext, useState} from 'react';
-import "../../../@styles/b_main/components/createCompanyPage/CreateCompanyForm.css"
+import "../../../@styles/b_main/components/createCompanyPage/createCompanyForm.css"
 import CloseIcon from '@mui/icons-material/Close';
 import {CompanyCreated} from "../../../_types/user";
 import {applyTheChoice, submitCompanyInfo} from "../../../@scripts/b_main/components/createCompany/createCompanyScript";
