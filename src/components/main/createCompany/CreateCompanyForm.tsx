@@ -2,8 +2,7 @@ import {ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useContext, useSta
 import "../../../@styles/b_main/components/createCompanyPage/CreateCompanyForm.css"
 import CloseIcon from '@mui/icons-material/Close';
 import {CompanyCreated} from "../../../_types/user";
-import {companyNameIsValidate, createCompany
-} from "../../../@scripts/b_main/components/createCompany/createCompanyScript";
+import {applyTheChoice, submitCompanyInfo} from "../../../@scripts/b_main/components/createCompany/createCompanyScript";
 import {UserContext} from "../../../contexts/UserContext";
 import {createCompanyData, defaultValueCompany} from "../../../_data/createCompanyData";
 import {inputChange} from "../../../@scripts/b_main/components/formInput";
@@ -21,44 +20,19 @@ const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>
         inputChange(setErrorMessages, setCompanyInput, companyInput, e)
     };
 
-    //Ferme la fenêtre de création d'entreprise
-    const handleClose = () => {
-        setFormIsVisible(false)
-    }
-
     //Permet de gérer quel secteur est sélectionné pour la création d'entreprise
     const handleChoiceSelector = (choice:number) => {
-        setSelectSector(createCompanyData[choice].sectorName)
-        setCompanyInput({
-            ...companyInput,
-            sector: createCompanyData[choice].sectorName,
-        });
+        applyTheChoice(choice, setSelectSector, companyInput, setCompanyInput)
     }
 
     //Soumet au serveur back les informations de création de l'entreprise
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setErrorMessages({});
-
-        if (!companyNameIsValidate(companyInput.name, setErrorMessages)) {
-            return
-        }
-
-        const data = {
-            sector: companyInput.sector,
-            name: companyInput.name,
-            creation_date: "2024-10-10",
-            id_user: userContext.userInfo.id,
-            image: "path"
-        }
-
-        setIsSubmitting(true)
-        await createCompany(setIsSubmitting, data, setErrorMessages)
+        await submitCompanyInfo(e, setErrorMessages, companyInput, userContext,setIsSubmitting)
     }
 
     return (
         <form className={"create-company-form"} onSubmit={handleSubmit}>
-            <button className={"button-back"} onClick={handleClose}>
+            <button className={"button-back"} onClick={() => setFormIsVisible(false)}>
                 <CloseIcon sx={{fontSize: "40px"}}/>
             </button>
             <h2>Créer votre entreprise</h2>
