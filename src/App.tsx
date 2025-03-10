@@ -5,13 +5,13 @@ import Router from "./routers/Router";
 import {BrowserRouter} from "react-router";
 import {authReducer, initialAuthState} from "./reducer/LoginReducer";
 import { AuthContext } from './contexts/AuthContext';
-import {getToken, getUserInfo} from "./utilis/storage";
+import {getToken} from "./utilis/storage";
 import {UserContext} from "./contexts/UserContext";
 import {User} from "./_types/user";
 
 function App() {
     const [state, dispatch] = useReducer(authReducer, initialAuthState);
-    const [userInfo, setUserInfo] = useState<User>({email:"", username:"", roles:""} as User);
+    const [userInfo, setUserInfo] = useState<User>({id:0, email:"", username:"", role:""} as User);
 
     const Routing = () => {
         return getToken() ? <Router/> : <NoAuthRouter/>;

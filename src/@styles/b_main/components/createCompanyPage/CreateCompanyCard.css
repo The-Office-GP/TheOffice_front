@@ -1,4 +1,5 @@
 .create-company-card{
+    margin: 0 8px;
     display: flex;
     flex-direction: column;
     width: 470px;
@@ -15,9 +16,11 @@
     width: 200px !important;
     height: 200px ! important;
     color: #FFB35C;
+    transition: transform 0.3s;
 }
 
 .add-button:hover{
     cursor: pointer;
+    transition: transform 0.3s;
     transform: scale(1.2);
 }
