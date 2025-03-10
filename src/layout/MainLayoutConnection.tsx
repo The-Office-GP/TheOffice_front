@@ -1,24 +1,17 @@
-import React, {createContext, FC, useContext, useEffect} from "react";
+import React, {FC, useContext, useEffect} from "react";
 import Header from "../pages/a_header/Header";
 import {Outlet} from "react-router";
 import Footer from "../pages/c_footer/Footer";
 import {UserContext} from "../contexts/UserContext";
-import {getUserInfo} from "../utilis/storage";
-import {User} from "../_types/user";
+import {userInfoCheck} from "../@scripts/storage/loginCheck";
 
-const MainLayoutConnection: FC<{}> = ({}) => {
+const MainLayoutConnection: FC = () => {
     const userContext = useContext(UserContext);
 
-    //permet de vérifier si les infos utilisateurs sont toujours present dans le local storage quand le composant est chargé
+    //Quand le composant est chargé. On vérifie dans le local storage les informations de l'utilisateur
     useEffect(() => {
-        const userInfo = getUserInfo();
-        if (userInfo) {
-            const parsedUserInfo: User = JSON.parse(userInfo);
-            if (userContext.userInfo?.username !== parsedUserInfo.username) {
-                userContext.setUserInfo(parsedUserInfo);
-            }
-        }
-    }, []);
+        userInfoCheck(userContext);
+    });
 
 
     return (
