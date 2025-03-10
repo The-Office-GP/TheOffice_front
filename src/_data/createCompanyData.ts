@@ -1,5 +1,7 @@
 import {Sector} from "../_types/sector";
 
+export const sectorCompanyData: string[] = ["carpentry", "creamery", "quarry"];
+
 export const createCompanyData: Sector[] = [
     {
         sectorName: "carpentry",
