@@ -1,34 +1,26 @@
 import {FC, useState} from 'react';
 import '../../@styles/a_header/headerStyle.css';
 import DropdownMenu from "../../components/header/DropdownMenu";
+import {handleDropdownButton} from "../../@scripts/a_header/headerScript";
 
 const Header: FC<{userIsLogged:boolean, username:string}> = ({userIsLogged, username}) => {
     const [dropdownMenuVisible, setDropdownMenuVisible] = useState<boolean>(false)
 
-    const handleDropdownButton = () => {
-        setDropdownMenuVisible(!dropdownMenuVisible)
-    }
-
     return (
         <header>
-            {userIsLogged ? (
+            <div className={"header-title"}>
+                <img src={"/LogoTheOffice.png"} alt={"Logo"}/>
+                <h1>The Office</h1>
+            </div>
+
+            {userIsLogged &&
                 <>
-                    <div className={"header-title"}>
-                        <img src={"/LogoTheOffice.png"}/>
-                        <h1>The Office</h1>
-                    </div>
-                    <button className={"button-dropdown-menu"} onClick={handleDropdownButton}>
+                    <button className={"button-dropdown-menu"} onClick={() => handleDropdownButton(dropdownMenuVisible, setDropdownMenuVisible)}>
                         {username.charAt(0)}
                     </button>
-                    {dropdownMenuVisible && (<DropdownMenu test={handleDropdownButton} username={username}/>)}
+                    {dropdownMenuVisible && (<DropdownMenu buttonAction={() => handleDropdownButton(dropdownMenuVisible, setDropdownMenuVisible)} username={username}/>)}
                 </>
-            ):(
-                <div className={"header-title"}>
-                    <img src={"/LogoTheOffice.png"}/>
-                    <h1>The Office</h1>
-                </div>
-                )}
-
+            }
         </header>
     );
 };
