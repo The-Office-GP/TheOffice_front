@@ -75,7 +75,7 @@
     display: inline-block;
     cursor: pointer;
     overflow: hidden;
-    border: 4px solid var(--deep-blue);
+    outline: 4px solid var(--deep-blue);
     border-radius: 10px; /* Coins arrondis */
 }
 
