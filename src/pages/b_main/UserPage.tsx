@@ -14,11 +14,11 @@ const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)
     const [arrayCompany, setArrayCompany] = useState<CompanyType[] | any>([])
     const user = useContext(UserContext)
-    const limitCompany = 2
+    const limitCompany = 3
 
     useEffect(() => {
         collectUserCompanies(setArrayCompany)
-    }, []);
+    }, [arrayCompany]);
 
     return (
         <>

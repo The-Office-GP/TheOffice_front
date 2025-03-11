@@ -1,8 +1,9 @@
 .card {
+    z-index: 30;
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 200px;
+    width: 230px;
 
     background-color: var(--deep-blue);
     background-image: linear-gradient(

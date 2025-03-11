@@ -3,8 +3,7 @@ import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
 import {RouteType} from "../_types/routes/routeType";
-
-const UserPage = lazy(() => import("../pages/b_main/UserPage"));
+import UserPage from "../pages/b_main/UserPage";
 
 const Router: FC = () => {
     //tableau des routes

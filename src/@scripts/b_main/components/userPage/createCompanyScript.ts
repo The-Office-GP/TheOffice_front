@@ -12,7 +12,6 @@ export const createCompany = async (setIsSubmitting:Dispatch<SetStateAction<bool
 
     try {
         response = await postTheOfficeDb('/companies/create', data, {headers: {Authorization: `Bearer ${getToken()}`}});
-        console.log(response)
         if (response.status === 200 || response.status === 201) {
             console.log("Successfully created company")
         } else {
