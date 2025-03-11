@@ -16,7 +16,7 @@ const CompanyPage: FC = () => {
 
     useEffect(() => {
         collectUserCompanies()
-    }, []);
+    }, [arrayCompany]);
 
     const collectUserCompanies = async () => {
         try {

@@ -15,7 +15,6 @@ export const createCompany = async (setIsSubmitting:Dispatch<SetStateAction<bool
         console.log(response)
         if (response.status === 200 || response.status === 201) {
             console.log("Successfully created company")
-            window.location.reload();
         } else {
             setErrorMessages({
                 email: "L'email est déja utilisé",

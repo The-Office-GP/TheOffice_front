@@ -29,6 +29,7 @@ const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>
     //Soumet au serveur back les informations de création de l'entreprise
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         await submitCompanyInfo(e, setErrorMessages, companyInput, userContext,setIsSubmitting)
+        setFormIsVisible(false)
     }
 
     return (

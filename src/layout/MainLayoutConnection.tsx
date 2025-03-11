@@ -11,7 +11,7 @@ const MainLayoutConnection: FC = () => {
     //Quand le composant est chargé. On vérifie dans le local storage les informations de l'utilisateur
     useEffect(() => {
         userInfoCheck(userContext);
-    });
+    }, [userContext]);
 
 
     return (
