@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import "../../../@styles/b_main/components/companyPage/companyCard.css";
+import "../../../@styles/b_main/components/userPage/companyCard.css";
 
 const CompanyCard: FC<{companyName:string, pathImages:string}> = ({companyName, pathImages}) => {
     return (

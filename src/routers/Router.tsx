@@ -4,15 +4,15 @@ import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
 import {RouteType} from "../_types/routes/routeType";
 
-const CompanyPage = lazy(() => import("../pages/b_main/CompanyPage"));
+const UserPage = lazy(() => import("../pages/b_main/UserPage"));
 
 const Router: FC = () => {
     //tableau des routes
     const routesAuth: RouteType[] = [
-        {path: "/", element: <CompanyPage/>},
-        {path: "/creation", element: <CompanyPage/>},
-        {path: "/dashboard", element: <CompanyPage/>},
-        {path: "/paramètres", element: <CompanyPage/>},
+        {path: "/", element: <UserPage/>},
+        {path: "/user", element: <UserPage/>},
+        {path: "/dashboard", element: <UserPage/>},
+        {path: "/paramètres", element: <UserPage/>},
     ]
 
     return (

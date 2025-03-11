@@ -1,16 +1,16 @@
 import {FC, useContext, useEffect, useState} from 'react';
-import CreateCompanyCard from "../../components/main/companyPage/CreateCompanyCard";
+import CreateCompanyCard from "../../components/main/userPage/CreateCompanyCard";
 import "../../@styles/b_main/pages/OfficeBackground.css"
-import CreateCompanyForm from "../../components/main/companyPage/CreateCompanyForm";
+import CreateCompanyForm from "../../components/main/userPage/CreateCompanyForm";
 import {Company} from "../../_types/company";
-import CompanyCard from "../../components/main/companyPage/CompanyCard";
+import CompanyCard from "../../components/main/userPage/CompanyCard";
 import {createCompanyData, sectorCompanyData} from "../../_data/createCompanyData";
-import LockedCompanyCard from "../../components/main/companyPage/LockedCompanyCard";
-import {collectUserCompanies} from "../../@scripts/b_main/components/companyPage/companyPageScript";
-import WalletCompanyPage from "../../components/main/companyPage/WalletCompanyPage";
+import LockedCompanyCard from "../../components/main/userPage/LockedCompanyCard";
+import {collectUserCompanies} from "../../@scripts/b_main/components/userPage/userPageScript";
+import WalletCompanyPage from "../../components/main/userPage/WalletCompanyPage";
 import {UserContext} from "../../contexts/UserContext";
 
-const CompanyPage: FC = () => {
+const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)
     const [arrayCompany, setArrayCompany] = useState<Company[] | any>([])
     const user = useContext(UserContext)
@@ -43,4 +43,4 @@ const CompanyPage: FC = () => {
     );
 };
 
-export default CompanyPage;
+export default UserPage;
