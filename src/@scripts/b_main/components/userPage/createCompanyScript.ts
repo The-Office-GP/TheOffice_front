@@ -2,7 +2,7 @@ import {Dispatch, FormEvent, SetStateAction} from "react";
 import {postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getToken} from "../../../../utilis/storage";
 import {createCompanyData} from "../../../../_data/createCompanyData";
-import {CompanyCreated} from "../../../../_types/user";
+import {CompanyCreatedType} from "../../../../_types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
 
 //Permet de créer une entreprise rattachée à l'id de l'utilisateur dans la base de données
@@ -54,7 +54,7 @@ export const companySectorIsValidate = (sector: string, setErrorMessages: Dispat
 }
 
 //Enregistre dans l'objet company input le choix du secteur d'activité
-export const applyTheChoice = (choice:number, setSelectSector:Dispatch<SetStateAction<string>>, companyInput:CompanyCreated, setCompanyInput:Dispatch<SetStateAction<CompanyCreated>>) => {
+export const applyTheChoice = (choice:number, setSelectSector:Dispatch<SetStateAction<string>>, companyInput:CompanyCreatedType, setCompanyInput:Dispatch<SetStateAction<CompanyCreatedType>>) => {
     setSelectSector(createCompanyData[choice].sectorName)
     setCompanyInput({
         ...companyInput,
@@ -63,7 +63,7 @@ export const applyTheChoice = (choice:number, setSelectSector:Dispatch<SetStateA
 }
 
 //Soumet les informations de l'entreprise pour la création
-export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, companyInput:CompanyCreated, userContext:UserContextProps, setIsSubmitting:Dispatch<SetStateAction<boolean>>) => {
+export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, companyInput:CompanyCreatedType, userContext:UserContextProps, setIsSubmitting:Dispatch<SetStateAction<boolean>>) => {
     e.preventDefault();
     setErrorMessages({});
 

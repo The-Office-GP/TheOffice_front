@@ -1,5 +1,5 @@
 import {getUserInfo} from "../../utilis/storage";
-import {User} from "../../_types/user";
+import {UserType} from "../../_types/userType";
 import {UserContextProps} from "../../contexts/UserContext";
 import {jwtDecode, JwtPayload} from "jwt-decode";
 import {Dispatch, SetStateAction} from "react";
@@ -10,7 +10,7 @@ export const userInfoCheck = (userContext:UserContextProps) => {
     const userInfo = getUserInfo();
 
     if (userInfo) {
-        const parsedUserInfo: User = JSON.parse(userInfo);
+        const parsedUserInfo: UserType = JSON.parse(userInfo);
         if (userContext.userInfo?.username !== parsedUserInfo.username) {
             userContext.setUserInfo(parsedUserInfo);
         }
@@ -33,10 +33,10 @@ const isTokenExpired = (token: string) => {
     }
 };
 
-export const deleteTokenExpired = (token:string, dispatch:any, setUserInfo:Dispatch<SetStateAction<User>>, navigate:NavigateFunction) => {
+export const deleteTokenExpired = (token:string, dispatch:any, setUserInfo:Dispatch<SetStateAction<UserType>>, navigate:NavigateFunction) => {
     if (isTokenExpired(token)) {
         dispatch({type: 'LOGOUT'});
-        setUserInfo({id: 0, email: "", username: "", role: "", wallet: 0} as User)
+        setUserInfo({id: 0, email: "", username: "", role: "", wallet: 0} as UserType)
         navigate("/")
     }
 }

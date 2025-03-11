@@ -7,13 +7,13 @@ import {authReducer, initialAuthState} from "./reducer/LoginReducer";
 import { AuthContext } from './contexts/AuthContext';
 import {getToken} from "./utilis/storage";
 import {UserContext} from "./contexts/UserContext";
-import {User} from "./_types/user";
+import {UserType} from "./_types/userType";
 import {deleteTokenExpired} from "./@scripts/storage/loginCheck";
 
 function App() {
     const [state, dispatch] = useReducer(authReducer, initialAuthState);
     const navigate = useNavigate();
-    const [userInfo, setUserInfo] = useState<User>({id:0, email:"", username:"", role:"", wallet:0} as User);
+    const [userInfo, setUserInfo] = useState<UserType>({id:0, email:"", username:"", role:"", wallet:0} as UserType);
 
     useEffect(() => {
         const token = getToken();

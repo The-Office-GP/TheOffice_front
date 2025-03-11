@@ -2,7 +2,7 @@ import {NavigateFunction} from "react-router";
 import {ChangeEvent, Dispatch, FormEvent, SetStateAction} from "react";
 import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
-import {User} from "../../../../_types/user";
+import {UserType} from "../../../../_types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
 import {LoginFormInput, RegisterFormInput} from "../../../../_types/loginAndRegister";
 
@@ -137,7 +137,7 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
         if (userInfo) {
             try {
                 const parsedUserInfo = JSON.parse(userInfo);
-                const userInfoFormater:User = {
+                const userInfoFormater:UserType = {
                     id:parsedUserInfo.id,
                     email: parsedUserInfo.email,
                     username: parsedUserInfo.username,

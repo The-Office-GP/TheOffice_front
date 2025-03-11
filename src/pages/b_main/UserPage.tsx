@@ -2,7 +2,7 @@ import {FC, useContext, useEffect, useState} from 'react';
 import CreateCompanyCard from "../../components/main/userPage/CreateCompanyCard";
 import "../../@styles/b_main/pages/OfficeBackground.css"
 import CreateCompanyForm from "../../components/main/userPage/CreateCompanyForm";
-import {Company} from "../../_types/company";
+import {CompanyType} from "../../_types/companyType";
 import CompanyCard from "../../components/main/userPage/CompanyCard";
 import {createCompanyData, sectorCompanyData} from "../../_data/createCompanyData";
 import LockedCompanyCard from "../../components/main/userPage/LockedCompanyCard";
@@ -12,7 +12,7 @@ import {UserContext} from "../../contexts/UserContext";
 
 const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)
-    const [arrayCompany, setArrayCompany] = useState<Company[] | any>([])
+    const [arrayCompany, setArrayCompany] = useState<CompanyType[] | any>([])
     const user = useContext(UserContext)
     const limitCompany = 2
 
@@ -31,7 +31,7 @@ const UserPage: FC = () => {
                             :
                             <CreateCompanyCard setFormIsVisible={setFormIsVisible}/>
                         }
-                        {arrayCompany.length > 0 && arrayCompany.map((company: Company, index: number) => (
+                        {arrayCompany.length > 0 && arrayCompany.map((company: CompanyType, index: number) => (
                             <CompanyCard key={index} companyName={company.name}
                                          pathImages={createCompanyData[sectorCompanyData.indexOf(company.sector)].src}/>
                         ))}

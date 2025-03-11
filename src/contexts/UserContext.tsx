@@ -1,10 +1,10 @@
 import {createContext, Dispatch, SetStateAction} from "react";
-import {User} from "../_types/user";
+import {UserType} from "../_types/userType";
 
 
 export interface UserContextProps {
-    userInfo: User;
-    setUserInfo: Dispatch<SetStateAction<User>>;
+    userInfo: UserType;
+    setUserInfo: Dispatch<SetStateAction<UserType>>;
 }
 
 const defaultContextValue: UserContextProps = {

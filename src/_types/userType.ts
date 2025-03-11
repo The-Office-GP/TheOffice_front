@@ -1,4 +1,4 @@
-export interface User {
+export interface UserType {
     id: number;
     email: string;
     username: string;
@@ -6,7 +6,7 @@ export interface User {
     wallet: number;
 }
 
-export interface CompanyCreated {
+export interface CompanyCreatedType {
     sector: string,
     name: string,
     creation_date: string,

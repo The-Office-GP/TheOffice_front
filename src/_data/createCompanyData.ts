@@ -1,8 +1,8 @@
-import {Sector} from "../_types/sector";
+import {SectorType} from "../_types/sectorType";
 
 export const sectorCompanyData: string[] = ["carpentry", "creamery", "quarry"];
 
-export const createCompanyData: Sector[] = [
+export const createCompanyData: SectorType[] = [
     {
         sectorName: "carpentry",
         src: "/images/sectorImages/Business-model-1.png",

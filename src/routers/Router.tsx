@@ -18,7 +18,7 @@ const Router: FC = () => {
     return (
         <Routes>
             <Route path="/" element={<MainLayoutConnection/>}>
-                {routesAuth.map((route) => <Route path={route.path} element={route.element}/>)}
+                {routesAuth.map((route:RouteType, index:number) => <Route key={index} path={route.path} element={route.element}/>)}
             </Route>
         </Routes>
     );

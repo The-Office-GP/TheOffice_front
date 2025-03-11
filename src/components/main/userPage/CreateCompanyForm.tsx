@@ -1,7 +1,7 @@
 import {ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useContext, useState} from 'react';
 import "../../../@styles/b_main/components/userPage/createCompanyForm.css"
 import CloseIcon from '@mui/icons-material/Close';
-import {CompanyCreated} from "../../../_types/user";
+import {CompanyCreatedType} from "../../../_types/userType";
 import {applyTheChoice, submitCompanyInfo} from "../../../@scripts/b_main/components/userPage/createCompanyScript";
 import {UserContext} from "../../../contexts/UserContext";
 import {createCompanyData, defaultValueCompany} from "../../../_data/createCompanyData";
@@ -14,7 +14,7 @@ const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
 
 
-    const [companyInput, setCompanyInput] = useState<CompanyCreated>(defaultValueCompany);
+    const [companyInput, setCompanyInput] = useState<CompanyCreatedType>(defaultValueCompany);
 
     //Change la valeur de l'input du nom de l'entreprise
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

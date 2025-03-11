@@ -1,4 +1,4 @@
-export interface Sector {
+export interface SectorType {
     sectorName: string,
     src: string,
     alt: string,
