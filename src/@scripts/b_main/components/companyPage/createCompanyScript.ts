@@ -11,10 +11,11 @@ export const createCompany = async (setIsSubmitting:Dispatch<SetStateAction<bool
     setIsSubmitting(true)
 
     try {
-        console.log(data)
         response = await postTheOfficeDb('/companies/create', data, {headers: {Authorization: `Bearer ${getToken()}`}});
-        if (response.status === 200) {
+        console.log(response)
+        if (response.status === 200 || response.status === 201) {
             console.log("Successfully created company")
+            window.location.reload();
         } else {
             setErrorMessages({
                 email: "L'email est déja utilisé",
@@ -41,6 +42,18 @@ export const companyNameIsValidate = (name: string, setErrorMessages: Dispatch<S
     }
 }
 
+//Vérifie qu'un secteur a été sélectionné
+export const companySectorIsValidate = (sector: string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
+    if (sector !== "carpentry" && sector !== "creamery" && sector !== "quarry") {
+        setErrorMessages({
+            companySector: "Veuillez selectionner un secteur"
+        });
+        return false;
+    } else {
+        return true;
+    }
+}
+
 //Enregistre dans l'objet company input le choix du secteur d'activité
 export const applyTheChoice = (choice:number, setSelectSector:Dispatch<SetStateAction<string>>, companyInput:CompanyCreated, setCompanyInput:Dispatch<SetStateAction<CompanyCreated>>) => {
     setSelectSector(createCompanyData[choice].sectorName)
@@ -56,6 +69,10 @@ export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorM
     setErrorMessages({});
 
     if (!companyNameIsValidate(companyInput.name, setErrorMessages)) {
+        return
+    }
+
+    if (!companySectorIsValidate(companyInput.sector, setErrorMessages)) {
         return
     }
 

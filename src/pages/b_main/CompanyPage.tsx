@@ -18,12 +18,6 @@ const CompanyPage: FC = () => {
         collectUserCompanies()
     }, []);
 
-    useEffect(() => {
-        if(arrayCompany.length > 0){
-            console.log(arrayCompany)
-        }
-    }, [arrayCompany]);
-
     const collectUserCompanies = async () => {
         try {
             const response = await getTheOfficeDbUser('/companies/user', getToken())
