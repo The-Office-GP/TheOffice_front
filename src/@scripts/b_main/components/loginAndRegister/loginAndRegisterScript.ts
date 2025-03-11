@@ -141,7 +141,8 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
                     id:parsedUserInfo.id,
                     email: parsedUserInfo.email,
                     username: parsedUserInfo.username,
-                    role: parsedUserInfo.roles,
+                    role: parsedUserInfo.role,
+                    wallet: parsedUserInfo.wallet,
                 }
                 userContext.setUserInfo(userInfoFormater);
                 navigate("/")

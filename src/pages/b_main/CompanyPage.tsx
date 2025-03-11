@@ -8,8 +8,6 @@ import {createCompanyData, sectorCompanyData} from "../../_data/createCompanyDat
 import LockedCompanyCard from "../../components/main/companyPage/LockedCompanyCard";
 import {collectUserCompanies} from "../../@scripts/b_main/components/companyPage/companyPageScript";
 import WalletCompanyPage from "../../components/main/companyPage/WalletCompanyPage";
-import {User} from "../../_types/user";
-import {getUserInfo} from "../../utilis/storage";
 import {UserContext} from "../../contexts/UserContext";
 
 const CompanyPage: FC = () => {

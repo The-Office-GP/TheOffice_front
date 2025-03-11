@@ -13,6 +13,6 @@ export const handleSettings = (navigate: NavigateFunction) => {
 //Déconnecte l'utilisateur
 export const handleLogout = (navigate: NavigateFunction, dispatch:any, userContext:UserContextProps) => {
     dispatch({type: 'LOGOUT'});
-    userContext.setUserInfo({id: 0, email: "", username: "", role: ""} as User)
+    userContext.setUserInfo({id: 0, email: "", username: "", role: "", wallet:0} as User)
     navigate("/")
 }

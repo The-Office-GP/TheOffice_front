@@ -3,6 +3,7 @@ export interface User {
     email: string;
     username: string;
     role: string;
+    wallet: number;
 }
 
 export interface CompanyCreated {

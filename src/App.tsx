@@ -11,7 +11,7 @@ import {User} from "./_types/user";
 
 function App() {
     const [state, dispatch] = useReducer(authReducer, initialAuthState);
-    const [userInfo, setUserInfo] = useState<User>({id:0, email:"", username:"", role:""} as User);
+    const [userInfo, setUserInfo] = useState<User>({id:0, email:"", username:"", role:"", wallet:0} as User);
 
     const Routing = () => {
         return getToken() ? <Router/> : <NoAuthRouter/>;
