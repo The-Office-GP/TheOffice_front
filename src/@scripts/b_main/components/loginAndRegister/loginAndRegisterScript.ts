@@ -66,6 +66,8 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
         }
     } catch (error) {
         console.error('Erreur lors de la connexion:', error);
+    } finally {
+        setIsSubmitting(false)
     }
 }
 

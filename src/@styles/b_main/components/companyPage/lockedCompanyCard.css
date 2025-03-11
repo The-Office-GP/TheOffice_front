@@ -1,0 +1,19 @@
+.locked-company-card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgba(2, 48, 71, 0.8);
+    color: gray;
+    font-size: x-large;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
+}
+
+.lock-icon {
+    width: 200px !important;
+    height: 200px ! important;
+    color: var(--medium-blue);
+}
