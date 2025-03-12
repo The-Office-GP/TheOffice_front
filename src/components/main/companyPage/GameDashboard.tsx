@@ -1,25 +1,28 @@
-import {FC} from 'react';
+import {Dispatch, FC, SetStateAction} from 'react';
 import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
+import ExitButton from "../../global/ExitButton";
+import ProductionCard from "./ProductionCard";
+import EmployeesCard from "./EmployeesCard";
+import ToolsCard from "./ToolsCard";
+import SimulationButton from "../../global/SimulationButton";
+import "../../../@styles/b_main/components/companyPage/gameDashboard.css"
 
 
-const GameDashboard: FC<{}> = ({}) => {
+const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     return (
         <section className={"office-background-section"}>
-            <div className={"menu-container"}>
-                <ExitButton/>
-                <div className={"dashboard-display"}>
-                    <div className={"icon-title"}>
-                        <ImportantDevicesIcon className={"dashboard-icon"}/><h3>Dashboard</h3>
-                    </div>
-                    <div className={"metrics-cards-container"}>
-                        <ProductionCard/>
-                        <EmployeesCard/>
-                        <ToolsCard/>
-                    </div>
-                    <SimulationButton/>
+            <div className={"dashboard-display"}>
+                <ExitButton setPage={setPage}/>
+                <div className={"icon-title"}>
+                    <ImportantDevicesIcon className={"dashboard-icon"}/><h3>Dashboard</h3>
                 </div>
+                <div className={"metrics-cards-container"}>
+                    <ProductionCard/>
+                    <EmployeesCard/>
+                    <ToolsCard/>
+                </div>
+                <SimulationButton/>
             </div>
-
         </section>
     );
 };

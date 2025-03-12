@@ -5,6 +5,7 @@ import "../../@styles/b_main/pages/companyPage.css"
 import {useParams} from "react-router";
 import {getTheOfficeDbUser} from "../../api/theofficeApi";
 import {getToken} from "../../utilis/storage";
+import GameDashboard from "../../components/main/companyPage/GameDashboard";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
@@ -48,6 +49,7 @@ const CompanyPage: FC<{}> = ({}) => {
                     <MiniDashboard/>
                 </div>
             }
+            {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
             <h3 className={"level"}>Niveau 1</h3>
         </section>
     );
