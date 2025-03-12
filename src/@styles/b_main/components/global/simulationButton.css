@@ -1,0 +1,20 @@
+.simulation-button {
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background-color: #FFB35C;
+    font-size: x-large;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
+}
+
+.simulation-button:hover {
+    transform: scale(1.1);
+}

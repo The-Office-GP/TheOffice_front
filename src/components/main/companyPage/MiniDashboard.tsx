@@ -16,15 +16,15 @@ const MiniDashboard: FC<{}> = ({}) => {
             <div className={"infos-display"}>
                 <div className={"mini-dashboard-info"}>
                     <PeopleOutlineIcon/>
-                    <p className={"negative"}>- 2%</p> / <p className={"positive"}>+ 4%</p>
+                    <span className={"negative"}>- 2%</span>/<span className={"positive"}>+ 4%</span>
                 </div>
                 <div className={"mini-dashboard-info"}>
                     <StackedLineChartIcon/>
-                    <p className={"negative"}>- 2%</p>/<p className={"positive"}>+ 5%</p>
+                    <span className={"negative"}>- 2%</span>/<span className={"positive"}>+ 5%</span>
                 </div>
                 <div className={"mini-dashboard-info"}>
                     <ConstructionIcon/>
-                    <p className={"negative"}>- 2%</p>/<p className={"positive"}>+ 5%</p>
+                    <span className={"negative"}>- 2%</span>/<span className={"positive"}>+ 5%</span>
                 </div>
 
             </div>

@@ -8,6 +8,7 @@ import {getToken} from "../../utilis/storage";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
+    const [statePage, setStatePage] = useState<number>(0)
     const [url, setUrl] = useState<string>("")
 
     useEffect(() => {
@@ -41,10 +42,12 @@ const CompanyPage: FC<{}> = ({}) => {
 
     return (
         <section className={"background-company-model1-level1"} style={{backgroundImage: `url(${url})`}}>
-            <div className={"nav-mini-dashbord"}>
-                <GameMenu/>
-                <MiniDashboard/>
-            </div>
+            {statePage === 0 &&
+                <div className={"nav-mini-dashbord"}>
+                    <GameMenu setPage={setStatePage}/>
+                    <MiniDashboard/>
+                </div>
+            }
             <h3 className={"level"}>Niveau 1</h3>
         </section>
     );
