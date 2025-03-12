@@ -1,0 +1,29 @@
+.game-nav {
+    margin: 5px;
+    width: 550px;
+    height: 70px;
+    background-color: rgba(2, 48, 71, 0.8);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
+}
+
+.game-nav:hover {
+    transform: scale(1.15);
+}
+
+.menu-icon {
+    width: 50px !important;
+    height: 50px !important;
+
+    color: #219EBC;
+}
+
+.menu-icon:hover {
+    color: #8ECAE6;
+    transform: scale(1.15);
+}

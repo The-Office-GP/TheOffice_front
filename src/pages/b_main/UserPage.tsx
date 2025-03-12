@@ -35,7 +35,7 @@ const UserPage: FC = () => {
                             <CreateCompanyCard setFormIsVisible={setFormIsVisible}/>
                         }
                         {arrayCompany.length > 0 && arrayCompany.map((company: CompanyType, index: number) => (
-                            <CompanyCard key={index} companyName={company.name}
+                            <CompanyCard key={index} companyId={company.id} companyName={company.name}
                                          pathImages={createCompanyData[sectorCompanyData.indexOf(company.sector)].src}/>
                         ))}
                     </>
