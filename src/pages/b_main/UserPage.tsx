@@ -17,7 +17,7 @@ const UserPage: FC = () => {
     const limitCompany = 3
 
     useEffect(() => {
-        collectUserCompanies(setArrayCompany)
+        collectUserCompanies(arrayCompany, setArrayCompany)
     }, [arrayCompany]);
 
     return (
