@@ -7,7 +7,7 @@ import {UserContext} from "../../../contexts/UserContext";
 import {createCompanyData, defaultValueCompany} from "../../../_data/createCompanyData";
 import {inputChange} from "../../../@scripts/b_main/components/formInput";
 
-const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>}> = ({setFormIsVisible}) => {
+const CreateCompanyForm: FC<{setFormIsVisible:Dispatch<SetStateAction<boolean>>, setArrayCompanyIsUpdate:Dispatch<SetStateAction<boolean>>}> = ({setFormIsVisible, setArrayCompanyIsUpdate}) => {
     const [selectSector, setSelectSector] = useState<string>("")
     const userContext = useContext(UserContext)
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
@@ -29,6 +29,7 @@ const CreateCompanyForm: FC<{setFormIsVisible: Dispatch<SetStateAction<boolean>>
     //Soumet au serveur back les informations de création de l'entreprise
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         await submitCompanyInfo(e, setErrorMessages, companyInput, userContext,setIsSubmitting)
+        setArrayCompanyIsUpdate(false)
         setFormIsVisible(false)
     }
 

@@ -1,14 +1,12 @@
 import {getTheOfficeDbUser} from "../../../../api/theofficeApi";
 import {getToken} from "../../../../utilis/storage";
-import {CompanyType} from "../../../../_types/companyType";
+import {Dispatch, SetStateAction} from "react";
 
-export const collectUserCompanies = async (array:any, setArray: any) => {
+export const collectUserCompanies = async (setArray: any, setArrayIsUpdate:Dispatch<SetStateAction<boolean>>) => {
     try {
         const response = await getTheOfficeDbUser('/companies/user', getToken())
-        const arrayResponse:CompanyType[] = response
-        if(array.length !== arrayResponse.length){
-            setArray(response)
-        }
+        setArray(response)
+        setArrayIsUpdate(true)
     } catch (error) {
         console.error('Erreur lors de la connexion:', error);
     }

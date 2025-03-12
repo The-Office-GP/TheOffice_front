@@ -8,17 +8,20 @@ import {createCompanyData, sectorCompanyData} from "../../_data/createCompanyDat
 import LockedCompanyCard from "../../components/main/userPage/LockedCompanyCard";
 import {collectUserCompanies} from "../../@scripts/b_main/components/userPage/userPageScript";
 import WalletCompanyPage from "../../components/main/userPage/WalletCompanyPage";
-import {UserContext} from "../../contexts/UserContext";
+import {UserContext, UserContextProps} from "../../contexts/UserContext";
 
 const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)
     const [arrayCompany, setArrayCompany] = useState<CompanyType[] | any>([])
-    const user = useContext(UserContext)
+    const [arrayIsUpdate, setArrayIsUpdate] = useState<boolean>(false)
+    const user:UserContextProps = useContext(UserContext)
     const limitCompany = 3
 
     useEffect(() => {
-        collectUserCompanies(arrayCompany, setArrayCompany)
-    }, [arrayCompany]);
+        if(!arrayIsUpdate){
+            collectUserCompanies(setArrayCompany, setArrayIsUpdate)
+        }
+    }, [arrayIsUpdate]);
 
     return (
         <>
@@ -37,7 +40,7 @@ const UserPage: FC = () => {
                         ))}
                     </>
                     :
-                    <CreateCompanyForm setFormIsVisible={setFormIsVisible}/>}
+                    <CreateCompanyForm setFormIsVisible={setFormIsVisible} setArrayCompanyIsUpdate={setArrayIsUpdate}/>}
             </section>
         </>
     );
