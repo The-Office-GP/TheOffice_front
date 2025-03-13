@@ -1,9 +1,10 @@
-import {FC, lazy} from 'react';
+import {FC} from 'react';
 import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
 import {RouteType} from "../_types/routes/routeType";
 import UserPage from "../pages/b_main/UserPage";
+import CompanyPage from "../pages/b_main/CompanyPage";
 
 const Router: FC = () => {
     //tableau des routes
@@ -11,7 +12,8 @@ const Router: FC = () => {
         {path: "/", element: <UserPage/>},
         {path: "/user", element: <UserPage/>},
         {path: "/dashboard", element: <UserPage/>},
-        {path: "/paramètres", element: <UserPage/>},
+        {path: "/setting", element: <UserPage/>},
+        {path: "/company/:id", element: <CompanyPage/>}
     ]
 
     return (
