@@ -12,7 +12,7 @@ import {UserContext, UserContextProps} from "../../contexts/UserContext";
 
 const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)
-    const [arrayCompany, setArrayCompany] = useState<CompanyType[] | any>([])
+    const [arrayCompany, setArrayCompany] = useState<CompanyType[]>([])
     const [arrayIsUpdate, setArrayIsUpdate] = useState<boolean>(false)
     const user:UserContextProps = useContext(UserContext)
     const limitCompany = 3
@@ -29,12 +29,12 @@ const UserPage: FC = () => {
                 <WalletCompanyPage walletValue={user.userInfo.wallet}/>
                 {!formIsVisible ?
                     <>
-                        {arrayCompany.length >= limitCompany ?
+                        {arrayCompany !== undefined && arrayCompany.length >= limitCompany ?
                             <LockedCompanyCard/>
                             :
                             <CreateCompanyCard setFormIsVisible={setFormIsVisible}/>
                         }
-                        {arrayCompany.length > 0 && arrayCompany.map((company: CompanyType, index: number) => (
+                        {arrayCompany !== undefined && arrayCompany.length > 0 && arrayCompany.map((company: CompanyType, index: number) => (
                             <CompanyCard key={index} companyId={company.id} companyName={company.name}
                                          pathImages={createCompanyData[sectorCompanyData.indexOf(company.sector)].src}/>
                         ))}

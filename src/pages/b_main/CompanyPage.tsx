@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import GameMenu from "../../components/main/companyPage/GameMenu";
 import MiniDashboard from "../../components/main/companyPage/MiniDashboard";
 import "../../@styles/b_main/pages/companyPage.css"
@@ -25,16 +25,7 @@ const CompanyPage: FC<{}> = ({}) => {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
             console.log(response);
 
-            const base64Image = response.local.background_image;
-
-            if (base64Image && base64Image.startsWith('iVBOR')) {
-                const byteArray = Uint8Array.from(atob(base64Image), c => c.charCodeAt(0));
-                const blob = new Blob([byteArray], {type: 'image/png'});
-                const imageUrl = URL.createObjectURL(blob);
-                setUrl(imageUrl);
-            } else {
-                console.error('Image en base64 invalide');
-            }
+            setUrl(response.local.path_background_image);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
