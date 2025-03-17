@@ -11,6 +11,7 @@ const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
     const [statePage, setStatePage] = useState<number>(0)
     const [url, setUrl] = useState<string>("")
+    const [level, setLevel] = useState<number>()
 
     useEffect(() => {
         collectCompanyInfos()
@@ -20,12 +21,17 @@ const CompanyPage: FC<{}> = ({}) => {
         console.log(url)
     }, [url]);
 
+    useEffect(() => {
+        console.log(level)
+    }, [level]);
+
     const collectCompanyInfos = async () => {
         try {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
             console.log(response);
 
             setUrl(response.local.path_background_image);
+            setLevel(response.local.level);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
@@ -43,7 +49,7 @@ const CompanyPage: FC<{}> = ({}) => {
                 </div>
             }
             {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
-            <h3 className={"level"}>Niveau 1</h3>
+            <h3 className={"level"}>{level}</h3>
         </section>
     );
 };
