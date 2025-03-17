@@ -33,7 +33,9 @@ const CompanyPage: FC<{}> = ({}) => {
 
 
     return (
-        <section className={"background-company-model1-level1"} style={{backgroundImage: `url(${url})`}}>
+        <section className={"background-company-model1-level1"}
+                 style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}
+        >
             {statePage === 0 &&
                 <div className={"nav-mini-dashbord"}>
                     <GameMenu setPage={setStatePage}/>
