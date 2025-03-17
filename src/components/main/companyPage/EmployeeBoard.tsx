@@ -16,7 +16,7 @@ const EmployeeBoard: FC<{}> = ({}) => {
                     </div>
                     <EmployeeJobButtons/>
                     <EmployeeLevelButtons/>
-                    <RecuiteButton/>
+                    <button className={"recuite-button"}>Recruter</button>
                 </aside>
                 <Grid2 className={"employees-cards-container"}>
                     <EmployeeList/>
