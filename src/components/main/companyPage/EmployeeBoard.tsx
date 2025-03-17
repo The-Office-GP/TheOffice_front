@@ -1,5 +1,8 @@
 import {FC} from 'react';
 import "../../../@styles/b_main/components/companyPage/employeeBoard.css"
+import PeopleIcon from "@mui/icons-material/People";
+import EmployeeJobButtons from "./employeeComponents/EmployeesJobButtons";
+
 
 const EmployeeBoard: FC<{}> = ({}) => {
     return (
@@ -10,7 +13,7 @@ const EmployeeBoard: FC<{}> = ({}) => {
                         <PeopleIcon className={"menu-Icon"}/>
                         <h3>Mes salariés</h3>
                     </div>
-                    <EmployeesJobsButtons/>
+                    <EmployeeJobButtons/>
                     <EmployeesLevelButtons/>
                     <RecuiteButton/>
                 </aside>
