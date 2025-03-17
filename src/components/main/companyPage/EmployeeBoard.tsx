@@ -2,6 +2,7 @@ import {FC} from 'react';
 import "../../../@styles/b_main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "./employeeComponents/EmployeesJobButtons";
+import EmployeeLevelButtons from "./employeeComponents/EmployeeLevelButtons";
 
 
 const EmployeeBoard: FC<{}> = ({}) => {
@@ -14,7 +15,7 @@ const EmployeeBoard: FC<{}> = ({}) => {
                         <h3>Mes salariés</h3>
                     </div>
                     <EmployeeJobButtons/>
-                    <EmployeesLevelButtons/>
+                    <EmployeeLevelButtons/>
                     <RecuiteButton/>
                 </aside>
                 <Grid2 className={"employees-cards-container"}>
