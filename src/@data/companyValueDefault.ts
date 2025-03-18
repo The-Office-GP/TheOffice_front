@@ -7,7 +7,7 @@ export const localTypeDefault: LocalType = {
     rent: 1,
     maxEmployees: 1,
     maxMachines: 1,
-    background_image: "path",
+    path_background_image: "path",
 }
 
 export const companyDetailsDefault: CompanyDetailsType = {

@@ -33,5 +33,5 @@ export interface LocalType {
     rent: number;
     maxEmployees: number;
     maxMachines: number;
-    background_image: string;
+    path_background_image: string;
 }

@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
-import "../../../@styles/main/components/companyPage/productionCard.css"
+import "../../../../@styles/main/components/companyPage/productionCard.css"
 
 const ProductionCard: FC<{}> = ({}) => {
     return (

@@ -5,10 +5,10 @@ import "../@styles/main/pages/companyPage.css"
 import {useParams} from "react-router";
 import {getTheOfficeDbUser} from "../api/theofficeApi";
 import {getToken} from "../utilis/storage";
-import GameDashboard from "../components/main/companyPage/GameDashboard";
+import GameDashboard from "../components/main/companyPage/boards/GameDashboard";
 import {CompanyDetailsType} from "../@types/companyType";
 import {companyDetailsDefault} from "../@data/companyValueDefault";
-import EmployeeBoard from "../components/main/companyPage/EmployeeBoard";
+import EmployeeBoard from "../components/main/companyPage/boards/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
 
@@ -25,8 +25,9 @@ const CompanyPage: FC<{}> = ({}) => {
     }, []);
 
     useEffect(() => {
-        console.log(url)
-    }, [url]);
+        setUrl(company.local.path_background_image);
+        setLevel(company.local.level);
+    }, [company]);
 
     useEffect(() => {
         console.log(level)
@@ -36,9 +37,6 @@ const CompanyPage: FC<{}> = ({}) => {
         try {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
             setCompany(response)
-
-            setUrl(company.local.background_image);
-            setLevel(company.local.level);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
@@ -56,7 +54,7 @@ const CompanyPage: FC<{}> = ({}) => {
                     </div>
                 }
                 {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
-                {statePage === 1 && <EmployeeBoard/>}
+                {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                 <h3 className={"level"}>{level}</h3>
             </section>
         </CompanyContext.Provider>

@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
-import "../../../@styles/main/components/companyPage/toolsCard.css"
+import "../../../../@styles/main/components/companyPage/toolsCard.css"
 
 const ToolsCard: FC<{}> = ({}) => {
     return (

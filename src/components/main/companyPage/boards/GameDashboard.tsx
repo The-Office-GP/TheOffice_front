@@ -1,11 +1,11 @@
 import {Dispatch, FC, SetStateAction} from 'react';
 import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
-import ExitButton from "../../share/ExitButton";
-import ProductionCard from "./ProductionCard";
-import EmployeesCard from "./EmployeesCard";
-import ToolsCard from "./ToolsCard";
-import SimulationButton from "../../share/SimulationButton";
-import "../../../@styles/main/components/companyPage/gameDashboard.css"
+import ExitButton from "../../../share/ExitButton";
+import ProductionCard from "../cards/ProductionCard";
+import EmployeesCard from "../cards/EmployeesCard";
+import ToolsCard from "../cards/ToolsCard";
+import SimulationButton from "../../../share/SimulationButton";
+import "../../../../@styles/main/components/companyPage/gameDashboard.css"
 
 
 const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}) => {
