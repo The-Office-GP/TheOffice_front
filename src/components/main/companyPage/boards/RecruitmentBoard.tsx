@@ -4,11 +4,13 @@ import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeItem from "../employeeComponents/EmployeeItem";
 import {getTheOfficeDbUser} from "../../../../api/theofficeApi";
 import {getToken} from "../../../../utilis/storage";
+import "../../../../@styles/main/components/companyPage/recruitmentBoard.css"
 
 const RecruitmentBoard: FC<{}> = ({}) => {
     const [listEmployeeForRecruitment, setListEmployeeForRecruitment] = useState<EmployeeType[]>([])
 
     useEffect(() => {
+        console.log(listEmployeeForRecruitment)
         collectEmployeeForRecruitment()
     }, []);
 
@@ -26,13 +28,13 @@ const RecruitmentBoard: FC<{}> = ({}) => {
             <div className={"recruitment-card-header"}>
                 <div className={"h3-description"}>
                     <h3>Recrutement</h3>
-                    <p>Nous avons besoins de recruter. Anna Lyse, votre secrétaire vous a organisé une série
+                    <img className={'recruitment-img'}
+                         src={"/assets/Employees/employees-avatars/anneLise.png"}
+                         alt={"recruitment-people"}/>
+                    <span>Nous avons besoins de recruter. Anna Lyse, votre secrétaire vous a organisé une série
                         d'entretiens. Glissez la carte du candidat vers la gauche ou la droite pour faire votre
-                        choix.</p>
+                        choix.</span>
                 </div>
-                <img className={'recruitment-img'}
-                     src={"https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67b4d5aabbedb79add2c59e2/download/Avatar-planch2-f2.png"}
-                     alt={"recruitment-people"}/>
             </div>
             <Grid2 className={"recruitment-card-display"}>
                 {listEmployeeForRecruitment.map((employee, index) => (<EmployeeItem key={index} employee={employee} type={"recruitment"}/>))}

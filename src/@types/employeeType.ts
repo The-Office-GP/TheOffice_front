@@ -9,5 +9,5 @@ export interface EmployeeType {
     "job": string
     "mood": string
     "health": number
-    "posterPath": string
+    "image": string
 }

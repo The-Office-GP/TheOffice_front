@@ -25,7 +25,7 @@ const CompanyPage: FC<{}> = ({}) => {
     }, []);
 
     useEffect(() => {
-        setUrl(company.local.path_background_image);
+        setUrl(company.local.pathBackgroundImage);
         setLevel(company.local.level);
     }, [company]);
 

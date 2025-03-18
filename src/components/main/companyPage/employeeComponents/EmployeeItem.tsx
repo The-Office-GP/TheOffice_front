@@ -13,16 +13,31 @@ const EmployeeItem: FC<{employee:EmployeeType, type:string}> = ({employee, type}
 
     return (
         <div className="employee-card">
+            <img src={employee.image} alt="employee picture"/>
+            <div className={"info-container"}>
+                <span> {employee.name}</span>
+                <span className="job"> {employee.job}</span>
+                <span className={"info"}>Niveau : {employee.level - 4}</span>
+                <span className={"info"}>Salaire : {employee.salary}€</span>
+            </div>
+
+            {type === "companyTeam" ?
+                <EmployeeCardButtons/>
+                :
+                <button className={"increase-button"}
+                        onClick={() => companyContext.company.employees.push(employee)}>Recrutement</button>
+            }
+        </div>
+        /*<div className="employee-card">
             <div className="employee-card-title">
-                {employee.posterPath ? (
-                    <img src="/logo192.png" alt="employee picture"/>
+                {employee.image ? (
+                    <img src={employee.image} alt="employee picture"/>
                 ) : (
                     <img src="/logo192.png" alt="employee picture"/>
 
                 )}
                 <h3>{employee.name}</h3>
             </div>
-            {/* Vérification si posterPath existe */}
             <div className={"employee-card-info"}>
                 <p className={"employees-p-list"}>Poste : {employee.job}</p>
                 <p className={"employees-p-list"}>Salaire : {employee.salary} €</p>
@@ -36,7 +51,7 @@ const EmployeeItem: FC<{employee:EmployeeType, type:string}> = ({employee, type}
                     <button className={"increase-button"} onClick={() => companyContext.company.employees.push(employee)}>Recrutement</button>
                 }
             </div>
-        </div>
+        </div>*/
     );
 };
 

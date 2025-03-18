@@ -1,42 +1,69 @@
 .employee-card {
-    width: 300px;
-    height: 500px;
+    width: 285px;
+    height: 410px;
+    background: var(--deep-blue);
+    border-radius: 22px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--deep-blue);
-    color: white;
-    font-size: x-large;
-    border-radius: 20px;
-    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
-    padding: 8px;
 }
 
-.employee-card-title{
-    display: flex;
-    align-items: center;
-    width: 100%;
+.employee-card .info-container {
+    min-height: 150px;
+}
+
+.employee-card span {
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    display: block;
+    padding-top: 0;
+    font-size: 30px;
+}
+
+.employee-card .job {
+    font-weight: 400;
+    color: white;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.employee-card .info {
+    font-weight: 400;
+    color: white;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
     font-size: 20px;
 }
 
-.employee-card-title img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
+.employee-card img {
+    width: 175px;
+    height: 175px;
+    border-radius: 15px;
+    margin: 0 auto;
 }
 
-.employee-card-info {
-    width: 100%;
-    max-width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.employee-card button {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    border: none;
+    margin-top: 24px;
+    background: var(--orange);
+    color: var(--deep-blue);
+    font-weight: 600;
+    font-size: 15px;
 }
 
-.employee-card-info p {
-    width: 100%;
-    max-width: 280px !important;
-
+.employee-card button:hover {
+    cursor: pointer;
+    background: var(--yellow);
 }
