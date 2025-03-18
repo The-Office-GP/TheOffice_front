@@ -5,12 +5,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(2, 48, 71, 0.8);
+    background: var(--deep-blue);
     color: white;
     font-size: x-large;
     border-radius: 20px;
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
-    margin: 20px;
+    padding: 8px;
+}
+
+.employee-card-title{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+}
+
+.employee-card-title img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
 }
 
 .employee-card-info {
