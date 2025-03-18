@@ -11,6 +11,7 @@ import {companyDetailsDefault} from "../@data/companyValueDefault";
 import EmployeeBoard from "../components/main/companyPage/boards/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
+import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
@@ -54,6 +55,7 @@ const CompanyPage: FC<{}> = ({}) => {
                     </div>
                 }
                 {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
+                {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
                 {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                 <h3 className={"level"}>{level}</h3>
             </section>

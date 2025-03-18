@@ -36,9 +36,9 @@ const RecruitmentBoard: FC<{}> = ({}) => {
                         choix.</span>
                 </div>
             </div>
-            <Grid2 className={"recruitment-card-display"}>
+            <div className={"recruitment-card-display"}>
                 {listEmployeeForRecruitment.map((employee, index) => (<EmployeeItem key={index} employee={employee} type={"recruitment"}/>))}
-            </Grid2>
+            </div>
 
         </section>
     );

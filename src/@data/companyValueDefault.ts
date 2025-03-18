@@ -1,4 +1,5 @@
 import {CompanyDetailsType, LocalType} from "../@types/companyType";
+import {MachineType} from "../@types/MachineType";
 
 export const localTypeDefault: LocalType = {
     id: 1,
@@ -10,7 +11,17 @@ export const localTypeDefault: LocalType = {
     pathBackgroundImage: "path",
 }
 
+export const machineTypeDefault: MachineType = {
+    id: 1,
+    name: "Petite machine Bois",
+    productionQuality: "MEDIOCRE",
+    price: 50000,
+    maintenanceCost: 12000,
+    image: "image.png"
+}
+
 export const companyDetailsDefault: CompanyDetailsType = {
+    id: 1,
     sector: "Default",
     name: "Name",
     idUser: 0,

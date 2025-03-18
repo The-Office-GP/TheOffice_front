@@ -1,4 +1,5 @@
 import {EmployeeType} from "./employeeType";
+import {MachineType} from "./MachineType";
 
 export interface CompanyType {
     id: number;
@@ -12,13 +13,14 @@ export interface CompanyType {
 }
 
 export interface CompanyDetailsType {
+    id: number;
     sector: string;
     name: string;
     idUser: number;
     local: LocalType;
     wallet: number;
     cycles: [];
-    machines: [];
+    machines: MachineType[];
     employees: EmployeeType[];
     suppliers: [];
     events: [];

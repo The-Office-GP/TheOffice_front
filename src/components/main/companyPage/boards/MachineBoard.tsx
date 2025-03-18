@@ -3,19 +3,21 @@ import "../../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "../employeeComponents/EmployeesJobButtons";
 import EmployeeLevelButtons from "../employeeComponents/EmployeeLevelButtons";
-import {Grid2} from "@mui/material";
-import EmployeeList from "../employeeComponents/EmployeeList";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";
 import EmployeeItem2 from "../employeeComponents/EmployeeItem2";
 import {EmployeeType} from "../../../../@types/employeeType";
+import {MachineType} from "../../../../@types/MachineType";
+import employeeList from "../employeeComponents/EmployeeList";
+import MachineItem2 from "../employeeComponents/MachineItem2";
+import MachineLevelButtons from "../employeeComponents/MachineLevelButtons";
+import BuyMachineBoard from "./BuyMachineBoard";
 
 
-
-const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}) => {
+const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const companyContext = useContext(CompanyContext)
-    const [employeeList, setEmployeeList] = useState<EmployeeType[]>(companyContext.company.employees)
+    const [machineList, setMachineList] = useState<MachineType[]>(companyContext.company.machines)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
 
     return (
@@ -26,23 +28,22 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                     <section className={"employees-cards-container"}>
                         <div className={"icon-title"}>
                             <PeopleIcon className={"menu-Icon"}/>
-                            <h3>Mes salariés</h3>
+                            <h3>Mes machines</h3>
                         </div>
                         <div className={"employees-list"}>
-                            {employeeList.map((employee) => (<EmployeeItem2 employee={employee}/>))}
+                            {machineList.map((machine) => (<MachineItem2 machine={machine}/>))}
                         </div>
                     </section>
                     <aside className={"employees-aside"}>
-                        <EmployeeJobButtons setEmployeeList={setEmployeeList}/>
-                        <EmployeeLevelButtons/>
-                        <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Recruter</button>
+                        <MachineLevelButtons/>
+                        <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Acheter</button>
                     </aside>
                 </div>
-            :
-                <RecruitmentBoard/>
+                :
+                <BuyMachineBoard/>
             }
         </section>
     );
 };
 
-export default EmployeeBoard;
+export default MachineBoard;
