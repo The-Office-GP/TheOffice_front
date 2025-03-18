@@ -30,7 +30,7 @@ const CompanyPage: FC<{}> = ({}) => {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
             console.log(response);
 
-            setUrl(response.local.path_background_image);
+            setUrl(response.local.pathBackgroundImage);
             setLevel(response.local.level);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
