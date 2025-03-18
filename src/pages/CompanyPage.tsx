@@ -10,11 +10,13 @@ import {CompanyDetailsType} from "../@types/companyType";
 import {companyDetailsDefault} from "../@data/companyValueDefault";
 import EmployeeBoard from "../components/main/companyPage/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
+import {UserContext, UserContextProps} from "../contexts/UserContext";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
     const [statePage, setStatePage] = useState<number>(0)
     const companyContext = useContext(CompanyContext);
+    const userContext: UserContextProps = useContext(UserContext)
     const [url, setUrl] = useState<string>("")
     const [level, setLevel] = useState<string>("")
 
@@ -50,7 +52,7 @@ const CompanyPage: FC<{}> = ({}) => {
             {statePage === 0 &&
                 <div className={"nav-mini-dashbord"}>
                     <GameMenu setPage={setStatePage}/>
-                    <MiniDashboard/>
+                    <MiniDashboard company={companyContext.company} wallet={userContext.userInfo.wallet}/>
                 </div>
             }
             {statePage === 1 && <GameDashboard setPage={setStatePage}/>}

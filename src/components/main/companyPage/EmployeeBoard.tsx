@@ -1,15 +1,16 @@
-import {FC} from 'react';
+import {FC, useContext} from 'react';
 import "../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "./employeeComponents/EmployeesJobButtons";
 import EmployeeLevelButtons from "./employeeComponents/EmployeeLevelButtons";
 import {Grid2} from "@mui/material";
 import EmployeeList from "./employeeComponents/EmployeeList";
+import {CompanyContext} from "../../../contexts/CompanyContext";
 
 
 
 const EmployeeBoard: FC<{}> = ({}) => {
-
+    const companyContext = useContext(CompanyContext)
 
     return (
         <section className={"office-background-section"} id={"list-section"}>
@@ -24,7 +25,7 @@ const EmployeeBoard: FC<{}> = ({}) => {
                     <button className={"recuite-button"}>Recruter</button>
                 </aside>
                 <Grid2 className={"employees-cards-container"}>
-                    <EmployeeList/>
+                    <EmployeeList employeesData={companyContext.company.employees}/>
                 </Grid2>
             </div>
         </section>
