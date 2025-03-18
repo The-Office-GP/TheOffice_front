@@ -8,6 +8,7 @@ import EmployeeList from "../employeeComponents/EmployeeList";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";
+import EmployeeItem2 from "../employeeComponents/EmployeeItem2";
 
 
 
@@ -20,18 +21,20 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
             <ExitButton setPage={setPage}/>
             {!stateBoard ?
                 <div className={"display-container"}>
-                    <aside className={"employees-aside"}>
+                    <section className={"employees-cards-container"}>
                         <div className={"icon-title"}>
                             <PeopleIcon className={"menu-Icon"}/>
                             <h3>Mes salariés</h3>
                         </div>
+                        <div className={"employees-list"}>
+                            {companyContext.company.employees.map((employee) => (<EmployeeItem2 employee={employee}/>))}
+                        </div>
+                    </section>
+                    <aside className={"employees-aside"}>
                         <EmployeeJobButtons/>
                         <EmployeeLevelButtons/>
                         <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Recruter</button>
                     </aside>
-                    <Grid2 className={"employees-cards-container"}>
-                        <EmployeeList employeesData={companyContext.company.employees}/>
-                    </Grid2>
                 </div>
             :
                 <RecruitmentBoard/>

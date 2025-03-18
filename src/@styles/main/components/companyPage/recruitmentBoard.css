@@ -2,6 +2,9 @@
     padding: 16px 16px 0 16px;
     background-color: var(--medium-blue);
     border-radius: 22px;
+    width: 80%;
+    height: 98%;
+    padding: 12px;
 }
 
 .office-background-section h3 {

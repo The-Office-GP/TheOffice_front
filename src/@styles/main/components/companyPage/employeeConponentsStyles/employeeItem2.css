@@ -1,0 +1,92 @@
+.employee-card {
+    max-width: 500px;
+    height: auto;
+    border-radius: 1rem;
+    background-color: var(--deep-blue);
+    padding: 1rem;
+}
+
+.employee-card .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    grid-gap: 12px;
+    gap: 8px;
+}
+
+.employee-card img {
+    height: 100px;
+    width: 100px;
+    border-radius: 0.5rem;
+    background-color: var(--medium-blue);
+    background: linear-gradient(to bottom right, var(--medium-blue), var(--medium-blue-opacity));
+}
+
+.employee-card progress {
+    width: 100px;
+}
+
+.employee-card .info {
+    height: 100px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.employee-card .name {
+    font-size: 20px;
+    line-height: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.employee-card .function {
+    font-size: 14px;
+    line-height: 1rem;
+    color: white;
+}
+
+.employee-card .stats {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--clear-blue);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 12px;
+    color: var(--deep-blue);
+}
+
+.employee-card .flex {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 4px;
+}
+
+.employee-card .state-value {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--deep-blue);
+}
+
+.employee-card .request {
+    margin-top: 1.5rem;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    transition: all .3s ease;
+}
+
+.employee-card .request:hover {
+    background-color: rgb(118, 36, 194);
+    color: #fff;
+}
