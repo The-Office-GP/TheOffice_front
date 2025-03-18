@@ -15,7 +15,7 @@ import {UserContext, UserContextProps} from "../contexts/UserContext";
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
     const [statePage, setStatePage] = useState<number>(0)
-    const companyContext = useContext(CompanyContext);
+    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
     const userContext: UserContextProps = useContext(UserContext)
     const [url, setUrl] = useState<string>("")
     const [level, setLevel] = useState<string>("")
@@ -35,10 +35,10 @@ const CompanyPage: FC<{}> = ({}) => {
     const collectCompanyInfos = async () => {
         try {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
-            companyContext.setCompany(response)
+            setCompany(response)
 
-            setUrl(companyContext.company.local.background_image);
-            setLevel(companyContext.company.local.level);
+            setUrl(company.local.background_image);
+            setLevel(company.local.level);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
@@ -46,19 +46,20 @@ const CompanyPage: FC<{}> = ({}) => {
 
 
     return (
-        <section className={"background-company-model1-level1"}
-                 style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}
-        >
-            {statePage === 0 &&
-                <div className={"nav-mini-dashbord"}>
-                    <GameMenu setPage={setStatePage}/>
-                    <MiniDashboard company={companyContext.company} wallet={userContext.userInfo.wallet}/>
-                </div>
-            }
-            {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
-            {statePage === 1 && <EmployeeBoard/>}
-            <h3 className={"level"}>{level}</h3>
-        </section>
+        <CompanyContext.Provider value={{company, setCompany}}>
+            <section className={"background-company-model1-level1"}
+                     style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}>
+                {statePage === 0 &&
+                    <div className={"nav-mini-dashbord"}>
+                        <GameMenu setPage={setStatePage}/>
+                        <MiniDashboard company={company} wallet={userContext.userInfo.wallet}/>
+                    </div>
+                }
+                {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
+                {statePage === 1 && <EmployeeBoard/>}
+                <h3 className={"level"}>{level}</h3>
+            </section>
+        </CompanyContext.Provider>
     );
 };
 

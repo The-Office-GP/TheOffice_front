@@ -130,6 +130,7 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
 export const collectUserInfo = async (token: string, userContext:UserContextProps, setIsSubmitting: Dispatch<SetStateAction<boolean>>,navigate:NavigateFunction) => {
     try {
         const response = await getTheOfficeDb('/users/connected', {headers: {Authorization: `Bearer ${token}`}})
+        saveUserInfo(response)
         const userInfo = getUserInfo();
 
         if (userInfo) {
@@ -143,6 +144,8 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
                     wallet: parsedUserInfo.wallet,
                 }
                 userContext.setUserInfo(userInfoFormater);
+                console.log("coucou")
+                console.log(userContext.userInfo);
                 navigate("/")
             } catch (jsonError) {
                 console.error("Erreur de parsing JSON:", jsonError);
