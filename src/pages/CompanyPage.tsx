@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from 'react';
+import {FC, useContext, useEffect, useState} from 'react';
 import GameMenu from "../components/main/companyPage/GameMenu";
 import MiniDashboard from "../components/main/companyPage/MiniDashboard";
 import "../@styles/main/pages/companyPage.css"
@@ -9,11 +9,12 @@ import GameDashboard from "../components/main/companyPage/GameDashboard";
 import {CompanyDetailsType} from "../@types/companyType";
 import {companyDetailsDefault} from "../@data/companyValueDefault";
 import EmployeeBoard from "../components/main/companyPage/EmployeeBoard";
+import {CompanyContext} from "../contexts/CompanyContext";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
     const [statePage, setStatePage] = useState<number>(0)
-    const [company ,setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
+    const companyContext = useContext(CompanyContext);
     const [url, setUrl] = useState<string>("")
     const [level, setLevel] = useState<string>("")
 
@@ -32,10 +33,10 @@ const CompanyPage: FC<{}> = ({}) => {
     const collectCompanyInfos = async () => {
         try {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
-            setCompany(response)
+            companyContext.setCompany(response)
 
-            setUrl(company.local.background_image);
-            setLevel(company.local.level);
+            setUrl(companyContext.company.local.background_image);
+            setLevel(companyContext.company.local.level);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
