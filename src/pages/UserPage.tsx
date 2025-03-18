@@ -1,14 +1,14 @@
 import {FC, useContext, useEffect, useState} from 'react';
-import CreateCompanyCard from "../../components/main/userPage/CreateCompanyCard";
-import "../../@styles/b_main/pages/OfficeBackground.css"
-import CreateCompanyForm from "../../components/main/userPage/CreateCompanyForm";
-import {CompanyType} from "../../_types/companyType";
-import CompanyCard from "../../components/main/userPage/CompanyCard";
-import {createCompanyData, sectorCompanyData} from "../../_data/createCompanyData";
-import LockedCompanyCard from "../../components/main/userPage/LockedCompanyCard";
-import {collectUserCompanies} from "../../@scripts/b_main/components/userPage/userPageScript";
-import WalletCompanyPage from "../../components/main/userPage/WalletCompanyPage";
-import {UserContext, UserContextProps} from "../../contexts/UserContext";
+import CreateCompanyCard from "../components/main/userPage/CreateCompanyCard";
+import "../@styles/main/pages/OfficeBackground.css"
+import CreateCompanyForm from "../components/main/userPage/CreateCompanyForm";
+import {CompanyType} from "../@types/companyType";
+import CompanyCard from "../components/main/userPage/CompanyCard";
+import {createCompanyData, sectorCompanyData} from "../@data/createCompanyData";
+import LockedCompanyCard from "../components/main/userPage/LockedCompanyCard";
+import {collectUserCompanies} from "../@scripts/main/components/userPage/userPageScript";
+import WalletCompanyPage from "../components/main/userPage/WalletCompanyPage";
+import {UserContext, UserContextProps} from "../contexts/UserContext";
 
 const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false)

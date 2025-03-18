@@ -2,9 +2,9 @@ import {NavigateFunction} from "react-router";
 import {ChangeEvent, Dispatch, FormEvent, SetStateAction} from "react";
 import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
-import {UserType} from "../../../../_types/userType";
+import {UserType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
-import {LoginFormInput, RegisterFormInput} from "../../../../_types/loginAndRegister";
+import {LoginFormInput, RegisterFormInput} from "../../../../@types/loginAndRegister";
 
 //Soumission des informations pour pouvoir s'inscrire
 export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, registerInput: RegisterFormInput, setIsSubmitting:Dispatch<SetStateAction<boolean>>, setRegisterIsMake:Dispatch<SetStateAction<boolean>>, setDataForConnexion:Dispatch<SetStateAction<any>>) => {
@@ -130,8 +130,6 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
 export const collectUserInfo = async (token: string, userContext:UserContextProps, setIsSubmitting: Dispatch<SetStateAction<boolean>>,navigate:NavigateFunction) => {
     try {
         const response = await getTheOfficeDb('/users/connected', {headers: {Authorization: `Bearer ${token}`}})
-        console.log(response)
-        saveUserInfo(response);
         const userInfo = getUserInfo();
 
         if (userInfo) {

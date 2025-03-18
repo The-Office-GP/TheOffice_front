@@ -1,5 +1,5 @@
 import {Dispatch, FC, SetStateAction} from 'react';
-import "../../@styles/b_main/components/global/exitButton.css"
+import "../../@styles/main/components/global/exitButton.css"
 
 const ExitButton: FC<{setPage:Dispatch<SetStateAction<any>>}> = ({setPage}) => {
     return (

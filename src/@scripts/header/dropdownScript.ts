@@ -1,4 +1,4 @@
-import {UserType} from "../../_types/userType";
+import {UserType} from "../../@types/userType";
 import {NavigateFunction} from "react-router";
 import {UserContextProps} from "../../contexts/UserContext";
 

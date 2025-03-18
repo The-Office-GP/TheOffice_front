@@ -1,4 +1,4 @@
-import {SectorType} from "../_types/sectorType";
+import {SectorType} from "../@types/sectorType";
 
 export const sectorCompanyData: string[] = ["carpentry", "creamery", "quarry"];
 

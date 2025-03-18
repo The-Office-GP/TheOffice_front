@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import EnhancedEncryptionIcon from '@mui/icons-material/EnhancedEncryption';
-import "../../../@styles/b_main/components/userPage/lockedCompanyCard.css"
+import "../../../@styles/main/components/userPage/lockedCompanyCard.css"
 
 const LockedCompanyCard: FC<{}> = ({}) => {
     return (

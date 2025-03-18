@@ -1,17 +1,21 @@
 import {FC, useEffect, useState} from 'react';
-import GameMenu from "../../components/main/companyPage/GameMenu";
-import MiniDashboard from "../../components/main/companyPage/MiniDashboard";
-import "../../@styles/b_main/pages/companyPage.css"
+import GameMenu from "../components/main/companyPage/GameMenu";
+import MiniDashboard from "../components/main/companyPage/MiniDashboard";
+import "../@styles/main/pages/companyPage.css"
 import {useParams} from "react-router";
-import {getTheOfficeDbUser} from "../../api/theofficeApi";
-import {getToken} from "../../utilis/storage";
-import GameDashboard from "../../components/main/companyPage/GameDashboard";
+import {getTheOfficeDbUser} from "../api/theofficeApi";
+import {getToken} from "../utilis/storage";
+import GameDashboard from "../components/main/companyPage/GameDashboard";
+import {CompanyDetailsType} from "../@types/companyType";
+import {companyDetailsDefault} from "../@data/companyValueDefault";
+import EmployeeBoard from "../components/main/companyPage/EmployeeBoard";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
     const [statePage, setStatePage] = useState<number>(0)
+    const [company ,setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
     const [url, setUrl] = useState<string>("")
-    const [level, setLevel] = useState<number>()
+    const [level, setLevel] = useState<string>("")
 
     useEffect(() => {
         collectCompanyInfos()
@@ -28,10 +32,10 @@ const CompanyPage: FC<{}> = ({}) => {
     const collectCompanyInfos = async () => {
         try {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
-            console.log(response);
+            setCompany(response)
 
-            setUrl(response.local.path_background_image);
-            setLevel(response.local.level);
+            setUrl(company.local.background_image);
+            setLevel(company.local.level);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
@@ -49,6 +53,7 @@ const CompanyPage: FC<{}> = ({}) => {
                 </div>
             }
             {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
+            {statePage === 1 && <EmployeeBoard/>}
             <h3 className={"level"}>{level}</h3>
         </section>
     );

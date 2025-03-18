@@ -1,3 +1,5 @@
+import {EmployeeType} from "./employeeType";
+
 export interface CompanyType {
     id: number;
     sector: string;
@@ -13,18 +15,18 @@ export interface CompanyDetailsType {
     sector: string;
     name: string;
     idUser: number;
+    local: LocalType;
     wallet: number;
     cycles: [];
     machines: [];
-    employees: [];
+    employees: EmployeeType[];
     suppliers: [];
     events: [];
     stockMaterials: [];
     stockFinalMaterials: [];
-    local: localType;
 }
 
-export interface localType {
+export interface LocalType {
     id: number;
     level: string;
     size: number;

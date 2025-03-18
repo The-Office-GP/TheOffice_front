@@ -1,7 +1,7 @@
 import React, {FC, useContext, useEffect} from "react";
-import Header from "../pages/a_header/Header";
+import Header from "./header/Header";
 import {Outlet} from "react-router";
-import Footer from "../pages/c_footer/Footer";
+import Footer from "./footer/Footer";
 import {UserContext} from "../contexts/UserContext";
 import {userInfoCheck} from "../@scripts/storage/loginCheck";
 

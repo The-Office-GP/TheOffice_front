@@ -3,7 +3,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import ConstructionIcon from '@mui/icons-material/Construction';
-import "../../../@styles/b_main/components/globalUser/miniDashboard.css";
+import "../../../@styles/main/components/globalUser/miniDashboard.css";
 
 const MiniDashboard: FC<{}> = ({}) => {
     return (

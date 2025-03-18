@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import "../../../@styles/b_main/components/companyPage/employeeBoard.css"
+import "../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "./employeeComponents/EmployeesJobButtons";
 import EmployeeLevelButtons from "./employeeComponents/EmployeeLevelButtons";
@@ -7,7 +7,10 @@ import {Grid2} from "@mui/material";
 import EmployeeList from "./employeeComponents/EmployeeList";
 
 
+
 const EmployeeBoard: FC<{}> = ({}) => {
+
+
     return (
         <section className={"office-background-section"} id={"list-section"}>
             <div className={"display-container"}>

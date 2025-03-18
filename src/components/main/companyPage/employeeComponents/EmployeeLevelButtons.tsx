@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import "../../../../@styles/b_main/components/companyPage/employeeConponentsStyles/employeeLevelButtons.css"
+import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeLevelButtons.css"
 
 const EmployeeLevelButtons: FC<{}> = ({}) => {
     return (

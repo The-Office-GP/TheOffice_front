@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {EmployeeType} from "../../../../_types/employeeType";
+import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 
 const EmployeeItem: FC<{employee:EmployeeType}> = ({employee}) => {

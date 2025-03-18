@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import "../../@styles/b_main/components/global/simulationButton.css"
+import "../../@styles/main/components/global/simulationButton.css"
 
 const SimulationButton: FC<{}> = ({}) => {
     return (

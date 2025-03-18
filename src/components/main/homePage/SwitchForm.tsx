@@ -1,5 +1,5 @@
 import {FC, useContext} from 'react';
-import '../../../@styles/b_main/components/loginAndRegister/switchForm.css'
+import '../../../@styles/main/components/loginAndRegister/switchForm.css'
 import {FormContext} from "../../../contexts/FormContext";
 
 const SwitchForm: FC = () => {

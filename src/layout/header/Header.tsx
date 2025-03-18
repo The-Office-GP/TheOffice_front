@@ -1,7 +1,7 @@
 import {FC, useState} from 'react';
-import '../../@styles/a_header/headerStyle.css';
+import '../../@styles/header/headerStyle.css';
 import DropdownMenu from "../../components/header/DropdownMenu";
-import {handleDropdownButton} from "../../@scripts/a_header/headerScript";
+import {handleDropdownButton} from "../../@scripts/header/headerScript";
 
 const Header: FC<{userIsLogged:boolean, username:string}> = ({userIsLogged, username}) => {
     const [dropdownMenuVisible, setDropdownMenuVisible] = useState<boolean>(false)

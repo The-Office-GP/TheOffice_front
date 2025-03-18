@@ -1,8 +1,8 @@
 import {FC, useState} from 'react';
-import LoginForm from "../../components/main/loginAndRegister/LoginForm";
-import '../../@styles/b_main/pages/homePage.css';
-import RegisterForm from "../../components/main/loginAndRegister/RegisterForm";
-import {FormContext} from "../../contexts/FormContext";
+import LoginForm from "../components/main/homePage/LoginForm";
+import '../@styles/main/pages/homePage.css';
+import RegisterForm from "../components/main/homePage/RegisterForm";
+import {FormContext} from "../contexts/FormContext";
 
 //Page d'accueil qui sert pour la connexion et l'inscription
 const HomePage: FC = () => {

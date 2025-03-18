@@ -1,5 +1,5 @@
 import {createContext, Dispatch, SetStateAction} from "react";
-import {UserType} from "../_types/userType";
+import {UserType} from "../@types/userType";
 
 
 export interface UserContextProps {

@@ -1,9 +1,9 @@
 import {FC} from 'react';
-import HomePage from "../pages/b_main/HomePage";
+import HomePage from "../pages/HomePage";
 import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayout from "../layout/MainLayout";
-import {RouteType} from "../_types/routes/routeType";
+import {RouteType} from "../@types/routes/routeType";
 
 const NoAuthRouter: FC = () => {
     //tableau des routes

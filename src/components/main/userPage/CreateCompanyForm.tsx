@@ -1,11 +1,11 @@
 import {ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useContext, useState} from 'react';
-import "../../../@styles/b_main/components/userPage/createCompanyForm.css"
+import "../../../@styles/main/components/userPage/createCompanyForm.css"
 import CloseIcon from '@mui/icons-material/Close';
-import {CompanyCreatedType} from "../../../_types/userType";
-import {applyTheChoice, submitCompanyInfo} from "../../../@scripts/b_main/components/userPage/createCompanyScript";
+import {CompanyCreatedType} from "../../../@types/userType";
+import {applyTheChoice, submitCompanyInfo} from "../../../@scripts/main/components/userPage/createCompanyScript";
 import {UserContext} from "../../../contexts/UserContext";
-import {createCompanyData, defaultValueCompany} from "../../../_data/createCompanyData";
-import {inputChange} from "../../../@scripts/b_main/components/formInput";
+import {createCompanyData, defaultValueCompany} from "../../../@data/createCompanyData";
+import {inputChange} from "../../../@scripts/main/components/formInput";
 
 const CreateCompanyForm: FC<{setFormIsVisible:Dispatch<SetStateAction<boolean>>, setArrayCompanyIsUpdate:Dispatch<SetStateAction<boolean>>}> = ({setFormIsVisible, setArrayCompanyIsUpdate}) => {
     const [selectSector, setSelectSector] = useState<string>("")

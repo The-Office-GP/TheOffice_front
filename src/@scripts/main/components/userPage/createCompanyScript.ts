@@ -1,8 +1,8 @@
 import {Dispatch, FormEvent, SetStateAction} from "react";
 import {postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getToken} from "../../../../utilis/storage";
-import {createCompanyData} from "../../../../_data/createCompanyData";
-import {CompanyCreatedType} from "../../../../_types/userType";
+import {createCompanyData} from "../../../../@data/createCompanyData";
+import {CompanyCreatedType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
 
 //Permet de créer une entreprise rattachée à l'id de l'utilisateur dans la base de données

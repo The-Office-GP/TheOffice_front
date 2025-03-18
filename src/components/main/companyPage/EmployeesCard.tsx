@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import PeopleIcon from "@mui/icons-material/People";
-import "../../../@styles/b_main/components/companyPage/employeesCard.css"
+import "../../../@styles/main/components/companyPage/employeesCard.css"
 
 const EmployeesCard: FC<{}> = ({}) => {
     return (

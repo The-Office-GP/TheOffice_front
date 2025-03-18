@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import EmployeeItem from "./EmployeeItem";
-import {EmployeeType} from "../../../../_types/employeeType";
+import {EmployeeType} from "../../../../@types/employeeType";
 
 const EmployeeList: FC<{employeesData:EmployeeType[]}> = ({employeesData}) => {
     return (
