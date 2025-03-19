@@ -29,10 +29,10 @@ const BuyMachineBoard: FC<{}> = ({}) => {
     };
 
     return (
-        <section className={"office-background-section"}>
+        <>
             <div className={"recruitment-card-header"}>
-                <div className={"h3-description"}>
-                    <h3>Achat</h3>
+                <h3>Achat</h3>
+                <div className={"div-assistante"}>
                     <img className={'recruitment-img'}
                          src={"/assets/Employees/employees-avatars/anneLise.png"}
                          alt={"recruitment-people"}/>
@@ -44,7 +44,7 @@ const BuyMachineBoard: FC<{}> = ({}) => {
                     <MachineItem key={index} machine={machine} type={"recruitment"}/>))}
             </div>
 
-        </section>
+        </>
     );
 };
 

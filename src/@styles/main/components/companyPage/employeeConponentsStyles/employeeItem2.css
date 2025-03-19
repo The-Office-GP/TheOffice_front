@@ -1,20 +1,22 @@
-.employee-card {
-    max-width: 500px;
+.card-item {
+    min-width: 330px;
+    max-height: 180px;
     height: auto;
-    border-radius: 1rem;
-    background-color: var(--deep-blue);
-    padding: 1rem;
+    border-radius: 15px;
+    background-color: var(--medium-blue);
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
-.employee-card .infos {
+.card-item .infos {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    grid-gap: 12px;
     gap: 8px;
+    margin-bottom: 8px;
 }
 
-.employee-card img {
+.card-item img {
     height: 100px;
     width: 100px;
     border-radius: 0.5rem;
@@ -22,11 +24,11 @@
     background: linear-gradient(to bottom right, var(--medium-blue), var(--medium-blue-opacity));
 }
 
-.employee-card progress {
+.card-item progress {
     width: 100px;
 }
 
-.employee-card .info {
+.card-item .info {
     height: 100px;
     flex: 1;
     display: flex;
@@ -34,20 +36,20 @@
     justify-content: space-between;
 }
 
-.employee-card .name {
+.card-item .name {
     font-size: 20px;
     line-height: 12px;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
 }
 
-.employee-card .function {
+.card-item .function {
     font-size: 14px;
     line-height: 1rem;
     color: white;
 }
 
-.employee-card .stats {
+.card-item .stats {
     width: 100%;
     border-radius: 0.5rem;
     background-color: var(--clear-blue);
@@ -60,7 +62,7 @@
     color: var(--deep-blue);
 }
 
-.employee-card .flex {
+.card-item .flex {
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -68,14 +70,14 @@
     margin: 0 4px;
 }
 
-.employee-card .state-value {
+.card-item .state-value {
     margin-top: 8px;
     font-size: 12px;
     font-weight: 600;
     color: var(--deep-blue);
 }
 
-.employee-card .request {
+.card-item .request {
     margin-top: 1.5rem;
     width: 100%;
     border: 1px solid transparent;
@@ -86,7 +88,8 @@
     transition: all .3s ease;
 }
 
-.employee-card .request:hover {
-    background-color: rgb(118, 36, 194);
-    color: #fff;
+.card-item .request:hover {
+    cursor: pointer;
+    background-color: var(--orange);
+    color: var(--deep-blue);
 }
