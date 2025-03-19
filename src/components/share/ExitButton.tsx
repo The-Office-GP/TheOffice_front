@@ -1,13 +1,14 @@
 import {Dispatch, FC, SetStateAction} from 'react';
 import "../../@styles/main/components/global/exitButton.css"
+import ReplyIcon from '@mui/icons-material/Reply';
+import {IconButton} from "@mui/material";
+import {paletteColors} from "../../@styles/paletteColors";
 
 const ExitButton: FC<{setPage:Dispatch<SetStateAction<any>>}> = ({setPage}) => {
     return (
-        <img
-            src={"https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67bde1ff4f7314b58e617663/download/Exit.png"}
-            alt={"exit"} className={"exit"}
-            onClick={() => setPage(0)}
-        />
+        <IconButton aria-label="delete" onClick={()=> setPage(0)} sx={{color: paletteColors.white, margin: 0}}>
+            <ReplyIcon fontSize={"large"}/>
+        </IconButton>
     );
 };
 

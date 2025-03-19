@@ -30,10 +30,6 @@ const CompanyPage: FC<{}> = ({}) => {
         setLevel(company.local.level);
     }, [company]);
 
-    useEffect(() => {
-        console.log(level)
-    }, [level]);
-
     const collectCompanyInfos = async () => {
         try {
             const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
