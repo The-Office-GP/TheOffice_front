@@ -1,10 +1,11 @@
-import {FC} from 'react';
+import {FC, lazy} from 'react';
 import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
 import {RouteType} from "../@types/routes/routeType";
-import UserPage from "../pages/UserPage";
-import CompanyPage from "../pages/CompanyPage";
+
+const UserPage = lazy(() => import("../pages/UserPage"));
+const CompanyPage = lazy(() => import("../pages/CompanyPage"));
 
 const Router: FC = () => {
     //tableau des routes
