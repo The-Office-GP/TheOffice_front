@@ -16,7 +16,7 @@ const Header: FC<{userIsLogged:boolean, username:string}> = ({userIsLogged, user
             {userIsLogged &&
                 <>
                     <button className={"button-dropdown-menu"} onClick={() => handleDropdownButton(dropdownMenuVisible, setDropdownMenuVisible)}>
-                        {username.charAt(0)}
+                        {username.charAt(0).toUpperCase()}
                     </button>
                     {dropdownMenuVisible && (<DropdownMenu buttonAction={() => handleDropdownButton(dropdownMenuVisible, setDropdownMenuVisible)} username={username}/>)}
                 </>
