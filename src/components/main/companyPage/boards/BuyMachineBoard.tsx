@@ -48,7 +48,6 @@ const BuyMachineBoard: FC<{}> = ({}) => {
                 {listMachineForBuy.map((machine, index) => (
                     <MachineItem key={index} machine={machine} type={"recruitment"} purchaseIsMake={purchaseIsMake} setPurchaseIsMake={setPurchaseIsMake}/>))}
             </div>
-
         </>
     );
 };

@@ -1,15 +1,10 @@
 import {Dispatch, FC, SetStateAction, useContext, useEffect, useState} from 'react';
 import "../../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
-import EmployeeJobButtons from "../employeeComponents/EmployeesJobButtons";
-import EmployeeLevelButtons from "../employeeComponents/EmployeeLevelButtons";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
-import RecruitmentBoard from "./RecruitmentBoard";
-import EmployeeItem2 from "../employeeComponents/EmployeeItem2";
-import {EmployeeType} from "../../../../@types/employeeType";
+
 import {MachineType} from "../../../../@types/MachineType";
-import employeeList from "../employeeComponents/EmployeeList";
 import MachineItem2 from "../employeeComponents/MachineItem2";
 import MachineLevelButtons from "../employeeComponents/MachineLevelButtons";
 import BuyMachineBoard from "./BuyMachineBoard";

@@ -4,7 +4,7 @@ import "../../../../@styles/main/components/companyPage/employeeConponentsStyles
 
 const EmployeeItem2: FC<{employee:EmployeeType}> = ({employee}) => {
     return (
-        <div className="employee-card">
+        <div className="card-item">
             <div className="infos">
                 <div className="image">
                     <img src={employee.image} alt="employee picture"/>
