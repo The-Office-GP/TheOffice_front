@@ -26,7 +26,8 @@ const RegisterForm: FC = () => {
         username: '',
         email: '',
         password: '',
-        passwordConfirmation: ''
+        passwordConfirmation: '',
+        wallet: null,
     });
 
     //récupère données des inputs à chaque changement

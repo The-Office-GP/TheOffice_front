@@ -8,4 +8,5 @@ export interface RegisterFormInput {
     email: string;
     password: string;
     passwordConfirmation: string;
+    wallet: null;
 }

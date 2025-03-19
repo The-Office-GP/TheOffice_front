@@ -21,7 +21,7 @@ export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessa
         username: registerInput.username,
         password: registerInput.password,
         role: "USER",
-        wallet: 1
+        wallet: registerInput.wallet
     };
 
     await subscribeCallApi(setErrorMessages, data, setIsSubmitting, setRegisterIsMake)
