@@ -17,7 +17,7 @@ const MiniDashboard: FC<{company:CompanyDetailsType, wallet:number}> = ({company
             <div className={"infos-display"}>
                 <div className={"mini-dashboard-info"}>
                     <PeopleOutlineIcon/>
-                    <span className={"negative"}>- 2%</span>/<span className={"positive"}>+ 4%</span>
+                    <span>{company.popularity}</span>
                 </div>
                 <div className={"mini-dashboard-info"}>
                     <StackedLineChartIcon/>
