@@ -1,15 +1,21 @@
-import {FC, useContext} from 'react';
+import {Dispatch, FC, SetStateAction, useContext} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import {MachineType} from "../../../../@types/MachineType";
 
-const MachineItem: FC<{ machine: MachineType, type: string }> = ({machine, type}) => {
+const MachineItem: FC<{ machine:MachineType, type:string,purchaseIsMake:boolean, setPurchaseIsMake:Dispatch<SetStateAction<boolean>>}> = ({machine, type,purchaseIsMake , setPurchaseIsMake}) => {
     const companyContext = useContext(CompanyContext)
 
     const addMachine = () => {
-        companyContext.company.machines.push(machine)
+        if(!purchaseIsMake){
+            companyContext.company.machines.push(machine)
+            setPurchaseIsMake(true)
+            setTimeout(() => {
+                setPurchaseIsMake(false)
+            }, 1000);
+        }
     }
 
     return (
@@ -26,7 +32,7 @@ const MachineItem: FC<{ machine: MachineType, type: string }> = ({machine, type}
                 <EmployeeCardButtons/>
                 :
                 <button className={"increase-button"}
-                        onClick={() => companyContext.company.machines.push(machine)}>Acheter</button>
+                        onClick={addMachine}>Acheter</button>
             }
         </div>
     );

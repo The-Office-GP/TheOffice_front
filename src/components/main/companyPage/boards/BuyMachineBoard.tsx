@@ -13,6 +13,7 @@ import MachineItem from "../employeeComponents/MachineItem";
 const BuyMachineBoard: FC<{}> = ({}) => {
     const companyContext = useContext(CompanyContext)
     const [listMachineForBuy, setListMachineForBuy] = useState<MachineType[]>([])
+    const [purchaseIsMake, setPurchaseIsMake] = useState<boolean>(false)
 
     useEffect(() => {
         collectMachineForBuy()
@@ -36,12 +37,16 @@ const BuyMachineBoard: FC<{}> = ({}) => {
                     <img className={'recruitment-img'}
                          src={"/assets/Employees/employees-avatars/anneLise.png"}
                          alt={"recruitment-people"}/>
-                    <span>Voici des machines que l'on pourrait acheter pour notre entreprise</span>
+                    {purchaseIsMake ?
+                        <span>L'achat a été effectué !</span>
+                    :
+                        <span>Voici des machines que l'on pourrait acheter pour notre entreprise</span>
+                    }
                 </div>
             </div>
             <div className={"recruitment-card-display"}>
                 {listMachineForBuy.map((machine, index) => (
-                    <MachineItem key={index} machine={machine} type={"recruitment"}/>))}
+                    <MachineItem key={index} machine={machine} type={"recruitment"} purchaseIsMake={purchaseIsMake} setPurchaseIsMake={setPurchaseIsMake}/>))}
             </div>
 
         </>
