@@ -21,7 +21,7 @@ const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                     <EmployeesCard/>
                     <ToolsCard/>
                 </div>
-                <SimulationButton/>
+                <SimulationButton setPage={setPage}/>
             </div>
         </section>
     );
