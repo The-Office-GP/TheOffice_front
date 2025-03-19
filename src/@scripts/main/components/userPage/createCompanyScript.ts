@@ -78,6 +78,7 @@ export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorM
         sector: companyInput.sector,
         name: companyInput.name,
         creation_date: "2024-10-10",
+        popularity: 0,
         id_user: userContext.userInfo.id,
         image: "path"
     }

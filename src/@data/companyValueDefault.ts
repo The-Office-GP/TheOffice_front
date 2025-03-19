@@ -24,6 +24,7 @@ export const companyDetailsDefault: CompanyDetailsType = {
     id: 1,
     sector: "Default",
     name: "Name",
+    popularity: 0,
     idUser: 0,
     local: localTypeDefault,
     wallet: 0,

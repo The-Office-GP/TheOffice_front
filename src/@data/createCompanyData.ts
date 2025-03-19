@@ -27,6 +27,7 @@ export const defaultValueCompany = {
     sector: "",
     name: "",
     creation_date: "2024-10-10",
+    popularity: 0,
     id_user: 0,
     image: "path",
 }

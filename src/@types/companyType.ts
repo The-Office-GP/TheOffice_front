@@ -6,6 +6,7 @@ export interface CompanyType {
     sector: string;
     name: string;
     creation_date: string;
+    popularity: number;
     id_user: number;
     machines: null;
     employees: null;
@@ -16,6 +17,7 @@ export interface CompanyDetailsType {
     id: number;
     sector: string;
     name: string;
+    popularity: number;
     idUser: number;
     local: LocalType;
     wallet: number;
