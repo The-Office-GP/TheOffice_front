@@ -12,6 +12,7 @@ import EmployeeBoard from "../components/main/companyPage/boards/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
 import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
+import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
@@ -22,22 +23,14 @@ const CompanyPage: FC<{}> = ({}) => {
     const [level, setLevel] = useState<string>("")
 
     useEffect(() => {
-        collectCompanyInfos()
+        const path:string = "/companies/"+id
+        collectCompanyInfos(path, setCompany)
     }, []);
 
     useEffect(() => {
         setUrl(company.local.pathBackgroundImage);
         setLevel(company.local.level);
     }, [company]);
-
-    const collectCompanyInfos = async () => {
-        try {
-            const response = await getTheOfficeDbUser(`/companies/${id}`, getToken());
-            setCompany(response)
-        } catch (error) {
-            console.error('Erreur lors de la connexion:', error);
-        }
-    };
 
 
     return (
