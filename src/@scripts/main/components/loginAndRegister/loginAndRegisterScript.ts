@@ -14,6 +14,11 @@ export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessa
     if (!usernameIsValidate(registerInput.username, setErrorMessages) || !emailIsValidate(registerInput.email, setErrorMessages)) {
         return
     }
+
+    if(!passwordIsValidate(registerInput.password, registerInput.passwordConfirmation, setErrorMessages)) {
+        return
+    }
+
     setIsSubmitting(true);
 
     const data = {
@@ -122,6 +127,19 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
         return false;
     }
     else {
+        return true;
+    }
+}
+
+//vérifie que le mail est bien au format mail
+export const passwordIsValidate = (password:string, confirmPassword:string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
+
+    if (password !== confirmPassword) {
+        setErrorMessages({
+            password: "Le mot de passe doit correspondre à sa confirmation",
+        });
+        return false;
+    } else {
         return true;
     }
 }
