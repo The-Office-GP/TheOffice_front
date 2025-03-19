@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
-import '../../../@styles/b_main/components/globalUser/miniDashboard.css'
+import '../../../@styles/main/components/globalUser/miniDashboard.css'
 
 const WalletCompanyPage: FC<{ walletValue: Number }> = ({walletValue}) => {
 

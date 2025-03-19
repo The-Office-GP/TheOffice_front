@@ -2,9 +2,9 @@ import {FC} from 'react';
 import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
-import {RouteType} from "../_types/routes/routeType";
-import UserPage from "../pages/b_main/UserPage";
-import CompanyPage from "../pages/b_main/CompanyPage";
+import {RouteType} from "../@types/routes/routeType";
+import UserPage from "../pages/UserPage";
+import CompanyPage from "../pages/CompanyPage";
 
 const Router: FC = () => {
     //tableau des routes

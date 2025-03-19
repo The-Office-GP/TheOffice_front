@@ -7,7 +7,7 @@ import {authReducer, initialAuthState} from "./reducer/LoginReducer";
 import { AuthContext } from './contexts/AuthContext';
 import {getToken} from "./utilis/storage";
 import {UserContext} from "./contexts/UserContext";
-import {UserType} from "./_types/userType";
+import {UserType} from "./@types/userType";
 import {deleteTokenExpired} from "./@scripts/storage/loginCheck";
 
 function App() {

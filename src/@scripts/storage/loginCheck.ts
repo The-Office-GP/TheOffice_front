@@ -1,5 +1,5 @@
 import {getUserInfo} from "../../utilis/storage";
-import {UserType} from "../../_types/userType";
+import {UserType} from "../../@types/userType";
 import {UserContextProps} from "../../contexts/UserContext";
 import {jwtDecode, JwtPayload} from "jwt-decode";
 import {Dispatch, SetStateAction} from "react";

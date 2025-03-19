@@ -1,9 +1,9 @@
 import {FC, useContext} from 'react';
-import '../../@styles/a_header/dropdownMenu.css';
+import '../../@styles/header/dropdownMenu.css';
 import {useAuth} from "../../contexts/AuthContext";
 import {useNavigate} from "react-router";
 import {UserContext} from "../../contexts/UserContext";
-import {handleDashboard, handleLogout, handleSettings} from "../../@scripts/a_header/dropdownScript";
+import {handleDashboard, handleLogout, handleSettings} from "../../@scripts/header/dropdownScript";
 
 const DropdownMenu: FC<{buttonAction:()=>void, username:string}> = ({buttonAction, username}) => {
     const {dispatch} = useAuth();
