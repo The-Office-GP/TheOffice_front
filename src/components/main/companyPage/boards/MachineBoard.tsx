@@ -15,7 +15,11 @@ interface FilterType {
 
 const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const companyContext = useContext(CompanyContext)
+<<<<<<< HEAD
     const [machineInCompanyList, setMachineInCompanyList] = useState<MachineShortType[]>(companyContext.company.machinesInCompany)
+=======
+    const [machineInCompanyList, setMachineInCompanyList] = useState<MachineType[]>(companyContext.company.machines)
+>>>>>>> 5916d0477f2ffc4440ff72abcda9479d919b8e15
     const [stateBoard, setStateBoard] = useState<boolean>(false)
     const [filter, setFilter] = useState<FilterType>({level:"ALL"} as FilterType)
 
@@ -25,9 +29,13 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
 
     const filterListMachine = () => {
         if(filter.level === "ALL"){
-            setMachineInCompanyList(companyContext.company.machinesInCompany)
+            setMachineInCompanyList(companyContext.company.machines)
         }else {
+<<<<<<< HEAD
             setMachineInCompanyList(companyContext.company.machinesInCompany.filter((machine:MachineShortType) => companyContext.company.machines[machine.machineId].productionQuality === filter.level))
+=======
+            setMachineInCompanyList(companyContext.company.machines.filter((machine) => machine.productionQuality === filter.level))
+>>>>>>> 5916d0477f2ffc4440ff72abcda9479d919b8e15
         }
     }
 
@@ -42,7 +50,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                             <h3>Mes machines</h3>
                         </div>
                         <div className={"item-list"}>
-                            {companyContext.company.machinesInCompany.length === 0 ?
+                            {companyContext.company.machines.length === 0 ?
                                 <h4>L'entreprise ne possède aucune machine</h4>
                             :
                                 <>
