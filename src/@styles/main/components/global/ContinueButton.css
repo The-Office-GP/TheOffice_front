@@ -1,0 +1,15 @@
+.continue-button {
+    margin: 20px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 40px;
+    background: #FFB35C;
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: bold;
+}
+
+.continue-button:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,15 @@
+.start-simulation-button {
+    margin: 20px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 40px;
+    background: #FFB35C;
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: bold;
+}
+
+.start-simulation-button:hover {
+    transform: scale(1.1);
+}
