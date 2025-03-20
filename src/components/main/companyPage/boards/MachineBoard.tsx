@@ -4,7 +4,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 
-import {MachineType} from "../../../../@types/MachineType";
+import {MachineShortType, MachineType} from "../../../../@types/MachineType";
 import MachineItem2 from "../employeeComponents/MachineItem2";
 import MachineLevelButtons from "../employeeComponents/MachineLevelButtons";
 import BuyMachineBoard from "./BuyMachineBoard";
@@ -15,7 +15,7 @@ interface FilterType {
 
 const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const companyContext = useContext(CompanyContext)
-    const [machineInCompanyList, setMachineInCompanyList] = useState<MachineType[]>(companyContext.company.machinesInCompany)
+    const [machineInCompanyList, setMachineInCompanyList] = useState<MachineShortType[]>(companyContext.company.machinesInCompany)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
     const [filter, setFilter] = useState<FilterType>({level:"ALL"} as FilterType)
 
@@ -27,7 +27,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
         if(filter.level === "ALL"){
             setMachineInCompanyList(companyContext.company.machinesInCompany)
         }else {
-            setMachineInCompanyList(companyContext.company.machinesInCompany.filter((machine) => machine.productionQuality === filter.level))
+            setMachineInCompanyList(companyContext.company.machinesInCompany.filter((machine:MachineShortType) => companyContext.company.machines[machine.machineId].productionQuality === filter.level))
         }
     }
 
@@ -46,7 +46,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                                 <h4>L'entreprise ne possède aucune machine</h4>
                             :
                                 <>
-                                    {machineInCompanyList.map((machineInCompany) => (<MachineItem2 machineInCompany={machineInCompany}/>))}
+                                    {machineInCompanyList.map((machineInCompany:MachineShortType) => (<MachineItem2 machine={companyContext.company.machines[machineInCompany.machineId-1]}/>))}
                                 </>
                             }
                         </div>

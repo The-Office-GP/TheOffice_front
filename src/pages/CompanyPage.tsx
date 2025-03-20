@@ -16,7 +16,6 @@ const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
     const [statePage, setStatePage] = useState<number>(0)
     const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
-    const userContext: UserContextProps = useContext(UserContext)
     const [url, setUrl] = useState<string>("")
     const [level, setLevel] = useState<string>("")
 

@@ -6,3 +6,9 @@ export interface MachineType {
     "maintenanceCost": number,
     "image": string
 }
+
+export interface MachineShortType {
+    "id": number,
+    "machineId": number,
+    "companyId": number
+}

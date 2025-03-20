@@ -3,7 +3,7 @@ import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
-import {MachineType} from "../../../../@types/MachineType";
+import {MachineShortType, MachineType} from "../../../../@types/MachineType";
 import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {useParams} from "react-router";
 
@@ -13,8 +13,8 @@ const MachineItem: FC<{ machine:MachineType, type:string,purchaseIsMake:boolean,
 
     const addMachine = () => {
         if(!purchaseIsMake){
-            companyContext.company.machines.push(machine)
             const id = Number(params.id);
+            companyContext.company.machinesInCompany.push({id:0, machineId:machine.id, companyId:id} as MachineShortType)
             saveCompanyInfo(id, companyContext.company, companyContext.setCompany)
             setPurchaseIsMake(true)
             setTimeout(() => {

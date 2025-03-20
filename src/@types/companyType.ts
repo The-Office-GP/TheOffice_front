@@ -1,5 +1,5 @@
 import {EmployeeType} from "./employeeType";
-import {MachineType} from "./MachineType";
+import {MachineShortType, MachineType} from "./MachineType";
 
 export interface CompanyType {
     id: number;
@@ -23,12 +23,12 @@ export interface CompanyDetailsType {
     wallet: number;
     cycles: [];
     machines: MachineType[];
-    machinesInCompany: MachineType[];
     employees: EmployeeType[];
     suppliers: [];
     events: [];
     stockMaterials: [];
     stockFinalMaterials: [];
+    machinesInCompany: MachineShortType[];
 }
 
 export interface LocalType {

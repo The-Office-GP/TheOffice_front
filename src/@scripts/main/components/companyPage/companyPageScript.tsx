@@ -27,7 +27,8 @@ export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, set
             suppliers: company.suppliers,
             events: company.events,
             stockMaterials: company.stockMaterials,
-            stockFinalMaterials: company.stockFinalMaterials
+            stockFinalMaterials: company.stockFinalMaterials,
+            machinesInCompany: company.machinesInCompany,
         }
         console.log(data)
         const response = await putTheOfficeDbUser(`/companies/${id}`, data, getToken());
