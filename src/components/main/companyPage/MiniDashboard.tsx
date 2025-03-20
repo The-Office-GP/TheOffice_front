@@ -6,13 +6,13 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import "../../../@styles/main/components/globalUser/miniDashboard.css";
 import {CompanyDetailsType} from "../../../@types/companyType";
 
-const MiniDashboard: FC<{company:CompanyDetailsType, wallet:number}> = ({company, wallet}) => {
+const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
     return (
         <div className={"mini-dashboard"}>
             <h3>{company.name}</h3>
             <div className={"mini-dashboard-info-money"}>
                 <PaidIcon/>
-                <p>{wallet}€</p>
+                <p>{company.wallet}€</p>
             </div>
             <div className={"infos-display"}>
                 <div className={"mini-dashboard-info"}>

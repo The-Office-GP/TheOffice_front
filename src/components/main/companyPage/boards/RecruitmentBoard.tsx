@@ -33,7 +33,7 @@ const RecruitmentBoard: FC<{}> = ({}) => {
                 <span>Voici des machines que l'on pourrait acheter pour notre entreprise</span>
             </div>
             <div className={"recruitment-card-display"}>
-                {listEmployeeForRecruitment.map((employee, index) => (<EmployeeItem key={index} employee={employee} type={"recruitment"} setListParent={setListEmployeeForRecruitment}/>))}
+                {listEmployeeForRecruitment.map((employee, index) => (<EmployeeItem key={index} employee={employee} type={"recruitment"} listParent={listEmployeeForRecruitment} setListParent={setListEmployeeForRecruitment}/>))}
             </div>
 
         </>

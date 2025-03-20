@@ -4,7 +4,7 @@
     height: auto;
     border-radius: 15px;
     background-color: var(--medium-blue);
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -14,6 +14,12 @@
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 8px;
+}
+
+.card-item .image {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
 }
 
 .card-item img {
@@ -92,4 +98,10 @@
     cursor: pointer;
     background-color: var(--orange);
     color: var(--deep-blue);
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    gap: 8px;
 }
