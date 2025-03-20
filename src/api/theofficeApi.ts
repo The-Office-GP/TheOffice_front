@@ -70,8 +70,8 @@ export const putTheOfficeDbUser = (url: string, data: any, token: string | null,
     config = {
         headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',  // Assurez-vous que Content-Type est défini sur application/json
-            'Accept': 'application/json'  // Assurez-vous que Accept est défini sur application/json
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         }
     };
     const jsonData = JSON.stringify(data);

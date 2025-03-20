@@ -8,10 +8,11 @@ import {LocalType} from "../../../../@types/companyType";
 import {postTheOfficeDbUser, putTheOfficeDbUser} from "../../../../api/theofficeApi";
 import {getToken} from "../../../../utilis/storage";
 import {useParams} from "react-router";
+import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 
 const EmployeeItem: FC<{employee:EmployeeType, type:string,listParent:EmployeeType[], setListParent:Dispatch<SetStateAction<EmployeeType[]>>}> = ({employee, type,listParent, setListParent}) => {
     const companyContext = useContext(CompanyContext)
-    const id = useParams()
+    const params = useParams()
 
     useEffect(() => {
         console.log(employee)
@@ -19,33 +20,12 @@ const EmployeeItem: FC<{employee:EmployeeType, type:string,listParent:EmployeeTy
 
     const addEmployee = () => {
         companyContext.company.employees.push(employee)
-        saveCompanyInfo()
         setListParent(listParent.filter((item)=> item !== employee))
+        const id = Number(params.id);
+        saveCompanyInfo(id, companyContext.company, companyContext.setCompany)
     }
 
-    const saveCompanyInfo = async ()=> {
-        try {
-            const data = {
-                sector: companyContext.company.sector,
-                name: companyContext.company.name,
-                popularity: companyContext.company.popularity,
-                userId: companyContext.company.idUser,
-                local: companyContext.company.local,
-                machines: companyContext.company.machines,
-                wallet: companyContext.company.wallet,
-                cycles: companyContext.company.cycles,
-                employees: companyContext.company.employees,
-                suppliers: companyContext.company.suppliers,
-                events: companyContext.company.events,
-                stockMaterials: companyContext.company.stockMaterials,
-                stockFinalMaterials: companyContext.company.stockFinalMaterials
-            }
-            console.log(data)
-            await putTheOfficeDbUser(`/companies/${id.id}`, data, getToken());
-        } catch (error) {
-            console.error('Erreur lors de la sauvegarde:', error);
-        }
-    }
+
 
     return (
         <div className="obtain-item-card">
