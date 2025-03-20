@@ -15,7 +15,7 @@ interface FilterType {
 
 const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const companyContext = useContext(CompanyContext)
-    const [machineList, setMachineList] = useState<MachineType[]>(companyContext.company.machines)
+    const [machineInCompanyList, setMachineInCompanyList] = useState<MachineType[]>(companyContext.company.machinesInCompany)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
     const [filter, setFilter] = useState<FilterType>({level:"ALL"} as FilterType)
 
@@ -25,9 +25,9 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
 
     const filterListMachine = () => {
         if(filter.level === "ALL"){
-            setMachineList(companyContext.company.machines)
+            setMachineInCompanyList(companyContext.company.machinesInCompany)
         }else {
-            setMachineList(companyContext.company.machines.filter((machine) => machine.productionQuality === filter.level))
+            setMachineInCompanyList(companyContext.company.machinesInCompany.filter((machine) => machine.productionQuality === filter.level))
         }
     }
 
@@ -42,11 +42,11 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                             <h3>Mes machines</h3>
                         </div>
                         <div className={"item-list"}>
-                            {companyContext.company.machines.length === 0 ?
+                            {companyContext.company.machinesInCompany.length === 0 ?
                                 <h4>L'entreprise ne possède aucune machine</h4>
                             :
                                 <>
-                                    {machineList.map((machine) => (<MachineItem2 machine={machine}/>))}
+                                    {machineInCompanyList.map((machineInCompany) => (<MachineItem2 machineInCompany={machineInCompany}/>))}
                                 </>
                             }
                         </div>
