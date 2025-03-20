@@ -4,13 +4,18 @@ import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import {MachineType} from "../../../../@types/MachineType";
+import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
 
 const MachineItem: FC<{ machine:MachineType, type:string,purchaseIsMake:boolean, setPurchaseIsMake:Dispatch<SetStateAction<boolean>>}> = ({machine, type,purchaseIsMake , setPurchaseIsMake}) => {
     const companyContext = useContext(CompanyContext)
+    const params = useParams()
 
     const addMachine = () => {
         if(!purchaseIsMake){
             companyContext.company.machines.push(machine)
+            const id = Number(params.id);
+            saveCompanyInfo(id, companyContext.company, companyContext.setCompany)
             setPurchaseIsMake(true)
             setTimeout(() => {
                 setPurchaseIsMake(false)
