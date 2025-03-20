@@ -1,18 +1,25 @@
-import {FC, useContext} from 'react';
+import {Dispatch, FC, SetStateAction, useContext, useEffect} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
+import {MachineType} from "../../../../@types/MachineType";
+import {LocalType} from "../../../../@types/companyType";
 
-const EmployeeItem: FC<{employee:EmployeeType, type:string}> = ({employee, type}) => {
+const EmployeeItem: FC<{employee:EmployeeType, type:string,listParent:EmployeeType[], setListParent:Dispatch<SetStateAction<EmployeeType[]>>}> = ({employee, type,listParent, setListParent}) => {
     const companyContext = useContext(CompanyContext)
+
+    useEffect(() => {
+        console.log(employee)
+    }, []);
 
     const addEmployee = () => {
         companyContext.company.employees.push(employee)
+        setListParent(listParent.filter((item)=> item !== employee))
     }
 
     return (
-        <div className="employee-card">
+        <div className="obtain-item-card">
             <img src={employee.image} alt="employee picture"/>
             <div className={"info-container"}>
                 <span> {employee.name}</span>
@@ -25,33 +32,9 @@ const EmployeeItem: FC<{employee:EmployeeType, type:string}> = ({employee, type}
                 <EmployeeCardButtons/>
                 :
                 <button className={"increase-button"}
-                        onClick={() => companyContext.company.employees.push(employee)}>Recrutement</button>
+                        onClick={addEmployee}>Recrutement</button>
             }
         </div>
-        /*<div className="employee-card">
-            <div className="employee-card-title">
-                {employee.image ? (
-                    <img src={employee.image} alt="employee picture"/>
-                ) : (
-                    <img src="/logo192.png" alt="employee picture"/>
-
-                )}
-                <h3>{employee.name}</h3>
-            </div>
-            <div className={"employee-card-info"}>
-                <p className={"employees-p-list"}>Poste : {employee.job}</p>
-                <p className={"employees-p-list"}>Salaire : {employee.salary} €</p>
-                <p className={"employees-p-list"}>Niveau: {employee.level}</p>
-                <p className={"employees-p-list"}>Humeur: {employee.mood}</p>
-                <p className={"employees-p-list"}>Santé : {employee.health}%</p>
-                <progress value={employee.health} max="100"></progress>
-                {type === "companyTeam" ?
-                    <EmployeeCardButtons/>
-                :
-                    <button className={"increase-button"} onClick={() => companyContext.company.employees.push(employee)}>Recrutement</button>
-                }
-            </div>
-        </div>*/
     );
 };
 

@@ -24,23 +24,19 @@ const RecruitmentBoard: FC<{}> = ({}) => {
     };
 
     return (
-        <section className={"office-background-section"}>
-            <div className={"recruitment-card-header"}>
-                <div className={"h3-description"}>
-                    <h3>Recrutement</h3>
-                    <img className={'recruitment-img'}
-                         src={"/assets/Employees/employees-avatars/anneLise.png"}
-                         alt={"recruitment-people"}/>
-                    <span>Nous avons besoins de recruter. Anna Lyse, votre secrétaire vous a organisé une série
-                        d'entretiens. Glissez la carte du candidat vers la gauche ou la droite pour faire votre
-                        choix.</span>
-                </div>
+        <>
+            <h3>Recrutement</h3>
+            <div className={"div-assistante"}>
+                <img className={'recruitment-img'}
+                     src={"/assets/Employees/employees-avatars/anneLise.png"}
+                     alt={"recruitment-people"}/>
+                <span>Voici des machines que l'on pourrait acheter pour notre entreprise</span>
             </div>
             <div className={"recruitment-card-display"}>
-                {listEmployeeForRecruitment.map((employee, index) => (<EmployeeItem key={index} employee={employee} type={"recruitment"}/>))}
+                {listEmployeeForRecruitment.map((employee, index) => (<EmployeeItem key={index} employee={employee} type={"recruitment"} listParent={listEmployeeForRecruitment} setListParent={setListEmployeeForRecruitment}/>))}
             </div>
 
-        </section>
+        </>
     );
 };
 

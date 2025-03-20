@@ -29,8 +29,7 @@ export const createCompany = async (setIsSubmitting:Dispatch<SetStateAction<bool
 //Vérifie que le nom de l'entreprise commence par une lettre et ne contient pas de caractères spéciaux sauf espace et apostrophe
 export const companyNameIsValidate = (name: string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
     const nameRegex = /^[A-Za-z]([A-Za-z' ]*)$/;
-    console.log(!nameRegex.test(name));
-    if (!nameRegex.test(name)) {
+    if (!nameRegex.test(name) || name.length < 1) {
         setErrorMessages({
             companyName: "Le nom n'est pas valide: le premier caractère doit être une lettre et seuls les apostrophe et espace sont autorisé."
         });
@@ -62,7 +61,7 @@ export const applyTheChoice = (choice:number, setSelectSector:Dispatch<SetStateA
 }
 
 //Soumet les informations de l'entreprise pour la création
-export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, companyInput:CompanyCreatedType, userContext:UserContextProps, setIsSubmitting:Dispatch<SetStateAction<boolean>>) => {
+export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, companyInput:CompanyCreatedType, userContext:UserContextProps, setIsSubmitting:Dispatch<SetStateAction<boolean>>, setFormIsVisible:Dispatch<SetStateAction<boolean>>) => {
     e.preventDefault();
     setErrorMessages({});
 
@@ -85,4 +84,5 @@ export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorM
 
     setIsSubmitting(true)
     await createCompany(setIsSubmitting, data, setErrorMessages)
+    setFormIsVisible(false)
 }

@@ -11,8 +11,8 @@ import {UserType} from "./@types/userType";
 import {deleteTokenExpired} from "./@scripts/storage/loginCheck";
 
 function App() {
-    const [state, dispatch] = useReducer(authReducer, initialAuthState);
     const navigate = useNavigate();
+    const [state, dispatch] = useReducer(authReducer, initialAuthState);
     const [userInfo, setUserInfo] = useState<UserType>({id:0, email:"", username:"", role:"", wallet:0} as UserType);
 
     useEffect(() => {

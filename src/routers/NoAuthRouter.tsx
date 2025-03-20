@@ -9,7 +9,6 @@ const NoAuthRouter: FC = () => {
     //tableau des routes
     const routesNoAuth: RouteType[] = [
         {path: "/", element: <HomePage/>},
-        {path: "/accueil", element: <HomePage/>},
     ]
 
     return (
