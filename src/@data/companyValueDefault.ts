@@ -35,4 +35,5 @@ export const companyDetailsDefault: CompanyDetailsType = {
     events: [],
     stockMaterials: [],
     stockFinalMaterials: [],
+    machinesInCompany: [],
 }

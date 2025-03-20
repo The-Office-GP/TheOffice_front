@@ -23,6 +23,7 @@ export interface CompanyDetailsType {
     wallet: number;
     cycles: [];
     machines: MachineType[];
+    machinesInCompany: MachineType[];
     employees: EmployeeType[];
     suppliers: [];
     events: [];
