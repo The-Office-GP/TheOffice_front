@@ -3,8 +3,6 @@ import "../../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "../employeeComponents/EmployeesJobButtons";
 import EmployeeLevelButtons from "../employeeComponents/EmployeeLevelButtons";
-import {Grid2} from "@mui/material";
-import EmployeeList from "../employeeComponents/EmployeeList";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";

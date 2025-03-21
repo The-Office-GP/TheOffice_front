@@ -1,10 +1,15 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
 import "../../../../@styles/main/components/global/buttons/StartSimulationButton.css"
 
-const StartSimulationButton: FC<{}> = ({}) => {
+
+interface StartSimulationButtonProps {
+    onStart: () => void;
+}
+const StartSimulationButton: FC<StartSimulationButtonProps> = ({onStart}) => {
+
     return (
         <>
-            <button className={"start-simulation-button"}>Lancer simulation</button>
+            <button className={"start-simulation-button"} onClick={onStart} >Lancer simulation</button>
         </>
     );
 };

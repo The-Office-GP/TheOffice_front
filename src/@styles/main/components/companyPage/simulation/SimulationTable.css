@@ -1,0 +1,9 @@
+.background-table-head {
+    background-color: rgba(33, 158, 188, 0.8);
+    color: #FFB35C;
+}
+
+.cellule {
+    background: rgba(142, 202, 230, 0.8);
+    justify-content: center;
+}

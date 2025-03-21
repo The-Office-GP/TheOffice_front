@@ -54,7 +54,7 @@ const CompanyPage: FC<{}> = ({}) => {
                 {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
                 {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
                 {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
-                {statePage === 4 && <SimulationBoard/>}
+                {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
                 <h3 className={"level"}>{level}</h3>
             </section>
         </CompanyContext.Provider>

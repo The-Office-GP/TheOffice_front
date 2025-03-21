@@ -1,11 +1,18 @@
-import {FC} from 'react';
+import {Dispatch, FC, SetStateAction, useState} from 'react';
 import StartSimulationButton from "../buttons/StartSimulationButton";
+import ExitButton from "../../../share/ExitButton";
 
-const SimulationBoard: FC<{}> = ({}) => {
+import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
+
+const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
+    const [stateSimulation, setStateSimulation] = useState<boolean>(false)
     return (
         <>
             <div className={"simulation-container"}>
-                <h2>Simulation</h2>
+                <div className={"exit-h2-container"}>
+                    <ExitButton setPage={setPage}/>
+                    <h2>Simulation</h2>
+                </div>
                 <div className={"settings"}>
                     <div className={"production-settings-part"}>
                         <div className={"setting-container-production"}>
@@ -17,7 +24,7 @@ const SimulationBoard: FC<{}> = ({}) => {
                             <input type={"range"} className={"range-input-production"}/>
                         </div>
                         <div className={"setting-container-production"}>
-                            <label className={"marketing-label "}>Prioriser le marketing &nbsp; </label>
+                            <label className={"marketing-label "}>Prioriser le marketing </label>
                             <input type={"range"} className={"range-input-production"}/>
                         </div>
                     </div>
@@ -40,7 +47,7 @@ const SimulationBoard: FC<{}> = ({}) => {
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton/>
+                <StartSimulationButton onStart={() => setStateSimulation(true)}/>
             </div>
         </>
     );
