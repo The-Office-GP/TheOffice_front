@@ -1,0 +1,107 @@
+.card-item {
+    min-width: 330px;
+    max-height: 180px;
+    height: auto;
+    border-radius: 15px;
+    background-color: var(--medium-blue);
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card-item .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.card-item .image {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
+}
+
+.card-item img {
+    height: 100px;
+    width: 100px;
+    border-radius: 0.5rem;
+    background-color: var(--medium-blue);
+    background: linear-gradient(to bottom right, var(--medium-blue), var(--medium-blue-opacity));
+}
+
+.card-item progress {
+    width: 100px;
+}
+
+.card-item .info {
+    height: 100px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-item .name {
+    font-size: 20px;
+    line-height: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.card-item .function {
+    font-size: 14px;
+    line-height: 1rem;
+    color: white;
+}
+
+.card-item .stats {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--clear-blue);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 12px;
+    color: var(--deep-blue);
+}
+
+.card-item .flex {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 4px;
+}
+
+.card-item .state-value {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--deep-blue);
+}
+
+.card-item .request {
+    margin-top: 1.5rem;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    transition: all .3s ease;
+}
+
+.card-item .request:hover {
+    cursor: pointer;
+    background-color: var(--orange);
+    color: var(--deep-blue);
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}

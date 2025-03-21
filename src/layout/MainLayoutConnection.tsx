@@ -1,25 +1,22 @@
-import React, {FC} from "react";
-import Header from "../pages/a_header/Header";
+import React, {FC, useContext, useEffect} from "react";
+import Header from "./header/Header";
 import {Outlet} from "react-router";
-import Footer from "../pages/c_footer/Footer";
-import {User} from "../_types/user";
-import {getUserInfo} from "../utilis/storage";
+import Footer from "./footer/Footer";
+import {UserContext} from "../contexts/UserContext";
+import {userInfoCheck} from "../@scripts/storage/loginCheck";
 
-const MainLayoutConnection: FC<{}> = ({}) => {
-    let user: User | null = null;
+const MainLayoutConnection: FC = () => {
+    const userContext = useContext(UserContext);
 
-    const username = () => {
-        const userInfo = getUserInfo();
-        if (userInfo !== null) {
-            user = JSON.parse(userInfo);
-            console.log(user?.username);
-        }
-        return user ? user.username : "";
-    };
+    //Quand le composant est chargé. On vérifie dans le local storage les informations de l'utilisateur
+    useEffect(() => {
+        userInfoCheck(userContext);
+    }, [userContext]);
+
 
     return (
         <>
-            <Header userIsLogged={true} username={username()}/>
+            <Header userIsLogged={true} username={userContext.userInfo.username}/>
             <Outlet/>
             <Footer/>
         </>

@@ -1,4 +1,4 @@
-import {removeToken, saveToken} from "../utilis/storage";
+import {removeToken, removeUserInfo, saveToken} from "../utilis/storage";
 
 export interface AuthState {
     token: string | null;
@@ -21,6 +21,7 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
             };
         case 'LOGOUT':
             removeToken();
+            removeUserInfo();
             return {
                 token: null,
             };

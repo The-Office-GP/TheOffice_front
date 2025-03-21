@@ -1,0 +1,73 @@
+.mini-dashboard {
+    position: absolute;
+    top: 95px;
+    right: 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: flex-end;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    background-color: var(--deep-blue);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
+    color: var(--orange);
+    font-size: x-large;
+}
+
+.mini-dashboard h3 {
+    margin: 0;
+    font-size: x-large;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.mini-dashboard-info-money {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infos-display {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mini-dashboard-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.infos-display {
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+}
+
+.negative {
+    color: #ff0000;
+}
+
+.positive {
+    color: #2bea2b;
+}

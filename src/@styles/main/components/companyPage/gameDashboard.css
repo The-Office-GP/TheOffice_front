@@ -1,0 +1,35 @@
+.dashboard-display {
+    position: relative;
+    width: 100%;
+    max-width: 990px;
+    height: auto;
+    background: var(--deep-blue);
+    padding: 16px 24px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.56);
+}
+
+.metrics-cards-container {
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-title {
+    margin: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.dashboard-icon {
+    margin: 0 5px 5px 0 !important;
+    width: 50px !important;
+    height: 50px !important;
+
+}

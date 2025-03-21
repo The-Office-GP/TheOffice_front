@@ -1,15 +1,26 @@
-import {FC} from 'react';
-import HomePage from "../pages/b_main/HomePage";
+import {FC, lazy} from 'react';
 import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
+import {RouteType} from "../@types/routes/routeType";
 
-const Router: FC<{}> = ({}) => {
+const UserPage = lazy(() => import("../pages/UserPage"));
+const CompanyPage = lazy(() => import("../pages/CompanyPage"));
+
+const Router: FC = () => {
+    //tableau des routes
+    const routesAuth: RouteType[] = [
+        {path: "/", element: <UserPage/>},
+        {path: "/user", element: <UserPage/>},
+        {path: "/dashboard", element: <UserPage/>},
+        {path: "/setting", element: <UserPage/>},
+        {path: "/company/:id", element: <CompanyPage/>}
+    ]
+
     return (
         <Routes>
             <Route path="/" element={<MainLayoutConnection/>}>
-                <Route path="/Home" element={<HomePage/>}/>
-                <Route path="/" element={<HomePage/>}/>
+                {routesAuth.map((route:RouteType, index:number) => <Route key={index} path={route.path} element={route.element}/>)}
             </Route>
         </Routes>
     );
