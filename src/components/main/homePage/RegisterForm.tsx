@@ -8,6 +8,7 @@ import {useAuth} from "../../../contexts/AuthContext";
 import {FormContext} from "../../../contexts/FormContext";
 import {UserContext} from "../../../contexts/UserContext";
 import {inputChange} from "../../../@scripts/main/components/formInput";
+import ExitButton from "../../share/ExitButton";
 
 //Formulaire d'inscription qui permet à la fin soit de se connecter soit de retourner à l'accueil
 const RegisterForm: FC = () => {
@@ -53,6 +54,7 @@ const RegisterForm: FC = () => {
     return (
         <>
             {registerIsMake ?
+                <ExitButton setPage={setPage}/>
                 <div className={"subscribe-form"}>
                     <h2>Enregistrement effectué !</h2>
                     {!isSubmitting ?
@@ -62,7 +64,6 @@ const RegisterForm: FC = () => {
                             <p>Vérification</p>
                         </div>
                     }
-                    <button type={"button"} className={"subscribe-button"} onClick={handleBack}>Retour</button>
                 </div>
                 :
                 <form className={"subscribe-form"} onSubmit={handleSubmit}>

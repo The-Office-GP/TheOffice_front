@@ -23,5 +23,6 @@
     display: flex;
     align-self: start !important;
     font-size: xxx-large !important;
+    font-weight: bold;
     color: #FFFFFF;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;}

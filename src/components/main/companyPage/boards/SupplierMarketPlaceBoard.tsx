@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
 import SupplierMarketPlaceButtons from "../buttons/SupplierMarketPlaceButtons";
 import "../../../../@styles/main/components/suppliers-component/SupplierMarketplaceBoard.css"
 
@@ -10,6 +10,10 @@ import ExpandPremisesButton from "../buttons/ExpandPremisesButton";
 
 const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>, company: CompanyDetailsType}> = ({setPage, company}) => {
     const [stateBoard, setStateBoard] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log(company.stockMaterials)
+    }, []);
 
     return (
             <div className={"menu-container"}>
