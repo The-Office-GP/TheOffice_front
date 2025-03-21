@@ -1,16 +1,13 @@
-import {FC, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useState} from 'react';
 import "../../../../@styles/main/components/global/buttons/StartSimulationButton.css"
 
 
-interface StartSimulationButtonProps {
-    onStart: () => void;
-}
 
-const StartSimulationButton: FC<StartSimulationButtonProps> = ({onStart}) => {
+const StartSimulationButton: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
 
     return (
         <>
-            <button className={"start-simulation-button"} onClick={onStart}>Lancer le cicle</button>
+            <button className={"start-simulation-button"} onClick={() => setPage(6)}>Lancer le cicle</button>
         </>
     )
 }
