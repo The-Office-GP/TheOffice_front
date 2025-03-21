@@ -46,7 +46,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                                 <h4>L'entreprise ne possède aucune machine</h4>
                             :
                                 <>
-                                    {machineInCompanyList.map((machineInCompany:MachineShortType) => (<MachineItem2 machine={companyContext.company.machines[machineInCompany.machineId-1]}/>))}
+                                    {machineInCompanyList.map((machineInCompany:MachineShortType) => (<MachineItem2 machine={companyContext.company.machines[companyContext.company.machines.findIndex((machine)=> machine.id === machineInCompany.machineId)]}/>))}
                                 </>
                             }
                         </div>
