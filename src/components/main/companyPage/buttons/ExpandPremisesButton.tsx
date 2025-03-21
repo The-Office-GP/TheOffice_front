@@ -7,12 +7,13 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: '#023047CC',
+    bgcolor: '#023047',
     color: '#FFB35C',
     border: 'none',
     borderRadius: '20px',
     boxShadow: 24,
-    p: 4,
+    p: 7,
+    textAlign: 'center',
 };
 
 const style2 = {
@@ -20,11 +21,11 @@ const style2 = {
     width: '200px',
     height: '30px',
     bgcolor: '#FFB35C',
-    color: '#023047CC',
+    color: 'white',
     border: 'none',
     borderRadius: '40px',
     boxShadow: 24,
-    p: 4,
+    p: 4
 };
 const ExpandPremisesButton: FC<{}> = ({}) => {
     const [open, setOpen] = React.useState(false);
@@ -32,7 +33,7 @@ const ExpandPremisesButton: FC<{}> = ({}) => {
     const handleClose = () => setOpen(false);
     return (
         <>
-            <Button onClick={handleOpen} sx={style2}>Agrandir Locaux</Button>
+            <Button onClick={handleOpen} sx={style2}>Agrandir le local</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
