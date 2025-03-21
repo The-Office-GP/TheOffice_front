@@ -13,7 +13,6 @@ import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
 import SimulationBoard from "../components/main/companyPage/boards/SimulationBoard";
 
 import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
-import SimulationBoard from '../components/main/companyPage/boards/SimulationBoard';
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
 
 
@@ -38,25 +37,6 @@ const CompanyPage: FC<{}> = ({}) => {
 
 
     return (
-<<<<<<< HEAD
-        <CompanyContext.Provider value={{company, setCompany}}>
-            <section className={"background-company-model1-level1"}
-                     style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}>
-                {statePage === 0 &&
-                    <div className={"nav-mini-dashbord"}>
-                        <GameMenu setPage={setStatePage}/>
-                        <MiniDashboard company={company} wallet={userContext.userInfo.wallet}/>
-                    </div>
-                }
-                {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
-                {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
-                {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
-                {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
-                <h3 className={"level"}>{level}</h3>
-            </section>
-        </CompanyContext.Provider>
-=======
-
         <>
             <title>{company.name}</title>
             <CompanyContext.Provider value={{company, setCompany}}>
@@ -71,15 +51,13 @@ const CompanyPage: FC<{}> = ({}) => {
                     {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
                     {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
                     {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
-                    {statePage === 4 && <SimulationBoard/>}
+                    {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
                     {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage} company={company}/>}
                     <h3 className={"level"}>{level}</h3>
                 </section>
             </CompanyContext.Provider>
 
-
 </>
->>>>>>> 80e54365cdb3d061dd82214f4ece3815667ffe9f
     );
 };
 
