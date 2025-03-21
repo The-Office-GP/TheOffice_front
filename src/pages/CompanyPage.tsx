@@ -14,6 +14,7 @@ import SimulationBoard from "../components/main/companyPage/boards/SimulationBoa
 
 import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
+import SimulationTreeMonthsResultsBoard from "../components/main/companyPage/boards/SimulationTreeMonthsResultsBoard";
 
 
 
@@ -53,6 +54,7 @@ const CompanyPage: FC<{}> = ({}) => {
                     {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                     {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
                     {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage} company={company}/>}
+                    {statePage === 6 && <SimulationTreeMonthsResultsBoard setPage={setStatePage}/>}
                     <h3 className={"level"}>{level}</h3>
                 </section>
             </CompanyContext.Provider>
