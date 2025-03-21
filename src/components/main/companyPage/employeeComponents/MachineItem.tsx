@@ -1,19 +1,30 @@
-import {FC, useContext} from 'react';
+import {Dispatch, FC, SetStateAction, useContext} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
-import {MachineType} from "../../../../@types/MachineType";
+import {MachineShortType, MachineType} from "../../../../@types/MachineType";
+import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
 
-const MachineItem: FC<{ machine: MachineType, type: string }> = ({machine, type}) => {
+const MachineItem: FC<{ machine:MachineType, type:string,purchaseIsMake:boolean, setPurchaseIsMake:Dispatch<SetStateAction<boolean>>}> = ({machine, type,purchaseIsMake , setPurchaseIsMake}) => {
     const companyContext = useContext(CompanyContext)
+    const params = useParams()
 
     const addMachine = () => {
-        companyContext.company.machines.push(machine)
+        if(!purchaseIsMake){
+            const id = Number(params.id);
+            companyContext.company.machinesInCompany.push({id:0, machineId:machine.id, companyId:id} as MachineShortType)
+            saveCompanyInfo(id, companyContext.company, companyContext.setCompany)
+            setPurchaseIsMake(true)
+            setTimeout(() => {
+                setPurchaseIsMake(false)
+            }, 1000);
+        }
     }
 
     return (
-        <div className="employee-card">
+        <div className="obtain-item-card">
             <img src={machine.image} alt="employee picture"/>
             <div className={"info-container"}>
                 <span> {machine.name}</span>
@@ -26,33 +37,9 @@ const MachineItem: FC<{ machine: MachineType, type: string }> = ({machine, type}
                 <EmployeeCardButtons/>
                 :
                 <button className={"increase-button"}
-                        onClick={() => companyContext.company.machines.push(machine)}>Acheter</button>
+                        onClick={addMachine}>Acheter</button>
             }
         </div>
-        /*<div className="employee-card">
-            <div className="employee-card-title">
-                {employee.image ? (
-                    <img src={employee.image} alt="employee picture"/>
-                ) : (
-                    <img src="/logo192.png" alt="employee picture"/>
-
-                )}
-                <h3>{employee.name}</h3>
-            </div>
-            <div className={"employee-card-info"}>
-                <p className={"employees-p-list"}>Poste : {employee.job}</p>
-                <p className={"employees-p-list"}>Salaire : {employee.salary} €</p>
-                <p className={"employees-p-list"}>Niveau: {employee.level}</p>
-                <p className={"employees-p-list"}>Humeur: {employee.mood}</p>
-                <p className={"employees-p-list"}>Santé : {employee.health}%</p>
-                <progress value={employee.health} max="100"></progress>
-                {type === "companyTeam" ?
-                    <EmployeeCardButtons/>
-                :
-                    <button className={"increase-button"} onClick={() => companyContext.company.employees.push(employee)}>Recrutement</button>
-                }
-            </div>
-        </div>*/
     );
 };
 

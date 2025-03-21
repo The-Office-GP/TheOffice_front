@@ -1,10 +1,13 @@
-import {FC} from 'react';
+import {FC, useEffect} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem2.css"
 
 const EmployeeItem2: FC<{employee:EmployeeType}> = ({employee}) => {
+    useEffect(() => {
+        console.log(employee)
+    }, []);
     return (
-        <div className="employee-card">
+        <div className="card-item">
             <div className="infos">
                 <div className="image">
                     <img src={employee.image} alt="employee picture"/>
@@ -42,9 +45,10 @@ const EmployeeItem2: FC<{employee:EmployeeType}> = ({employee}) => {
                     </div>
                 </div>
             </div>
-            <button className="request" type="button">
-                Licencier
-            </button>
+            <div className={"button-container"}>
+                <button className="request" type="button">Congé</button>
+                <button className="request" type="button">Licencier</button>
+            </div>
         </div>
     );
 };

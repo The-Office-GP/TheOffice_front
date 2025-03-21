@@ -25,6 +25,7 @@ const UserPage: FC = () => {
 
     return (
         <>
+            <title>Mon bureau</title>
             <section className={"office-background"}>
                 <WalletCompanyPage walletValue={user.userInfo.wallet}/>
                 {!formIsVisible ?

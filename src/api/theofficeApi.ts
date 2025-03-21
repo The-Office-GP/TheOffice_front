@@ -66,6 +66,26 @@ export const postTheOfficeDbUser = (url: string, data: any,token: string | null,
 
 }
 
+export const putTheOfficeDbUser = (url: string, data: any, token: string | null, config?: {}) => {
+    config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    };
+    const jsonData = JSON.stringify(data);
+    console.log(jsonData);
+    return axios.put('http://localhost:8080' + url, jsonData, config)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return Promise.reject(error);
+        })
+
+}
+
 export const putTheOfficeDb = (url: string, data: any, config?: {}) => {
     return axios.put('http://localhost:8080' + url, data, config)
         .then((response) => {

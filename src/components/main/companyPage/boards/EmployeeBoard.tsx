@@ -3,6 +3,10 @@ import "../../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "../employeeComponents/EmployeesJobButtons";
 import EmployeeLevelButtons from "../employeeComponents/EmployeeLevelButtons";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80e54365cdb3d061dd82214f4ece3815667ffe9f
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";
@@ -18,15 +22,15 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
 
     return (
         <section className={"office-background-section"} id={"list-section"}>
-            <ExitButton setPage={setPage}/>
             {!stateBoard ?
                 <div className={"display-container"}>
-                    <section className={"employees-cards-container"}>
+                    <ExitButton setPage={setPage}/>
+                    <section className={"item-cards-container"}>
                         <div className={"icon-title"}>
                             <PeopleIcon className={"menu-Icon"}/>
                             <h3>Mes salariés</h3>
                         </div>
-                        <div className={"employees-list"}>
+                        <div className={"item-list"}>
                             {employeeList.map((employee) => (<EmployeeItem2 employee={employee}/>))}
                         </div>
                     </section>
@@ -37,7 +41,10 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                     </aside>
                 </div>
             :
-                <RecruitmentBoard/>
+                <div className={"display-container2"}>
+                    <ExitButton setPage={setPage}/>
+                    <RecruitmentBoard/>
+                </div>
             }
         </section>
     );

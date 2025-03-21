@@ -1,11 +1,14 @@
-import {FC} from 'react';
+import {FC, useEffect} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem2.css"
 import {MachineType} from "../../../../@types/MachineType";
 
-const MachineItem2: FC<{ machine: MachineType }> = ({machine}) => {
+const MachineItem2: FC<{ machine:MachineType }> = ({machine}) => {
+    useEffect(() => {
+        console.log(machine)
+    }, []);
     return (
-        <div className="employee-card">
+        <div className="card-item">
             <div className="infos">
                 <div className="image">
                     <img src={machine.image} alt="employee picture"/>

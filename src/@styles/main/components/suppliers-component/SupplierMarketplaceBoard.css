@@ -1,0 +1,45 @@
+.menu-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--deep-blue);
+    padding: 10px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+.display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.supplier-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    background: #219EBC;
+    border-radius: 20px;
+}
+
+.supplier-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stock-container{
+    display : flex;
+    justify-content: center;
+}
+
+.button-emplacement{
+    display: flex;
+    justify-content: right;
+}
