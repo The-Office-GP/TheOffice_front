@@ -13,6 +13,7 @@ import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
 
 import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
 import SimulationBoard from '../components/main/companyPage/boards/SimulationBoard';
+import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
 
 
 
@@ -52,6 +53,7 @@ const CompanyPage: FC<{}> = ({}) => {
                     {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
                     {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                     {statePage === 4 && <SimulationBoard/>}
+                    {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage} company={company}/>}
                     <h3 className={"level"}>{level}</h3>
                 </section>
             </CompanyContext.Provider>
