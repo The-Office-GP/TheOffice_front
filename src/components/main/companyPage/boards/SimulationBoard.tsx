@@ -5,7 +5,7 @@ import ExitButton from "../../../share/ExitButton";
 import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
 
 const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
-    const [stateSimulation, setStateSimulation] = useState<boolean>(false)
+
     return (
         <>
             <div className={"simulation-container"}>
@@ -49,7 +49,7 @@ const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPa
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton onStart={() => setStateSimulation(true)}/>
+                <StartSimulationButton setPage={setPage}/>
 
             </div>
         </>
