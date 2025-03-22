@@ -4,7 +4,7 @@ import "../../../../@styles/main/components/companyPage/simulation/ContinueButto
 interface ContinueButtonProps {
     setPage: (page: number) => void;
 }
-const ContinueButton: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
+const ContinueButton: FC<ContinueButtonProps > = ({setPage}) => {
     return (
         <>
             <button className={"continue-button"} onClick={() => setPage(0)}>Continuer</button>

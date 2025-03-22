@@ -84,7 +84,7 @@
     height: 50px;
     border: none;
     border-radius: 40px;
-    color: #FFFFFF;
+    color: var(--deep-blue);
     background: #FFB35C;
     font-size: x-large;
 }
