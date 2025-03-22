@@ -44,7 +44,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>, 
                     <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Acheter</button>
                 </div>
                 <div className={"button-emplacement"}>
-                    <ExpandPremisesButton/>
+                    <ExpandPremisesButton localLevel={company.local.level}/>
                 </div>
             </div>
     );
