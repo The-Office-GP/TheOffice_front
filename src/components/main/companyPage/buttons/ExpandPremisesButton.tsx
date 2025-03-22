@@ -21,7 +21,7 @@ const style2 = {
     width: '200px',
     height: '30px',
     bgcolor: '#FFB35C',
-    color: 'white',
+    color: '#023047FF',
     border: 'none',
     borderRadius: '40px',
     boxShadow: 24,
@@ -31,9 +31,10 @@ const ExpandPremisesButton: FC<{}> = ({}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
     return (
         <>
-            <Button onClick={handleOpen} sx={style2}>Agrandir le local</Button>
+            <button onClick={handleOpen} className={"recuite-button"}>Agrandir le local</button>
             <Modal
                 open={open}
                 onClose={handleClose}
