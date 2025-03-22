@@ -1,5 +1,6 @@
 import {FC} from 'react';
-import "../../styles/components/table/SimulationTable.css"
+import "../../../../@styles/main/components/companyPage/simulation/SimulationTable.css"
+
 
 const SimulationTable: FC<{}> = ({}) => {
     const data = [
