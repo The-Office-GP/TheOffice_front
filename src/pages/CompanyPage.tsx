@@ -20,6 +20,8 @@ const CompanyPage: FC<{}> = ({}) => {
     const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
     const [url, setUrl] = useState<string>("")
     const [level, setLevel] = useState<string>("")
+    const [maxEmployees, setMaxEmployees] = useState<number>()
+    const [maxMachines, setMaxMachines] = useState<number>()
 
     useEffect(() => {
         const path:string = "/companies/"+id
@@ -29,6 +31,8 @@ const CompanyPage: FC<{}> = ({}) => {
     useEffect(() => {
         setUrl(company.local.pathBackgroundImage);
         setLevel(company.local.level);
+        setMaxEmployees(company.local.maxEmployees);
+        setMaxMachines(company.local.maxMachines);
     }, [company]);
 
 
@@ -49,7 +53,15 @@ const CompanyPage: FC<{}> = ({}) => {
                     {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                     {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
                     {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage} company={company}/>}
-                    <h3 className={"level"}>{level}</h3>
+                    <div className="level-container">
+                        <h3 className="level">{level}</h3>
+                        <div className="tooltip">
+                            <strong>Niveau actuel :</strong> {level} <br/>
+                            <strong>Nombre de salariés maximum :</strong> {maxEmployees}<br/>
+                            <strong>Nombre de machines maximum :</strong> {maxMachines}<br/>
+                        </div>
+                    </div>
+
                 </section>
             </CompanyContext.Provider>
 
