@@ -1,5 +1,6 @@
 import {EmployeeType} from "./employeeType";
 import {MachineShortType, MachineType} from "./MachineType";
+import {StockMaterialsType} from "./stockMaterialsType";
 
 export interface CompanyType {
     id: number;
@@ -26,8 +27,8 @@ export interface CompanyDetailsType {
     employees: EmployeeType[];
     suppliers: [];
     events: [];
-    stockMaterials: [];
-    stockFinalMaterials: [];
+    stockMaterials: StockMaterialsType;
+    stockFinalMaterials: StockMaterialsType;
     machinesInCompany: MachineShortType[];
 }
 
