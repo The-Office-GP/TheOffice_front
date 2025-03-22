@@ -1,9 +1,10 @@
-import {FC} from 'react';
+import {FC, JSXElementConstructor, ReactElement, ReactNode, ReactPortal} from 'react';
 import "../../../../@styles/main/components/companyPage/simulation/SimulationTable.css"
 
 
+
 const SimulationTable: FC<{}> = ({}) => {
-    const data = [
+    const data: any = [
         {produit: "Palette", bas: "0 unités", milieu: "0 unités", haut: "0 unités"},
         {produit: "Chaise", bas: "0 unités", milieu: "0 unités", haut: "0 unités"},
         {produit: "Table", bas: "0 unités", milieu: "0 unités", haut: "0 unités"},
@@ -21,7 +22,7 @@ const SimulationTable: FC<{}> = ({}) => {
                 </tr>
                 </thead>
                 <tbody>
-                {data.map((row, index) => (
+                {data.map((row: { produit: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; bas: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; milieu: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; haut: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }, index:number) => (
                     <tr key={index} className="text-center">
                         <td className="cellule">{row.produit}</td>
                         <td className="cellule">{row.bas}</td>

@@ -4,7 +4,7 @@ import "../../../../@styles/main/components/companyPage/employeeConponentsStyles
 const MachineLevelButtons: FC<{setFilter:Dispatch<SetStateAction<any>>}> = ({setFilter}) => {
     return (
         <div>
-            <h3>Filtres</h3>
+            <h3 className={"filter-title"}>Filtres</h3>
             <div className={"level-buttons-container"}>
                 <button className={"level-button"} onClick={()=> setFilter({level:"ALL"})}>TOUTES</button>
                 <button className={"level-button"} onClick={() => setFilter({level: "MEDIOCRE"})}>MEDIOCRE</button>

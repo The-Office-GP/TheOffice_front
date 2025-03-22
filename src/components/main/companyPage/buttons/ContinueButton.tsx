@@ -1,9 +1,7 @@
 import {Dispatch, FC, SetStateAction} from 'react';
 import "../../../../@styles/main/components/companyPage/simulation/ContinueButton.css"
 
-interface ContinueButtonProps {
-    setPage: (page: number) => void;
-}
+
 const ContinueButton: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     return (
         <>

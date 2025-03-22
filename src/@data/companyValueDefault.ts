@@ -1,5 +1,6 @@
 import {CompanyDetailsType, LocalType} from "../@types/companyType";
 import {MachineType} from "../@types/MachineType";
+import {StockMaterialsType} from "../@types/stockMaterialsType";
 
 export const localTypeDefault: LocalType = {
     id: 1,
@@ -9,6 +10,14 @@ export const localTypeDefault: LocalType = {
     maxEmployees: 1,
     maxMachines: 1,
     pathBackgroundImage: "path",
+}
+
+export const stockMaterialDefault: StockMaterialsType = {
+    id: 1,
+    name: "Matière première",
+    quantityLow: 0,
+    quantityMid: 0,
+    quantityHigh: 0,
 }
 
 export const machineTypeDefault: MachineType = {
@@ -33,7 +42,7 @@ export const companyDetailsDefault: CompanyDetailsType = {
     employees: [],
     suppliers: [],
     events: [],
-    stockMaterials: [],
-    stockFinalMaterials: [],
+    stockMaterials: stockMaterialDefault,
+    stockFinalMaterials: stockMaterialDefault,
     machinesInCompany: [],
 }

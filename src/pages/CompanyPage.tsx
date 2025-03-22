@@ -1,4 +1,4 @@
-import {FC, useContext, useEffect, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import GameMenu from "../components/main/companyPage/GameMenu";
 import MiniDashboard from "../components/main/companyPage/MiniDashboard";
 import "../@styles/main/pages/companyPage.css"
@@ -8,16 +8,12 @@ import {CompanyDetailsType} from "../@types/companyType";
 import {companyDetailsDefault} from "../@data/companyValueDefault";
 import EmployeeBoard from "../components/main/companyPage/boards/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
-import {UserContext, UserContextProps} from "../contexts/UserContext";
 import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
 import SimulationBoard from "../components/main/companyPage/boards/SimulationBoard";
 
 import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
 import SimulationTreeMonthsResultsBoard from "../components/main/companyPage/boards/SimulationTreeMonthsResultsBoard";
-
-
-
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
