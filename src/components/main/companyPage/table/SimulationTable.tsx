@@ -1,4 +1,5 @@
 import {FC, JSXElementConstructor, ReactElement, ReactNode, ReactPortal} from 'react';
+import "../../../../@styles/main/components/companyPage/simulation/SimulationTable.css"
 
 
 
