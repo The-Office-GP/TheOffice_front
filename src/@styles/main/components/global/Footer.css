@@ -13,3 +13,8 @@
     justify-content: space-around;
     margin: auto;
 }
+
+.footer-title{
+    display:flex;
+    flex-direction: row;
+}

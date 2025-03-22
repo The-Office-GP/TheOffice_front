@@ -6,7 +6,11 @@ const Footer: FC<{}> = () => {
         <footer className="footer">
             <div className="footer-content">
                 <p>&copy; 2025 TheOfficeTheGame</p>
-                <img src={"../../../../../public/images/LogoTheOffice.png"} alt="logo">
+                <div className={"footer-title"}>
+                    <img src={"/LogoTheOffice.png"} alt={"logo"}/>
+                    <p><strong>TheOffice</strong></p>
+                </div>
+
                 <p>Tous droits réservés</p>
             </div>
         </footer>
