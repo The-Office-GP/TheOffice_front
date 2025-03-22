@@ -32,8 +32,11 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                         </div>
                     </section>
                     <aside className={"employees-aside"}>
-                        <EmployeeJobButtons setEmployeeList={setEmployeeList}/>
-                        <EmployeeLevelButtons/>
+                        <div>
+                            <h3 className={"filter-title"}>Filtres</h3>
+                            <EmployeeJobButtons setEmployeeList={setEmployeeList}/>
+                            <EmployeeLevelButtons setEmployeeList={setEmployeeList}/>
+                        </div>
                         <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Recruter</button>
                     </aside>
                 </div>
