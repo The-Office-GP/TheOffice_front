@@ -15,7 +15,11 @@ export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessa
         return
     }
 
-    if(!passwordIsValidate(registerInput.password, registerInput.passwordConfirmation, setErrorMessages)) {
+    if(!passwordConfirmIsValidate(registerInput.password, registerInput.passwordConfirmation, setErrorMessages)) {
+        return
+    }
+
+    if (!passwordIsValidate(registerInput.password, setErrorMessages)) {
         return
     }
 
@@ -132,11 +136,24 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
 }
 
 //vérifie que le mail est bien au format mail
-export const passwordIsValidate = (password:string, confirmPassword:string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
-
+export const passwordConfirmIsValidate = (password:string, confirmPassword:string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
     if (password !== confirmPassword) {
         setErrorMessages({
             password: "Le mot de passe doit correspondre à sa confirmation",
+        });
+        return false;
+    } else {
+        return true;
+    }
+}
+
+//vérifie que le mail est bien au format mail
+export const passwordIsValidate = (password: string, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/;
+
+    if (!passwordRegex.test(password)) {
+        setErrorMessages({
+            password: "Le mot de passe doit contenir au moins une majuscule, un chiffre et un caractère spécial, et avoir 12 caractères minimum",
         });
         return false;
     } else {
