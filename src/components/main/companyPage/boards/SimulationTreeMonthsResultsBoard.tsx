@@ -7,7 +7,8 @@ import "../../../../@styles/main/components/companyPage/simulation/SimulationTre
 const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     return (
         <>
-            <div className={"simulation-container"}>
+            <div className={"simulation-container"}
+                 style={{backgroundImage: "url('/assets/simulation-background/Simulation-background.png')"}}>
                 <h2>Bilan trimestriel</h2>
                 <div className={"simulation-results-container"}>
                     <p>Chiffre d'affaire: CAValue €</p>
