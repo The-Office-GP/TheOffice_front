@@ -44,7 +44,7 @@ const BuyMachineBoard: FC<{}> = ({}) => {
                     }
                 </div>
             </div>
-            <div className={"recruitment-card-display"}>
+            <div className={"recruitment-card-display2"}>
                 {listMachineForBuy.map((machine, index) => (
                     <MachineItem key={index} machine={machine} type={"recruitment"} purchaseIsMake={purchaseIsMake} setPurchaseIsMake={setPurchaseIsMake}/>))}
             </div>

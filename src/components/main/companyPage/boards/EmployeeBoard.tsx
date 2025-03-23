@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useContext, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useContext, useEffect, useState} from 'react';
 import "../../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "../employeeComponents/EmployeesJobButtons";
@@ -9,13 +9,24 @@ import ExitButton from "../../../share/ExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";
 import EmployeeItem2 from "../employeeComponents/EmployeeItem2";
 import {EmployeeType} from "../../../../@types/employeeType";
+import {CompanyDetailsType} from "../../../../@types/companyType";
+import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
+import {collectCompanyInfos} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
 
 
 
 const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}) => {
+    const {id} = useParams()
     const companyContext = useContext(CompanyContext)
     const [employeeList, setEmployeeList] = useState<EmployeeType[]>(companyContext.company.employees)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
+    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
+
+    useEffect(() => {
+        const path: string = "/companies/" + id
+        collectCompanyInfos(path, setCompany)
+    }, []);
 
     return (
         <section className={"office-background-section"} id={"list-section"}>
@@ -43,7 +54,7 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
             :
                 <div className={"display-container2"}>
                     <ExitButton setPage={setPage}/>
-                    <RecruitmentBoard/>
+                    <RecruitmentBoard company={company}/>
                 </div>
             }
         </section>
