@@ -4,24 +4,16 @@ import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import {useParams} from "react-router";
-import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 
 interface EmployeeItemProps {
     employee: EmployeeType;
     type: string;
     listParent: EmployeeType[];
     setListParent: Dispatch<SetStateAction<EmployeeType[]>>;
-    onRecruit: () => void; // Ajouter la fonction onRecruit ici
+    onRecruit: () => void;
 }
 
 const EmployeeItem: FC<EmployeeItemProps> = ({employee, type, listParent, setListParent, onRecruit}) => {
-    const companyContext = useContext(CompanyContext);
-    const params = useParams();
-
-    useEffect(() => {
-        console.log(employee);
-    }, []);
-
     // Fonction de recrutement
     const addEmployee = () => {
         onRecruit(); // Appel de la fonction de recrutement passée en prop

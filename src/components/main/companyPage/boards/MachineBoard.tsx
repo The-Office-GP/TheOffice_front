@@ -8,16 +8,27 @@ import {MachineShortType, MachineType} from "../../../../@types/MachineType";
 import MachineItem2 from "../employeeComponents/MachineItem2";
 import MachineLevelButtons from "../employeeComponents/MachineLevelButtons";
 import BuyMachineBoard from "./BuyMachineBoard";
+import {CompanyDetailsType} from "../../../../@types/companyType";
+import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
+import {collectCompanyInfos} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
 
 interface FilterType {
     level: string;
 }
 
 const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
+    const {id} = useParams()
     const companyContext = useContext(CompanyContext)
     const [machineInCompanyList, setMachineInCompanyList] = useState<MachineShortType[]>(companyContext.company.machinesInCompany)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
     const [filter, setFilter] = useState<FilterType>({level:"ALL"} as FilterType)
+    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
+
+    useEffect(() => {
+        const path: string = "/companies/" + id
+        collectCompanyInfos(path, setCompany)
+    }, []);
 
     useEffect(() => {
         filterListMachine()
@@ -59,7 +70,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                 :
                 <div className={"display-container2"}>
                     <ExitButton setPage={setPage}/>
-                    <BuyMachineBoard/>
+                    <BuyMachineBoard company={company}/>
                 </div>
             }
         </section>

@@ -12,7 +12,7 @@ const RecruitmentBoard: FC<{ company: CompanyDetailsType }> = ({company}) => {
     const [listEmployeeForRecruitment, setListEmployeeForRecruitment] = useState<EmployeeType[]>([]);
     const [showRecruitmentError, setShowRecruitmentError] = useState(false);
     const limitEmployees = company.local.maxEmployees;
-    const companyContext = useContext(CompanyContext); // Utilisation du contexte de la compagnie
+    const companyContext = useContext(CompanyContext);
 
     useEffect(() => {
         collectEmployeeForRecruitment();
@@ -69,8 +69,7 @@ const RecruitmentBoard: FC<{ company: CompanyDetailsType }> = ({company}) => {
             {/* Bulle de notification */}
             {showRecruitmentError && (
                 <div className="recruitment-error-bubble">
-                    <p>Vous n'avez plus de place pour accueillir de nouveaux salariés, agrandissez votre local !</p>
-                </div>
+                    <p>Vous avez atteint la limite de salariés ! Agrandissez votre local pour en recruter plus.</p>                </div>
             )}
         </>
     );

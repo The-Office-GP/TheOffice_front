@@ -7,7 +7,15 @@ import {MachineShortType, MachineType} from "../../../../@types/MachineType";
 import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {useParams} from "react-router";
 
-const MachineItem: FC<{ machine:MachineType, type:string,purchaseIsMake:boolean, setPurchaseIsMake:Dispatch<SetStateAction<boolean>>}> = ({machine, type,purchaseIsMake , setPurchaseIsMake}) => {
+interface MachineItemProps{
+    machine: MachineType;
+    type: string;
+    purchaseIsMake: boolean;
+    setPurchaseIsMake: Dispatch<SetStateAction<boolean>>;
+    onBuy: () => void;
+}
+
+const MachineItem: FC<MachineItemProps> = ({machine, type,purchaseIsMake , setPurchaseIsMake, onBuy}) => {
     const companyContext = useContext(CompanyContext)
     const params = useParams()
 
@@ -17,6 +25,7 @@ const MachineItem: FC<{ machine:MachineType, type:string,purchaseIsMake:boolean,
             companyContext.company.machinesInCompany.push({id:0, machineId:machine.id, companyId:id} as MachineShortType)
             saveCompanyInfo(id, companyContext.company, companyContext.setCompany)
             setPurchaseIsMake(true)
+            onBuy();
             setTimeout(() => {
                 setPurchaseIsMake(false)
             }, 1000);

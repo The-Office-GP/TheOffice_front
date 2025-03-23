@@ -5,15 +5,18 @@ import EmployeeItem from "../employeeComponents/EmployeeItem";
 import {getTheOfficeDbUser, postTheOfficeDbUser} from "../../../../api/theofficeApi";
 import {getToken} from "../../../../utilis/storage";
 import "../../../../@styles/main/components/companyPage/recruitmentBoard.css"
-import {MachineType} from "../../../../@types/MachineType";
+import {MachineShortType, MachineType} from "../../../../@types/MachineType";
 import companyPage from "../../../../pages/CompanyPage";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import MachineItem from "../employeeComponents/MachineItem";
+import {CompanyDetailsType} from "../../../../@types/companyType";
 
-const BuyMachineBoard: FC<{}> = ({}) => {
+const BuyMachineBoard: FC<{company:CompanyDetailsType}> = ({company}) => {
     const companyContext = useContext(CompanyContext)
     const [listMachineForBuy, setListMachineForBuy] = useState<MachineType[]>([])
     const [purchaseIsMake, setPurchaseIsMake] = useState<boolean>(false)
+    const limitMachine = company.local.maxMachines;
+    const [showBuyError, setShowBuyError] = useState(false);
 
     useEffect(() => {
         collectMachineForBuy()
@@ -28,6 +31,34 @@ const BuyMachineBoard: FC<{}> = ({}) => {
             console.error('Erreur lors de la connexion:', error);
         }
     };
+
+    // Fonction utilitaire pour convertir MachineType en MachineShortType
+    const convertToMachineShort = (machine: MachineType, companyId: number): MachineShortType => {
+        return {
+            id: machine.id,
+            machineId: machine.id,  // Utilisation du même id
+            companyId: companyId,
+        };
+    };
+
+    const handleBuyMachine = (machine: MachineType) => {
+        const currentMachineCount = companyContext.company.machinesInCompany.length;
+
+        // Vérification de la limite de machines
+        if (currentMachineCount > limitMachine) {
+            setShowBuyError(true);
+            setTimeout(() => {
+                setShowBuyError(false);
+            }, 3000);
+            return; // On arrête l'exécution ici pour éviter l'ajout
+        }
+
+        // Ajout de la machine au contexte sans modifier la liste des machines achetables
+        const machineShort = convertToMachineShort(machine, companyContext.company.id);
+        companyContext.company.machinesInCompany.push(machineShort);
+        companyContext.setCompany({...companyContext.company});  // Mise à jour du contexte
+    };
+
 
     return (
         <>
@@ -46,8 +77,14 @@ const BuyMachineBoard: FC<{}> = ({}) => {
             </div>
             <div className={"recruitment-card-display2"}>
                 {listMachineForBuy.map((machine, index) => (
-                    <MachineItem key={index} machine={machine} type={"recruitment"} purchaseIsMake={purchaseIsMake} setPurchaseIsMake={setPurchaseIsMake}/>))}
+                    <MachineItem key={index} machine={machine} type={"recruitment"} purchaseIsMake={purchaseIsMake} setPurchaseIsMake={setPurchaseIsMake} onBuy={()=> handleBuyMachine(machine)}/>))}
             </div>
+            {/* Bulle de notification */}
+            {showBuyError && (
+                <div className="recruitment-error-bubble">
+                    <p>Vous avez atteint la limite de machines ! Agrandissez votre local pour en acheter plus.</p>
+                </div>
+            )}
         </>
     );
 };
