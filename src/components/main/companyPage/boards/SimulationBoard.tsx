@@ -48,7 +48,8 @@ const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPa
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton onStart={() => setStateSimulation(true)}/>
+                <StartSimulationButton setPage={setPage
+                }/>
 
 
             </div>

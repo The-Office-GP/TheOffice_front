@@ -1,8 +1,8 @@
 
-import {FC} from 'react';
+import {Dispatch, FC, SetStateAction} from 'react';
 import "../../../../@styles/main/components/global/ContinueButton.css"
 
-const ContinueButton: FC<{}> = ({}) => {
+const ContinueButton: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
 
     return (
         <>
