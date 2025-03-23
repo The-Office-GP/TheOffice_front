@@ -1,13 +1,19 @@
 import {FC} from 'react';
-import "../../../../@styles/main/components/companyPage/choiceButton.css"
+import "../../../styles/components/buttons/ChoiceButton.css";
 
-const YesChoiceButton: FC<{}> = ({}) => {
+type Props = {
+    onClick?: () => void;
+};
+
+const YesChoiceButton: FC<Props> = ({onClick}) => {
     return (
-        <div className={"choice"}>
-            <p className={"p-choice"}>YES</p>
+        <div className="choice" onClick={onClick}>
+            <p className="p-choice">OUI</p>
             <img
-                src={"https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67c45ec909d9eab7925d024b/download/Right-choice.png"}
-                alt={"flèche droite recruter"} className={"choice-button-yes"}/>
+                src="https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67c45ec909d9eab7925d024b/download/Right-choice.png"
+                alt="flèche droite recruter"
+                className="choice-button-yes"
+            />
         </div>
     );
 };
