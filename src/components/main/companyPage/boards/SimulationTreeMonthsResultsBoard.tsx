@@ -4,7 +4,7 @@ import ContinueButton from "../buttons/ContinueButton";
 import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
 import "../../../../@styles/main/components/companyPage/simulation/SimulationTreeMonthsResultsBoard.css"
 
-const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({}) => {
+const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     return (
         <>
             <div className={"simulation-container"}>
@@ -16,7 +16,7 @@ const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<nu
                     <p>Cotte de popularité: popularityValue</p>
                     <SimulationTable/>
                 </div>
-                <ContinueButton/>
+                <ContinueButton setPage={setPage}/>
             </div>
         </>
     );

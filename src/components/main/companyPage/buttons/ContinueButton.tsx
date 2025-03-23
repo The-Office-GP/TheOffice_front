@@ -1,10 +1,11 @@
-import {FC} from 'react';
+import {Dispatch, FC, SetStateAction} from 'react';
 import "../../../../@styles/main/components/companyPage/simulation/ContinueButton.css"
 
-const ContinueButton: FC<{}> = ({}) => {
+
+const ContinueButton: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     return (
         <>
-            <button className={"continue-button"}>Continuer</button>
+            <button className={"continue-button"} onClick={() => setPage(0)}>Continuer</button>
         </>
     );
 };
