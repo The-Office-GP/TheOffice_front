@@ -14,10 +14,6 @@ const EmployeeItem: FC<{employee:EmployeeType, type:string,listParent:EmployeeTy
     const companyContext = useContext(CompanyContext)
     const params = useParams()
 
-    useEffect(() => {
-        console.log(employee)
-    }, []);
-
     const addEmployee = () => {
         companyContext.company.employees.push(employee)
         setListParent(listParent.filter((item)=> item !== employee))

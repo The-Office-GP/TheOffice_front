@@ -10,7 +10,6 @@ const RecruitmentBoard: FC<{}> = ({}) => {
     const [listEmployeeForRecruitment, setListEmployeeForRecruitment] = useState<EmployeeType[]>([])
 
     useEffect(() => {
-        console.log(listEmployeeForRecruitment)
         collectEmployeeForRecruitment()
     }, []);
 

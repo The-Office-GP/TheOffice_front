@@ -94,7 +94,6 @@ export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorM
 
     userContext.setUserInfo(updatedUserInfo);
     saveUserInfo(updatedUserInfo);
-    console.log(getUserInfo());
 
     setIsSubmitting(true);
 

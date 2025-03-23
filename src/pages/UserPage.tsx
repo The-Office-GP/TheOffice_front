@@ -42,11 +42,6 @@ const UserPage: FC = () => {
         }
     }, [arrayIsUpdate]);
 
-    useEffect(() => {
-        console.log("context : " + user.userInfo)
-        console.log("localStorage : " + getUserInfo())
-    }, [user.userInfo]);
-
     return (
         <>
             <title>Mon bureau</title>

@@ -179,8 +179,6 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
                     wallet: parsedUserInfo.wallet,
                 }
                 userContext.setUserInfo(userInfoFormater);
-                console.log("coucou")
-                console.log(userContext.userInfo);
                 navigate("/")
             } catch (jsonError) {
                 console.error("Erreur de parsing JSON:", jsonError);

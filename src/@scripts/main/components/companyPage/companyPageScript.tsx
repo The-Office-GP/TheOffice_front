@@ -30,7 +30,6 @@ export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, set
             stockFinalMaterials: company.stockFinalMaterials,
             machinesInCompany: company.machinesInCompany,
         }
-        console.log(data)
         const response = await putTheOfficeDbUser(`/companies/${id}`, data, getToken());
         setCompany(response.data)
     } catch (error) {
