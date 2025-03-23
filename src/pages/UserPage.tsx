@@ -9,6 +9,7 @@ import LockedCompanyCard from "../components/main/userPage/LockedCompanyCard";
 import {collectUserCompanies} from "../@scripts/main/components/userPage/userPageScript";
 import WalletCompanyPage from "../components/main/userPage/WalletCompanyPage";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
+import {getUserInfo, saveUserInfo} from "../utilis/storage";
 
 const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
@@ -25,7 +26,7 @@ const UserPage: FC = () => {
     const limitCompany = baseLimitCompany + companyLimitIncrease;
 
     useEffect(() => {
-        if (previousWallet < 10000000 && user.userInfo.wallet >= 10000000) {
+        if (previousWallet < 1000000 && user.userInfo.wallet >= 1000000) {
             setCompanyLimitIncrease((prev) => {
                 const newLimit = prev + 1;
                 localStorage.setItem("companyLimitIncrease", String(newLimit)); // Stockage en localStorage
@@ -40,6 +41,11 @@ const UserPage: FC = () => {
             collectUserCompanies(setArrayCompany, setArrayIsUpdate);
         }
     }, [arrayIsUpdate]);
+
+    useEffect(() => {
+        console.log("context : " + user.userInfo)
+        console.log("localStorage : " + getUserInfo())
+    }, [user.userInfo]);
 
     return (
         <>

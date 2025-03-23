@@ -14,7 +14,7 @@ const CreateCompanyCard: FC<{setFormIsVisible:Dispatch<SetStateAction<boolean>>}
                 <div>
                     <AddCircleOutlineIcon className={"add-button"} onClick={handleCreateCompany}/>
                 </div>
-                <h4>Coût : 10 000 000€</h4>
+                <h4>Coût : 100 000€</h4>
             </div>
         </>
     );

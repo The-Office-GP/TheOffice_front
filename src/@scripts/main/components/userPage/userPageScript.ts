@@ -7,6 +7,7 @@ export const collectUserCompanies = async (setArray: any, setArrayIsUpdate:Dispa
         const response = await getTheOfficeDbUser('/companies/user', getToken())
         setArray(response)
         setArrayIsUpdate(true)
+        console.log(response)
     } catch (error) {
         console.error('Erreur lors de la connexion:', error);
     }
