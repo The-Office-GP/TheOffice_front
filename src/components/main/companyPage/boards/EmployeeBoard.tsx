@@ -3,6 +3,7 @@ import "../../../../@styles/main/components/companyPage/employeeBoard.css"
 import PeopleIcon from "@mui/icons-material/People";
 import EmployeeJobButtons from "../employeeComponents/EmployeesJobButtons";
 import EmployeeLevelButtons from "../employeeComponents/EmployeeLevelButtons";
+
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";
@@ -31,8 +32,11 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                         </div>
                     </section>
                     <aside className={"employees-aside"}>
-                        <EmployeeJobButtons setEmployeeList={setEmployeeList}/>
-                        <EmployeeLevelButtons/>
+                        <div>
+                            <h3 className={"filter-title"}>Filtres</h3>
+                            <EmployeeJobButtons setEmployeeList={setEmployeeList}/>
+                            <EmployeeLevelButtons setEmployeeList={setEmployeeList}/>
+                        </div>
                         <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Recruter</button>
                     </aside>
                 </div>

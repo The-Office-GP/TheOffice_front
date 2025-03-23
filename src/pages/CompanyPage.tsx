@@ -1,4 +1,4 @@
-import {FC, useContext, useEffect, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import GameMenu from "../components/main/companyPage/GameMenu";
 import MiniDashboard from "../components/main/companyPage/MiniDashboard";
 import "../@styles/main/pages/companyPage.css"
@@ -9,15 +9,15 @@ import {companyDetailsDefault} from "../@data/companyValueDefault";
 import EmployeeBoard from "../components/main/companyPage/boards/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
 
+
+
 import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
 import SimulationBoard from "../components/main/companyPage/boards/SimulationBoard";
 
 import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
 
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
-
-
-
+import SimulationTreeMonthsResultsBoard from "../components/main/companyPage/boards/SimulationTreeMonthsResultsBoard";
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
@@ -25,6 +25,8 @@ const CompanyPage: FC<{}> = ({}) => {
     const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
     const [url, setUrl] = useState<string>("")
     const [level, setLevel] = useState<string>("")
+    const [maxEmployees, setMaxEmployees] = useState<number>()
+    const [maxMachines, setMaxMachines] = useState<number>()
 
     useEffect(() => {
         const path: string = "/companies/" + id
@@ -34,8 +36,9 @@ const CompanyPage: FC<{}> = ({}) => {
     useEffect(() => {
         setUrl(company.local.pathBackgroundImage);
         setLevel(company.local.level);
+        setMaxEmployees(company.local.maxEmployees);
+        setMaxMachines(company.local.maxMachines);
     }, [company]);
-
 
     return (
 
@@ -55,11 +58,20 @@ const CompanyPage: FC<{}> = ({}) => {
                     {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                     {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
                     {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage} company={company}/>}
-                    <h3 className={"level"}>{level}</h3>
+                    {statePage === 6 && <SimulationTreeMonthsResultsBoard setPage={setStatePage}/>}
+                    <div className="level-container">
+                        <h3 className="level">{level}</h3>
+                        <div className="tooltip">
+                            <strong>Niveau actuel :</strong> {level} <br/>
+                            <strong>Nombre de salariés maximum :</strong> {maxEmployees}<br/>
+                            <strong>Nombre de machines maximum :</strong> {maxMachines}<br/>
+                        </div>
+                    </div>
                 </section>
             </CompanyContext.Provider>
 
         </>
+
     );
 };
 

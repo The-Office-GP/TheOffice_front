@@ -1,15 +1,23 @@
-import {Dispatch, FC, SetStateAction, useState} from 'react';
-import SupplierMarketPlaceButtons from "../buttons/SupplierMarketPlaceButtons";
+import {Dispatch, FC, SetStateAction, useContext, useEffect, useState} from 'react';
 import "../../../../@styles/main/components/suppliers-component/SupplierMarketplaceBoard.css"
 
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import ExitButton from "../../../share/ExitButton";
-import PeopleIcon from "@mui/icons-material/People";
 import {CompanyDetailsType} from "../../../../@types/companyType";
 import ExpandPremisesButton from "../buttons/ExpandPremisesButton";
 
 const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>, company: CompanyDetailsType}> = ({setPage, company}) => {
     const [stateBoard, setStateBoard] = useState<boolean>(false);
+    const [stockPrimaryMaterial, setStockPrimaryMaterial] = useState<number>()
+
+    useEffect(() => {
+        if (company.stockMaterials) {
+            setStockPrimaryMaterial(company.stockMaterials.quantityMid);
+        } else {
+            setStockPrimaryMaterial(0); // Valeur par défaut pour éviter l'erreur
+        }
+    }, [company]);
+
 
     return (
             <div className={"menu-container"}>
@@ -25,18 +33,18 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>, 
                     </div>
                 </div>
                 <div className={"stock-container"}>
-                    <p>Stock actuel des matières premières : {company.stockMaterials}</p>
+                    <p>Stock actuel des matières premières : {stockPrimaryMaterial}</p>
                 </div>
                 <div className={"supplier-container"}>
                     <div className={"supplier-infos"}>
-                        <p>Fourni'Tou</p>
+                        <h4><u>Fourni'Tou</u></h4>
                         <p>Matière première</p>
                         <p>2000€ les 100 pièces</p>
                     </div>
                     <button className={"recuite-button"} onClick={() => setStateBoard(true)}>Acheter</button>
                 </div>
                 <div className={"button-emplacement"}>
-                    <ExpandPremisesButton/>
+                    <ExpandPremisesButton localLevel={company.local.level}/>
                 </div>
             </div>
     );
