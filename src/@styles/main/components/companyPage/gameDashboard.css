@@ -17,10 +17,12 @@
     gap: 15px;
 }
 
-.card-dashboard-container{
+.card-dashboard-container, .chart-dashboard {
     display: flex;
     gap: 24px;
 }
+
+
 
 .sell-value-container{
     display: flex;
