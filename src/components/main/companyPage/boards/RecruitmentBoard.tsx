@@ -70,7 +70,8 @@ const RecruitmentBoard: FC<{ company: CompanyDetailsType }> = ({company}) => {
             {/* Bulle de notification */}
             {showRecruitmentError && (
                 <div className="recruitment-error-bubble">
-                    <p>Vous avez atteint la limite de salariés ! Agrandissez votre local pour en recruter plus.</p>                </div>
+                    <p>Vous avez atteint la limite de salariés ! Agrandissez votre local pour en recruter plus.</p>
+                </div>
             )}
         </>
     );

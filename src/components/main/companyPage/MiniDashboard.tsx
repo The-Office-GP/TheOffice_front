@@ -1,12 +1,23 @@
-import {FC} from 'react';
+import {FC, useEffect, useState} from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import "../../../@styles/main/components/globalUser/miniDashboard.css";
 import {CompanyDetailsType} from "../../../@types/companyType";
+import {stockMaterialDefault} from "../../../@data/companyValueDefault";
 
 const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
+    const [stockPrimaryMaterial, setStockPrimaryMaterial] = useState<number>()
+
+    useEffect(() => {
+        if (company.stockMaterials) {
+            setStockPrimaryMaterial(company.stockMaterials.quantityMid);
+        } else {
+            setStockPrimaryMaterial(0); // Valeur par défaut pour éviter l'erreur
+        }
+    }, [company]);
+
     return (
         <div className={"mini-dashboard"}>
             <h3>{company.name}</h3>
@@ -15,19 +26,25 @@ const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
                 <p>{company.wallet}€</p>
             </div>
             <div className={"infos-display"}>
-                <div className={"mini-dashboard-info"}>
-                    <PeopleOutlineIcon/>
-                    <span>{company.popularity}</span>
+                <div className={"level-container2"}>
+                    <div className={"mini-dashboard-info"}>
+                        <PeopleOutlineIcon/>
+                        <span>{company.popularity}</span>
+                    </div>
+                    <div className={"mini-dashboard-info"}>
+                        <ConstructionIcon/>
+                        <span>{stockPrimaryMaterial}</span>
+                    </div>
+                    <div className={"mini-dashboard-info"}>
+                        <ConstructionIcon/>
+                        <span>{company.employees.length}</span>
+                    </div>
+                    <div className="tooltip2">
+                        <strong>Popularité : </strong> {company.popularity} <br/>
+                        <strong>Nombre de matière première en stock :</strong> {stockPrimaryMaterial}<br/>
+                        <strong>Nombre de salariés : </strong>{company.employees.length}<br/>
+                    </div>
                 </div>
-                <div className={"mini-dashboard-info"}>
-                    <StackedLineChartIcon/>
-                    <span className={"negative"}>- 2%</span>/<span className={"positive"}>+ 5%</span>
-                </div>
-                <div className={"mini-dashboard-info"}>
-                    <ConstructionIcon/>
-                    <span className={"negative"}>- 2%</span>/<span className={"positive"}>+ 5%</span>
-                </div>
-
             </div>
 
         </div>

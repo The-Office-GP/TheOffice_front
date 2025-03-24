@@ -90,7 +90,7 @@ const ExpandPremisesButton: FC<ExpandPremisesButtonProps> = ({localLevel}) => {
                     )}
                     {localLevel === "Niveau 2" && (
                         <Typography sx={{mt: 2}}>
-                            Niveau 3 <Button sx={style2}>Payer 1 500 000€</Button>
+                            Niveau 3 <Button sx={style2}>Payer {priceUpgrade}€</Button>
                         </Typography>
                     )}
                     {localLevel === "Niveau 3" && <Typography sx={{mt: 2}}>Local amélioré au maximum</Typography>}
