@@ -30,6 +30,9 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>, 
         } else {
             alert("Vous n'avez pas assez d'argent pour acheter de nouvelles matières premières");
         }
+        // Met à jour le contexte avec les nouvelles valeurs
+        contextCompany.setCompany(contextCompany.company);
+
         const id = Number(params.id);
         saveCompanyInfo(id, contextCompany.company, contextCompany.setCompany)
     };
