@@ -1,0 +1,15 @@
+.card-header{
+    width: 100%;
+    background: var(--orange) !important;
+
+}
+
+.border-0{
+    border-color: var(--deep-blue) ;
+}
+
+.card-dashboard{
+    max-height: 450px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

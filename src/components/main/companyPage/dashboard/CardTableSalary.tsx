@@ -1,6 +1,8 @@
 import {FC} from 'react';
 import "../../../../@styles/main/components/companyPage/gameDashboard.css"
+import "../../../../@styles/main/components/companyPage/dashboard/DashboardTable.css"
 import {CompanyDetailsType} from "../../../../@types/companyType";
+
 
 
 const CardTableSalary: FC<{company:CompanyDetailsType}> = ({company}) => {
@@ -46,6 +48,7 @@ const CardTableSalary: FC<{company:CompanyDetailsType}> = ({company}) => {
                         </tr>
                     ))}
                     </tbody>
+
                 </table>
             </div>
         </div>

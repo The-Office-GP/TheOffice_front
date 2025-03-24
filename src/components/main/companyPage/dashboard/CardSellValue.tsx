@@ -36,6 +36,7 @@ const CardSellValue: FC<{company:CompanyDetailsType}> = ({company}) => {
                         return tickValue;
                     },
                 },
+                color: '#ffffff',
             },
         },
         plugins: {

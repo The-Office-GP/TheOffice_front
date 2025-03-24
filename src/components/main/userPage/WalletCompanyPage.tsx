@@ -6,7 +6,7 @@ const WalletCompanyPage: FC<{ walletValue: Number }> = ({walletValue}) => {
 
     return (
         <div className={"mini-dashboard"}>
-            <h3>Mon porte-feuille</h3>
+            <h3>Mon Portefeuille</h3>
             <div className={"mini-dashboard-info-money"}>
                 <PaidIcon sx={{fontSize: '20px', marginRight: '4px'}}/>
                 <span style={{fontSize: '20px'}}>{walletValue + "€"}</span>
