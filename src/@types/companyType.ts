@@ -1,6 +1,6 @@
 import {EmployeeType} from "./employeeType";
 import {MachineShortType, MachineType} from "./MachineType";
-import {StockMaterialsType} from "./stockMaterialsType";
+import {StockFinalMaterialsType, StockMaterialsType} from "./stockMaterialsType";
 
 export interface CompanyType {
     id: number;
@@ -28,7 +28,7 @@ export interface CompanyDetailsType {
     suppliers: [];
     events: [];
     stockMaterials: StockMaterialsType;
-    stockFinalMaterials: StockMaterialsType;
+    stockFinalMaterials: StockFinalMaterialsType[];
     machinesInCompany: MachineShortType[];
     statistics: Statistic[]
 }
@@ -65,6 +65,9 @@ export interface Statistic {
     product3LowQtyProd: number;
     product3MidQtyProd: number;
     product3HighQtyProd: number;
+    product4LowQtyProd: number;
+    product4MidQtyProd: number;
+    product4HighQtyProd: number;
     materialLowQty: number;
     materialMidQty: number;
     materialHighQty: number;

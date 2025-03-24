@@ -3,32 +3,77 @@ import "../../../../@styles/main/components/companyPage/gameDashboard.css";
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend} from 'chart.js';
 import {Bar} from "react-chartjs-2";
 import {paletteColors} from "../../../../@styles/paletteColors";
+import {CompanyDetailsType, Statistic} from "../../../../@types/companyType";
 
 // Enregistrer les composants nécessaires de Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const CardSellProduct: FC<{}> = ({}) => {
+const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
+    function updateTheProduct1(sector: string){
+        switch(sector){
+            case "carpentry":
+                return "Palettes"
+            case "creamery":
+                return "Lait"
+            case "quarry":
+                return "Argile"
+        }
+    }
+
+    function updateTheProduct2(sector: string) {
+        switch (sector) {
+            case "carpentry":
+                return "Tables"
+            case "creamery":
+                return "Fromage"
+            case "quarry":
+                return "Ciment"
+        }
+    }
+
+    function updateTheProduct3(sector: string) {
+        switch (sector) {
+            case "carpentry":
+                return "Chaises"
+            case "creamery":
+                return "Crême fraiche"
+            case "quarry":
+                return "marbre"
+        }
+    }
+
+    function updateTheProduct4(sector: string) {
+        switch (sector) {
+            case "carpentry":
+                return "Cabanes"
+            case "creamery":
+                return "Beure"
+            case "quarry":
+                return "Pierre"
+        }
+    }
+
     const data = {
         labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Jui', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'], // Les mois de l'année
         datasets: [
             {
-                label: 'Product1', // Label pour la première série de données
-                data: [40, 45, 50, 55, 60, 70], // Les données de la série SalesHigh
+                label: updateTheProduct1(company.sector),
+                data: company.statistics.map((element) => element.product1HighQtyProd+element.product1MidQtyProd+element.product1LowQtyProd),
                 backgroundColor: paletteColors.pastelBlue,
             },
             {
-                label: 'Product2', // Label pour la deuxième série de données
-                data: [25, 30, 35, 40, 45, 50], // Les données de la série SalesMid
+                label: updateTheProduct2(company.sector),
+                data: company.statistics.map((element) => element.product2HighQtyProd + element.product2MidQtyProd + element.product2LowQtyProd),
                 backgroundColor: paletteColors.mediumBlue,
             },
             {
-                label: 'Product3', // Label pour la troisième série de données
-                data: [10, 15, 20, 25, 30, 35], // Les données de la série SalesLow
+                label: updateTheProduct3(company.sector), // Label pour la troisième série de données
+                data: company.statistics.map((element) => element.product3HighQtyProd + element.product3MidQtyProd + element.product3LowQtyProd),
                 backgroundColor: paletteColors.deepBlue,
             },
             {
-                label: 'Product4', // Label pour la troisième série de données
-                data: [10, 15, 20, 25, 30, 35], // Les données de la série SalesLow
+                label: updateTheProduct4(company.sector), // Label pour la troisième série de données
+                data: company.statistics.map((element) => element.product4HighQtyProd + element.product1MidQtyProd + element.product1LowQtyProd),
                 backgroundColor: paletteColors.white,
             },
         ],

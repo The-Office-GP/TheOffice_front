@@ -1,17 +1,15 @@
 import {FC} from 'react';
 import "../../../../@styles/main/components/companyPage/gameDashboard.css"
+import {CompanyDetailsType} from "../../../../@types/companyType";
 
 
-const CardTableProduct: FC<{}> = ({}) => {
+const CardTableProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
     return (
         <div className="card-dashboard shadow">
             <div className="card-header border-0">
                 <div className="row align-items-center">
                     <div className="col">
-                        <h3 className="mb-0">Social traffic</h3>
-                    </div>
-                    <div className="col text-right">
-                        <a href="#!" className="btn btn-sm btn-primary">See all</a>
+                        <h3 className="mb-0">Stocks</h3>
                     </div>
                 </div>
             </div>
@@ -19,113 +17,29 @@ const CardTableProduct: FC<{}> = ({}) => {
                 <table className="table align-items-center table-flush">
                     <thead className="thead-light">
                     <tr>
-                        <th scope="col">Referral</th>
-                        <th scope="col">Visitors</th>
-                        <th scope="col"></th>
+                        <th scope="col">Produits</th>
+                        <th scope="col">Haut de gamme</th>
+                        <th scope="col">Milieu de gamme</th>
+                        <th scope="col">Bas de gamme</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">
-                            Facebook
-                        </th>
-                        <td>
-                            1,480
-                        </td>
-                        <td>
-                            <div className="d-flex align-items-center">
-                                <span className="mr-2">60%</span>
-                                <div>
-                                    <div className="progress">
-                                        <div className="progress-bar bg-gradient-danger" role="progressbar"
-                                             aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}
-                                             style={{width: '60%'}}></div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            Facebook
-                        </th>
-                        <td>
-                            5,480
-                        </td>
-                        <td>
-                            <div className="d-flex align-items-center">
-                                <span className="mr-2">70%</span>
-                                <div>
-                                    <div className="progress">
-                                        <div className="progress-bar bg-gradient-success" role="progressbar"
-                                             aria-valuenow={70} aria-valuemin={0} aria-valuemax={100}
-                                             style={{width: "70%"}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            Google
-                        </th>
-                        <td>
-                            4,807
-                        </td>
-                        <td>
-                            <div className="d-flex align-items-center">
-                                <span className="mr-2">80%</span>
-                                <div>
-                                    <div className="progress">
-                                        <div className="progress-bar bg-gradient-primary" role="progressbar"
-                                             aria-valuenow={80} aria-valuemin={0} aria-valuemax={100}
-                                             style={{width: "80%"}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            Instagram
-                        </th>
-                        <td>
-                            3,678
-                        </td>
-                        <td>
-                            <div className="d-flex align-items-center">
-                                <span className="mr-2">75%</span>
-                                <div>
-                                    <div className="progress">
-                                        <div className="progress-bar bg-gradient-info" role="progressbar"
-                                             aria-valuenow={75}
-                                             aria-valuemin={0} aria-valuemax={100} style={{width: "75%"}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            twitter
-                        </th>
-                        <td>
-                            2,645
-                        </td>
-                        <td>
-                            <div className="d-flex align-items-center">
-                                <span className="mr-2">30%</span>
-                                <div>
-                                    <div className="progress">
-                                        <div className="progress-bar bg-gradient-warning" role="progressbar"
-                                             aria-valuenow={30} aria-valuemin={0} aria-valuemax={100}
-                                             style={{width: "30%"}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    {company.stockFinalMaterials.map((product) => (
+                        <tr>
+                            <th scope="row">
+                                {product.name}
+                            </th>
+                            <td>
+                                {product.quantityHigh}
+                            </td>
+                            <td>
+                                {product.quantityMid}
+                            </td>
+                            <td>
+                                {product.quantityLow}
+                            </td>
+                        </tr>
+                    ))}
                     </tbody>
                 </table>
             </div>
