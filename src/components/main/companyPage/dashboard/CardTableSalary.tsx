@@ -29,7 +29,22 @@ const CardTableSalary: FC<{company:CompanyDetailsType}> = ({company}) => {
                     </tr>
                     </thead>
                     <tbody>
-                    {company.employees}
+                    {company.employees.map((employee) => (
+                        <tr>
+                            <th scope="row">
+                                {employee.name}
+                            </th>
+                            <td>
+                                {employee.level}
+                            </td>
+                            <td>
+                                {employee.status}
+                            </td>
+                            <td>
+                                {employee.health}
+                            </td>
+                        </tr>
+                    ))}
                     </tbody>
                 </table>
             </div>

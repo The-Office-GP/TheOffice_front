@@ -3,6 +3,7 @@ import {Routes} from "react-router-dom";
 import {Route} from "react-router";
 import MainLayoutConnection from "../layout/MainLayoutConnection";
 import {RouteType} from "../@types/routes/routeType";
+import SettingPage from "../pages/SettingPage";
 
 const UserPage = lazy(() => import("../pages/UserPage"));
 const CompanyPage = lazy(() => import("../pages/CompanyPage"));
@@ -13,7 +14,7 @@ const Router: FC = () => {
         {path: "/", element: <UserPage/>},
         {path: "/user", element: <UserPage/>},
         {path: "/dashboard", element: <UserPage/>},
-        {path: "/setting", element: <UserPage/>},
+        {path: "/setting", element: <SettingPage/>},
         {path: "/company/:id", element: <CompanyPage/>}
     ]
 

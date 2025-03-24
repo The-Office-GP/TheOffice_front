@@ -5,12 +5,12 @@ import SimulationButton from "../../../share/SimulationButton";
 import "../../../../@styles/main/components/companyPage/gameDashboard.css"
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import {UserContext} from "../../../../contexts/UserContext";
-import CardDashboardContainer from "../dashboard/CardDashboardContainer";
 import {IconButton} from "@mui/material";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CardDashboardContainer from "../dashboard/CardDashboardContainer";
 import ChartDashboardContainer from "../dashboard/ChartDashboardContainer";
 import BoardDashboardContainer from "../dashboard/BoardDashboardContainer";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     const companyContext = useContext(CompanyContext)
@@ -51,31 +51,3 @@ const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
 };
 
 export default GameDashboard;
-
-/*
-/*
-<div className={"card-dashboard-container"}>
-    <CardDashboard Icon={SellIcon} title={"Nom"} value={0}/>
-    <CardDashboard Icon={SellIcon} title={"Nom"} value={0}/>
-    <CardDashboard Icon={SellIcon} title={"Nom"} value={0}/>
-    <CardDashboard Icon={SellIcon} title={"Nom"} value={0}/>
-</div>
-<div className={"sell-value-container"}>
-    <CardSellValue/>
-    <CardSellProduct/>
-</div>
-
-
-<div className={"metrics-cards-container"}>
-    <div className={"product-value-container"}>
-        <CardTableProduct/>
-        <CardTableSalary/>
-    </div>
-</div>
-
-<div className={"sell-value-container"}>
-                    <CardSellValue/>
-                    <CardSellProduct/>
-                </div>
-
- */

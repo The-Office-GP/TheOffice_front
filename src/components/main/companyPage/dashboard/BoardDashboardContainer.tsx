@@ -7,7 +7,7 @@ const BoardDashboardContainer: FC<{company:CompanyDetailsType}> = ({company}) =>
     return (
         <div className={"product-value-container"}>
             <CardTableProduct company={company}/>
-            <CardTableSalary/>
+            <CardTableSalary company={company}/>
         </div>
     );
 };
