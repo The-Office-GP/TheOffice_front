@@ -1,6 +1,6 @@
 import {NavigateFunction} from "react-router";
 import {ChangeEvent, Dispatch, FormEvent, SetStateAction} from "react";
-import {getTheOfficeDb, postTheOfficeDb, putTheOfficeDb} from "../../../../api/theofficeApi";
+import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {UserType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";

@@ -41,7 +41,7 @@ const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                 </div>
                 <div className={"dashboar-header"}>
                 </div>
-                {boardState === 0 && <CardDashboardContainer statistics={companyContext.company.statistics}/>}
+                {boardState === 0 && <CardDashboardContainer company={companyContext.company}/>}
                 {boardState === 1 && <ChartDashboardContainer company={companyContext.company}/>}
                 {boardState === 2 && <BoardDashboardContainer company={companyContext.company}/>}
                 <SimulationButton setPage={setPage}/>

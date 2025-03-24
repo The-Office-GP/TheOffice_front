@@ -34,10 +34,6 @@ const CompanyPage: FC<{}> = ({}) => {
     }, []);
 
     useEffect(() => {
-        console.log(company);
-    }, [company]);
-
-    useEffect(() => {
         setUrl(company.local.pathBackgroundImage);
         setLevel(company.local.level);
         setMaxEmployees(company.local.maxEmployees);

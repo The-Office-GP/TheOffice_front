@@ -2,6 +2,10 @@ import {Dispatch, FC, SetStateAction, useContext, useEffect} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
+import {CompanyContext} from "../../../../contexts/CompanyContext";
+import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
+import companyPage from "../../../../pages/CompanyPage";
 
 interface EmployeeItemProps {
     employee: EmployeeType;
@@ -12,9 +16,18 @@ interface EmployeeItemProps {
 }
 
 const EmployeeItem: FC<EmployeeItemProps> = ({employee, type, listParent, setListParent, onRecruit}) => {
-    // Fonction de recrutement
-    const addEmployee = () => {
+    const contextCompany = useContext(CompanyContext)
+    const params = useParams();
+
+    useEffect(() => {
+
+    }, []);
+
+
+  const addEmployee = () => {
         onRecruit(); // Appel de la fonction de recrutement passée en prop
+      const id = Number(params.id)
+      saveCompanyInfo(id, contextCompany.company, contextCompany.setCompany);
     };
 
     return (

@@ -13,6 +13,8 @@ export const collectCompanyInfos = async (path:string, setCompany:Dispatch<SetSt
 };
 
 export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, setCompany:Dispatch<SetStateAction<CompanyDetailsType>>) => {
+    console.log(company);
+
     try {
         const data = {
             sector: company.sector,
@@ -31,7 +33,8 @@ export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, set
             machinesInCompany: company.machinesInCompany,
             statistics: company.statistics,
         }
-        const response = await putTheOfficeDbUser(`/companies/${id}`, data, getToken());
+        const path = "/companies/" + id;
+        const response = await putTheOfficeDbUser(path, data, getToken());
         setCompany(response.data)
     } catch (error) {
         console.error('Erreur lors de la sauvegarde:', error);

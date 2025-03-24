@@ -3,17 +3,18 @@ import "../../../../@styles/main/components/companyPage/gameDashboard.css"
 import {Line} from 'react-chartjs-2';
 import {Chart as ChartJS, CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend, PointElement} from 'chart.js';
 import {paletteColors} from "../../../../@styles/paletteColors";
+import {CompanyDetailsType} from "../../../../@types/companyType";
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend, PointElement);
 
 
-const CardSellValue: FC<{}> = ({}) => {
+const CardSellValue: FC<{company:CompanyDetailsType}> = ({company}) => {
     const data = {
         labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jui', 'Jui', 'Aou', 'Sep', 'Oct', 'Nov','Dec'],
         datasets: [
             {
                 label: 'CA',
-                data: [0, 20, 10, 30, 15, 40, 20, 80, 60, 0, 10, 50],
+                data: company.statistics.map((element) => element.totalIncomes),
                 borderColor: paletteColors.orange,
                 backgroundColor: paletteColors.orange,
                 fill: true,
