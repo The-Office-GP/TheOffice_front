@@ -1,18 +1,17 @@
 import {Dispatch, FC, SetStateAction, useState} from 'react';
 import StartSimulationButton from "../buttons/StartSimulationButton";
-import ExitButton from "../../../share/ExitButton";
-
 import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
 
 const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
 
+    const [stateSimulation, setStateSimulation] = useState<boolean>(false)
+
     return (
         <>
-            <div className={"simulation-container"}>
-                <div className={"exit-h2-container"}>
-                    <ExitButton setPage={setPage}/>
-                    <h2>Simulation</h2>
-                </div>
+            <div className={"simulation-container"}
+                 style={{backgroundImage: "url('/assets/simulation-background/Simulation-background.png')"}}>
+                <h2>Simulation</h2>
+
 
                 <div className={"settings"}>
                     <div className={"production-settings-part"}>
@@ -25,8 +24,8 @@ const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPa
                             <input type={"range"} className={"range-input-production"}/>
                         </div>
                         <div className={"setting-container-production"}>
+                            <label className={"marketing-label "}>Prioriser le marketing </label>
 
-                            <label className={"marketing-label "}>Prioriser le marketing &nbsp; </label>
                             <input type={"range"} className={"range-input-production"}/>
                         </div>
                     </div>
@@ -49,7 +48,9 @@ const SimulationBoard: FC<{setPage: Dispatch<SetStateAction<number>>}> = ({setPa
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton setPage={setPage}/>
+                <StartSimulationButton setPage={setPage
+                }/>
+
 
             </div>
         </>

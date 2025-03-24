@@ -2,7 +2,7 @@ import {Dispatch, FC, SetStateAction} from 'react';
 import SimulationTable from "./simulation-component/SimulationTable";
 import ContinueButton from "../buttons/ContinueButton";
 
-import "../../../../@styles/main/components/simulation/SimulationTrimestrielResults.css"
+import "../../../../@styles/main/components/companyPage/simulation/SimulationTrimestrielResults.css"
 
 
 const SimulationTrimestrielResults: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {

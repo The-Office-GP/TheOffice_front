@@ -9,7 +9,6 @@ import LockedCompanyCard from "../components/main/userPage/LockedCompanyCard";
 import {collectUserCompanies} from "../@scripts/main/components/userPage/userPageScript";
 import WalletCompanyPage from "../components/main/userPage/WalletCompanyPage";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
-import {getUserInfo, saveUserInfo} from "../utilis/storage";
 
 const UserPage: FC = () => {
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
@@ -24,6 +23,10 @@ const UserPage: FC = () => {
 
     const baseLimitCompany = 1;
     const limitCompany = baseLimitCompany + companyLimitIncrease;
+
+    useEffect(() => {
+        console.log(arrayCompany)
+    }, [arrayCompany]);
 
     useEffect(() => {
         if (previousWallet < 1000000 && user.userInfo.wallet >= 1000000) {

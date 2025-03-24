@@ -1,0 +1,664 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Grève des salariés - demande d'augmentation",
+      "description": "Les salariés réclament une augmentation salariale, mettant en jeu la gestion financière et l'image de l'entreprise. Allez vous accepter ou maintenir votre position?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés: les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 1,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -1,
+        "production": 0.8,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 2,
+      "title": "Pandémie = inflation",
+      "description": "Face à une nouvelle vague de pandémie, l'entreprise doit choisir entre protéger ses employés ou maintenir sa production.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 0.7,
+        "mood": 0,
+        "production": 0.7,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 3,
+      "title": "Demande de formation des salariés",
+      "description": "Les employés demandent une formation pour améliorer leurs compétences, mais cela représente un investissement.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 4,
+      "title": "Panne d'une machine",
+      "description": "Une machine clé tombe en panne. L'entreprise doit choisir entre une réparation immédiate et une maintenance préventive.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.3,
+        "mood": 0,
+        "production": 1.2,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1.2,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 5,
+      "title": "Installation d'un nouveau concurrent dans le secteur",
+      "description": "Un nouveau concurrent entre sur le marché. L'entreprise doit décider si elle renforce sa position ou adopte une attitude passive.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.2,
+        "mood": 0,
+        "production": 1.2,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 0.7,
+        "popularity": 0.8
+      }
+    },
+    {
+      "id": 6,
+      "title": "Accident de travail (durée : jusqu'au prochain cycle)",
+      "description": "Un salarié est indisponible temporairement. L'entreprise doit recruter un remplaçant ou attendre son retour.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1.2,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -1,
+        "production": 0.9,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 7,
+      "title": "Optimisation fiscale illégale ?",
+      "description": "Un conseiller vous propose une stratégie d’optimisation fiscale aux contours juridiques flous. Cela pourrait réduire vos coûts, mais comporte des risques. Allez-vous saisir cette opportunité?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 0.7,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 8,
+      "title": "Entrer en bourse",
+      "description": "L'entreprise a la possibilité d'entrer en bourse, ce qui pourrait booster sa croissance mais imposer des contraintes et restreint votre indépendence.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 0.8,
+        "mood": 0,
+        "production": 1.2,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 9,
+      "title": "Proposition de fusion",
+      "description": "Une entreprise concurrente vous propose une fusion. Cette opportunité pourrait renforcer votre position sur le marché, mais risque de bouleverser votre organisation interne. Allez-vous accepter cette offre?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1,
+        "mood": 1,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1.2,
+        "mood": -2,
+        "production": 1.2,
+        "popularity": 1.2
+      }
+    },
+    {
+      "id": 10,
+      "title": "Panne d'électricité",
+      "description": "Une panne affecte l'entreprise. Un contrôle approfondi du réseau serait nécessaire souhaitez vous l'effectuer ou opter pour une solution moins couteuse, ",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": -1,
+        "production": 0.9,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1.2,
+        "mood": -1,
+        "production": 0.8,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 11,
+      "title": "Demande d'augmentation des salaires",
+      "description": "Les employés réclament une hausse de salaire, mettant en balance reconnaissance et stabilité financière. Allez vous accéder a leurs demande?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.2,
+        "mood": 2,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -2,
+        "production": 0.9,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 12,
+      "title": "Congés parentales jusqu'à la fin du cycle",
+      "description": "Un employé clé part en congé parental. Faut-il embaucher un remplaçant  ? Si vous refusez les tâches seront redistribuer aux salariés de son équipe et risque d'impacter la production.",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -1,
+        "production": 0.9,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 13,
+      "title": "Arrêt maladie jusqu'à la fin du cycle",
+      "description": "Un membre important de votre équipe vient d'être placé en arrêt maladie pour une durée indéterminée, qui pourrait s'étendre jusqu'à la fin du cycle de production actuel. , vous devez prendre une décision rapide pour gérer cette absence. Allez-vous embaucher un remplaçant, sinon vous devrez redistribuer ses responsabilités au sein de l'équipe existante!",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -1,
+        "production": 0.9,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 14,
+      "title": "Chute du marché",
+      "description": "Une soudaine chute du marché secoue votre secteur d'activité, menaçant la stabilité de votre entreprise . En tant que dirigeant, vous devez décider allez-vous saisir cette opportunité pour investir davantage dans la recherche et le développement? Sinon vous adopterez une approche plus prudente en maintenant l'activité actuelle, dans l'espoir que la tempête passe d'elle-même ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.2,
+        "mood": 0,
+        "production": 0.8,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 0.6,
+        "popularity": 0.8
+      }
+    },
+    {
+      "id": 15,
+      "title": "Départ à la retraite",
+      "description": "Un employé de longue date, pilier de votre entreprise, vient d'annoncer son départ à la retraite imminent. Avec lui, c'est une mine de connaissances et d'expérience qui s'apprête à quitter vos rangs. Allez-vous recruter un nouveau talent pour combler ce poste vacant? Ou préférez-vous redistribuer les responsabilités au sein de l'équipe existante?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -1,
+        "production": 0.9,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 16,
+      "title": "Demande d'absence de maintenance des machines sur un temps donné",
+      "description": "Votre équipe de production a soumis une proposition audacieuse : suspendre temporairement la maintenance régulière des machines pour augmenter la cadence de production. Cependant, cette décision n'est pas sans risque pour la longévité et la fiabilité de vos équipements. Allez-vous accepter cette demande, privilégiant une augmentation à court terme de la production ? Ou préférez-vous maintenir le programme de maintenance habituel?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 0.9,
+        "mood": -1,
+        "production": 1.1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 17,
+      "title": "Demande de collaboration",
+      "description": "Une entreprise innovante de votre secteur vous a récemment approché avec une proposition de collaboration intéressante. Allez-vous combiner vos ressources et expertises sur un projet commun qui pourrait potentiellement révolutionner le marché. Cette opportunité semble prometteuse, mais elle comporte également des risques et des incertitudes. Allez-vous accepter cette collaboration ou conservant votre indépendance et votre focus actuel ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 0.9,
+        "mood": 0,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 18,
+      "title": "Recrutement ou non de stagiaire",
+      "description": "Votre département des ressources humaines vous a présenté une opportunité de recruter des stagiaires pour la prochaine période. Cette initiative pourrait apporter un nouveau dynamisme à l'entreprise et potentiellement révéler de futurs talents. Cependant, l'encadrement de stagiaires nécessite du temps et des ressources. En tant que dirigeant, vous devez peser les avantages et les inconvénients de cette décision. Allez-vous accueillir ces jeunes talents, ou préférez-vous maintenir votre structure actuelle, vous concentrant sur les employés déjà en place ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 1,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 19,
+      "title": "Recrutement ou non d'alternants",
+      "description": "Votre service des ressources humaines vous a soumis une proposition pour recruter des alternants dans différents départements de l'entreprise. Cette initiative pourrait apporter un mélange unique de formation académique et d'expérience pratique à votre équipe. Cependant, l'intégration et l'encadrement d'alternants nécessitent un investissement en temps et en ressources. Préférez-vous maintenir votre structure actuelle, en vous concentrant sur les employés à temps plein déjà en place ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 1,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 20,
+      "title": "Contrôle de l'URSSAF",
+      "description": "Un contrôleur de l'URSSAF se présente à l'entrée de votre entreprise pour effectuer une inspection. Cette visite inattendue vous place face à un dilemme crucial. En tant que dirigeant, vous devez décider rapidement de la manière de gérer cette situation délicate. Allez-vous tenter de bloquer l'entrée du contrôleur, espérant ainsi éviter ou retarder l'inspection ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1.3,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 21,
+      "title": "Demande de prime de Noël",
+      "description": "À l'approche des fêtes de fin d'année, les représentants du personnel vous ont soumis une demande de prime de Noël pour l'ensemble des employés. Ils argumentent que cette prime serait un geste fort de reconnaissance pour les efforts fournis tout au long de l'année et contribuerait à renforcer l'esprit d'équipe. Allez-vous accéder à cette demande, ou préférez-vous maintenir le statu quo, privilégiant la stabilité financière de l'entreprise ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 2,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -1,
+        "production": 0.9,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 22,
+      "title": "Grêve des salariés - amélioration du bien-être au travail",
+      "description": "Une grève des salariés vient d'éclater dans votre entreprise, réclamant une amélioration significative du bien-être au travail. Les employés, unis dans leur mouvement, exigent des changements concrets pour améliorer leurs conditions de travail et leur qualité de vie professionnelle. Face à cette mobilisation, vous vous trouvez à un carrefour décisionnel crucial. Ou choisirez-vous de maintenir le statu quo, privilégiant la stabilité financière à court terme?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.2,
+        "mood": 2,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -2,
+        "production": 0.8,
+        "popularity": 0.9
+      }
+    },
+    {
+      "id": 23,
+      "title": "Demande de mise en place d'un séminaire",
+      "description": "Les représentants du personnel vous ont soumis une proposition intéressante : organiser un séminaire d'entreprise.  Allez-vous donner votre feu vert à ce projet de séminaire,Ou préférez-vous décliner cette proposition, privilégiant la continuité des opérations quotidiennes ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 1,
+        "production": 1.1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 24,
+      "title": "Demande de mise en place d'une journée parents/enfants",
+      "description": "Le comité d'entreprise vous a récemment présenté une idée innovante : organiser une journée parents/enfants au sein de l'entreprise. Cependant, l'organisation d'un tel événement nécessiterait une planification minutieuse et pourrait avoir un impact sur les opérations quotidiennes. Allez-vous donner votre accord pour cette journée spéciale?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 1,
+        "production": 0.9,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 25,
+      "title": "Réalisation d'une interview sur une chaine TV locale",
+      "description": "Une chaîne de télévision locale vous a contacté pour réaliser une interview sur votre entreprise. Cette opportunité unique pourrait accroître considérablement la visibilité de votre société et renforcer sa crédibilité auprès du public?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1,
+        "mood": 1,
+        "production": 1,
+        "popularity": 1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.1
+      }
+    },
+    {
+      "id": 26,
+      "title": "Proposition d'une visite du président",
+      "description": "le Président de la République souhaite inclure votre entreprise dans son prochain déplacement officiel axé sur l'innovation et l'économie locale.Cependant accueillir une telle personnalité nécessiterait une préparation minutieuse et pourrait perturber temporairement le fonctionnement habituel de l'entreprise. Allez vous accepter cette opportunité?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 0.9,
+        "popularity": 1.1
+      }
+    },
+    {
+      "id": 27,
+      "title": "Investir dans un site Internet",
+      "description": "Votre équipe marketing a récemment proposé d'investir dans la création d'un site Internet de l'entreprise. Une présence en ligne solide est cruciale pour la visibilité et la crédibilité de l'entreprise. Cependant, le développement d'un site web professionnel nécessite un investissement financier et en ressources humaines. Allez-vous donner le feu vert à ce projet digital ? Ou préférez-vous concentrer vos ressources sur d'autres aspects de l'entreprise ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 28,
+      "title": "Proposition d'une publicité au cinéma",
+      "description": "Une agence de publicité vous a récemment approché avec une proposition intrigante : diffuser une publicité pour votre entreprise dans les salles de cinéma locales avant les films. Cette campagne pourrait potentiellement augmenter la notoriété de votre marque cependant, la production d'une publicité engendre un investissement conséquent. Allez-vous donner le feu vert à ce projet ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 1,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 29,
+      "title": "Un tweet dénonce un fait réél qui dénigre l'entreprise",
+      "description": "Un tweet critiquant un fait réel qui ternit votre image votre entreprise vient d'être publié. Allez-vous choisir de répondre directement au tweet Ou préférez-vous ne pas répondre et signaler le tweet, espérant ainsi limiter sa visibilité et son impact potentiel ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.9
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 0.8
+      }
+    },
+    {
+      "id": 30,
+      "title": "Un tweet dénonce un fait imaginaire qui dénigre l'entreprise",
+      "description": "Un tweet contenant des dénonciations vient d'être publié, dénigrant votre entreprise sur la base de faits totalement imaginaires. Cette désinformation se propage rapidement sur les réseaux sociaux. Allez vous répondre directement au tweet en défendant l'intégrité de votre entreprise publiquement ? Ou préférez-vous ne pas répondre et simplement signaler espérant ainsi limiter l'impacte de ces fausses allégations ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.2
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.1
+      }
+    },
+    {
+      "id": 31,
+      "title": "Un journaliste dénonce l'harcèlement du meilleur salarié de l'entreprise",
+      "description": "Un journaliste vient de publier un article dénonçant des comportements de harcèlement attribués à votre meilleur employé ,mettant en lumière des enjeux cruciaux de culture d'entreprise. Allez-vous prendre la décision difficile de licencier cet employé performant? Ou préférez-vous de le conserver, misant sur sa valeur pour l'entreprise ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 2,
+        "production": 0.8,
+        "popularity": 1.2
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": -2,
+        "production": 0.9,
+        "popularity": 0.8
+      }
+    },
+    {
+      "id": 32,
+      "title": "Participer à un salon de l'entreprise",
+      "description": "Votre équipe marketing vient de vous présenter une opportunité intéressante : participer à un important salon professionnel de votre secteur. Ce salon pourrait vous offrir une visibilité accrue cependant la participation nécessite un investissement significatif en temps, en ressources humaines et financières. Allez-vous saisir cette occasion ? Ou préférez-vous allouer ces ressources à d'autres initiatives marketing plus ciblées ?",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    },
+    {
+      "id": 33,
+      "title": "Sponsoriser un club de football",
+      "description": "Une opportunité unique vient de se présenter à votre entreprise : devenir sponsor officiel d'un club de football local. Le sponsoring sportif pourrait offrir une visibilité accrue à votre marque cependant, un tel partenariat représente aussi un investissement financier significatif",
+      "consequencesPreview": "Votre choix aura une incidence sur l'amélioration globale des indicateurs clés et aura un impact sur les coûts, le moral, la production et la popularité.",
+      "firstChoice": "Oui",
+      "secondChoice": "Non",
+      "goodChoice": {
+        "costs": 1.1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1.1
+      },
+      "badChoice": {
+        "costs": 1,
+        "mood": 0,
+        "production": 1,
+        "popularity": 1
+      }
+    }
+  ]
+}

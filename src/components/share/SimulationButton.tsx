@@ -1,9 +1,7 @@
 import {Dispatch, FC, SetStateAction} from 'react';
 import "../../@styles/main/components/global/simulationButton.css"
 
-interface SimulationButtonProps {
-    setPage: (page: number) => void;
-}
+
 
 const SimulationButton: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
 
