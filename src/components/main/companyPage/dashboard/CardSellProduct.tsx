@@ -66,7 +66,7 @@ const CardSellProduct: FC<{}> = ({}) => {
             <div className="card-body">
                 <div className="row">
                     <div className="col">
-                        <h5 className="card-title text-uppercase text-muted mb-0">Traffic</h5>
+                        <h3 className="card-title text-uppercase text-muted mb-0">Traffic</h3>
                         <span className="h2 font-weight-bold mb-0">350,897</span>
                     </div>
                 </div>

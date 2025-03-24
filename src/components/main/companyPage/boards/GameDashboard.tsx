@@ -19,7 +19,7 @@ const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
             <div className={"dashboard-display"}>
                 <ExitButton setPage={setPage}/>
                 <div className={"icon-title"}>
-                    <ImportantDevicesIcon className={"dashboard-icon"}/><h3>Dashboard</h3>
+                    <ImportantDevicesIcon className={"dashboard-icon"}/><h2>Dashboard</h2>
                 </div>
                 <div className={"card-dashboard-container"}>
                     <CardDashboard Icon={SellIcon} title={"Nom"} value={0}/>
