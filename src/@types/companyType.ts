@@ -12,6 +12,7 @@ export interface CompanyType {
     machines: null;
     employees: null;
     events: null;
+    stockMaterials: null;
 }
 
 export interface CompanyDetailsType {
