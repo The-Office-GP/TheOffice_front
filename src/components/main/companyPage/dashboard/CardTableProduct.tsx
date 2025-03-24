@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import "../../../../@styles/main/components/companyPage/gameDashboard.css"
 import {CompanyDetailsType} from "../../../../@types/companyType";
+import "../../../../@styles/main/components/companyPage/dashboard/DashboardTable.css"
 
 
 const CardTableProduct: FC<{company:CompanyDetailsType}> = ({company}) => {

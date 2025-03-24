@@ -35,6 +35,7 @@ const CardSellValue: FC<{}> = ({}) => {
                         return tickValue;
                     },
                 },
+                color: '#ffffff',
             },
         },
         plugins: {
