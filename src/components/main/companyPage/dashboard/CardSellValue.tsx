@@ -15,7 +15,7 @@ const CardSellValue: FC<{}> = ({}) => {
                 label: 'CA',
                 data: [0, 20, 10, 30, 15, 40, 20, 80, 60, 0, 10, 50],
                 borderColor: paletteColors.orange,
-                backgroundColor: paletteColors.yellow,
+                backgroundColor: paletteColors.orange,
                 fill: true,
                 tension: 0.4,
             },
@@ -50,11 +50,11 @@ const CardSellValue: FC<{}> = ({}) => {
 
     return (
         <div className="card-dashboard bg-gradient-default shadow">
-            <div className="card-body">
+            <div className="card-body-sell-dashboard">
                 <div className="row">
                     <div className="col">
-                        <h5 className="card-title text-uppercase text-muted mb-0">Sales</h5>
-                        <span className="h2 font-weight-bold mb-0">500,000</span>
+                        <h3 id="sell-card-title">SALES</h3>
+                        <span className="h2 font-weight-bold mb-0" style={{color:"white"}}>500,000</span>
                     </div>
                 </div>
                 <p className="mt-3 mb-0 text-muted text-sm">
