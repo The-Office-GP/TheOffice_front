@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import GoodChoiceCard from "./GoodChoiceCard";
-import BadChoiceCard from "./BadChoiceCard";
 import eventsJson from "../../../../@data/event.json"
 import {EventData,EventType} from "../../../../@types/envent";
-
 import "../../../styles/components/cards/EventCard.css";
 import NoChoiceButton from "../buttons/NoChoiceButton";
 import YesChoiceButton from "../buttons/YesChoiceButton";
+import BadChoiceCard from "./BadChoiceCard";
 
 // Cast des données JSON en EventData
 const eventsData = eventsJson as EventData;
