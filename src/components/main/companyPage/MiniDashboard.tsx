@@ -5,7 +5,7 @@ import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import "../../../@styles/main/components/globalUser/miniDashboard.css";
 import {CompanyDetailsType} from "../../../@types/companyType";
-import {stockMaterialDefault} from "../../../@data/companyValueDefault";
+import AddReactionIcon from '@mui/icons-material/AddReaction';
 
 const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
     const [stockPrimaryMaterial, setStockPrimaryMaterial] = useState<number>()
@@ -28,7 +28,7 @@ const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
             <div className={"infos-display"}>
                 <div className={"level-container2"}>
                     <div className={"mini-dashboard-info"}>
-                        <PeopleOutlineIcon/>
+                        <AddReactionIcon/>
                         <span>{company.popularity}</span>
                     </div>
                     <div className={"mini-dashboard-info"}>
@@ -36,12 +36,12 @@ const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
                         <span>{stockPrimaryMaterial}</span>
                     </div>
                     <div className={"mini-dashboard-info"}>
-                        <ConstructionIcon/>
+                        <PeopleOutlineIcon/>
                         <span>{company.employees.length}</span>
                     </div>
                     <div className="tooltip2">
                         <strong>Popularité : </strong> {company.popularity} <br/>
-                        <strong>Nombre de matière première en stock :</strong> {stockPrimaryMaterial}<br/>
+                        <strong>Nombre de matière première en stock : </strong> {stockPrimaryMaterial}<br/>
                         <strong>Nombre de salariés : </strong>{company.employees.length}<br/>
                     </div>
                 </div>

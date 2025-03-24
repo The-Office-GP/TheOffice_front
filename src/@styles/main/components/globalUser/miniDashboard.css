@@ -72,11 +72,12 @@
 }
 
 .mini-dashboard-info {
-    width: 100%;
+    width: 115%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin: 10px 0;
+    align-items: center;
 }
 
 .infos-display {
