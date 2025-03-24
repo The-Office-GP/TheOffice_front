@@ -209,7 +209,7 @@ export const submitUpdateUser = async (
         return;
     }
 
-    if (!passwordIsValidate(updateInput.newPassword, updateInput.confirmNewPassword, setErrorMessages)) {
+    if (!passwordIsValidate(updateInput.newPassword, setErrorMessages)) {
         return;
     }
 
