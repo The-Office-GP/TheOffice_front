@@ -1,7 +1,7 @@
 import {FC} from "react";
-import {Consequence} from "../../../../@types/envent";
 import "../../../styles/components/cards/EventCard.css";
 import "../../../styles/components/cards/BadAndGoodChoiceCard.css";
+import {Consequence} from "../../../../@types/envent";
 
 const BadChoiceCard: FC<{ data: Consequence }> = ({data}) => {
     return (
