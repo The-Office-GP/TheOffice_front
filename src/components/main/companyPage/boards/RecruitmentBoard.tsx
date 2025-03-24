@@ -1,4 +1,5 @@
 import {FC, useEffect, useState} from 'react';
+import {Grid2} from "@mui/material";
 import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeItem from "../employeeComponents/EmployeeItem";
 import {getTheOfficeDbUser} from "../../../../api/theofficeApi";
@@ -15,7 +16,7 @@ const RecruitmentBoard: FC<{ company: CompanyDetailsType }> = ({company}) => {
     const companyContext = useContext(CompanyContext);
 
     useEffect(() => {
-        collectEmployeeForRecruitment();
+        collectEmployeeForRecruitment()
     }, []);
 
     const collectEmployeeForRecruitment = async () => {

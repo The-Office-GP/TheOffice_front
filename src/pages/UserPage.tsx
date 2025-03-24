@@ -25,7 +25,11 @@ const UserPage: FC = () => {
     const limitCompany = baseLimitCompany + companyLimitIncrease;
 
     useEffect(() => {
-        if (previousWallet < 10000000 && user.userInfo.wallet >= 10000000) {
+        console.log(arrayCompany)
+    }, [arrayCompany]);
+
+    useEffect(() => {
+        if (previousWallet < 1000000 && user.userInfo.wallet >= 1000000) {
             setCompanyLimitIncrease((prev) => {
                 const newLimit = prev + 1;
                 localStorage.setItem("companyLimitIncrease", String(newLimit)); // Stockage en localStorage

@@ -2,8 +2,6 @@ import {Dispatch, FC, SetStateAction, useContext, useEffect} from 'react';
 import {EmployeeType} from "../../../../@types/employeeType";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem.css";
-import {CompanyContext} from "../../../../contexts/CompanyContext";
-import {useParams} from "react-router";
 
 interface EmployeeItemProps {
     employee: EmployeeType;
