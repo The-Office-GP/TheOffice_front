@@ -1,10 +1,10 @@
 import {NavigateFunction} from "react-router";
 import {ChangeEvent, Dispatch, FormEvent, SetStateAction} from "react";
-import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
+import {getTheOfficeDb, postTheOfficeDb, putTheOfficeDb} from "../../../../api/theofficeApi";
 import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {UserType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
-import {LoginFormInput, RegisterFormInput} from "../../../../@types/loginAndRegister";
+import {LoginFormInput, RegisterFormInput, UpdateFormInput} from "../../../../@types/loginAndRegister";
 
 //Soumission des informations pour pouvoir s'inscrire
 export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, registerInput: RegisterFormInput, setIsSubmitting:Dispatch<SetStateAction<boolean>>, setRegisterIsMake:Dispatch<SetStateAction<boolean>>, setDataForConnexion:Dispatch<SetStateAction<any>>) => {
@@ -192,3 +192,85 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
         setIsSubmitting(false);
     }
 };
+
+//Soumission des informations pour mettre à jour les données personelles
+export const submitUpdateUser = async (
+    e: FormEvent<HTMLFormElement>,
+    setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>,
+    updateInput: UpdateFormInput,
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>,
+    dispatch: any,
+    userContext: UserContextProps
+) => {
+    e.preventDefault();
+    setErrorMessages({});
+
+    if (!usernameIsValidate(updateInput.username, setErrorMessages)) {
+        return;
+    }
+
+    if (!passwordIsValidate(updateInput.newPassword, setErrorMessages)) {
+        return;
+    }
+
+    setIsSubmitting(true);
+
+    const data = {
+        username: updateInput.username,
+        password: updateInput.newPassword,
+    };
+
+    await updateUserCallApi(setErrorMessages, data, setIsSubmitting, dispatch, userContext);
+};
+
+//Permet à l'utilisateur de mettre à jour ses données
+export const updateUserCallApi = async (
+    setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>,
+    data: { username: string; password: string },
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>,
+    dispatch: any,
+    userContext: UserContextProps
+) => {
+    let response: any;
+    setIsSubmitting(true);
+
+    try {
+        const userId = userContext.userInfo?.id;
+        const userInfoString = getUserInfo();
+        const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
+        const token = userInfo?.token; // Maintenant, on peut accéder à token
+
+        console.log("Token envoyé :", token);
+        console.log("getUserInfo() retourne :", userInfoString);
+
+        if (!userId || !token) {
+            setErrorMessages({updateError: "Utilisateur non authentifié."});
+            return;
+        }
+
+        response = await postTheOfficeDb(`/users/${userId}`, data, {
+            headers: {Authorization: `Bearer ${token}`},
+        });
+
+        console.log("Réponse API :", response);
+
+        if (response.status === 200) {
+            const updatedUser = {
+                ...userContext.userInfo,
+                username: data.username,
+            };
+
+            userContext.setUserInfo(updatedUser);
+            saveUserInfo(updatedUser);
+        } else {
+            setErrorMessages({updateError: "Échec de la mise à jour."});
+        }
+    } catch (error) {
+        console.error("Erreur lors de la mise à jour:", error);
+    } finally {
+        setIsSubmitting(false);
+    }
+};
+
+
+

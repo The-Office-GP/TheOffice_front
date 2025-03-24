@@ -7,7 +7,7 @@ export const handleDashboard = (navigate:NavigateFunction) => {
 }
 
 export const handleSettings = (navigate: NavigateFunction) => {
-    navigate("/paramètres")
+    navigate("/setting")
 }
 
 //Déconnecte l'utilisateur
