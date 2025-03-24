@@ -1,6 +1,5 @@
-import {ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useContext, useState} from 'react';
+import {ChangeEvent, FC, FormEvent, useContext, useState} from 'react';
 import '../../../@styles/main/components/loginAndRegister/form.css'
-import SwitchForm from "./SwitchForm";
 import {RegisterFormInput} from "../../../@types/loginAndRegister";
 import {loginCallApiForConnection, submitRegister} from "../../../@scripts/main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
@@ -8,7 +7,6 @@ import {useAuth} from "../../../contexts/AuthContext";
 import {FormContext} from "../../../contexts/FormContext";
 import {UserContext} from "../../../contexts/UserContext";
 import {inputChange} from "../../../@scripts/main/components/formInput";
-import ExitButton from "../../share/ExitButton";
 
 //Formulaire d'inscription qui permet à la fin soit de se connecter soit de retourner à l'accueil
 const RegisterForm: FC<{}> = ()=> {
@@ -46,11 +44,6 @@ const RegisterForm: FC<{}> = ()=> {
         await loginCallApiForConnection(dispatch, setErrorMessages, userContext, dataForConnexion, setIsSubmitting, navigate)
     };
 
-    //renvoie sur la page d'accueil
-    const handleBack = () => {
-        formContext.setRegisterIsVisible(!formContext.registerIsVisible)
-    }
-
     return (
         <>
             {registerIsMake ?
@@ -66,7 +59,6 @@ const RegisterForm: FC<{}> = ()=> {
                 </div>
                 :
                 <form className={"subscribe-form"} onSubmit={handleSubmit}>
-                    <SwitchForm/>
                     <div className={"title"}>
                         <h2>Inscription</h2>
                         {errorMessages.username && <div className="error">{errorMessages.username}</div>}
