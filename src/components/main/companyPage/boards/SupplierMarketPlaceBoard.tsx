@@ -18,6 +18,10 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>, 
         }
     }, [company]);
 
+    const addMaterial = () => {
+        // Ajout du stock des matières premières
+
+    }
 
     return (
             <div className={"menu-container"}>

@@ -7,7 +7,7 @@ const StartSimulationButton: FC<{ setPage: Dispatch<SetStateAction<number>>}> = 
 
     return (
         <>
-            <button className={"start-simulation-button"} onClick={() => setPage(6)}>Lancer le cicle</button>
+            <button className={"start-simulation-button"} onClick={() => setPage(6)}>Lancer le cycle</button>
         </>
     )
 }
