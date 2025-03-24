@@ -81,7 +81,7 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
 }
 
 //Permet à l'utilisateur de s'inscrire
-export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>> ) => {
+export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>>) => {
     let response: any
     setIsSubmitting(true)
 
