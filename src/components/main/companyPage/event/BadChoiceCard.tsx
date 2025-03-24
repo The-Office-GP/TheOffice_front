@@ -8,7 +8,7 @@ const BadChoiceCard: FC<{ data: Consequence }> = ({data}) => {
         <>
             <div className={"choice-card"}>
                 <img
-                    src={"https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67d3013ba838bf3160c83ea2/download/Planche_avata8_1.png"}
+                    src="/public/assets/avatars-event/AvatarBadChoice.png"
                     alt={"consequence-picture"} className={"choice-consequences-picture"}/>
                 <div className={"choice-consequences"}>
                     <p>Coût</p>

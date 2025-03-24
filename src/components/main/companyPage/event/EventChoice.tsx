@@ -3,8 +3,8 @@ import GoodChoiceCard from "./GoodChoiceCard";
 import eventsJson from "../../../../@data/event.json"
 import {EventData,EventType} from "../../../../@types/envent";
 import "../../../styles/components/cards/EventCard.css";
-import NoChoiceButton from "../buttons/NoChoiceButton";
-import YesChoiceButton from "../buttons/YesChoiceButton";
+import NoChoiceButton from "./NoChoiceButton";
+import YesChoiceButton from "./YesChoiceButton";
 import BadChoiceCard from "./BadChoiceCard";
 
 // Cast des données JSON en EventData
@@ -34,7 +34,7 @@ const EventChoice: React.FC<Props> = ({}) => {
                 <div className="choice-place">
                     <div className="choice-card">
                         <img
-                            src="https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67b4ce5d22b9467009f26581/download/Planche-avatar-phone-question.png"
+                            src="/assets/avatars-event/avatar-homme-question%201.png"
                             alt="choice preview"
                             className="choice-card-picture"
                         />
@@ -62,7 +62,7 @@ const EventChoice: React.FC<Props> = ({}) => {
                     <NoChoiceButton onClick={() => handleChoice("no")}/>
                     <div className="choice-card">
                         <img
-                            src="https://trello.com/1/cards/67b34f92a0acde729599d959/attachments/67b4ce5d22b9467009f26581/download/Planche-avatar-phone-question.png"
+                            src="/assets/avatars-event/avatar-homme-question%201.png"
                             alt="choice preview"
                             className="choice-card-picture"
                         />
