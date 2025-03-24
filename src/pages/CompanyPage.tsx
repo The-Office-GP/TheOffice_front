@@ -8,10 +8,14 @@ import {CompanyDetailsType} from "../@types/companyType";
 import {companyDetailsDefault} from "../@data/companyValueDefault";
 import EmployeeBoard from "../components/main/companyPage/boards/EmployeeBoard";
 import {CompanyContext} from "../contexts/CompanyContext";
+
+
+
 import MachineBoard from "../components/main/companyPage/boards/MachineBoard";
 import SimulationBoard from "../components/main/companyPage/boards/SimulationBoard";
 
 import {collectCompanyInfos} from "../@scripts/main/components/companyPage/companyPageScript";
+
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
 import SimulationTreeMonthsResultsBoard from "../components/main/companyPage/boards/SimulationTreeMonthsResultsBoard";
 
@@ -25,7 +29,7 @@ const CompanyPage: FC<{}> = ({}) => {
     const [maxMachines, setMaxMachines] = useState<number>()
 
     useEffect(() => {
-        const path:string = "/companies/"+id
+        const path: string = "/companies/" + id
         collectCompanyInfos(path, setCompany)
     }, []);
 
@@ -36,8 +40,8 @@ const CompanyPage: FC<{}> = ({}) => {
         setMaxMachines(company.local.maxMachines);
     }, [company]);
 
-
     return (
+
         <>
             <title>{company.name}</title>
             <CompanyContext.Provider value={{company, setCompany}}>
@@ -66,7 +70,8 @@ const CompanyPage: FC<{}> = ({}) => {
                 </section>
             </CompanyContext.Provider>
 
-</>
+        </>
+
     );
 };
 

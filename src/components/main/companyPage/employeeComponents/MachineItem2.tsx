@@ -4,9 +4,6 @@ import "../../../../@styles/main/components/companyPage/employeeConponentsStyles
 import {MachineType} from "../../../../@types/MachineType";
 
 const MachineItem2: FC<{ machine:MachineType }> = ({machine}) => {
-    useEffect(() => {
-        console.log(machine)
-    }, []);
     return (
         <div className="card-item">
             <div className="infos">

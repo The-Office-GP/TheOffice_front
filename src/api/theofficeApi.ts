@@ -41,7 +41,6 @@ export const getTheOfficeDbUser = (url: string,token:string|null, config?: {}) =
 
 export const postTheOfficeDb = (url: string, data: any, config?: {}) => {
     const jsonData = JSON.stringify(data);
-    console.log(jsonData);
     return axios.post('http://localhost:8080' + url, jsonData, config)
         .then((response) => {
             return response;
@@ -55,7 +54,6 @@ export const postTheOfficeDb = (url: string, data: any, config?: {}) => {
 export const postTheOfficeDbUser = (url: string, data: any,token: string | null, config?: {}) => {
     config = {headers: {Authorization: `Bearer ${token}`}}
     const jsonData = JSON.stringify(data);
-    console.log(jsonData);
     return axios.post('http://localhost:8080' + url, jsonData, config)
         .then((response) => {
             return response;
@@ -75,7 +73,6 @@ export const putTheOfficeDbUser = (url: string, data: any, token: string | null,
         }
     };
     const jsonData = JSON.stringify(data);
-    console.log(jsonData);
     return axios.put('http://localhost:8080' + url, jsonData, config)
         .then((response) => {
             return response;
