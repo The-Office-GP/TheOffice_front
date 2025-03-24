@@ -1,4 +1,4 @@
-import {CompanyDetailsType, LocalType} from "../@types/companyType";
+import {CompanyDetailsType, LocalType, Statistic} from "../@types/companyType";
 import {MachineType} from "../@types/MachineType";
 import {StockMaterialsType} from "../@types/stockMaterialsType";
 
@@ -45,4 +45,5 @@ export const companyDetailsDefault: CompanyDetailsType = {
     stockMaterials: stockMaterialDefault,
     stockFinalMaterials: stockMaterialDefault,
     machinesInCompany: [],
+    statistics: []
 }

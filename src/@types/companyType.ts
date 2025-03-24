@@ -30,6 +30,7 @@ export interface CompanyDetailsType {
     stockMaterials: StockMaterialsType;
     stockFinalMaterials: StockMaterialsType;
     machinesInCompany: MachineShortType[];
+    statistics: Statistic[]
 }
 
 export interface LocalType {
@@ -40,4 +41,35 @@ export interface LocalType {
     maxEmployees: number;
     maxMachines: number;
     pathBackgroundImage: string;
+}
+
+export interface Statistic {
+    id: number;
+    year: number;
+    month: number;
+    product1LowQtySell: number;
+    product1MidQtySell: number;
+    product1HighQtySell: number;
+    product2LowQtySell: number;
+    product2MidQtySell: number;
+    product2HighQtySell: number;
+    product3LowQtySell: number;
+    product3MidQtySell: number;
+    product3HighQtySell: number;
+    product1LowQtyProd: number;
+    product1MidQtyProd: number;
+    product1HighQtyProd: number;
+    product2LowQtyProd: number;
+    product2MidQtyProd: number;
+    product2HighQtyProd: number;
+    product3LowQtyProd: number;
+    product3MidQtyProd: number;
+    product3HighQtyProd: number;
+    materialLowQty: number;
+    materialMidQty: number;
+    materialHighQty: number;
+    totalIncomes: number;
+    totalExpenses: number;
+    popularity: number;
+    idCompany: number;
 }
