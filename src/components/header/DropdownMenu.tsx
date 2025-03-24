@@ -17,7 +17,7 @@ const DropdownMenu: FC<{buttonAction:()=>void, username:string}> = ({buttonActio
 
             <ul className="list">
                 <li className="element" onClick={() => handleDashboard(navigate)}>
-                    <p className="label">Tableau de bord</p>
+                    <p className="label">Mon Bureau</p>
                 </li>
             </ul>
             <div className="separator"></div>
