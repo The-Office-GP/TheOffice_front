@@ -1,8 +1,8 @@
-import {FC, useEffect, useState} from 'react';
+import {FC, useContext, useEffect, useState} from 'react';
 import GameMenu from "../components/main/companyPage/GameMenu";
 import MiniDashboard from "../components/main/companyPage/MiniDashboard";
 import "../@styles/main/pages/companyPage.css"
-import {useParams} from "react-router";
+import {Route, useParams} from "react-router";
 import GameDashboard from "../components/main/companyPage/boards/GameDashboard";
 import {CompanyDetailsType} from "../@types/companyType";
 import {companyDetailsDefault} from "../@data/companyValueDefault";
@@ -18,6 +18,16 @@ import {collectCompanyInfos} from "../@scripts/main/components/companyPage/compa
 
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
 import SimulationTreeMonthsResultsBoard from "../components/main/companyPage/boards/SimulationTreeMonthsResultsBoard";
+import {getTheOfficeDbUser} from "../api/theofficeApi";
+import {getToken} from "../utilis/storage";
+
+export async function loader({params}: Route.LoaderArgs) {
+    const contextCompany = useContext(CompanyContext);
+    const path: string = "/companies/" + params.id;
+
+    const response = await getTheOfficeDbUser(path, getToken());
+    contextCompany.setCompany(response) ;
+}
 
 const CompanyPage: FC<{}> = ({}) => {
     const {id} = useParams()
@@ -28,17 +38,13 @@ const CompanyPage: FC<{}> = ({}) => {
     const [maxEmployees, setMaxEmployees] = useState<number>()
     const [maxMachines, setMaxMachines] = useState<number>()
 
-    useEffect(() => {
-        const path: string = "/companies/" + id
-        collectCompanyInfos(path, setCompany)
-    }, []);
 
     useEffect(() => {
         setUrl(company.local.pathBackgroundImage);
         setLevel(company.local.level);
         setMaxEmployees(company.local.maxEmployees);
         setMaxMachines(company.local.maxMachines);
-    }, [company]);
+    }, []);
 
     return (
 
