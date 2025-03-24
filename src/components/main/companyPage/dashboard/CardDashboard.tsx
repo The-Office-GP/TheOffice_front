@@ -14,7 +14,7 @@ const CardDashboard: FC<CardDashboardProps> = ({Icon, title, value}) => {
             <div className="card-body">
                 <div className="row">
                     <div className="col">
-                        <h5 className="card-title text-uppercase text-muted mb-0">{title}</h5>
+                        <h3 className="card-title text-uppercase text-muted mb-0">{title}</h3>
                         <span className="h2 font-weight-bold mb-0">{value}</span>
                     </div>
                     <div className="col-auto">
