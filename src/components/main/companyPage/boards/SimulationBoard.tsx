@@ -1,10 +1,14 @@
 import {Dispatch, FC, SetStateAction, useState, useEffect} from 'react';
 import StartSimulationButton from "../buttons/StartSimulationButton";
 import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
+import {CycleType} from "../../../../@types/companyType";
+import {cycleTypeDefault} from "../../../../@data/companyValueDefault";
+import {useParams} from "react-router";
 
 const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
-
+    const {id} = useParams()
     const [stateSimulation, setStateSimulation] = useState<boolean>(false);
+    const [productionSpeed, setProductionSpeed] = useState<number>(50);
     const [productionPriority, setProductionPriority] = useState<number>(50);
     const [marketingPriority, setMarketingPriority] = useState<number>(50);
     const [productDisplay1, setProductDisplay1] = useState<number>(25);
@@ -15,10 +19,15 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
     const [product2, setProduct2] = useState<number>(50);
     const [product3, setProduct3] = useState<number>(50);
     const [product4, setProduct4] = useState<number>(50);
+    const [cycle, setCycle] = useState<CycleType>(cycleTypeDefault)
 
     useEffect(() => {
         setMarketingPriority(100 - productionPriority);
     }, [productionPriority]);
+
+    const handleProductSpeed = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setProductionSpeed(Number(e.target.value));
+    }
 
     // Gestionnaires de changement pour chaque produit
     const handleProduct1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +36,19 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
         setProductDisplay2(product2 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay3(product3 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay4(product4 * 100 / (product1 + product2 + product3 + product4))
+        setCycle(
+            {
+                id: 0,
+                step: 0,
+                productionSpeed: productionSpeed,
+                priorityProduction: productionPriority,
+                priorityMarketing: marketingPriority,
+                countGoodSell: 0,
+                countBadSell: 0,
+                trend: "None",
+                companyId: Number(id),
+            }
+        )
     };
 
     const handleProduct2Change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -160,7 +182,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton setPage={setPage}/>
+                <StartSimulationButton setPage={setPage} cycle={cycle}/>
             </div>
         </>
     );

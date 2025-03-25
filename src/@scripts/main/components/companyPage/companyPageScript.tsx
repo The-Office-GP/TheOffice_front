@@ -26,7 +26,7 @@ export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, set
             local: company.local,
             machines: company.machines,
             wallet: company.wallet,
-            cycles: company.cycles,
+            cycle: company.cycle,
             employees: company.employees,
             suppliers: company.suppliers,
             events: company.events,
