@@ -39,6 +39,7 @@ const CompanyPage: FC<{}> = ({}) => {
     }, [company]);
 
     return (
+
         <CompanyContext.Provider value={{company, setCompany}}>
             <title>{company.name}</title>
             <section className={"background-company-model1-level1"}
@@ -46,14 +47,14 @@ const CompanyPage: FC<{}> = ({}) => {
                 {statePage === 0 &&
                     <div className={"nav-mini-dashbord"}>
                         <GameMenu setPage={setStatePage}/>
-                        <MiniDashboard company={company}/>
+                        <MiniDashboard/>
                     </div>
                 }
                 {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
                 {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
                 {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
                 {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
-                {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage} company={company}/>}
+                {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage}/>}
                 {statePage === 6 && <SimulationTreeMonthsResultsBoard setPage={setStatePage}/>}
                 <div className="level-container">
                     <h3 className="level">{level}</h3>
