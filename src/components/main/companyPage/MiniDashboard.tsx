@@ -11,8 +11,8 @@ const MiniDashboard: FC<{company:CompanyDetailsType}> = ({company}) => {
     const [stockPrimaryMaterial, setStockPrimaryMaterial] = useState<number>()
 
     useEffect(() => {
-        if (company.stockMaterials) {
-            setStockPrimaryMaterial(company.stockMaterials.quantityMid);
+        if (company.stockMaterial) {
+            setStockPrimaryMaterial(company.stockMaterial.quantityMid);
         } else {
             setStockPrimaryMaterial(0); // Valeur par défaut pour éviter l'erreur
         }

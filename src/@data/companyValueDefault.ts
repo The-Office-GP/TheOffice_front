@@ -42,7 +42,7 @@ export const companyDetailsDefault: CompanyDetailsType = {
     employees: [],
     suppliers: [],
     events: [],
-    stockMaterials: stockMaterialDefault,
+    stockMaterial: stockMaterialDefault,
     stockFinalMaterials: [],
     machinesInCompany: [],
     statistics: []

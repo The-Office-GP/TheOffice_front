@@ -9,6 +9,8 @@ export const collectCompanyInfos = async (path:string, setCompany:Dispatch<SetSt
         setCompany(response)
     } catch (error) {
         console.error('Erreur lors de la connexion:', error);
+    }finally {
+
     }
 };
 
@@ -28,7 +30,7 @@ export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, set
             employees: company.employees,
             suppliers: company.suppliers,
             events: company.events,
-            stockMaterials: company.stockMaterials,
+            stockMaterial: company.stockMaterial,
             stockFinalMaterials: company.stockFinalMaterials,
             machinesInCompany: company.machinesInCompany,
             statistics: company.statistics,

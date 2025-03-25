@@ -28,7 +28,7 @@ export interface CompanyDetailsType {
     employees: EmployeeType[];
     suppliers: [];
     events: [];
-    stockMaterials: StockMaterialsType;
+    stockMaterial: StockMaterialsType;
     stockFinalMaterials: StockFinalMaterialsType[];
     machinesInCompany: MachineShortType[];
     statistics: Statistic[]
