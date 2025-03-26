@@ -6,6 +6,7 @@ import {cycleTypeDefault} from "../../../../@data/companyValueDefault";
 import {useParams} from "react-router";
 import {nameOfProducts} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
+import SimulationExitButton from "../../../share/SimulationExitButton";
 
 const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const contextCompany = useContext(CompanyContext)
@@ -21,7 +22,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
     const [product2, setProduct2] = useState<number>(50);
     const [product3, setProduct3] = useState<number>(50);
     const [product4, setProduct4] = useState<number>(50);
-    const [cycle, setCycle] = useState<CycleType>(cycleTypeDefault)
+    const [cycle, setCycle] = useState<CycleType>(cycleTypeDefault);
 
     useEffect(() => {
         setMarketingPriority(100 - productionPriority);
@@ -134,8 +135,8 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
         <>
             <div className={"simulation-container"}
                  style={{backgroundImage: "url('/assets/simulation-background/Simulation-background.png')"}}>
+                <SimulationExitButton setPage={setPage}/>
                 <h2>Simulation</h2>
-
                 <div className={"settings"}>
                     <div className={"production-settings-part"}>
                         <div className={"setting-container-production"}>

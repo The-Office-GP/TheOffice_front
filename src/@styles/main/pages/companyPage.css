@@ -31,9 +31,11 @@
 }
 
 .level-container {
-    position: relative;
+    position: absolute;
     cursor: pointer;
     align-self: start;
+    bottom: -30px;
+    left: 10px;
 }
 
 .tooltip {
