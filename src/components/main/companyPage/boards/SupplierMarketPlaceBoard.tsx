@@ -9,46 +9,20 @@ import {useParams} from "react-router";
 import {collectCompanyInfos, saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
-import {nameOfMaterial} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
+import {nameOfMaterial, supplierInformation} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
+import SupplierCard from "../SupplierCard";
 
 const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     const {id} = useParams()
-    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
     const contextCompany = useContext(CompanyContext)
 
-    useEffect(() => {
-        const path: string = "/companies/" + id
-        collectCompanyInfos(path, setCompany)
-    }, []);
-
-    const buyPrimaryMaterial = () => {
-        if (company.wallet >= 5000) {
-            setCompany(prevState => ({
-                ...prevState,
-                wallet: prevState.wallet - 5000,  // On soustrait 5000 du wallet
-            }));
-            setCompany(prevState => ({
-                ...prevState,
-                stockMaterial: {
-                    ...prevState.stockMaterial,  // Garde les autres propriétés de stockMaterial
-                    quantityHigh: prevState.stockMaterial.quantityHigh + 750,  // Mise à jour de quantityHigh
-                    quantityMid: prevState.stockMaterial.quantityMid + 750,    // Mise à jour de quantityMid
-                    quantityLow: prevState.stockMaterial.quantityLow + 750,    // Mise à jour de quantityLow
-                }
-            }));
-        } else {
-            console.log('Solde insuffisant');
-        }
-    }
-
     const save = () =>{
-       saveCompanyInfo(Number(id), company,contextCompany.setCompany)
+       saveCompanyInfo(Number(id), contextCompany.company, contextCompany.setCompany)
         setPage(0)
     }
 
-
     return (
-        <div className={"menu-container"}>
+        <div className={"supplier-menu"}>
             <ExitButton setPage={setPage}/>
             <div>
                 <div className={"icon-title"}>
@@ -57,19 +31,19 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
                 </div>
             </div>
             <div className={"stock-container"}>
-                <p>Stock actuel de {nameOfMaterial(company)} : {company.stockMaterial.quantityHigh+ company.stockMaterial.quantityMid+ company.stockMaterial.quantityLow}</p>
+                <p>Stock total de {nameOfMaterial(contextCompany.company)} : {contextCompany.company.stockMaterial.quantityHigh+ contextCompany.company.stockMaterial.quantityMid+ contextCompany.company.stockMaterial.quantityLow}</p>
+                <p className={"stat-stock"}>Stock de {nameOfMaterial(contextCompany.company)} faible qualité : {contextCompany.company.stockMaterial.quantityLow}</p>
+                <p className={"stat-stock"}>Stock de {nameOfMaterial(contextCompany.company)} bonne qualité : {contextCompany.company.stockMaterial.quantityMid}</p>
+                <p className={"stat-stock"}>Stock de {nameOfMaterial(contextCompany.company)} excellente qualité : {contextCompany.company.stockMaterial.quantityHigh}</p>
             </div>
             <div className={"supplier-container"}>
-                <div className={"supplier-infos"}>
-                    <h4><u>Fourni'Tou</u></h4>
-                    <p>Matière première</p>
-                    <p>5000€ les 2250 pièces</p>
-                </div>
-                <button className={"recuite-button"} onClick={buyPrimaryMaterial}>Acheter</button>
-                <button className={"recuite-button"} onClick={save}>Sauvegarder</button>
+                {supplierInformation(contextCompany.company)?.map((supplier, index)=> (
+                    <SupplierCard supplier={supplier} index={index}/>
+                ))}
             </div>
             <div className={"button-emplacement"}>
-                <ExpandPremisesButton localLevel={company.local.level}/>
+                <button className={"recuite-button"} onClick={save}>Sauvegarder</button>
+                <ExpandPremisesButton localLevel={contextCompany.company.local.level}/>
             </div>
         </div>
     );

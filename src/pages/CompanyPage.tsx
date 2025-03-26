@@ -44,7 +44,6 @@ const CompanyPage: FC<{}> = ({}) => {
 
 
     return (
-
         <CompanyContext.Provider value={{company, setCompany}}>
             <title>{company.name}</title>
             {pageIsReady ?

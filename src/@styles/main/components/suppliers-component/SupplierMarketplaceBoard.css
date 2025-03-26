@@ -1,14 +1,20 @@
-.menu-container {
+.supplier-menu {
     position: relative;
-    width: 100%;
+    width: 75%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--deep-blue);
     padding: 10px;
     border-radius: 20px;
     box-sizing: border-box;
 }
+
+.supplier-menu .icon-title {
+    margin-bottom: 4px;
+}
+
 .display {
     display: flex;
     flex-direction: column;
@@ -27,19 +33,28 @@
     border-radius: 20px;
 }
 
+.stat-stock {
+    font-size: 16px;
+}
+
 .supplier-container{
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    gap:120px;
     align-items: center;
 }
 
 .stock-container{
+    text-align: center;
+    font-size: 28px;
     display : flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .button-emplacement{
     display: flex;
+    flex-direction: column;
     justify-content: right;
 }

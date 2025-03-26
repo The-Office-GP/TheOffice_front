@@ -1,0 +1,117 @@
+/* From Uiverse.io by Yaya12085 */
+.supplier-card {
+    border-radius: 16px;
+    box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
+    padding: 10px;
+    background-color: var(--clear-blue);
+    color: var(--deep-blue);
+    min-width: 250px;
+}
+
+.supplier-card .inner {
+    align-items: center;
+    padding: 20px;
+    padding-top: 40px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.supplier-card .pricing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--medium-blue);
+    border-radius: 99em 0 0 99em;
+    display: flex;
+    align-items: center;
+    padding: 0.625em 0.75em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);}
+
+.supplier-card .pricing small {
+    color: var(--white);
+    font-size: 0.75em;
+    margin-left: 0.25em;
+}
+
+.supplier-card .title {
+    font-weight: 600;
+    font-size: 24px;
+    color: #425675;
+}
+
+.supplier-card .info {
+    font-weight: 600;
+    font-size: 12px;
+    color: #425675;
+}
+
+.supplier-card .title + * {
+    margin-top: 0.75rem;
+}
+
+.supplier-card .info + * {
+    margin-top: 1rem;
+}
+
+.supplier-card .features {
+    display: flex;
+    flex-direction: column;
+}
+
+.supplier-card .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.supplier-card .features li + * {
+    margin-top: 0.75rem;
+}
+
+.supplier-card .features .icon {
+    background-color: #1FCAC5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.supplier-card .features .icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.supplier-card .features + * {
+    margin-top: 1.25rem;
+}
+
+.supplier-card .action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.supplier-card button {
+    background-color: var(--deep-blue);
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    padding: 0.625em 0.75em;
+    text-decoration: none;
+}
+
+.supplier-card button:hover{
+    cursor: pointer;
+    background-color: rgba(13, 85, 121, 0.9);
+}

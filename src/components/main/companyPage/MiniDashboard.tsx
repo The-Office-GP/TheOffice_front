@@ -9,16 +9,7 @@ import {CompanyContext} from "../../../contexts/CompanyContext";
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 
 const MiniDashboard: FC<{}> = ({}) => {
-    const [stockPrimaryMaterial, setStockPrimaryMaterial] = useState<number>()
     const contextCompany = useContext(CompanyContext)
-
-    useEffect(() => {
-        if (contextCompany.company.stockMaterial) {
-            setStockPrimaryMaterial(contextCompany.company.stockMaterial.quantityMid);
-        } else {
-            setStockPrimaryMaterial(0);
-        }
-    }, [contextCompany.company]);
 
     return (
         <div className={"mini-dashboard"}>
