@@ -1,26 +1,22 @@
-import {ChangeEvent, FC, FormEvent, useContext, useState} from 'react';
+import {ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useContext, useState} from 'react';
 import '../../../@styles/main/components/loginAndRegister/form.css'
-import SwitchForm from "./SwitchForm";
 import {RegisterFormInput} from "../../../@types/loginAndRegister";
 import {loginCallApiForConnection, submitRegister} from "../../../@scripts/main/components/loginAndRegister/loginAndRegisterScript";
 import {useNavigate} from "react-router";
 import {useAuth} from "../../../contexts/AuthContext";
-import {FormContext} from "../../../contexts/FormContext";
 import {UserContext} from "../../../contexts/UserContext";
 import {inputChange} from "../../../@scripts/main/components/formInput";
 
 //Formulaire d'inscription qui permet à la fin soit de se connecter soit de retourner à l'accueil
-const RegisterForm: FC = () => {
+const RegisterForm: FC<{ registerIsMake: boolean, setRegisterIsMake: Dispatch<SetStateAction<boolean>>}> = ({registerIsMake, setRegisterIsMake})=> {
     const {dispatch} = useAuth()
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
-    const formContext = useContext(FormContext)
     const [dataForConnexion, setDataForConnexion] = useState({})
 
     const userContext = useContext(UserContext)
     const navigate = useNavigate()
 
     const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>({});
-    const [registerIsMake, setRegisterIsMake] = useState<boolean>(false);
 
     const [registerInput, setRegisterInput] = useState<RegisterFormInput>({
         username: '',
@@ -43,12 +39,8 @@ const RegisterForm: FC = () => {
     //connecte l'utilisateur
     const handleSubmitForConnexion = async () => {
         await loginCallApiForConnection(dispatch, setErrorMessages, userContext, dataForConnexion, setIsSubmitting, navigate)
-    };
 
-    //renvoie sur la page d'accueil
-    const handleBack = () => {
-        formContext.setRegisterIsVisible(!formContext.registerIsVisible)
-    }
+    };
 
     return (
         <>
@@ -62,11 +54,9 @@ const RegisterForm: FC = () => {
                             <p>Vérification</p>
                         </div>
                     }
-                    <button type={"button"} className={"subscribe-button"} onClick={handleBack}>Retour</button>
                 </div>
                 :
                 <form className={"subscribe-form"} onSubmit={handleSubmit}>
-                    <SwitchForm/>
                     <div className={"title"}>
                         <h2>Inscription</h2>
                         {errorMessages.username && <div className="error">{errorMessages.username}</div>}

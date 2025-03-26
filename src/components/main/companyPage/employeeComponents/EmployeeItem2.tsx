@@ -3,9 +3,6 @@ import {EmployeeType} from "../../../../@types/employeeType";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/employeeItem2.css"
 
 const EmployeeItem2: FC<{employee:EmployeeType}> = ({employee}) => {
-    useEffect(() => {
-        console.log(employee)
-    }, []);
     return (
         <div className="card-item">
             <div className="infos">

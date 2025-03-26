@@ -1,9 +1,9 @@
-.card {
-    z-index: 30;
+.dropdown-menu-user {
+    z-index: 50;
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 230px;
+    width: 260px;
 
     background-color: var(--deep-blue);
     background-image: linear-gradient(
@@ -20,11 +20,11 @@
     gap: 5px;
 }
 
-.card .separator {
+.dropdown-menu-user .separator {
     border-top: 1.5px solid var(--orange);
 }
 
-.card .list {
+.dropdown-menu-user .dropdown-menu-list {
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,11 @@
     margin: 0;
 }
 
-.card .list .element {
+.dropdown-menu-label{
+    margin: 10px 0;
+}
+
+.dropdown-menu-user .dropdown-menu-list .dropdown-menu-element {
     display: flex;
     align-items: center;
     color: var(--orange);
@@ -44,7 +48,7 @@
     cursor: pointer;
 }
 
-.card h3 {
+.dropdown-menu-user h3 {
     margin: auto;
     align-items: center;
     color: var(--orange);
@@ -53,28 +57,28 @@
     cursor: pointer;
 }
 
-.card .list .element .label {
+.dropdown-menu-user .dropdown-menu-list .dropdown-menu-dropdown-menu-element .dropdown-menu-label {
     font-weight: 600;
 }
 
-.card .list .element:hover {
+.dropdown-menu-user .dropdown-menu-list .dropdown-menu-element:hover {
     background-color: var(--medium-blue-opacity);
     color: var(--deep-blue);
     transform: translate(1px, -1px);
 }
 
-.card .list .element:active {
+.dropdown-menu-user .dropdown-menu-list .dropdown-menu-element:active {
     transform: scale(0.99);
 }
 
-.card .list:not(:last-child) .element:hover svg {
+.dropdown-menu-user .dropdown-menu-list:not(:last-child) .dropdown-menu-element:hover svg {
     stroke: #ffffff;
 }
 
-.card .list:last-child .element {
+.dropdown-menu-user .dropdown-menu-list:last-child .dropdown-menu-element {
     color: #bd89ff;
 }
 
-.card .list:last-child .element:hover {
+.dropdown-menu-user .dropdown-menu-list:last-child .dropdown-menu-element:hover {
     background-color: rgba(56, 45, 71, 0.836);
 }

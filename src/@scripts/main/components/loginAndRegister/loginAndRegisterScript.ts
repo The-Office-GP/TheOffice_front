@@ -4,7 +4,7 @@ import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {UserType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
-import {LoginFormInput, RegisterFormInput} from "../../../../@types/loginAndRegister";
+import {LoginFormInput, RegisterFormInput, UpdateFormInput} from "../../../../@types/loginAndRegister";
 
 //Soumission des informations pour pouvoir s'inscrire
 export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, registerInput: RegisterFormInput, setIsSubmitting:Dispatch<SetStateAction<boolean>>, setRegisterIsMake:Dispatch<SetStateAction<boolean>>, setDataForConnexion:Dispatch<SetStateAction<any>>) => {
@@ -15,7 +15,11 @@ export const submitRegister = async (e:FormEvent<HTMLFormElement>, setErrorMessa
         return
     }
 
-    if(!passwordIsValidate(registerInput.password, registerInput.passwordConfirmation, setErrorMessages)) {
+    if(!passwordConfirmIsValidate(registerInput.password, registerInput.passwordConfirmation, setErrorMessages)) {
+        return
+    }
+
+    if (!passwordIsValidate(registerInput.password, setErrorMessages)) {
         return
     }
 
@@ -77,7 +81,7 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
 }
 
 //Permet à l'utilisateur de s'inscrire
-export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>> ) => {
+export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>>) => {
     let response: any
     setIsSubmitting(true)
 
@@ -132,11 +136,24 @@ export const emailIsValidate = (email:string, setErrorMessages: Dispatch<SetStat
 }
 
 //vérifie que le mail est bien au format mail
-export const passwordIsValidate = (password:string, confirmPassword:string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
-
+export const passwordConfirmIsValidate = (password:string, confirmPassword:string, setErrorMessages: Dispatch<SetStateAction<{[key: string]: string }>>) => {
     if (password !== confirmPassword) {
         setErrorMessages({
             password: "Le mot de passe doit correspondre à sa confirmation",
+        });
+        return false;
+    } else {
+        return true;
+    }
+}
+
+//vérifie que le mail est bien au format mail
+export const passwordIsValidate = (password: string, setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/;
+
+    if (!passwordRegex.test(password)) {
+        setErrorMessages({
+            password: "Le mot de passe doit contenir au moins une majuscule, un chiffre et un caractère spécial, et avoir 12 caractères minimum",
         });
         return false;
     } else {
@@ -162,8 +179,6 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
                     wallet: parsedUserInfo.wallet,
                 }
                 userContext.setUserInfo(userInfoFormater);
-                console.log("coucou")
-                console.log(userContext.userInfo);
                 navigate("/")
             } catch (jsonError) {
                 console.error("Erreur de parsing JSON:", jsonError);
@@ -177,3 +192,85 @@ export const collectUserInfo = async (token: string, userContext:UserContextProp
         setIsSubmitting(false);
     }
 };
+
+//Soumission des informations pour mettre à jour les données personelles
+export const submitUpdateUser = async (
+    e: FormEvent<HTMLFormElement>,
+    setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>,
+    updateInput: UpdateFormInput,
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>,
+    dispatch: any,
+    userContext: UserContextProps
+) => {
+    e.preventDefault();
+    setErrorMessages({});
+
+    if (!usernameIsValidate(updateInput.username, setErrorMessages)) {
+        return;
+    }
+
+    if (!passwordIsValidate(updateInput.newPassword, setErrorMessages)) {
+        return;
+    }
+
+    setIsSubmitting(true);
+
+    const data = {
+        username: updateInput.username,
+        password: updateInput.newPassword,
+    };
+
+    await updateUserCallApi(setErrorMessages, data, setIsSubmitting, dispatch, userContext);
+};
+
+//Permet à l'utilisateur de mettre à jour ses données
+export const updateUserCallApi = async (
+    setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>,
+    data: { username: string; password: string },
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>,
+    dispatch: any,
+    userContext: UserContextProps
+) => {
+    let response: any;
+    setIsSubmitting(true);
+
+    try {
+        const userId = userContext.userInfo?.id;
+        const userInfoString = getUserInfo();
+        const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
+        const token = userInfo?.token; // Maintenant, on peut accéder à token
+
+        console.log("Token envoyé :", token);
+        console.log("getUserInfo() retourne :", userInfoString);
+
+        if (!userId || !token) {
+            setErrorMessages({updateError: "Utilisateur non authentifié."});
+            return;
+        }
+
+        response = await postTheOfficeDb(`/users/${userId}`, data, {
+            headers: {Authorization: `Bearer ${token}`},
+        });
+
+        console.log("Réponse API :", response);
+
+        if (response.status === 200) {
+            const updatedUser = {
+                ...userContext.userInfo,
+                username: data.username,
+            };
+
+            userContext.setUserInfo(updatedUser);
+            saveUserInfo(updatedUser);
+        } else {
+            setErrorMessages({updateError: "Échec de la mise à jour."});
+        }
+    } catch (error) {
+        console.error("Erreur lors de la mise à jour:", error);
+    } finally {
+        setIsSubmitting(false);
+    }
+};
+
+
+

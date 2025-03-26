@@ -10,3 +10,10 @@ export interface RegisterFormInput {
     passwordConfirmation: string;
     wallet: null;
 }
+
+export interface UpdateFormInput {
+    username: string;
+    email: string;
+    newPassword: string;
+    confirmNewPassword: string;
+}

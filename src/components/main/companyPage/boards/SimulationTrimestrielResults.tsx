@@ -1,11 +1,11 @@
-import {FC} from 'react';
+import {Dispatch, FC, SetStateAction} from 'react';
 import SimulationTable from "./simulation-component/SimulationTable";
 import ContinueButton from "../buttons/ContinueButton";
 
-import "../../../../@styles/main/components/simulation/SimulationTrimestrielResults.css"
+import "../../../../@styles/main/components/companyPage/simulation/SimulationTrimestrielResults.css"
 
 
-const SimulationTrimestrielResults: FC<{}> = ({}) => {
+const SimulationTrimestrielResults: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     return (
         <>
             <div className={"simulation-container"}>
@@ -14,10 +14,10 @@ const SimulationTrimestrielResults: FC<{}> = ({}) => {
                     <p>Chiffre d'affaire: CAValue €</p>
                     <p>Total des charge: chargesValue</p>
                     <p>Total des production: productionValue</p>
-                    <p>Cotte de popularité: popularityValue</p>
+                    <p>Côte de popularité: popularityValue</p>
                     <SimulationTable/>
                 </div>
-                <ContinueButton/>
+                <ContinueButton setPage={setPage}/>
             </div>
         </>
     );

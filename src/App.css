@@ -1,9 +1,9 @@
 :root {
   --clear-blue: #8ECAE6; /* pastel-blue */
   --clear-blue-opacity: rgba(142, 202, 230, 0.8); /* pastel-blue-opacity 80% */
-  --medium-blue: #219EBC; /* medium-blue */
+  --medium-blue: rgb(33, 158, 188); /* medium-blue */
   --medium-blue-opacity: rgba(33, 158, 188, 0.8); /* medium-blue-opacity 80% */
-  --deep-blue: #023047; /* deep-blue */
+  --deep-blue: rgba(2, 48, 71, 0.9); /* deep-blue */
   --deep-blue-opacity: rgba(2, 48, 71, 0.8); /* deep-blue-opacity 80%*/
   --orange: #FFB35C; /*orange*/
   --orange-opacity: rgba(255, 179, 92, 0.8); /*orange-opacity 80%*/
@@ -36,6 +36,7 @@ h1 {
 }
 
 .office-background {
+  position: relative;
   background-image: url("/public/images/backgroundImages/home-background2.webp");
   background-repeat: no-repeat;
   background-size: cover;

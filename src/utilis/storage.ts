@@ -1,4 +1,5 @@
 import {UserType} from "../@types/userType";
+import {saveUserInfoInDb} from "../@scripts/share/userScript";
 
 export const saveToken = (token: string) => {
     localStorage.setItem('token', token);
@@ -13,6 +14,7 @@ export const removeToken = () => {
 };
 
 export const saveUserInfo = (user:UserType) => {
+    saveUserInfoInDb(user);
     const userStringify:string = JSON.stringify(user)
     localStorage.setItem('user', userStringify);
 };

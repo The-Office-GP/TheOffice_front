@@ -1,9 +1,9 @@
-/* From Uiverse.io by cbolson */
+/* Global switch styles */
 .switch {
     --_switch-padding: 4px;
     --_label-padding: 12px 4px;
     color: var(--deep-blue);
-    width: fit-content;
+    width: 23%;
     display: flex;
     justify-content: center;
     position: relative;
@@ -12,11 +12,12 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 80px;
     isolation: isolate;
+    z-index: 10;
 }
 
+/* Hide checkbox input */
 .switch input[type="checkbox"] {
     position: absolute;
     width: 1px;
@@ -29,6 +30,7 @@
     border-width: 0;
 }
 
+/* Label style */
 .switch > span {
     display: grid;
     font-size: 16px;
@@ -38,6 +40,7 @@
     padding: var(--_label-padding);
 }
 
+/* Switch background color */
 .switch::before,
 .switch::after {
     content: "";
@@ -45,15 +48,16 @@
     border-radius: inherit;
 }
 
-/* switch slider */
+/* Switch slider style */
 .switch::before {
     background-color: var(--deep-blue);
     inset: var(--_switch-padding) 50% var(--_switch-padding) var(--_switch-padding);
     z-index: -1;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3),
-    0 1px rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease; /* Added transition for smooth sliding */
 }
 
+/* Switch hover effect */
 .switch:has(input:not(:checked)) > span:first-of-type {
     color: var(--orange);
 }
@@ -62,8 +66,7 @@
     color: var(--orange);
 }
 
-
-/* switch bg color */
+/* Switch background color */
 .switch::after {
     background-color: var(--clear-blue);
     border-color: var(--deep-blue);
@@ -71,18 +74,19 @@
     z-index: -2;
 }
 
+/* Hover effect on the labels */
 .switch:has(input:checked):hover > span:first-of-type,
 .switch:has(input:not(:checked)):hover > span:last-of-type {
     opacity: 1;
 }
 
-/* checked - move slider to right */
+/* Checked state - move slider to the right */
 .switch:has(input:checked)::before {
     background-color: var(--deep-blue);
     inset: var(--_switch-padding) var(--_switch-padding) var(--_switch-padding) 50%;
 }
 
-/* checked - set opacity */
+/* Set opacity when checked */
 .switch > span:last-of-type,
 .switch > input:checked + span:first-of-type {
     opacity: 0.75;

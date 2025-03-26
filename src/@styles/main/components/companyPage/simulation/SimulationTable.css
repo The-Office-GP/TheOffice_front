@@ -2,8 +2,18 @@
     background-color: rgba(33, 158, 188, 0.8);
     color: #FFB35C;
 }
-
+.border-collapse{
+    margin: 15px;
+    border-radius: 15px;
+}
+.table-header-label{
+    padding: 3px;
+}
 .cellule {
+    padding: 3px;
     background: rgba(142, 202, 230, 0.8);
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-justify: auto;
 }
