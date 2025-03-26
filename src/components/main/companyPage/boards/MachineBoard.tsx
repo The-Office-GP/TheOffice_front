@@ -27,11 +27,6 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
     const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
 
     useEffect(() => {
-        const path: string = "/companies/" + id
-        collectCompanyInfos(path, setCompany)
-    }, []);
-
-    useEffect(() => {
         filterListMachine()
     }, [filter]);
 

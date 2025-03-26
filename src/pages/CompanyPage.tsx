@@ -16,6 +16,7 @@ import {collectCompanyInfos} from "../@scripts/main/components/companyPage/compa
 
 import SupplierMarketPlaceBoard from "../components/main/companyPage/boards/SupplierMarketPlaceBoard";
 import SimulationTreeMonthsResultsBoard from "../components/main/companyPage/boards/SimulationTreeMonthsResultsBoard";
+import WaitingCompanyPage from "../components/main/companyPage/WaitingCompanyPage";
 
 const CompanyPage: FC<{}> = ({}) => {
     const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
@@ -25,6 +26,7 @@ const CompanyPage: FC<{}> = ({}) => {
     const [level, setLevel] = useState<string>("")
     const [maxEmployees, setMaxEmployees] = useState<number>()
     const [maxMachines, setMaxMachines] = useState<number>()
+    const [pageIsReady, setPageIsReady] = useState<boolean>(false)
 
     useEffect(() => {
         const path: string = "/companies/" + id;
@@ -35,6 +37,9 @@ const CompanyPage: FC<{}> = ({}) => {
             setMaxEmployees(companyData.local.maxEmployees);
             setMaxMachines(companyData.local.maxMachines);
         });
+        setTimeout(() => {
+            setPageIsReady(true);
+        }, 2000);
     }, [id]);
 
 
@@ -42,29 +47,33 @@ const CompanyPage: FC<{}> = ({}) => {
 
         <CompanyContext.Provider value={{company, setCompany}}>
             <title>{company.name}</title>
-            <section className={"background-company-model1-level1"}
-                     style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}>
-                <MiniDashboard/>
-                {statePage === 0 &&
-                    <div className={"nav-mini-dashbord"}>
-                        <GameMenu setPage={setStatePage}/>
+            {pageIsReady ?
+                <section className={"background-company-model1-level1"}
+                         style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}>
+                    <MiniDashboard/>
+                    {statePage === 0 &&
+                        <div className={"nav-mini-dashbord"}>
+                            <GameMenu setPage={setStatePage}/>
+                        </div>
+                    }
+                    {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
+                    {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
+                    {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
+                    {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
+                    {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage}/>}
+                    {statePage === 6 && <SimulationTreeMonthsResultsBoard setPage={setStatePage}/>}
+                    <div className="level-container">
+                        <h3 className="level">{level}</h3>
+                        <div className="tooltip">
+                            <strong>Niveau actuel :</strong> {level} <br/>
+                            <strong>Nombre de salariés maximum :</strong> {maxEmployees}<br/>
+                            <strong>Nombre de machines maximum :</strong> {maxMachines}<br/>
+                        </div>
                     </div>
-                }
-                {statePage === 1 && <GameDashboard setPage={setStatePage}/>}
-                {statePage === 2 && <MachineBoard setPage={setStatePage}/>}
-                {statePage === 3 && <EmployeeBoard setPage={setStatePage}/>}
-                {statePage === 4 && <SimulationBoard setPage={setStatePage}/>}
-                {statePage === 5 && <SupplierMarketPlaceBoard setPage={setStatePage}/>}
-                {statePage === 6 && <SimulationTreeMonthsResultsBoard setPage={setStatePage}/>}
-                <div className="level-container">
-                    <h3 className="level">{level}</h3>
-                    <div className="tooltip">
-                        <strong>Niveau actuel :</strong> {level} <br/>
-                        <strong>Nombre de salariés maximum :</strong> {maxEmployees}<br/>
-                        <strong>Nombre de machines maximum :</strong> {maxMachines}<br/>
-                    </div>
-                </div>
-            </section>
+                </section>
+            :
+                <WaitingCompanyPage/>
+            }
         </CompanyContext.Provider>
 
 
