@@ -1,10 +1,16 @@
-import {FC} from 'react';
+import {FC, useContext} from 'react';
 import "../../../../@styles/main/components/companyPage/gameDashboard.css"
 import {CompanyDetailsType} from "../../../../@types/companyType";
 import "../../../../@styles/main/components/companyPage/dashboard/DashboardTable.css"
+import {CompanyContext} from "../../../../contexts/CompanyContext";
+import {useParams} from "react-router";
+import {nameOfProducts} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
 
 
 const CardTableProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
+    const contextCompany = useContext(CompanyContext)
+    const {id} = useParams()
+
     return (
         <div className="card-dashboard shadow">
             <div className="card-header border-0">
@@ -28,7 +34,7 @@ const CardTableProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
                     {company.stockFinalMaterials.map((product) => (
                         <tr>
                             <th scope="row">
-                                {product.name}
+                                {nameOfProducts(contextCompany.company, product.name)}
                             </th>
                             <td>
                                 {product.quantityHigh}

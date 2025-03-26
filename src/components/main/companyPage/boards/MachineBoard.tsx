@@ -4,7 +4,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
 
-import {MachineShortType, MachineType} from "../../../../@types/MachineType";
+import {MachineShortType} from "../../../../@types/MachineType";
 import MachineItem2 from "../employeeComponents/MachineItem2";
 import MachineLevelButtons from "../employeeComponents/MachineLevelButtons";
 import BuyMachineBoard from "./BuyMachineBoard";
@@ -12,6 +12,7 @@ import {CompanyDetailsType} from "../../../../@types/companyType";
 import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
 import {collectCompanyInfos} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {useParams} from "react-router";
+import MachineExitButton from "../../../share/MachineExitButton";
 
 interface FilterType {
     level: string;
@@ -69,7 +70,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                 </div>
                 :
                 <div className={"display-container2"}>
-                    <ExitButton setPage={setPage}/>
+                    <MachineExitButton setPage={setStateBoard}/>
                     <BuyMachineBoard company={company}/>
                 </div>
             }

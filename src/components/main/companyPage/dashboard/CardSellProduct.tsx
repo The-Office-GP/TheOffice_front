@@ -12,7 +12,7 @@ const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
     function updateTheProduct1(sector: string){
         switch(sector){
             case "carpentry":
-                return "Palettes"
+                return "Palette"
             case "creamery":
                 return "Lait"
             case "quarry":
@@ -23,7 +23,7 @@ const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
     function updateTheProduct2(sector: string) {
         switch (sector) {
             case "carpentry":
-                return "Tables"
+                return "Table"
             case "creamery":
                 return "Fromage"
             case "quarry":
@@ -34,20 +34,20 @@ const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
     function updateTheProduct3(sector: string) {
         switch (sector) {
             case "carpentry":
-                return "Chaises"
+                return "Chaise"
             case "creamery":
                 return "Crême fraiche"
             case "quarry":
-                return "marbre"
+                return "Marbre"
         }
     }
 
     function updateTheProduct4(sector: string) {
         switch (sector) {
             case "carpentry":
-                return "Cabanes"
+                return "Cabane"
             case "creamery":
-                return "Beure"
+                return "Beurre"
             case "quarry":
                 return "Pierre"
         }
@@ -112,13 +112,12 @@ const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
                 <div className="row">
                     <div className="col">
                         <h3 className="card-title text-uppercase text-muted mb-0">Production</h3>
-                        <span className="h2 font-weight-bold mb-0">350,897</span>
                     </div>
                 </div>
                 <p className="mt-3 mb-0 text-muted text-sm">
                     <span className="text-success mr-2">
                     </span>
-                    <span className="text-nowrap">Since last month</span>
+                    <span className="text-nowrap">Production des derniers cycles</span>
                 </p>
                 {/* Affichage du graphique */}
                 <Bar data={data} options={options} style={{width: '500px'}}/>

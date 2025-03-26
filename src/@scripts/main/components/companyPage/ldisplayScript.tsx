@@ -30,7 +30,7 @@ export const nameOfProducts = (company:CompanyDetailsType, product:string) => {
                 case "Product2":
                     return "Ciment"
                 case "Product3":
-                    return "Carreaux"
+                    return "Marbre"
                 case "Product4":
                     return "Ceramique"
             }

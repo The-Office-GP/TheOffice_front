@@ -42,7 +42,7 @@ const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                     <IconButton aria-label="delete" onClick={handleChangeBoardStateLeft}>
                         <ChevronLeftIcon sx={{fontSize: "75px", color:'white'}}/>
                     </IconButton>
-                    <ImportantDevicesIcon className={"dashboard-icon"}/><h3>Dashboard</h3>
+                    <ImportantDevicesIcon className={"dashboard-icon"}/><h3>Tableau de Bord</h3>
                     <IconButton aria-label="delete"  onClick={handleChangeBoardStateRight}>
                         <ChevronRightIcon sx={{fontSize: "75px", color: 'white'}}/>
                     </IconButton>
