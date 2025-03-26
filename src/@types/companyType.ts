@@ -32,7 +32,7 @@ export interface CompanyDetailsType {
     sector: string;
     name: string;
     popularity: number;
-    idUser: number;
+    userId: number;
     local: LocalType;
     wallet: number;
     cycle: CycleType;
@@ -43,7 +43,7 @@ export interface CompanyDetailsType {
     stockMaterial: StockMaterialsType;
     stockFinalMaterials: StockFinalMaterialsType[];
     machinesInCompany: MachineShortType[];
-    statistics: Statistic[]
+    statistic: Statistic[]
 }
 
 export interface LocalType {

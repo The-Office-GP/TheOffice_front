@@ -23,10 +23,10 @@ const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<nu
                  style={{backgroundImage: "url('/assets/simulation-background/Simulation-background.png')"}}>
                 <h2>Bilan trimestriel</h2>
                 <div className={"simulation-results-container"}>
-                    <p>Chiffre d'affaire: {company.statistics[company.statistics.length-1].totalIncomes} €</p>
-                    <p>Total des charge: {company.statistics[company.statistics.length - 1].totalExpenses}€ </p>
-                    <p>Total des production: {company.statistics[company.statistics.length - 1].product1LowQtyProd + company.statistics[company.statistics.length - 1].product1MidQtyProd + company.statistics[company.statistics.length - 1].product1HighQtyProd }</p>
-                    <p>Cotte de popularité: {company.statistics[company.statistics.length - 1].popularity}</p>
+                    <p>Chiffre d'affaire: {company.statistic.length > 0 ? company.statistic[company.statistic.length-1].totalIncomes : 0} €</p>
+                    <p>Total des charge: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].totalExpenses : 0}€ </p>
+                    <p>Total des production: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].product1LowQtyProd + company.statistic[company.statistic.length - 1].product1MidQtyProd + company.statistic[company.statistic.length - 1].product1HighQtyProd : 0}</p>
+                    <p>Cotte de popularité: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].popularity : 0}</p>
                     <SimulationTable/>
                 </div>
                 <ContinueButton setPage={setPage}/>

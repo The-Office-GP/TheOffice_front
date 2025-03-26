@@ -14,7 +14,7 @@ const CardSellValue: FC<{company:CompanyDetailsType}> = ({company}) => {
         datasets: [
             {
                 label: 'CA',
-                data: company.statistics.map((element) => element.totalIncomes),
+                data: company.statistic.map((element) => element.totalIncomes),
                 borderColor: paletteColors.orange,
                 backgroundColor: paletteColors.orange,
                 fill: true,
@@ -55,12 +55,12 @@ const CardSellValue: FC<{company:CompanyDetailsType}> = ({company}) => {
             <div className="card-body-sell-dashboard">
                 <div className="row">
                     <div className="col">
-                        <h3 id="sell-card-title">SALES</h3>
+                        <h3 id="sell-card-title">Resultats</h3>
                         <span className="h2 font-weight-bold mb-0" style={{color:"white"}}>500,000</span>
                     </div>
                 </div>
                 <p className="mt-3 mb-0 text-muted text-sm">
-                    <span className="text-success2 mr-2"> 5.24%</span>
+                    <span className="text-success2 mr-2"></span>
                     <span className="text-nowrap">Cette année</span>
                 </p>
                 <Line data={data} options={options} style={{width: '500px'}}/>

@@ -32,7 +32,6 @@ const BuyMachineBoard: FC<{company:CompanyDetailsType}> = ({company}) => {
         }
     };
 
-    // Fonction utilitaire pour convertir MachineType en MachineShortType
     const convertToMachineShort = (machine: MachineType, companyId: number): MachineShortType => {
         return {
             id: machine.id,
@@ -44,19 +43,17 @@ const BuyMachineBoard: FC<{company:CompanyDetailsType}> = ({company}) => {
     const handleBuyMachine = (machine: MachineType) => {
         const currentMachineCount = companyContext.company.machinesInCompany.length;
 
-        // Vérification de la limite de machines
         if (currentMachineCount > limitMachine) {
             setShowBuyError(true);
             setTimeout(() => {
                 setShowBuyError(false);
             }, 3000);
-            return; // On arrête l'exécution ici pour éviter l'ajout
+            return;
         }
 
-        // Ajout de la machine au contexte sans modifier la liste des machines achetables
         const machineShort = convertToMachineShort(machine, companyContext.company.id);
         companyContext.company.machinesInCompany.push(machineShort);
-        companyContext.setCompany({...companyContext.company});  // Mise à jour du contexte
+        companyContext.setCompany({...companyContext.company});
     };
 
 

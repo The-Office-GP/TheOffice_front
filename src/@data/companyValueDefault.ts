@@ -46,7 +46,7 @@ export const companyDetailsDefault: CompanyDetailsType = {
     sector: "Default",
     name: "Name",
     popularity: 0,
-    idUser: 0,
+    userId: 0,
     local: localTypeDefault,
     wallet: 0,
     cycle: cycleTypeDefault,
@@ -57,5 +57,5 @@ export const companyDetailsDefault: CompanyDetailsType = {
     stockMaterial: stockMaterialDefault,
     stockFinalMaterials: [],
     machinesInCompany: [],
-    statistics: []
+    statistic: []
 }

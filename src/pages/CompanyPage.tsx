@@ -27,16 +27,16 @@ const CompanyPage: FC<{}> = ({}) => {
     const [maxMachines, setMaxMachines] = useState<number>()
 
     useEffect(() => {
-        const path: string = "/companies/" + id
-        collectCompanyInfos(path, setCompany)
-    }, []);
+        const path: string = "/companies/" + id;
+        collectCompanyInfos(path, (companyData:any) => {
+            setCompany(companyData);
+            setUrl(companyData.local.pathBackgroundImage);
+            setLevel(companyData.local.level);
+            setMaxEmployees(companyData.local.maxEmployees);
+            setMaxMachines(companyData.local.maxMachines);
+        });
+    }, [id]);
 
-    useEffect(() => {
-        setUrl(company.local.pathBackgroundImage);
-        setLevel(company.local.level);
-        setMaxEmployees(company.local.maxEmployees);
-        setMaxMachines(company.local.maxMachines);
-    }, [company]);
 
     return (
 
@@ -44,10 +44,10 @@ const CompanyPage: FC<{}> = ({}) => {
             <title>{company.name}</title>
             <section className={"background-company-model1-level1"}
                      style={{backgroundImage: `url(${process.env.PUBLIC_URL}${url})`}}>
+                <MiniDashboard/>
                 {statePage === 0 &&
                     <div className={"nav-mini-dashbord"}>
                         <GameMenu setPage={setStatePage}/>
-                        <MiniDashboard/>
                     </div>
                 }
                 {statePage === 1 && <GameDashboard setPage={setStatePage}/>}

@@ -6,23 +6,19 @@ import ExitButton from "../../../share/ExitButton";
 import {CompanyDetailsType} from "../../../../@types/companyType";
 import ExpandPremisesButton from "../buttons/ExpandPremisesButton";
 import {useParams} from "react-router";
-import {CompanyContext} from "../../../../contexts/CompanyContext";
-import {UserContext} from "../../../../contexts/UserContext";
 import {collectCompanyInfos, saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
-import {collectUserCompanies} from "../../../../@scripts/main/components/userPage/userPageScript";
+import {CompanyContext} from "../../../../contexts/CompanyContext";
+import {nameOfMaterial} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
 
 const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     const {id} = useParams()
     const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
+    const contextCompany = useContext(CompanyContext)
 
     useEffect(() => {
         const path: string = "/companies/" + id
         collectCompanyInfos(path, setCompany)
-    }, []);
-
-    useEffect(() => {
-
     }, []);
 
     const buyPrimaryMaterial = () => {
@@ -46,7 +42,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
     }
 
     const save = () =>{
-       saveCompanyInfo(Number(id), company,setCompany)
+       saveCompanyInfo(Number(id), company,contextCompany.setCompany)
         setPage(0)
     }
 
@@ -61,7 +57,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
                 </div>
             </div>
             <div className={"stock-container"}>
-                <p>Stock actuel des matières premières : {company.stockMaterial.quantityHigh+ company.stockMaterial.quantityMid+ company.stockMaterial.quantityLow}</p>
+                <p>Stock actuel de {nameOfMaterial(company)} : {company.stockMaterial.quantityHigh+ company.stockMaterial.quantityMid+ company.stockMaterial.quantityLow}</p>
             </div>
             <div className={"supplier-container"}>
                 <div className={"supplier-infos"}>
@@ -70,7 +66,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
                     <p>2000€ les 100 pièces</p>
                 </div>
                 <button className={"recuite-button"} onClick={buyPrimaryMaterial}>Acheter</button>
-                <button className={"recuite-button"} onClick={save}>Sauvegarder vos achats</button>
+                <button className={"recuite-button"} onClick={save}>Sauvegarder</button>
             </div>
             <div className={"button-emplacement"}>
                 <ExpandPremisesButton localLevel={company.local.level}/>

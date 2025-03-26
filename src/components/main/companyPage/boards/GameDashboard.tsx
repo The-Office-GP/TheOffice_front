@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useContext, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useContext, useEffect, useState} from 'react';
 import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
 import ExitButton from "../../../share/ExitButton";
 import SimulationButton from "../../../share/SimulationButton";
@@ -11,11 +11,19 @@ import ChartDashboardContainer from "../dashboard/ChartDashboardContainer";
 import BoardDashboardContainer from "../dashboard/BoardDashboardContainer";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import {collectCompanyInfos} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
 
 const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     const companyContext = useContext(CompanyContext)
     const userContext = useContext(UserContext)
     const [boardState, setBoardState] = useState<number>(0)
+    const {id} = useParams()
+
+    useEffect(() => {
+        const path: string = "/companies/" + id;
+        collectCompanyInfos(path, companyContext.setCompany)
+    }, []);
 
     const handleChangeBoardStateLeft = () => {
         setBoardState((prevState) => (prevState === 0 ? 2 : prevState - 1));

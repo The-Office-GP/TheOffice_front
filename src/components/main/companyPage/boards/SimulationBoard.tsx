@@ -1,13 +1,15 @@
-import {Dispatch, FC, SetStateAction, useState, useEffect} from 'react';
+import {Dispatch, FC, SetStateAction, useState, useEffect, useContext} from 'react';
 import StartSimulationButton from "../buttons/StartSimulationButton";
 import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
 import {CycleType} from "../../../../@types/companyType";
 import {cycleTypeDefault} from "../../../../@data/companyValueDefault";
 import {useParams} from "react-router";
+import {nameOfProducts} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
+import {CompanyContext} from "../../../../contexts/CompanyContext";
 
 const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
+    const contextCompany = useContext(CompanyContext)
     const {id} = useParams()
-    const [stateSimulation, setStateSimulation] = useState<boolean>(false);
     const [productionSpeed, setProductionSpeed] = useState<number>(50);
     const [productionPriority, setProductionPriority] = useState<number>(50);
     const [marketingPriority, setMarketingPriority] = useState<number>(50);
@@ -27,6 +29,19 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
 
     const handleProductSpeed = (e: React.ChangeEvent<HTMLInputElement>) => {
         setProductionSpeed(Number(e.target.value));
+        setCycle(
+            {
+                id: 0,
+                step: 0,
+                productionSpeed: productionSpeed,
+                priorityProduction: productionPriority,
+                priorityMarketing: marketingPriority,
+                countGoodSell: 0,
+                countBadSell: 0,
+                trend: "None",
+                companyId: Number(id),
+            }
+        )
     }
 
     // Gestionnaires de changement pour chaque produit
@@ -57,6 +72,19 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
         setProductDisplay2(product2 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay3(product3 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay4(product4 * 100 / (product1 + product2 + product3 + product4))
+        setCycle(
+            {
+                id: 0,
+                step: 0,
+                productionSpeed: productionSpeed,
+                priorityProduction: productionPriority,
+                priorityMarketing: marketingPriority,
+                countGoodSell: 0,
+                countBadSell: 0,
+                trend: "None",
+                companyId: Number(id),
+            }
+        )
     };
 
     const handleProduct3Change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +93,19 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
         setProductDisplay2(product2 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay3(product3 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay4(product4 * 100 / (product1 + product2 + product3 + product4))
+        setCycle(
+            {
+                id: 0,
+                step: 0,
+                productionSpeed: productionSpeed,
+                priorityProduction: productionPriority,
+                priorityMarketing: marketingPriority,
+                countGoodSell: 0,
+                countBadSell: 0,
+                trend: "None",
+                companyId: Number(id),
+            }
+        )
     };
 
     const handleProduct4Change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +114,19 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
         setProductDisplay2(product2 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay3(product3 * 100 / (product1 + product2 + product3 + product4))
         setProductDisplay4(product4 * 100 / (product1 + product2 + product3 + product4))
+        setCycle(
+            {
+                id: 0,
+                step: 0,
+                productionSpeed: productionSpeed,
+                priorityProduction: productionPriority,
+                priorityMarketing: marketingPriority,
+                countGoodSell: 0,
+                countBadSell: 0,
+                trend: "None",
+                companyId: Number(id),
+            }
+        )
     };
 
 
@@ -118,7 +172,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                     <div className={"products-settings-part"}>
                         <div className={"settings-container-products"}>
                             <div className="circle-data">
-                                <h2>Product1</h2>
+                                <h2>{nameOfProducts(contextCompany.company, "Product1")}</h2>
                                 <div className="data">
                                     <p>{Math.round(productDisplay1)}%</p>
                                 </div>
@@ -134,7 +188,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                         </div>
                         <div className={"settings-container-products"}>
                             <div className="circle-data">
-                                <h2>Product2</h2>
+                                <h2>{nameOfProducts(contextCompany.company, "Product2")}</h2>
                                 <div className="data">
                                     <p>{Math.round(productDisplay2)}%</p>
                                 </div>
@@ -150,7 +204,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                         </div>
                         <div className={"settings-container-products"}>
                             <div className="circle-data">
-                                <h2>Product3</h2>
+                                <h2>{nameOfProducts(contextCompany.company, "Product3")}</h2>
                                 <div className="data">
                                     <p>{Math.round(productDisplay3)}%</p>
                                 </div>
@@ -166,7 +220,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                         </div>
                         <div className={"settings-container-products"}>
                             <div className="circle-data">
-                                <h2>Product4</h2>
+                                <h2>{nameOfProducts(contextCompany.company, "Product4")}</h2>
                                 <div className="data">
                                     <p>{Math.round(productDisplay4)}%</p>
                                 </div>
@@ -182,7 +236,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton setPage={setPage} cycle={cycle}/>
+                <StartSimulationButton setPage={setPage}  productionSpeed={productionSpeed} priorityProduction={productionPriority} priorityMarketing={marketingPriority} product1={product1} product2={product2} product3={product3} product4={product4}/>
             </div>
         </>
     );

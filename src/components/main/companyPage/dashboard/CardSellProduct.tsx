@@ -58,22 +58,22 @@ const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
         datasets: [
             {
                 label: updateTheProduct1(company.sector),
-                data: company.statistics.map((element) => element.product1HighQtyProd+element.product1MidQtyProd+element.product1LowQtyProd),
+                data: company.statistic.map((element) => element.product1HighQtyProd+element.product1MidQtyProd+element.product1LowQtyProd),
                 backgroundColor: paletteColors.pastelBlue,
             },
             {
                 label: updateTheProduct2(company.sector),
-                data: company.statistics.map((element) => element.product2HighQtyProd + element.product2MidQtyProd + element.product2LowQtyProd),
+                data: company.statistic.map((element) => element.product2HighQtyProd + element.product2MidQtyProd + element.product2LowQtyProd),
                 backgroundColor: paletteColors.mediumBlue,
             },
             {
                 label: updateTheProduct3(company.sector), // Label pour la troisième série de données
-                data: company.statistics.map((element) => element.product3HighQtyProd + element.product3MidQtyProd + element.product3LowQtyProd),
+                data: company.statistic.map((element) => element.product3HighQtyProd + element.product3MidQtyProd + element.product3LowQtyProd),
                 backgroundColor: paletteColors.deepBlue,
             },
             {
                 label: updateTheProduct4(company.sector), // Label pour la troisième série de données
-                data: company.statistics.map((element) => element.product4HighQtyProd + element.product1MidQtyProd + element.product1LowQtyProd),
+                data: company.statistic.map((element) => element.product4HighQtyProd + element.product1MidQtyProd + element.product1LowQtyProd),
                 backgroundColor: paletteColors.white,
             },
         ],
@@ -111,12 +111,12 @@ const CardSellProduct: FC<{company:CompanyDetailsType}> = ({company}) => {
             <div className="card-body">
                 <div className="row">
                     <div className="col">
-                        <h3 className="card-title text-uppercase text-muted mb-0">Traffic</h3>
+                        <h3 className="card-title text-uppercase text-muted mb-0">Production</h3>
                         <span className="h2 font-weight-bold mb-0">350,897</span>
                     </div>
                 </div>
                 <p className="mt-3 mb-0 text-muted text-sm">
-                    <span className="text-success mr-2"> 3.48%
+                    <span className="text-success mr-2">
                     </span>
                     <span className="text-nowrap">Since last month</span>
                 </p>

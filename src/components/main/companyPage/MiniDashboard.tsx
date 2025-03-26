@@ -6,6 +6,7 @@ import "../../../@styles/main/components/globalUser/miniDashboard.css";
 import AddReactionIcon from '@mui/icons-material/AddReaction';
 import {UserContext} from "../../../contexts/UserContext";
 import {CompanyContext} from "../../../contexts/CompanyContext";
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 
 const MiniDashboard: FC<{}> = ({}) => {
     const [stockPrimaryMaterial, setStockPrimaryMaterial] = useState<number>()
@@ -15,7 +16,7 @@ const MiniDashboard: FC<{}> = ({}) => {
         if (contextCompany.company.stockMaterial) {
             setStockPrimaryMaterial(contextCompany.company.stockMaterial.quantityMid);
         } else {
-            setStockPrimaryMaterial(0); // Valeur par défaut pour éviter l'erreur
+            setStockPrimaryMaterial(0);
         }
     }, [contextCompany.company]);
 
@@ -40,9 +41,13 @@ const MiniDashboard: FC<{}> = ({}) => {
                         <PeopleOutlineIcon/>
                         <span>{contextCompany.company.employees.length}</span>
                     </div>
+                    <div className={"mini-dashboard-info"}>
+                        <PrecisionManufacturingIcon/>
+                        <span>{contextCompany.company.machinesInCompany.length}</span>
+                    </div>
                     <div className="tooltip2">
                         <strong>Popularité : </strong> {contextCompany.company.popularity} <br/>
-                        <strong>Nombre de matière première en stock : </strong> {stockPrimaryMaterial}<br/>
+                        <strong>Nombre de matière première en stock : </strong> {contextCompany.company.stockMaterial.quantityLow + contextCompany.company.stockMaterial.quantityMid + contextCompany.company.stockMaterial.quantityHigh}<br/>
                         <strong>Nombre de salariés : </strong>{contextCompany.company.employees.length}<br/>
                     </div>
                 </div>
