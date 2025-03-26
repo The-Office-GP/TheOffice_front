@@ -7,6 +7,7 @@ import {collectCompanyInfos} from "../../../../@scripts/main/components/companyP
 import {CompanyDetailsType} from "../../../../@types/companyType";
 import {useParams} from "react-router";
 import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
+import DashboardExitButton from "../../../share/DashboardExitButton";
 
 const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const {id} = useParams();
@@ -21,6 +22,7 @@ const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<nu
         <>
             <div className={"simulation-container"}
                  style={{backgroundImage: "url('/assets/simulation-background/Simulation-background.png')"}}>
+                <DashboardExitButton setPage={setPage}/>
                 <h2>Bilan trimestriel</h2>
                 <div className={"simulation-results-container"}>
                     <p>Chiffre d'affaire: {company.statistic.length > 0 ? company.statistic[company.statistic.length-1].totalIncomes : 0} €</p>
