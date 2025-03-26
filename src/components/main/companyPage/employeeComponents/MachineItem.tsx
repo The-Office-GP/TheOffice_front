@@ -5,6 +5,7 @@ import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/
 import {useParams} from "react-router";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/notification.css";
 import EmployeeCardButtons from "./EmployeeCardButtons";
+import {CompanyDetailsType} from "../../../../@types/companyType";
 
 interface MachineItemProps {
     machine: MachineType;
@@ -17,15 +18,16 @@ interface MachineItemProps {
 const MachineItem: FC<MachineItemProps> = ({machine, type, purchaseIsMake, setPurchaseIsMake, onBuy}) => {
     const companyContext = useContext(CompanyContext);
     const params = useParams();
-    const controlWallet = companyContext.company.wallet;
-
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const addMachine = () => {
-        if (controlWallet >= machine.price) {
+        if (companyContext.company.wallet >= machine.price) {
             if (!purchaseIsMake) {
                 const id = Number(params.id);
-                const updateWallet = companyContext.company.wallet - machine.price;
+                const company:CompanyDetailsType = {
+                    ...companyContext.company,
+                    wallet: companyContext.company.wallet - machine.price
+                };
 
                 companyContext.company.machinesInCompany.push({
                     id: 0,
@@ -33,7 +35,7 @@ const MachineItem: FC<MachineItemProps> = ({machine, type, purchaseIsMake, setPu
                     companyId: id
                 } as MachineShortType);
 
-                saveCompanyInfo(id, companyContext.company, companyContext.setCompany);
+                saveCompanyInfo(id, company, companyContext.setCompany);
                 setPurchaseIsMake(true);
                 onBuy();
 

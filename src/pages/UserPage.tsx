@@ -11,6 +11,7 @@ import WalletCompanyPage from "../components/main/userPage/WalletCompanyPage";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
 
 const UserPage: FC = () => {
+    const contextUser = useContext(UserContext)
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
     const [arrayCompany, setArrayCompany] = useState<CompanyType[]>([]);
     const [arrayIsUpdate, setArrayIsUpdate] = useState<boolean>(false);
@@ -25,10 +26,10 @@ const UserPage: FC = () => {
     const limitCompany = baseLimitCompany + companyLimitIncrease;
 
     useEffect(() => {
-        console.log(arrayCompany)
-    }, [arrayCompany]);
+        if (!arrayIsUpdate) {
+            collectUserCompanies(setArrayCompany, setArrayIsUpdate);
+        }
 
-    useEffect(() => {
         if (previousWallet < 1000000 && user.userInfo.wallet >= 1000000) {
             setCompanyLimitIncrease((prev) => {
                 const newLimit = prev + 1;
@@ -37,17 +38,12 @@ const UserPage: FC = () => {
             });
         }
         setPreviousWallet(user.userInfo.wallet);
-    }, [user.userInfo.wallet, previousWallet]);
+    }, [contextUser.userInfo]);
 
-    useEffect(() => {
-        if (!arrayIsUpdate) {
-            collectUserCompanies(setArrayCompany, setArrayIsUpdate);
-        }
-    }, [arrayIsUpdate]);
 
     return (
         <>
-            <title>Mon bureau</title>
+            <title>Mes entreprises</title>
             <section className={"office-background"}>
                 <WalletCompanyPage walletValue={user.userInfo.wallet}/>
 

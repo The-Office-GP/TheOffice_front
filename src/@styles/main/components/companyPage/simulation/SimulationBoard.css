@@ -48,10 +48,10 @@ h2{
 }
 
 .production-settings-part {
-    margin: 20px;
+    margin: 5px;
     width: 100%;
     max-width: 900px;
-    height: 140px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,4 +99,55 @@ h2{
     display: flex;
     flex-direction: column;
 
+}
+
+/* From Uiverse.io by iSweat-exe */
+.circle-data {
+    padding: 1rem;
+    background-color: transparent;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    max-width: 320px;
+    border-radius: 200px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-data h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-size: 20px;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.data p {
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+    color: white;
+    font-size: 25px;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.data .range {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.25rem;
 }

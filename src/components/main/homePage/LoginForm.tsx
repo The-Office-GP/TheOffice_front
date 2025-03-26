@@ -1,7 +1,6 @@
 import {ChangeEvent, FormEvent, useContext} from "react";
 import {FC, useState} from 'react';
 import '../../../@styles/main/components/loginAndRegister/form.css'
-import SwitchForm from "./SwitchForm";
 import {useAuth} from "../../../contexts/AuthContext";
 import {LoginFormInput} from "../../../@types/loginAndRegister";
 import {submitLogin} from "../../../@scripts/main/components/loginAndRegister/loginAndRegisterScript";
@@ -35,7 +34,6 @@ const LoginForm: FC = () => {
 
     return (
         <form className={"subscribe-form"} onSubmit={handleSubmit}>
-            <SwitchForm/>
             <div className={"title"}>
                 <h2>Connexion</h2>
                 {errorMessages.loginError && <span className="error">{errorMessages.loginError}</span>}

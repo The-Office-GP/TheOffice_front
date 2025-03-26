@@ -1,6 +1,6 @@
 import {NavigateFunction} from "react-router";
 import {ChangeEvent, Dispatch, FormEvent, SetStateAction} from "react";
-import {getTheOfficeDb, postTheOfficeDb, putTheOfficeDb} from "../../../../api/theofficeApi";
+import {getTheOfficeDb, postTheOfficeDb} from "../../../../api/theofficeApi";
 import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {UserType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
@@ -81,7 +81,7 @@ export const loginCallApiForConnection = async (dispatch:any, setErrorMessages: 
 }
 
 //Permet à l'utilisateur de s'inscrire
-export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>> ) => {
+export const subscribeCallApi = async (setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data:any, setIsSubmitting: Dispatch<SetStateAction<boolean>>, setRegisterIsMake: Dispatch<SetStateAction<boolean>>) => {
     let response: any
     setIsSubmitting(true)
 

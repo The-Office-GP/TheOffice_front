@@ -4,50 +4,50 @@ import EuroSymbolIcon from "@mui/icons-material/EuroSymbol";
 import SellIcon from "@mui/icons-material/Sell";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import WalletIcon from "@mui/icons-material/Wallet";
-import {Statistic} from "../../../../@types/companyType";
+import {CompanyDetailsType, Statistic} from "../../../../@types/companyType";
 
-const CardDashboardContainer: FC<{statistics:Statistic[]}> = ({statistics}) => {
+const CardDashboardContainer: FC<{company:CompanyDetailsType}> = ({company}) => {
     return (
         <div className={"card-dashboard-container"}>
-            {statistics.length > 0 ?
+            {company.statistic.length > 0 ?
                 <>
-                    {statistics.length > 1 ?
+                    {company.statistic.length > 1 ?
                         <>
                             <CardDashboard Icon={EuroSymbolIcon} title={"Chiffre d'affaire"}
-                                           value={statistics[statistics.length - 1].totalIncomes}
-                                           difference={statistics[statistics.length - 1].totalIncomes - statistics[statistics.length - 2].totalIncomes}
+                                           value={company.statistic[company.statistic.length - 1].totalIncomes}
+                                           difference={company.statistic[company.statistic.length - 1].totalIncomes - company.statistic[company.statistic.length - 2].totalIncomes}
                             />
                             <CardDashboard Icon={SellIcon} title={"Charges"}
-                                           value={statistics[statistics.length - 1].totalExpenses}
-                                           difference={statistics[statistics.length - 1].totalIncomes - statistics[statistics.length - 2].totalIncomes}
+                                           value={company.statistic[company.statistic.length - 1].totalExpenses}
+                                           difference={company.statistic[company.statistic.length - 1].totalIncomes - company.statistic[company.statistic.length - 2].totalIncomes}
                             />
 
                             <CardDashboard Icon={ShowChartIcon} title={"Résultat"}
-                                           value={statistics[statistics.length - 1].totalExpenses}
-                                           difference={statistics[statistics.length - 1].totalIncomes - statistics[statistics.length - 2].totalIncomes}
+                                           value={company.statistic[company.statistic.length - 1].totalIncomes - company.statistic[company.statistic.length - 1].totalExpenses}
+                                           difference={company.statistic[company.statistic.length - 1].totalIncomes - company.statistic[company.statistic.length - 2].totalIncomes}
                             />
                             <CardDashboard Icon={WalletIcon} title={"Portefeuille"}
-                                           value={statistics[statistics.length - 1].totalExpenses}
-                                           difference={statistics[statistics.length - 1].totalIncomes - statistics[statistics.length - 2].totalIncomes}
+                                           value={company.wallet}
+                                           difference={0}
                             />
                         </>
                         :
                         <>
                             <CardDashboard Icon={EuroSymbolIcon} title={"Chiffre d'affaire"}
-                                           value={statistics[statistics.length - 1].totalIncomes}
+                                           value={company.statistic[company.statistic.length - 1].totalIncomes}
                                            difference={0}
                             />
                             <CardDashboard Icon={SellIcon} title={"Charges"}
-                                           value={statistics[statistics.length - 1].totalExpenses}
+                                           value={company.statistic[company.statistic.length - 1].totalExpenses}
                                            difference={0}
                             />
 
                             <CardDashboard Icon={ShowChartIcon} title={"Résultat"}
-                                           value={statistics[statistics.length - 1].totalExpenses}
+                                           value={company.statistic[company.statistic.length - 1].totalIncomes - company.statistic[company.statistic.length - 1].totalExpenses}
                                            difference={0}
                             />
                             <CardDashboard Icon={WalletIcon} title={"Portefeuille"}
-                                           value={statistics[statistics.length - 1].totalExpenses}
+                                           value={company.wallet}
                                            difference={0}
                             />
                         </>

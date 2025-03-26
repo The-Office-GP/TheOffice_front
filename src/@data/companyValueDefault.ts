@@ -1,4 +1,4 @@
-import {CompanyDetailsType, LocalType, Statistic} from "../@types/companyType";
+import {CompanyDetailsType, CycleType, LocalType, Statistic} from "../@types/companyType";
 import {MachineType} from "../@types/MachineType";
 import {StockMaterialsType} from "../@types/stockMaterialsType";
 
@@ -29,21 +29,33 @@ export const machineTypeDefault: MachineType = {
     image: "image.png"
 }
 
+export const cycleTypeDefault: CycleType = {
+    id: 0,
+    step: 0,
+    productionSpeed: 0,
+    priorityProduction: 0,
+    priorityMarketing: 0,
+    countGoodSell: 0,
+    countBadSell: 0,
+    trend: "name",
+    companyId: 0,
+}
+
 export const companyDetailsDefault: CompanyDetailsType = {
     id: 1,
     sector: "Default",
     name: "Name",
     popularity: 0,
-    idUser: 0,
+    userId: 0,
     local: localTypeDefault,
     wallet: 0,
-    cycles: [],
+    cycle: cycleTypeDefault,
     machines: [],
     employees: [],
     suppliers: [],
     events: [],
-    stockMaterials: stockMaterialDefault,
+    stockMaterial: stockMaterialDefault,
     stockFinalMaterials: [],
     machinesInCompany: [],
-    statistics: []
+    statistic: []
 }

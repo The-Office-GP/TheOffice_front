@@ -9,11 +9,15 @@ import {getToken} from "./utilis/storage";
 import {UserContext} from "./contexts/UserContext";
 import {UserType} from "./@types/userType";
 import {deleteTokenExpired} from "./@scripts/storage/loginCheck";
+import {CompanyDetailsType} from "./@types/companyType";
+import {companyDetailsDefault} from "./@data/companyValueDefault";
+import { CompanyContext } from './contexts/CompanyContext';
 
 function App() {
     const navigate = useNavigate();
     const [state, dispatch] = useReducer(authReducer, initialAuthState);
-    const [userInfo, setUserInfo] = useState<UserType>({id:0, email:"", username:"", role:"", wallet:0} as UserType);
+    const [userInfo, setUserInfo] = useState<UserType>({id: 0, email: "", username:"", role:"", wallet:0} as UserType);
+    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
 
     useEffect(() => {
         const token = getToken();
@@ -29,10 +33,13 @@ function App() {
   return (
       <AuthContext.Provider value={{state, dispatch}}>
           <UserContext.Provider value={{userInfo, setUserInfo}}>
-              <link rel="preconnect" href="https://fonts.googleapis.com"/>
-              <link rel="preconnect" href="https://fonts.gstatic.com"/>
-              <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Krona+One&display=swap" rel="stylesheet"/>
-              <Routing/>
+              <CompanyContext.Provider value={{company, setCompany}}>
+                  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                  <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Krona+One&display=swap"
+                        rel="stylesheet"/>
+                  <Routing/>
+              </CompanyContext.Provider>
           </UserContext.Provider>
       </AuthContext.Provider>
   );

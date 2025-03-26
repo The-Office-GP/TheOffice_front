@@ -4,28 +4,16 @@ import {getToken, getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {createCompanyData} from "../../../../@data/createCompanyData";
 import {CompanyCreatedType, UserType} from "../../../../@types/userType";
 import {UserContextProps} from "../../../../contexts/UserContext";
+import {saveUserInfoInDb} from "../../../share/userScript";
 
 //Permet de créer une entreprise rattachée à l'id de l'utilisateur dans la base de données
 export const createCompany = async (setIsSubmitting:Dispatch<SetStateAction<boolean>>, data:any,setErrorMessages: Dispatch<SetStateAction<{ [key: string]: string }>>, data2:UserType) => {
-    let response: any
     setIsSubmitting(true)
 
     try {
-        response = await postTheOfficeDb('/companies/create', data, {headers: {Authorization: `Bearer ${getToken()}`}});
-        if (response.status === 200 || response.status === 201) {
-            console.log("Successfully created company")
-            try {
-                await putTheOfficeDbUser(`/users/${data2.id}`, data2, getToken())
-            } catch (error){
-                console.error('Erreur lors de la connexion:', error);
-            }
-        } else {
-            setErrorMessages({
-                email: "L'email est déja utilisé",
-            });
-        }
+        await postTheOfficeDb('/companies/create', data, {headers: {Authorization: `Bearer ${getToken()}`}});
     } catch (error) {
-        console.error('Erreur lors de la connexion:', error);
+        console.error("Erreur lors de la création d'entreprise:", error);
     } finally {
         setIsSubmitting(false);
     }
@@ -92,11 +80,10 @@ export const submitCompanyInfo = async (e: FormEvent<HTMLFormElement>, setErrorM
         wallet: userContext.userInfo.wallet - 100000
     };
 
+    await createCompany(setIsSubmitting, data, setErrorMessages, updatedUserInfo);
     userContext.setUserInfo(updatedUserInfo);
     saveUserInfo(updatedUserInfo);
 
     setIsSubmitting(true);
-
-    await createCompany(setIsSubmitting, data, setErrorMessages, updatedUserInfo);
     setFormIsVisible(false)
 }

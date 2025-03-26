@@ -1,9 +1,10 @@
-import React, {FC, useEffect, useState} from "react";
+import React, {FC, useContext, useEffect, useState} from "react";
 import {Box, Button, Modal, Typography} from "@mui/material";
 import {CompanyDetailsType} from "../../../../@types/companyType";
 import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
 import {collectCompanyInfos} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {useParams} from "react-router";
+import {CompanyContext} from "../../../../contexts/CompanyContext";
 
 const style = {
     position: "absolute",
@@ -44,33 +45,7 @@ const ExpandPremisesButton: FC<ExpandPremisesButtonProps> = ({localLevel}) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     let localId = company.local.id;
-
-    //Charger les infos de l'entreprise
-    useEffect(() => {
-        const path: string = "/companies/" + id
-        collectCompanyInfos(path, setCompany)
-    }, []);
-
-    useEffect(() => {
-        if (company.local) {
-            setPriceUpgrade(company.local.rent); // Prend le loyer du nouveau local
-            console.log(company);
-            console.log(company.local)
-            console.log("LocalId : " + localId);
-        }
-    }, [company.local]);
-
-    // Mettre à jour l'ID et charger les nouvelles infos
-    useEffect(() => {
-        localId = localId + 1;
-        setPriceUpgrade(company.local.rent);
-        console.log("New LocalId : " + localId)// Prochain ID
-        console.log(company.local)
-        const path = `/companies/${id}`;
-
-        collectCompanyInfos(path, setCompany); // Récupérer les nouvelles données
-
-    }, [localId]); // Dépend de l'ID local
+    const contextCompanie = useContext(CompanyContext);
 
     return (
         <>

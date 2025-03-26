@@ -9,7 +9,7 @@ const ChartDashboardContainer: FC<{company:CompanyDetailsType}> = ({company}) =>
     return (
         <div className={"chart-dashboard"}>
             <div className={"sell-value-container"}>
-                <CardSellValue/>
+                <CardSellValue company={company}/>
                 <CardSellProduct company={company}/>
             </div>
         </div>

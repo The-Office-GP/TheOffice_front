@@ -36,6 +36,7 @@ h1 {
 }
 
 .office-background {
+  position: relative;
   background-image: url("/public/images/backgroundImages/home-background2.webp");
   background-repeat: no-repeat;
   background-size: cover;

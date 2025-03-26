@@ -1,6 +1,6 @@
 .mini-dashboard {
     position: absolute;
-    top: 95px;
+    top: 100px;
     right: 20px;
     padding: 10px 20px;
     display: flex;
@@ -35,7 +35,7 @@
     border-radius: 5px;
     font-size: 12px;
     bottom: 30%;
-    left: -150%;
+    left: -30%;
     transform: translateX(-90%);
     opacity: 0;
     visibility: hidden;

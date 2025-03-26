@@ -15,23 +15,35 @@ export interface CompanyType {
     stockMaterials: null;
 }
 
+export interface CycleType {
+    id: number;
+    step: number;
+    productionSpeed: number;
+    priorityProduction: number;
+    priorityMarketing: number;
+    countGoodSell: number;
+    countBadSell: number;
+    trend: string;
+    companyId: number;
+}
+
 export interface CompanyDetailsType {
     id: number;
     sector: string;
     name: string;
     popularity: number;
-    idUser: number;
+    userId: number;
     local: LocalType;
     wallet: number;
-    cycles: [];
+    cycle: CycleType;
     machines: MachineType[];
     employees: EmployeeType[];
     suppliers: [];
     events: [];
-    stockMaterials: StockMaterialsType;
+    stockMaterial: StockMaterialsType;
     stockFinalMaterials: StockFinalMaterialsType[];
     machinesInCompany: MachineShortType[];
-    statistics: Statistic[]
+    statistic: Statistic[]
 }
 
 export interface LocalType {

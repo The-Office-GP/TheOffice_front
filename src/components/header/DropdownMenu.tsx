@@ -11,26 +11,26 @@ const DropdownMenu: FC<{buttonAction:()=>void, username:string}> = ({buttonActio
     const navigate = useNavigate()
 
     return (
-        <div className="card" onMouseLeave={buttonAction}>
+        <div className="dropdown-menu-user" onMouseLeave={buttonAction}>
             <h3>{username}</h3>
             <div className="separator"></div>
 
-            <ul className="list">
-                <li className="element" onClick={() => handleDashboard(navigate)}>
-                    <p className="label">Mon Bureau</p>
+            <ul className="dropdown-menu-list">
+                <li className="dropdown-menu-element" onClick={() => handleDashboard(navigate)}>
+                    <p className="dropdown-menu-label">Mes entreprises</p>
                 </li>
             </ul>
             <div className="separator"></div>
-            <ul className="list">
-                <li className="element" onClick={() => handleSettings(navigate)}>
-                    <p className="label">Paramètres</p>
+            <ul className="dropdown-menu-list">
+                <li className="dropdown-menu-element" onClick={() => handleSettings(navigate)}>
+                    <p className="dropdown-menu-label">Paramètres</p>
                 </li>
             </ul>
             <div className="separator"></div>
 
-            <ul className="list">
-                <li className="element" onClick={() => handleLogout(navigate, dispatch, userContext)}>
-                    <p className="label">Déconnexion</p>
+            <ul className="dropdown-menu-list">
+                <li className="dropdown-menu-element" onClick={() => handleLogout(navigate, dispatch, userContext)}>
+                    <p className="dropdown-menu-label">Déconnexion</p>
                 </li>
             </ul>
         </div>
