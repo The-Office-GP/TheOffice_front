@@ -25,7 +25,7 @@ const MiniDashboard: FC<{}> = ({}) => {
             <h3>{contextCompany.company.name}</h3>
             <div className={"mini-dashboard-info-money"}>
                 <PaidIcon/>
-                <p>{contextCompany.company.wallet}€</p>
+                <p>{contextCompany.company.wallet.toFixed(2)}€</p>
             </div>
             <div className={"infos-display"}>
                 <div className={"level-container2"}>
@@ -49,6 +49,7 @@ const MiniDashboard: FC<{}> = ({}) => {
                         <strong>Popularité : </strong> {contextCompany.company.popularity} <br/>
                         <strong>Nombre de matière première en stock : </strong> {contextCompany.company.stockMaterial.quantityLow + contextCompany.company.stockMaterial.quantityMid + contextCompany.company.stockMaterial.quantityHigh}<br/>
                         <strong>Nombre de salariés : </strong>{contextCompany.company.employees.length}<br/>
+                        <strong>Nombre de machines : </strong>{contextCompany.company.machinesInCompany.length}<br/>
                     </div>
                 </div>
             </div>

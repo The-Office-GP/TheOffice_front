@@ -14,7 +14,7 @@ const SimulationTrimestrielResults: FC<{ setPage: Dispatch<SetStateAction<number
                     <p>Chiffre d'affaire: CAValue €</p>
                     <p>Total des charge: chargesValue</p>
                     <p>Total des production: productionValue</p>
-                    <p>Cotte de popularité: popularityValue</p>
+                    <p>Côte de popularité: popularityValue</p>
                     <SimulationTable/>
                 </div>
                 <ContinueButton setPage={setPage}/>

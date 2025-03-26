@@ -56,7 +56,6 @@ const CardSellValue: FC<{company:CompanyDetailsType}> = ({company}) => {
                 <div className="row">
                     <div className="col">
                         <h3 id="sell-card-title">Resultats</h3>
-                        <span className="h2 font-weight-bold mb-0" style={{color:"white"}}>500,000</span>
                     </div>
                 </div>
                 <p className="mt-3 mb-0 text-muted text-sm">

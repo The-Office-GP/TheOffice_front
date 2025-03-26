@@ -6,6 +6,7 @@ import EmployeeLevelButtons from "../employeeComponents/EmployeeLevelButtons";
 
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import ExitButton from "../../../share/ExitButton";
+import EmployeeExitButton from "../../../share/EmployeeExitButton";
 import RecruitmentBoard from "./RecruitmentBoard";
 import EmployeeItem2 from "../employeeComponents/EmployeeItem2";
 import {EmployeeType} from "../../../../@types/employeeType";
@@ -53,7 +54,7 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
                 </div>
             :
                 <div className={"display-container2"}>
-                    <ExitButton setPage={setPage}/>
+                    <EmployeeExitButton setPage={setStateBoard}/>
                     <RecruitmentBoard company={company}/>
                 </div>
             }

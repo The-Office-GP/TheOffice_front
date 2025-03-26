@@ -22,10 +22,10 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
     }, []);
 
     const buyPrimaryMaterial = () => {
-        if (company.wallet >= 2000) {
+        if (company.wallet >= 5000) {
             setCompany(prevState => ({
                 ...prevState,
-                wallet: prevState.wallet - 2000,  // On soustrait 2000 du wallet
+                wallet: prevState.wallet - 5000,  // On soustrait 5000 du wallet
             }));
             setCompany(prevState => ({
                 ...prevState,
@@ -63,7 +63,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
                 <div className={"supplier-infos"}>
                     <h4><u>Fourni'Tou</u></h4>
                     <p>Matière première</p>
-                    <p>2000€ les 100 pièces</p>
+                    <p>5000€ les 2250 pièces</p>
                 </div>
                 <button className={"recuite-button"} onClick={buyPrimaryMaterial}>Acheter</button>
                 <button className={"recuite-button"} onClick={save}>Sauvegarder</button>

@@ -26,7 +26,7 @@ const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<nu
                     <p>Chiffre d'affaire: {company.statistic.length > 0 ? company.statistic[company.statistic.length-1].totalIncomes : 0} €</p>
                     <p>Total des charge: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].totalExpenses : 0}€ </p>
                     <p>Total des production: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].product1LowQtyProd + company.statistic[company.statistic.length - 1].product1MidQtyProd + company.statistic[company.statistic.length - 1].product1HighQtyProd : 0}</p>
-                    <p>Cotte de popularité: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].popularity : 0}</p>
+                    <p>Côte de popularité: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].popularity : 0}</p>
                     <SimulationTable/>
                 </div>
                 <ContinueButton setPage={setPage}/>
