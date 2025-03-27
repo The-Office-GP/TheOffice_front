@@ -85,7 +85,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 name: "Crème de la Crème",
                 furniture: "Des vaches",
                 description: "On essaie",
-                priceIndicator: "€€€",
+                priceIndicator: "100€",
                 bonus1: "Lait bio",
                 bonus2: "Fromage local"
             },
@@ -93,7 +93,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 name: "Lait'Rien",
                 furniture: "Bonnes vaches",
                 description: "Un fournisseur de vaches",
-                priceIndicator: "€€",
+                priceIndicator: "500€",
                 bonus1: "Fromage frais",
                 bonus2: "Livraison express"
             },
@@ -101,7 +101,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 name: "Hache Lait",
                 furniture: "Les meilleurs vache du pays",
                 description: "Nos vaches ne fournisse pas du lait mais un extrait de paradis",
-                priceIndicator: "€€",
+                priceIndicator: "1000€",
                 bonus1: "Fromages affinés",
                 bonus2: "Service personnalisé"
             }

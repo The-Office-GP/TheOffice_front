@@ -3,9 +3,9 @@
     border-radius: 16px;
     box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
     padding: 10px;
-    background-color: var(--clear-blue);
-    color: var(--deep-blue);
-    min-width: 250px;
+    background-color: var(--medium-blue);
+    color: var(--white);
+    width: 300px;
 }
 
 .supplier-card .inner {
@@ -20,17 +20,17 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--medium-blue);
+    background-color: var(--clear-blue);
     border-radius: 99em 0 0 99em;
     display: flex;
     align-items: center;
     padding: 0.625em 0.75em;
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--white);}
+    color: var(--deep-blue);}
 
 .supplier-card .pricing small {
-    color: var(--white);
+    color: var(--deep-blue);
     font-size: 0.75em;
     margin-left: 0.25em;
 }
@@ -38,13 +38,13 @@
 .supplier-card .title {
     font-weight: 600;
     font-size: 24px;
-    color: #425675;
+    color: var(--white);
 }
 
 .supplier-card .info {
     font-weight: 600;
-    font-size: 12px;
-    color: #425675;
+    font-size: 16px;
+    color: var(--white);
 }
 
 .supplier-card .title + * {
@@ -64,26 +64,11 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 14px;
 }
 
 .supplier-card .features li + * {
     margin-top: 0.75rem;
-}
-
-.supplier-card .features .icon {
-    background-color: #1FCAC5;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-}
-
-.supplier-card .features .icon svg {
-    width: 14px;
-    height: 14px;
 }
 
 .supplier-card .features + * {
@@ -98,9 +83,9 @@
 }
 
 .supplier-card button {
-    background-color: var(--deep-blue);
+    background-color: var(--white);
     border-radius: 6px;
-    color: #fff;
+    color: var(--deep-blue);
     font-weight: 500;
     font-size: 1.125rem;
     text-align: center;
@@ -113,5 +98,5 @@
 
 .supplier-card button:hover{
     cursor: pointer;
-    background-color: rgba(13, 85, 121, 0.9);
+    background-color: var(--orange);
 }
