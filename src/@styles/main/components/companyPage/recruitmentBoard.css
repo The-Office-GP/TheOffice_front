@@ -30,7 +30,7 @@
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 60px;
     padding-top: 12px;
 }
 
@@ -43,6 +43,7 @@
     flex-wrap: wrap;
     gap: 12px;
     padding-top: 12px;
+    justify-content: space-between;
 }
 
 .div-assistante {

@@ -28,16 +28,18 @@ const MachineItem: FC<MachineItemProps> = ({machine, type, purchaseIsMake, setPu
         if (companyContext.company.wallet >= machine.price) {
             if (!purchaseIsMake) {
                 const id = Number(params.id);
-                const company:CompanyDetailsType = {
-                    ...companyContext.company,
-                    wallet: companyContext.company.wallet - machine.price
-                };
 
-                companyContext.company.machinesInCompany.push({
+                const machineShort = {
                     id: 0,
                     machineId: machine.id,
                     companyId: id
-                } as MachineShortType);
+                } as MachineShortType;
+
+                const company:CompanyDetailsType = {
+                    ...companyContext.company,
+                    wallet: companyContext.company.wallet - machine.price,
+                    machinesInCompany: [...companyContext.company.machinesInCompany, machineShort]
+                };
 
                 saveCompanyInfo(id, company, companyContext.setCompany);
                 setPurchaseIsMake(true);

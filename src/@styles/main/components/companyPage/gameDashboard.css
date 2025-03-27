@@ -1,6 +1,6 @@
 .dashboard-display {
     position: relative;
-    width: 100%;
+    width: 1380px;
     height: auto;
     background: var(--deep-blue);
     padding: 16px 24px;
@@ -20,18 +20,20 @@
 .card-dashboard-container{
     margin: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 24px;
 }
 
 .sell-value-container{
     display: flex;
     gap: 24px;
+    justify-content: space-around;
 }
 
 .product-value-container{
     display: flex;
     gap: 24px;
+    justify-content: space-around;
 }
 
 .icon-title {

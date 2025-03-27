@@ -16,18 +16,8 @@ interface EmployeeItemProps {
 }
 
 const EmployeeItem: FC<EmployeeItemProps> = ({employee, type, listParent, setListParent, onRecruit}) => {
-    const contextCompany = useContext(CompanyContext)
-    const params = useParams();
-
-    useEffect(() => {
-
-    }, []);
-
-
-  const addEmployee = () => {
+    const addEmployee = () => {
         onRecruit(); // Appel de la fonction de recrutement passée en prop
-      const id = Number(params.id)
-      saveCompanyInfo(id, contextCompany.company, contextCompany.setCompany);
     };
 
     return (

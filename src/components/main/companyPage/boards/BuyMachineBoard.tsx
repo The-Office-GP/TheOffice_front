@@ -52,8 +52,6 @@ const BuyMachineBoard: FC<{}> = ({}) => {
         }
 
         const machineShort = convertToMachineShort(machine, companyContext.company.id);
-        companyContext.company.machinesInCompany.push(machineShort);
-        companyContext.setCompany({...companyContext.company});
     };
 
 

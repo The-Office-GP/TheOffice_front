@@ -8,8 +8,11 @@ import "../../../../@styles/main/components/companyPage/recruitmentBoard.css"
 import {CompanyDetailsType} from "../../../../@types/companyType";
 import {useContext} from 'react';
 import {CompanyContext} from "../../../../contexts/CompanyContext";
+import {saveCompanyInfo} from "../../../../@scripts/main/components/companyPage/companyPageScript";
+import {useParams} from "react-router";
 
 const RecruitmentBoard: FC<{ }> = ({}) => {
+    const params = useParams()
     const [listEmployeeForRecruitment, setListEmployeeForRecruitment] = useState<EmployeeType[]>([]);
     const [showRecruitmentError, setShowRecruitmentError] = useState(false);
     const companyContext = useContext(CompanyContext);
@@ -18,6 +21,10 @@ const RecruitmentBoard: FC<{ }> = ({}) => {
     useEffect(() => {
         collectEmployeeForRecruitment()
     }, []);
+
+    useEffect(() => {
+        console.log(companyContext.company.employees)
+    }, [companyContext]);
 
     const collectEmployeeForRecruitment = async () => {
         try {
@@ -30,7 +37,6 @@ const RecruitmentBoard: FC<{ }> = ({}) => {
 
     // Fonction de gestion du recrutement
     const handleRecruitment = (employee: EmployeeType) => {
-        // Vérification si le nombre d'employés a atteint la limite
         if (companyContext.company.employees.length >= limitEmployees) {
             setShowRecruitmentError(true);
             setTimeout(() => {
@@ -38,10 +44,16 @@ const RecruitmentBoard: FC<{ }> = ({}) => {
             }, 3000);
             return;
         }
+        const company: CompanyDetailsType = {
+            ...companyContext.company,
+            employees: [...companyContext.company.employees, employee] // Utilisation de la syntaxe spread pour éviter de muter l'état
+        };
 
-        // Si la limite n'est pas atteinte, on ajoute le salarié
-        companyContext.company.employees.push(employee); // Ajouter l'employé au contexte
-        companyContext.setCompany({...companyContext.company}); // Mettre à jour le contexte pour propager le changement
+        console.log(company.employees)
+
+        const id = Number(params.id)
+        saveCompanyInfo(id, company, companyContext.setCompany);
+
         setListEmployeeForRecruitment(listEmployeeForRecruitment.filter((item) => item !== employee)); // Retirer de la liste des recrues
     };
 

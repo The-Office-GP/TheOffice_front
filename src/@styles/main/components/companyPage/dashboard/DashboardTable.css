@@ -1,6 +1,7 @@
 .card-header{
     width: 100%;
-    background: var(--orange) !important;
+    background: var(--clear-blue) !important;
+    color: var(--deep-blue) !important;
 
 }
 

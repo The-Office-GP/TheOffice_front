@@ -30,11 +30,11 @@ const MiniDashboard: FC<{}> = ({}) => {
                     </div>
                     <div className={"mini-dashboard-info"}>
                         <PeopleOutlineIcon/>
-                        <span>{contextCompany.company.employees.length}</span>
+                        <span>{contextCompany.company.employees.length}/{contextCompany.company.local.maxEmployees}</span>
                     </div>
                     <div className={"mini-dashboard-info"}>
                         <PrecisionManufacturingIcon/>
-                        <span>{contextCompany.company.machinesInCompany.length}</span>
+                        <span>{contextCompany.company.machinesInCompany.length}/{contextCompany.company.local.maxMachines}</span>
                     </div>
                     <div className="tooltip2">
                         <strong>Popularité : </strong> {contextCompany.company.popularity} <br/>
