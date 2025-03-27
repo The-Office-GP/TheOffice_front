@@ -24,11 +24,14 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
     const [machineInCompanyList, setMachineInCompanyList] = useState<MachineShortType[]>(companyContext.company.machinesInCompany)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
     const [filter, setFilter] = useState<FilterType>({level:"ALL"} as FilterType)
-    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
 
     useEffect(() => {
         filterListMachine()
     }, [filter]);
+
+    useEffect(() => {
+        setMachineInCompanyList(companyContext.company.machinesInCompany)
+    }, [companyContext.company]);
 
     const filterListMachine = () => {
         if(filter.level === "ALL"){
@@ -66,7 +69,7 @@ const MachineBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPag
                 :
                 <div className={"display-container2"}>
                     <MachineExitButton setPage={setStateBoard}/>
-                    <BuyMachineBoard company={company}/>
+                    <BuyMachineBoard/>
                 </div>
             }
         </section>

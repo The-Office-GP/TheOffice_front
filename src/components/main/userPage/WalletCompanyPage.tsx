@@ -9,7 +9,7 @@ const WalletCompanyPage: FC<{ walletValue: Number }> = ({walletValue}) => {
             <h3>Mon Portefeuille</h3>
             <div className={"mini-dashboard-info-money"}>
                 <PaidIcon sx={{fontSize: '20px', marginRight: '4px'}}/>
-                <span style={{fontSize: '20px'}}>{walletValue + "€"}</span>
+                <span style={{fontSize: '20px'}}>{walletValue.toFixed(2) + "€"}</span>
             </div>
         </div>
     );

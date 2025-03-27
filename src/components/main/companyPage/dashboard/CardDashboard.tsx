@@ -24,10 +24,17 @@ const CardDashboard: FC<CardDashboardProps> = ({Icon, title, value, difference})
                         </div>
                     </div>
                 </div>
-                <p className="mt-3 mb-0 text-muted text-sm">
-                    <span className="text-success mr-2"><i className="fa fa-arrow-up"></i>{difference}%</span>
-                    <span className="text-nowrap">Depuis le dernier cycle</span>
-                </p>
+                {difference != 0 ?
+                    <p className="mt-3 mb-0 text-muted text-sm">
+                        <span className="text-success mr-2"><i className="fa fa-arrow-up"></i>{difference}</span>
+                        <span className="text-nowrap">Depuis le dernier cycle</span>
+                    </p>
+                :
+                    <p className="mt-3 mb-0 text-muted text-sm">
+                        <span className="text-nowrap">pas d'évolution</span>
+                    </p>
+                }
+
             </div>
         </div>
     );

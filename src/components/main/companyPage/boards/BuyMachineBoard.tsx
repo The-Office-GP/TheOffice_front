@@ -11,11 +11,11 @@ import {CompanyContext} from "../../../../contexts/CompanyContext";
 import MachineItem from "../employeeComponents/MachineItem";
 import {CompanyDetailsType} from "../../../../@types/companyType";
 
-const BuyMachineBoard: FC<{company:CompanyDetailsType}> = ({company}) => {
+const BuyMachineBoard: FC<{}> = ({}) => {
     const companyContext = useContext(CompanyContext)
     const [listMachineForBuy, setListMachineForBuy] = useState<MachineType[]>([])
     const [purchaseIsMake, setPurchaseIsMake] = useState<boolean>(false)
-    const limitMachine = company.local.maxMachines;
+    const limitMachine = companyContext.company.local.maxMachines;
     const [showBuyError, setShowBuyError] = useState(false);
 
     useEffect(() => {

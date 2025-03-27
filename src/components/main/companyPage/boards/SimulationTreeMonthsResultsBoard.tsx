@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useContext, useEffect, useState} from 'react';
 import SimulationTable from "../table/SimulationTable";
 import ContinueButton from "../buttons/ContinueButton";
 import "../../../../@styles/main/components/companyPage/simulation/SimulationBoard.css"
@@ -10,15 +10,18 @@ import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
 import DashboardExitButton from "../../../share/DashboardExitButton";
 import RandomText from "./simulation-component/RandomText";
 import LoaderResultCycle from "./simulation-component/LoaderResultCycle";
+import {CompanyContext} from "../../../../contexts/CompanyContext";
+import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
+import {UserType} from "../../../../@types/userType";
 
 const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({setPage}) => {
     const {id} = useParams();
-    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
     const [resultIsReady, setResultIsReady] = useState<boolean>(false)
+    const contextCompany = useContext(CompanyContext)
 
     useEffect(() => {
         const path: string = "/companies/" + Number(id)
-        collectCompanyInfos(path, setCompany)
+        collectCompanyInfos(path, contextCompany.setCompany)
         setTimeout(() => {
             setResultIsReady(true);
         }, 5000);
@@ -33,13 +36,13 @@ const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<nu
                     <h2>Bilan trimestriel</h2>
                     <div className={"simulation-results-container"}>
                         <p>Chiffre
-                            d'affaire: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].totalIncomes : 0} €</p>
+                            d'affaire: {contextCompany.company.statistic.length > 0 ? contextCompany.company.statistic[contextCompany.company.statistic.length - 1].totalIncomes : 0} €</p>
                         <p>Total des
-                            charge: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].totalExpenses : 0}€ </p>
+                            charge: {contextCompany.company.statistic.length > 0 ? contextCompany.company.statistic[contextCompany.company.statistic.length - 1].totalExpenses : 0}€ </p>
                         <p>Total des
-                            production: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].product1LowQtyProd + company.statistic[company.statistic.length - 1].product1MidQtyProd + company.statistic[company.statistic.length - 1].product1HighQtyProd : 0}</p>
+                            production: {contextCompany.company.statistic.length > 0 ? contextCompany.company.statistic[contextCompany.company.statistic.length - 1].product1LowQtyProd + contextCompany.company.statistic[contextCompany.company.statistic.length - 1].product1MidQtyProd + contextCompany.company.statistic[contextCompany.company.statistic.length - 1].product1HighQtyProd : 0}</p>
                         <p>Côte de
-                            popularité: {company.statistic.length > 0 ? company.statistic[company.statistic.length - 1].popularity : 0}</p>
+                            popularité: {contextCompany.company.statistic.length > 0 ? contextCompany.company.statistic[contextCompany.company.statistic.length - 1].popularity : 0}</p>
                         <SimulationTable/>
                     </div>
                     <ContinueButton setPage={setPage}/>

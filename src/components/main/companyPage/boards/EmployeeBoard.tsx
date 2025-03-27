@@ -14,6 +14,7 @@ import {CompanyDetailsType} from "../../../../@types/companyType";
 import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
 import {collectCompanyInfos} from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {useParams} from "react-router";
+import {UserContext} from "../../../../contexts/UserContext";
 
 
 
@@ -22,12 +23,15 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
     const companyContext = useContext(CompanyContext)
     const [employeeList, setEmployeeList] = useState<EmployeeType[]>(companyContext.company.employees)
     const [stateBoard, setStateBoard] = useState<boolean>(false)
-    const [company, setCompany] = useState<CompanyDetailsType>(companyDetailsDefault)
 
     useEffect(() => {
         const path: string = "/companies/" + id
-        collectCompanyInfos(path, setCompany)
+        collectCompanyInfos(path, companyContext.setCompany)
     }, []);
+
+    useEffect(() => {
+        setEmployeeList(companyContext.company.employees)
+    }, [companyContext.company]);
 
     return (
         <section className={"office-background-section"} id={"list-section"}>
@@ -55,7 +59,7 @@ const EmployeeBoard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
             :
                 <div className={"display-container2"}>
                     <EmployeeExitButton setPage={setStateBoard}/>
-                    <RecruitmentBoard company={company}/>
+                    <RecruitmentBoard/>
                 </div>
             }
         </section>

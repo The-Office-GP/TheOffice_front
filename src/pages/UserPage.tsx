@@ -9,9 +9,11 @@ import LockedCompanyCard from "../components/main/userPage/LockedCompanyCard";
 import {collectUserCompanies} from "../@scripts/main/components/userPage/userPageScript";
 import WalletCompanyPage from "../components/main/userPage/WalletCompanyPage";
 import {UserContext, UserContextProps} from "../contexts/UserContext";
+import {getUserInfo} from "../utilis/storage";
+import {UserType} from "../@types/userType";
 
 const UserPage: FC = () => {
-    const contextUser = useContext(UserContext)
+    const contextUser = useContext(UserContext);
     const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
     const [arrayCompany, setArrayCompany] = useState<CompanyType[]>([]);
     const [arrayIsUpdate, setArrayIsUpdate] = useState<boolean>(false);
@@ -20,32 +22,40 @@ const UserPage: FC = () => {
     );
     const [previousWallet, setPreviousWallet] = useState<number>(0);
 
-    const user: UserContextProps = useContext(UserContext);
-
     const baseLimitCompany = 1;
     const limitCompany = baseLimitCompany + companyLimitIncrease;
+
+    useEffect(() => {
+        const userInfo = getUserInfo()
+        if (userInfo){
+            const userForWallet = JSON.parse(userInfo)
+            if (contextUser.userInfo.wallet !== userForWallet.wallet) {
+                contextUser.setUserInfo(userForWallet);
+            }
+        }
+    }, [contextUser]); // Ajout de 'contextUser' et 'userForWallet' comme dépendances pour un contrôle précis.
 
     useEffect(() => {
         if (!arrayIsUpdate) {
             collectUserCompanies(setArrayCompany, setArrayIsUpdate);
         }
 
-        if (previousWallet < 1000000 && user.userInfo.wallet >= 1000000) {
+        if (previousWallet < 1000000 && contextUser.userInfo.wallet >= 1000000) {
             setCompanyLimitIncrease((prev) => {
                 const newLimit = prev + 1;
                 localStorage.setItem("companyLimitIncrease", String(newLimit)); // Stockage en localStorage
                 return newLimit;
             });
         }
-        setPreviousWallet(user.userInfo.wallet);
-    }, [contextUser.userInfo]);
+        setPreviousWallet(contextUser.userInfo.wallet);
 
+    }, [contextUser.userInfo, arrayIsUpdate, previousWallet]);
 
     return (
         <>
             <title>Mes entreprises</title>
             <section className={"office-background"}>
-                <WalletCompanyPage walletValue={user.userInfo.wallet}/>
+                <WalletCompanyPage walletValue={contextUser.userInfo.wallet}/>
 
                 {!formIsVisible ? (
                     <>

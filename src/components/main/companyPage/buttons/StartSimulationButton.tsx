@@ -15,7 +15,8 @@ import {
     saveCompanyInfo2
 } from "../../../../@scripts/main/components/companyPage/companyPageScript";
 import {useParams} from "react-router";
-import {saveUserInfo} from "../../../../utilis/storage";
+import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
+import {UserType} from "../../../../@types/userType";
 
 
 
@@ -73,9 +74,8 @@ const StartSimulationButton: FC<{ setPage: Dispatch<SetStateAction<number>>, pro
             statistic: contextCompany.company.statistic
         };
 
-        console.log(companyForCycle)
-        setPage(6)
         saveCompanyInfo2(Number(id), companyForCycle, contextCompany.setCompany)
+        setPage(6)
     }
     return (
         <>

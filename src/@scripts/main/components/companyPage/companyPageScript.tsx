@@ -1,7 +1,8 @@
 import {getTheOfficeDbUser, putTheOfficeDbUser} from "../../../../api/theofficeApi";
-import {getToken} from "../../../../utilis/storage";
+import {getToken, getUserInfo, saveUserInfo} from "../../../../utilis/storage";
 import {Dispatch, SetStateAction} from "react";
 import {CompanyDetailsType} from "../../../../@types/companyType";
+import {UserType} from "../../../../@types/userType";
 
 export const collectCompanyInfos = async (path:string, setCompany:Dispatch<SetStateAction<CompanyDetailsType>>) => {
     try {
@@ -42,8 +43,6 @@ export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, set
 }
 
 export const saveCompanyInfo2 = async (id: number, company: CompanyDetailsType, setCompany: Dispatch<SetStateAction<CompanyDetailsType>>) => {
-    console.log(company);
-
     try {
         const data = {
             sector: company.sector,
@@ -64,6 +63,19 @@ export const saveCompanyInfo2 = async (id: number, company: CompanyDetailsType, 
         }
         const path = "/companies/cycle/" + id;
         const response = await putTheOfficeDbUser(path, data, getToken());
+        const userInfo = getUserInfo()
+        if (userInfo) {
+            const parsedUserInfo = JSON.parse(userInfo)
+            saveUserInfo(
+                {
+                    id: parsedUserInfo.id,
+                    email: parsedUserInfo.email,
+                    username: parsedUserInfo.username,
+                    role: parsedUserInfo.role,
+                    wallet: response.data.wallet,
+                } as UserType
+            )
+        }
         setCompany(response.data)
     } catch (error) {
         console.error('Erreur lors de la sauvegarde:', error);

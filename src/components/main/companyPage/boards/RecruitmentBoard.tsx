@@ -9,11 +9,11 @@ import {CompanyDetailsType} from "../../../../@types/companyType";
 import {useContext} from 'react';
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 
-const RecruitmentBoard: FC<{ company: CompanyDetailsType }> = ({company}) => {
+const RecruitmentBoard: FC<{ }> = ({}) => {
     const [listEmployeeForRecruitment, setListEmployeeForRecruitment] = useState<EmployeeType[]>([]);
     const [showRecruitmentError, setShowRecruitmentError] = useState(false);
-    const limitEmployees = company.local.maxEmployees;
     const companyContext = useContext(CompanyContext);
+    const limitEmployees = companyContext.company.local.maxEmployees;
 
     useEffect(() => {
         collectEmployeeForRecruitment()

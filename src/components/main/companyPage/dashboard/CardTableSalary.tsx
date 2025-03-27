@@ -16,7 +16,7 @@ const CardTableSalary: FC<{company:CompanyDetailsType}> = ({company}) => {
             <div className="card-header border-0">
                 <div className="row align-items-center">
                     <div className="col">
-                        <h3 className="mb-0">Employee : niveau moyen({totalEmployeeLevel/company.employees.length})</h3>
+                        <h3 className="mb-0">Employee : niveau moyen({(totalEmployeeLevel/company.employees.length).toFixed(2)})</h3>
                     </div>
                 </div>
             </div>

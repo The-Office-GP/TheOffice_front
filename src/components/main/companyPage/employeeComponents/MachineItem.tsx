@@ -6,6 +6,10 @@ import {useParams} from "react-router";
 import "../../../../@styles/main/components/companyPage/employeeConponentsStyles/notification.css";
 import EmployeeCardButtons from "./EmployeeCardButtons";
 import {CompanyDetailsType} from "../../../../@types/companyType";
+import {UserContext} from "../../../../contexts/UserContext";
+import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
+import {UserType} from "../../../../@types/userType";
+import {userInfo} from "node:os";
 
 interface MachineItemProps {
     machine: MachineType;
@@ -39,6 +43,19 @@ const MachineItem: FC<MachineItemProps> = ({machine, type, purchaseIsMake, setPu
                 setPurchaseIsMake(true);
                 onBuy();
 
+                const userInfo = getUserInfo()
+                if(userInfo){
+                    const parsedUserInfo = JSON.parse(userInfo)
+                    saveUserInfo(
+                        {
+                            id: parsedUserInfo.id,
+                            email: parsedUserInfo.email,
+                            username: parsedUserInfo.username,
+                            role: parsedUserInfo.role,
+                            wallet: company.wallet,
+                        } as UserType
+                    )
+                }
                 setTimeout(() => {
                     setPurchaseIsMake(false);
                 }, 1000);

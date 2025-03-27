@@ -20,11 +20,6 @@ const GameDashboard: FC<{setPage:Dispatch<SetStateAction<number>>}> = ({setPage}
     const [boardState, setBoardState] = useState<number>(0)
     const {id} = useParams()
 
-    useEffect(() => {
-        const path: string = "/companies/" + id;
-        collectCompanyInfos(path, companyContext.setCompany)
-    }, []);
-
     const handleChangeBoardStateLeft = () => {
         setBoardState((prevState) => (prevState === 0 ? 2 : prevState - 1));
     }

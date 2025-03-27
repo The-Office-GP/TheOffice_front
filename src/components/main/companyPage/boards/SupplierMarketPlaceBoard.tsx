@@ -11,12 +11,27 @@ import {companyDetailsDefault} from "../../../../@data/companyValueDefault";
 import {CompanyContext} from "../../../../contexts/CompanyContext";
 import {nameOfMaterial, supplierInformation} from "../../../../@scripts/main/components/companyPage/ldisplayScript";
 import SupplierCard from "../SupplierCard";
+import {getUserInfo, saveUserInfo} from "../../../../utilis/storage";
+import {UserType} from "../../../../@types/userType";
 
 const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}> = ({setPage}) => {
     const {id} = useParams()
     const contextCompany = useContext(CompanyContext)
 
     const save = () =>{
+        const userInfo = getUserInfo()
+        if (userInfo) {
+            const parsedUserInfo = JSON.parse(userInfo)
+            saveUserInfo(
+                {
+                    id: parsedUserInfo.id,
+                    email: parsedUserInfo.email,
+                    username: parsedUserInfo.username,
+                    role: parsedUserInfo.role,
+                    wallet: contextCompany.company.wallet,
+                } as UserType
+            )
+        }
        saveCompanyInfo(Number(id), contextCompany.company, contextCompany.setCompany)
 
         setPage(0)
