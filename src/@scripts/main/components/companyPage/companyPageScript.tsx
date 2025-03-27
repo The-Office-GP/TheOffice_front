@@ -15,8 +15,6 @@ export const collectCompanyInfos = async (path:string, setCompany:Dispatch<SetSt
 };
 
 export const saveCompanyInfo = async (id:number, company:CompanyDetailsType, setCompany:Dispatch<SetStateAction<CompanyDetailsType>>) => {
-    console.log(company);
-
     try {
         const data = {
             sector: company.sector,

@@ -18,6 +18,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
 
     const save = () =>{
        saveCompanyInfo(Number(id), contextCompany.company, contextCompany.setCompany)
+
         setPage(0)
     }
 
