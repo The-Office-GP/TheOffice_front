@@ -51,7 +51,7 @@ const SimulationTreeMonthsResultsBoard: FC<{ setPage: Dispatch<SetStateAction<nu
                     <RandomText text={"Tu penses quoi des pâtes aux oeufs ?"} xInitial={"40%"}
                                 yInitial={"70%"}/>
                     <RandomText text={"C'est une très bonne remarque"} xInitial={"60%"} yInitial={"10%"}/>
-                    <RandomText text={"Ton dernier projet c'est un concert de saxophone"} xInitial={"25%"} yInitial={"30%"}/>
+                    <RandomText text={"Ton dernier projet c'est un concert de saxophone"} xInitial={"25%"} yInitial={"28%"}/>
                     <LoaderResultCycle/>
                 </div>
             }

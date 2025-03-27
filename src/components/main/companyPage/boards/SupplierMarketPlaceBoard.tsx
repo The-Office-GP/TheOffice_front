@@ -39,7 +39,7 @@ const SupplierMarketPlaceBoard: FC<{ setPage: Dispatch<SetStateAction<number>>}>
             </div>
             <div className={"supplier-container"}>
                 {supplierInformation(contextCompany.company)?.map((supplier, index)=> (
-                    <SupplierCard supplier={supplier} index={index}/>
+                    <SupplierCard key={index} supplier={supplier} index={index}/>
                 ))}
             </div>
             <div className={"button-emplacement"}>

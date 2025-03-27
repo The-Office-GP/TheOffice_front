@@ -2,6 +2,7 @@ import {FC, useContext} from 'react';
 import {Supplier} from "../../../@types/supplierType";
 import {CompanyContext} from "../../../contexts/CompanyContext";
 import "../../../@styles/main/components/companyPage/supplierCard.css"
+import companyPage from "../../../pages/CompanyPage";
 
 const SupplierCard: FC<{supplier:Supplier, index:number}> = ({supplier, index}) => {
     const contextCompany = useContext(CompanyContext)
@@ -18,7 +19,7 @@ const SupplierCard: FC<{supplier:Supplier, index:number}> = ({supplier, index}) 
                             ...prevState,
                             stockMaterial: {
                                 ...prevState.stockMaterial,  // Garde les autres propriétés de stockMaterial
-                                quantityHigh: prevState.stockMaterial.quantityHigh + 100,    // Mise à jour de quantityLow
+                                quantityLow: prevState.stockMaterial.quantityLow + 100,    // Mise à jour de quantityLow
                             }
                         }));
                     };
@@ -33,7 +34,7 @@ const SupplierCard: FC<{supplier:Supplier, index:number}> = ({supplier, index}) 
                             ...prevState,
                             stockMaterial: {
                                 ...prevState.stockMaterial,  // Garde les autres propriétés de stockMaterial
-                                quantityHigh: prevState.stockMaterial.quantityHigh + 100,    // Mise à jour de quantityLow
+                                quantityMid: prevState.stockMaterial.quantityMid + 100,    // Mise à jour de quantityLow
                             }
                         }));
                     };
@@ -54,6 +55,7 @@ const SupplierCard: FC<{supplier:Supplier, index:number}> = ({supplier, index}) 
                     };
                     break
             }
+            console.log(contextCompany.company)
         }
 
     return (

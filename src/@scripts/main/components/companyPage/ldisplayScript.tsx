@@ -53,6 +53,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
     if (company.sector === "carpentry") {
         const woodSuppliers: Supplier[] = [
             {
+                id:0,
                 name: "Bois son",
                 furniture: "Bois de faible facture",
                 description: "On est là",
@@ -61,6 +62,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 bonus2: "Fabrication artisanale"
             },
             {
+                id:1,
                 name: "Les six tronc",
                 furniture: "Bois moyen",
                 description: "Une collection de bois acidulé",
@@ -69,6 +71,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 bonus2: "Garantie 5 ans"
             },
             {
+                id: 2,
                 name: "Les Hauts Bois",
                 furniture: "Bois certifié",
                 description: "Un bois qui fait du bruit",
@@ -82,6 +85,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
     } else if (company.sector === "creamery") {
         const dairySuppliers: Supplier[] = [
             {
+                id:0,
                 name: "Crème de la Crème",
                 furniture: "Des vaches",
                 description: "On essaie",
@@ -90,6 +94,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 bonus2: "Fromage local"
             },
             {
+                id:1,
                 name: "Lait'Rien",
                 furniture: "Bonnes vaches",
                 description: "Un fournisseur de vaches",
@@ -98,6 +103,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 bonus2: "Livraison express"
             },
             {
+                id:2,
                 name: "Hache Lait",
                 furniture: "Les meilleurs vache du pays",
                 description: "Nos vaches ne fournisse pas du lait mais un extrait de paradis",
@@ -111,6 +117,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
     } else if (company.sector === "quarry") {
         const careerSuppliers: Supplier[] = [
             {
+                id:0,
                 name: "Pierre luis",
                 furniture: "Pierre",
                 description: "Chez nous que des Pierres",
@@ -119,6 +126,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 bonus2: "Pierre de toute forme"
             },
             {
+                id:1,
                 name: "En Ciment",
                 furniture: "Bonne pierre",
                 description: "Issus de carrières solides.",
@@ -127,6 +135,7 @@ export const supplierInformation = (company: CompanyDetailsType) => {
                 bonus2: "Facile à assembler"
             },
             {
+                id:2,
                 name: "Roche & Rôles",
                 furniture: "Roche & Roles",
                 description: "Pour une carrière en béton",
