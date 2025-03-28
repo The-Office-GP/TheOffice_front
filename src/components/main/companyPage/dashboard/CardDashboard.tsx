@@ -16,7 +16,7 @@ const CardDashboard: FC<CardDashboardProps> = ({Icon, title, value, difference})
                 <div className="row">
                     <div className="col">
                         <h3 className="card-title text-uppercase text-muted mb-0">{title}</h3>
-                        <span className="h2 font-weight-bold mb-0">{value}</span>
+                        <span className="h2 font-weight-bold mb-0">{value.toFixed(2)}€</span>
                     </div>
                     <div className="col-auto">
                         <div className="icon icon-shape bg-danger text-white rounded-circle shadow">

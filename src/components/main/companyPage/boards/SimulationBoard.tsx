@@ -144,8 +144,9 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                             <input
                                 type={"range"}
                                 className={"range-input-production"}
-                                min={50}
-                                max={150}
+                                onChange={handleProductSpeed}
+                                min={0}
+                                max={100}
                             />
                         </div>
                     </div>
@@ -237,7 +238,7 @@ const SimulationBoard: FC<{ setPage: Dispatch<SetStateAction<number>> }> = ({set
                         </div>
                     </div>
                 </div>
-                <StartSimulationButton setPage={setPage}  productionSpeed={productionSpeed} priorityProduction={productionPriority} priorityMarketing={marketingPriority} product1={product1} product2={product2} product3={product3} product4={product4}/>
+                <StartSimulationButton setPage={setPage}  productionSpeed={productionSpeed} priorityProduction={productionPriority} priorityMarketing={marketingPriority} product1={productDisplay1} product2={productDisplay2} product3={productDisplay3} product4={productDisplay4}/>
             </div>
         </>
     );
