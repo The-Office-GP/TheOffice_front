@@ -42,10 +42,10 @@ const EmployeeItem2: FC<{employee:EmployeeType}> = ({employee}) => {
                     </div>
                 </div>
             </div>
-            <div className={"button-container"}>
-                <button className="request" type="button">Congé</button>
-                <button className="request" type="button">Licencier</button>
-            </div>
+            {/*<div className={"button-container"}>*/}
+            {/*    <button className="request" type="button">Congé</button>*/}
+            {/*    <button className="request" type="button">Licencier</button>*/}
+            {/*</div>*/}
         </div>
     );
 };

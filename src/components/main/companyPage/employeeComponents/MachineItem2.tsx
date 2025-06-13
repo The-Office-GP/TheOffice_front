@@ -36,9 +36,9 @@ const MachineItem2: FC<{ machine:MachineType }> = ({machine}) => {
                     </div>
                 </div>
             </div>
-            <button className="request" type="button">
-                Revendre
-            </button>
+            {/*<button className="request" type="button">*/}
+            {/*    Revendre*/}
+            {/*</button>*/}
         </div>
     );
 };
